@@ -23,6 +23,9 @@ class AppTheme {
         /// UITabBar
         UITabBar.appearance().tintColor = UIColor.appHeaderColor()
         UITabBar.appearance().unselectedItemTintColor = UIColor.appHeaderColor()
+//        UITabBar.appearance().selectionIndicatorImage = UIColor.themePrimaryColor().image().resizableImage(withCapInsets: UIEdgeInsets(top: 0.001, left: 0, bottom: 0, right: 0), resizingMode: .stretch)
+//        UITabBar.appearance().selectionIndicatorImage = UIColor.themePrimaryColor().image(w: 200.0, h:120.0).resizableImage(withCapInsets: .zero, resizingMode: .stretch)
+        UITabBar.appearance().selectionIndicatorImage = UIColor.themePrimaryColor().image(w: UIScreen.main.bounds.width / 4.0, h:120.0)
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().barTintColor = UIColor.colorFromRGB(224.0, 224.0, 224.0)
         
@@ -34,6 +37,6 @@ class AppTheme {
         /// UITabBarItem
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for:.normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for:.selected)
-        UITabBarItem.appearance().titlePositionAdjustment = UIOffset.init(horizontal: 0.0, vertical: -2.0)
+//        UITabBarItem.appearance().titlePositionAdjustment = UIOffset.init(horizontal: 0.0, vertical: 2.0)
     }
 }
