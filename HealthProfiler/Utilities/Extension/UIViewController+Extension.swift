@@ -86,3 +86,24 @@ extension UIViewController {
     }
     
 }
+
+//navigationitem
+extension UIViewController {
+    
+    func addDrawerButton() {
+        
+        let hamburger = UIButton(type: .custom)
+        hamburger.frame = CGRect(x: 0.0, y: 0.0, width: 45.0, height: 40.0)
+        hamburger.setImage(UIImage(named: "Hamburger.png"), for: .normal)
+        hamburger.setImage(UIImage(named: "Hamburger.png"), for: .highlighted)
+        hamburger.addTarget(self, action: #selector(openDrawer), for: .touchUpInside)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: hamburger)
+    }
+    
+    // MARK: Selector
+    @objc func openDrawer() {
+        
+        drawer()?.open(to: .left)
+    }
+}

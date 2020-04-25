@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigationController: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         //setup/customize app launch
         setupApplicationLaunch()
         
@@ -29,6 +30,9 @@ extension AppDelegate {
         navigationController = UINavigationController(rootViewController: LoginViewController.nibInstance())
         navigationController?.isNavigationBarHidden = true
         window?.rootViewController = AppContainer(navigationController!)
+        
+        //customize appearance
+        AppTheme.applyAppearance()
         
         window?.makeKeyAndVisible()
     }

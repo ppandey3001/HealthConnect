@@ -44,7 +44,11 @@ extension UIColor {
     }
     
     class func themePrimaryColor() -> UIColor {
-        return UIColor.colorFromHex(0x1ABC9C) //'light sea green' simpplr theme color
+        return UIColor.colorFromRGB(225.0, 143.0, 67.0) //'orange' theme color
+    }
+    
+    class func appHeaderColor() -> UIColor {
+        return UIColor.colorFromRGB(186.0, 99.0, 41.0) //'dark orange' theme color
     }
     
     class func textColor_dark()-> UIColor {

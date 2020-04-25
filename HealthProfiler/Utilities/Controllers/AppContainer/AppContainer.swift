@@ -60,7 +60,7 @@ private extension AppContainer {
     private func setupController() {
      
         //setup top status bar
-        customStatusBar.backgroundColor = UIColor.orange
+        customStatusBar.backgroundColor = UIColor.themePrimaryColor()
         if #available(iOS 11.0, *) {
             customStatusBar.isHidden = false
 
