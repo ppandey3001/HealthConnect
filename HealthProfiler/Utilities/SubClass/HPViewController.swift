@@ -14,4 +14,8 @@ import UIKit
  */
 class HPViewController: UIViewController {
 
+    deinit {
+        // make sure to remove the observer when this view controller is deinit
+        NotificationCenter.default.removeObserver(self)
+    }
 }

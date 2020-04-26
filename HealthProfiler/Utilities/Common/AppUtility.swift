@@ -4,3 +4,8 @@
 //
 
 import Foundation
+
+class AppUtility {
+    
+    
+}

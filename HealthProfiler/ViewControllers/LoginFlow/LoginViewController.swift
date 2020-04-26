@@ -40,7 +40,6 @@ private extension LoginViewController {
         //show custom branding bar
         container()?.showBrandingBar(true)
         
-        
         //Create new dashboard, and push
         
         /*
@@ -65,7 +64,7 @@ private extension LoginViewController {
         rootController.tabBarItem = UITabBarItem.init(title: tabTitle,
                                                       image: UIImage(named: tabIcon),
                                                       selectedImage: UIImage(named: tabIcon))
-//        rootController.title = tabTitle
+        rootController.navigationItem.title = tabTitle
         rootController.addDrawerButton()
         return UINavigationController(rootViewController: rootController)
     }

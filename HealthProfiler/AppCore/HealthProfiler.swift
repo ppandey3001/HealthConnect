@@ -22,3 +22,15 @@ class HealthProfiler {
     
     
 }
+
+
+extension HealthProfiler {
+    
+    func logout() {
+        
+        //remove any saved data
+        
+        //navigate to login screen
+        
+    }
+}
