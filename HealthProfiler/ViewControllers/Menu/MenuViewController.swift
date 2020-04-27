@@ -100,7 +100,7 @@ private extension MenuViewController {
         let yes_alertAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive) {
             UIAlertAction in
             DispatchQueue.main.async {
-                HealthProfiler.shared.logout()
+                AppCoordinator.shared.logout()
             }
         }
         alrtControl.addAction(yes_alertAction)

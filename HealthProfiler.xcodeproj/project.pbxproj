@@ -39,6 +39,7 @@
 		6B2794772455640C00DFF05A /* HPEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2794762455640C00DFF05A /* HPEnums.swift */; };
 		6B2794792455641800DFF05A /* HPDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2794782455641800DFF05A /* HPDataSource.swift */; };
 		6B879A792452D50900F8880A /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B879A782452D50900F8880A /* SessionManager.swift */; };
+		6BA8667224569D3D003BDBDF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA8667124569D3D003BDBDF /* AppCoordinator.swift */; };
 		6BC550A12453E64400C0B1A8 /* DrawerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC550A02453E64400C0B1A8 /* DrawerWrapper.swift */; };
 		6BC550A32454074800C0B1A8 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC550A22454074800C0B1A8 /* AppTheme.swift */; };
 		FF8ACE38244D723D00B283D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE37244D723D00B283D8 /* AppDelegate.swift */; };
@@ -87,6 +88,7 @@
 		6B2794762455640C00DFF05A /* HPEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPEnums.swift; sourceTree = "<group>"; };
 		6B2794782455641800DFF05A /* HPDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPDataSource.swift; sourceTree = "<group>"; };
 		6B879A782452D50900F8880A /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		6BA8667124569D3D003BDBDF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		6BC550A02453E64400C0B1A8 /* DrawerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerWrapper.swift; sourceTree = "<group>"; };
 		6BC550A22454074800C0B1A8 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		84A4FA200D4B15B9CC8E283D /* Pods-HealthProfiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.release.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.release.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				6B05B0B22452C6B200C5A971 /* AppUtility.swift */,
 				6BC550A22454074800C0B1A8 /* AppTheme.swift */,
+				6BA8667124569D3D003BDBDF /* AppCoordinator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				6B05B0BC2452C7D600C5A971 /* HPViewController.swift in Sources */,
 				6B05B0CD2452C84E00C5A971 /* HealthProfileViewController.swift in Sources */,
 				6B05B0A92452C60B00C5A971 /* HealthProfiler.swift in Sources */,
+				6BA8667224569D3D003BDBDF /* AppCoordinator.swift in Sources */,
 				6B05B09C2452C17F00C5A971 /* HPTableViewCell.swift in Sources */,
 				6B05B0B32452C6B200C5A971 /* AppUtility.swift in Sources */,
 				FF8ACE6E244D953000B283D8 /* LoginViewCell.swift in Sources */,
