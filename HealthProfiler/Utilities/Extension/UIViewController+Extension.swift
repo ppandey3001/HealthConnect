@@ -46,6 +46,10 @@ extension UIViewController {
         
         _ = self.navigationController?.popToRootViewController(animated: animated)
     }
+    func present(controller: UIViewController, animated: Bool = true) {
+        
+        self.present(controller, animated: true, completion: nil)
+    }
     
     
     //Return alertController with style (.actionSheet OR .alert)

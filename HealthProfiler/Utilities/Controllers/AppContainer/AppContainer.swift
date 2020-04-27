@@ -71,7 +71,7 @@ private extension AppContainer {
         }
         
         //set branding logo and title
-        resetBranding(logo: UIImage(named: "optum-logo.png"), title: "Health Profiler")
+        resetBranding(logo: UIImage(named: "optum-logo.png"), title: "OptumHealthConnect")
         
         if let child = childController {
             addChildController(child)
@@ -92,6 +92,11 @@ private extension AppContainer {
         addChild(controller)
         containerView.addSubview(controller.view)
         controller.didMove(toParent: self)
+    }
+    
+    @IBAction func backButtonAction(_ sender: UIButton) {
+        container()?.showBrandingBar(false)
+        pop()
     }
 }
 

@@ -30,7 +30,7 @@ class BaseViewController: UIViewController, NavBarDelegate {
         } else {
             headerView.frame = CGRect(x: 0, y: 80, width: self.view.bounds.width, height: 60)
         }
-        if self.isKind(of: RegisterViewController.self){
+        if self.isKind(of: RegistrationViewController.self){
             headerView.signOutButton.isHidden = true
         }
         self.view.addSubview(headerView)

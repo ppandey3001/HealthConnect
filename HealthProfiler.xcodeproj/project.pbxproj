@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B3BAECD7195A2AC69E7CD5F /* Pods_HealthProfiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C28ADF2A197AF72F9533BF99 /* Pods_HealthProfiler.framework */; };
 		6B05B0962452BD1500C5A971 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05B0952452BD1500C5A971 /* UIColor+Extension.swift */; };
 		6B05B0982452BDFF00C5A971 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05B0972452BDFF00C5A971 /* UIFont+Extension.swift */; };
 		6B05B09A2452C0B000C5A971 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05B0992452C0B000C5A971 /* UIImage+Extensions.swift */; };
@@ -42,21 +41,24 @@
 		6BA8667224569D3D003BDBDF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA8667124569D3D003BDBDF /* AppCoordinator.swift */; };
 		6BC550A12453E64400C0B1A8 /* DrawerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC550A02453E64400C0B1A8 /* DrawerWrapper.swift */; };
 		6BC550A32454074800C0B1A8 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC550A22454074800C0B1A8 /* AppTheme.swift */; };
+		E682E71759BACA4ADF1A7F66 /* Pods_HealthProfiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF88C6B66EF80DAB1B760B1 /* Pods_HealthProfiler.framework */; };
+		FF49CD852456CEC300267787 /* LoginViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF49CD832456CEC300267787 /* LoginViewCell.xib */; };
+		FF49CD862456CEC300267787 /* LoginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD842456CEC300267787 /* LoginViewCell.swift */; };
+		FF49CD8A2456F14E00267787 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD892456F14E00267787 /* UITapGestureRecognizerExtension.swift */; };
+		FF49CD8E2456F42D00267787 /* PrivacyPolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF49CD8C2456F42D00267787 /* PrivacyPolicyViewController.xib */; };
+		FF49CD9024570D9E00267787 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD8F24570D9E00267787 /* PrivacyPolicyViewController.swift */; };
 		FF8ACE38244D723D00B283D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE37244D723D00B283D8 /* AppDelegate.swift */; };
 		FF8ACE3F244D723D00B283D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE3D244D723D00B283D8 /* Main.storyboard */; };
 		FF8ACE41244D723F00B283D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE40244D723F00B283D8 /* Assets.xcassets */; };
 		FF8ACE44244D723F00B283D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE42244D723F00B283D8 /* LaunchScreen.storyboard */; };
-		FF8ACE6E244D953000B283D8 /* LoginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE6D244D953000B283D8 /* LoginViewCell.swift */; };
-		FF8ACE70244DAF7C00B283D8 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE6F244DAF7C00B283D8 /* ButtonTableViewCell.swift */; };
 		FF8ACE73244EDA7A00B283D8 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE72244EDA7A00B283D8 /* NavBar.swift */; };
 		FF8ACE75244EDA8B00B283D8 /* NavBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE74244EDA8B00B283D8 /* NavBar.xib */; };
 		FF8ACE77244F230A00B283D8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE76244F230A00B283D8 /* BaseViewController.swift */; };
-		FF8ACE79244F234C00B283D8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE78244F234C00B283D8 /* RegisterViewController.swift */; };
-		FF8ACE7B244F287A00B283D8 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE7A244F287A00B283D8 /* PrivacyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		365C64B1CFAD98E0528B8FEF /* Pods-HealthProfiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.debug.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.debug.xcconfig"; sourceTree = "<group>"; };
+		3DF88C6B66EF80DAB1B760B1 /* Pods_HealthProfiler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthProfiler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A5D92387CDEAC19DBE0903F /* Pods-HealthProfiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.debug.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.debug.xcconfig"; sourceTree = "<group>"; };
 		6B05B0952452BD1500C5A971 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		6B05B0972452BDFF00C5A971 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		6B05B0992452C0B000C5A971 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
@@ -91,21 +93,21 @@
 		6BA8667124569D3D003BDBDF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		6BC550A02453E64400C0B1A8 /* DrawerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerWrapper.swift; sourceTree = "<group>"; };
 		6BC550A22454074800C0B1A8 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		84A4FA200D4B15B9CC8E283D /* Pods-HealthProfiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.release.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.release.xcconfig"; sourceTree = "<group>"; };
-		C28ADF2A197AF72F9533BF99 /* Pods_HealthProfiler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthProfiler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2E2D21A2BC1017C9826A72A /* Pods-HealthProfiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.release.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.release.xcconfig"; sourceTree = "<group>"; };
+		FF49CD832456CEC300267787 /* LoginViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewCell.xib; sourceTree = "<group>"; };
+		FF49CD842456CEC300267787 /* LoginViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewCell.swift; sourceTree = "<group>"; };
+		FF49CD892456F14E00267787 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
+		FF49CD8C2456F42D00267787 /* PrivacyPolicyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyPolicyViewController.xib; sourceTree = "<group>"; };
+		FF49CD8F24570D9E00267787 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		FF8ACE34244D723D00B283D8 /* HealthProfiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthProfiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8ACE37244D723D00B283D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8ACE3E244D723D00B283D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF8ACE40244D723F00B283D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF8ACE43244D723F00B283D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF8ACE45244D723F00B283D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FF8ACE6D244D953000B283D8 /* LoginViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewCell.swift; sourceTree = "<group>"; };
-		FF8ACE6F244DAF7C00B283D8 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		FF8ACE72244EDA7A00B283D8 /* NavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBar.swift; sourceTree = "<group>"; };
 		FF8ACE74244EDA8B00B283D8 /* NavBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavBar.xib; sourceTree = "<group>"; };
 		FF8ACE76244F230A00B283D8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		FF8ACE78244F234C00B283D8 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		FF8ACE7A244F287A00B283D8 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,26 +115,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B3BAECD7195A2AC69E7CD5F /* Pods_HealthProfiler.framework in Frameworks */,
+				E682E71759BACA4ADF1A7F66 /* Pods_HealthProfiler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		639683C6A6B38705DA271C74 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C28ADF2A197AF72F9533BF99 /* Pods_HealthProfiler.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		68640E3DA9C03448FE8B1EE4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				365C64B1CFAD98E0528B8FEF /* Pods-HealthProfiler.debug.xcconfig */,
-				84A4FA200D4B15B9CC8E283D /* Pods-HealthProfiler.release.xcconfig */,
+				5A5D92387CDEAC19DBE0903F /* Pods-HealthProfiler.debug.xcconfig */,
+				B2E2D21A2BC1017C9826A72A /* Pods-HealthProfiler.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -186,6 +180,7 @@
 				6B05B0992452C0B000C5A971 /* UIImage+Extensions.swift */,
 				6B05B0A22452C54300C5A971 /* UIViewController+Extension.swift */,
 				6B05B0D72452CEFE00C5A971 /* NSObject+Extension.swift */,
+				FF49CD892456F14E00267787 /* UITapGestureRecognizerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -288,8 +283,12 @@
 			children = (
 				6B05B0BD2452C7F300C5A971 /* LoginViewController.swift */,
 				6B05B0BE2452C7F300C5A971 /* LoginViewController.xib */,
+				FF49CD842456CEC300267787 /* LoginViewCell.swift */,
+				FF49CD832456CEC300267787 /* LoginViewCell.xib */,
 				6B05B0C32452C81900C5A971 /* RegistrationViewController.swift */,
 				6B05B0C42452C81900C5A971 /* RegistrationViewController.xib */,
+				FF49CD8C2456F42D00267787 /* PrivacyPolicyViewController.xib */,
+				FF49CD8F24570D9E00267787 /* PrivacyPolicyViewController.swift */,
 			);
 			path = LoginFlow;
 			sourceTree = "<group>";
@@ -321,13 +320,21 @@
 			path = AuxiliaryClasses;
 			sourceTree = "<group>";
 		};
+		B18FFE1E46106A4B1531D056 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DF88C6B66EF80DAB1B760B1 /* Pods_HealthProfiler.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FF8ACE2B244D723D00B283D8 = {
 			isa = PBXGroup;
 			children = (
 				FF8ACE36244D723D00B283D8 /* HealthProfiler */,
 				FF8ACE35244D723D00B283D8 /* Products */,
 				68640E3DA9C03448FE8B1EE4 /* Pods */,
-				639683C6A6B38705DA271C74 /* Frameworks */,
+				B18FFE1E46106A4B1531D056 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -358,20 +365,8 @@
 				6B05B0B52452C76B00C5A971 /* Dashoboard */,
 				6B05B0B42452C76B00C5A971 /* Menu */,
 				FF8ACE71244EDA4F00B283D8 /* CommonControllers */,
-				FF8ACE6A244D948E00B283D8 /* LoginAndRegistration */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		FF8ACE6A244D948E00B283D8 /* LoginAndRegistration */ = {
-			isa = PBXGroup;
-			children = (
-				FF8ACE6D244D953000B283D8 /* LoginViewCell.swift */,
-				FF8ACE6F244DAF7C00B283D8 /* ButtonTableViewCell.swift */,
-				FF8ACE78244F234C00B283D8 /* RegisterViewController.swift */,
-				FF8ACE7A244F287A00B283D8 /* PrivacyViewController.swift */,
-			);
-			path = LoginAndRegistration;
 			sourceTree = "<group>";
 		};
 		FF8ACE71244EDA4F00B283D8 /* CommonControllers */ = {
@@ -391,11 +386,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF8ACE5E244D723F00B283D8 /* Build configuration list for PBXNativeTarget "HealthProfiler" */;
 			buildPhases = (
-				F04EB31724B8D9F8EFD27BD4 /* [CP] Check Pods Manifest.lock */,
+				518AB37C1CD4222DCBA2AB69 /* [CP] Check Pods Manifest.lock */,
 				FF8ACE30244D723D00B283D8 /* Sources */,
 				FF8ACE31244D723D00B283D8 /* Frameworks */,
 				FF8ACE32244D723D00B283D8 /* Resources */,
-				0608C4DCA4C2905178D85626 /* [CP] Embed Pods Frameworks */,
+				8700355EF59D392BEDFA2A7A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -451,7 +446,9 @@
 				FF8ACE75244EDA8B00B283D8 /* NavBar.xib in Resources */,
 				6B05B0CE2452C84E00C5A971 /* HealthProfileViewController.xib in Resources */,
 				6B05B0DC2452D16F00C5A971 /* MenuViewController.xib in Resources */,
+				FF49CD8E2456F42D00267787 /* PrivacyPolicyViewController.xib in Resources */,
 				FF8ACE41244D723F00B283D8 /* Assets.xcassets in Resources */,
+				FF49CD852456CEC300267787 /* LoginViewCell.xib in Resources */,
 				6B05B0C62452C81900C5A971 /* RegistrationViewController.xib in Resources */,
 				6B05B0E72452D3E900C5A971 /* AppContainer.xib in Resources */,
 				FF8ACE3F244D723D00B283D8 /* Main.storyboard in Resources */,
@@ -463,24 +460,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0608C4DCA4C2905178D85626 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F04EB31724B8D9F8EFD27BD4 /* [CP] Check Pods Manifest.lock */ = {
+		518AB37C1CD4222DCBA2AB69 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -502,6 +482,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8700355EF59D392BEDFA2A7A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DrawerMenu/DrawerMenu.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DrawerMenu.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -511,10 +513,10 @@
 			files = (
 				6B05B0DB2452D16F00C5A971 /* MenuViewController.swift in Sources */,
 				6B2794792455641800DFF05A /* HPDataSource.swift in Sources */,
+				FF49CD862456CEC300267787 /* LoginViewCell.swift in Sources */,
 				6B05B0C52452C81900C5A971 /* RegistrationViewController.swift in Sources */,
 				FF8ACE38244D723D00B283D8 /* AppDelegate.swift in Sources */,
 				6B05B0D52452C87700C5A971 /* ManageConnectionsViewController.swift in Sources */,
-				FF8ACE70244DAF7C00B283D8 /* ButtonTableViewCell.swift in Sources */,
 				6B05B0E62452D3E900C5A971 /* AppContainer.swift in Sources */,
 				6B05B0A32452C54300C5A971 /* UIViewController+Extension.swift in Sources */,
 				6B05B09A2452C0B000C5A971 /* UIImage+Extensions.swift in Sources */,
@@ -523,7 +525,6 @@
 				6B05B0C92452C83300C5A971 /* HomeViewController.swift in Sources */,
 				6B05B0BF2452C7F300C5A971 /* LoginViewController.swift in Sources */,
 				6B879A792452D50900F8880A /* SessionManager.swift in Sources */,
-				FF8ACE79244F234C00B283D8 /* RegisterViewController.swift in Sources */,
 				6B2794772455640C00DFF05A /* HPEnums.swift in Sources */,
 				6B05B0D12452C86300C5A971 /* CoverageViewController.swift in Sources */,
 				6B05B0BC2452C7D600C5A971 /* HPViewController.swift in Sources */,
@@ -531,10 +532,10 @@
 				6B05B0A92452C60B00C5A971 /* HealthProfiler.swift in Sources */,
 				6BA8667224569D3D003BDBDF /* AppCoordinator.swift in Sources */,
 				6B05B09C2452C17F00C5A971 /* HPTableViewCell.swift in Sources */,
+				FF49CD9024570D9E00267787 /* PrivacyPolicyViewController.swift in Sources */,
 				6B05B0B32452C6B200C5A971 /* AppUtility.swift in Sources */,
-				FF8ACE6E244D953000B283D8 /* LoginViewCell.swift in Sources */,
+				FF49CD8A2456F14E00267787 /* UITapGestureRecognizerExtension.swift in Sources */,
 				6BC550A32454074800C0B1A8 /* AppTheme.swift in Sources */,
-				FF8ACE7B244F287A00B283D8 /* PrivacyViewController.swift in Sources */,
 				6BC550A12453E64400C0B1A8 /* DrawerWrapper.swift in Sources */,
 				FF8ACE77244F230A00B283D8 /* BaseViewController.swift in Sources */,
 				FF8ACE73244EDA7A00B283D8 /* NavBar.swift in Sources */,
@@ -682,7 +683,7 @@
 		};
 		FF8ACE5F244D723F00B283D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 365C64B1CFAD98E0528B8FEF /* Pods-HealthProfiler.debug.xcconfig */;
+			baseConfigurationReference = 5A5D92387CDEAC19DBE0903F /* Pods-HealthProfiler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -700,7 +701,7 @@
 		};
 		FF8ACE60244D723F00B283D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84A4FA200D4B15B9CC8E283D /* Pods-HealthProfiler.release.xcconfig */;
+			baseConfigurationReference = B2E2D21A2BC1017C9826A72A /* Pods-HealthProfiler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
