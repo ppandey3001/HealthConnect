@@ -95,7 +95,7 @@ private extension AppContainer {
     }
     
     @IBAction func backButtonAction(_ sender: UIButton) {
-        container()?.showBrandingBar(false)
+//        container()?.showBrandingBar(false)
         pop()
     }
 }

@@ -87,6 +87,7 @@ extension LoginViewController: UITableViewDataSource, UITableViewDelegate {
         let cell : LoginViewCell = loginTableView.dequeueReusableCell(withIdentifier: "LoginViewCellID") as! LoginViewCell
         cell.usernameTextField.tag = indexPath.row+1
         cell.usernameTextField.delegate = self
+        cell.usernameTextField.addDoneButtonOnKeyboard()
         switch  indexPath.row {
         case 0:
             cell.usernameTextField.placeholder = "Username"
