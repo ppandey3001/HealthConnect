@@ -93,11 +93,6 @@ private extension AppContainer {
         containerView.addSubview(controller.view)
         controller.didMove(toParent: self)
     }
-    
-    @IBAction func backButtonAction(_ sender: UIButton) {
-        container()?.showBrandingBar(false)
-        pop()
-    }
 }
 
 //MARK: Public methods

@@ -7,33 +7,13 @@ import UIKit
 
 class LoginViewController: HPViewController {
     
-    @IBOutlet private var loginTableView : UITableView!
-    @IBOutlet private var headerTableView : UIView!
-    @IBOutlet private var footerTableView : UIView!
+    @IBOutlet private var tableView_login : UITableView!
     @IBOutlet private var termsLabel : UILabel!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupController()
-    }
-    
-    func addTappableLabel(){
-        let tapAction = UITapGestureRecognizer(target: self, action: #selector(tapLabel))
-        termsLabel.isUserInteractionEnabled = true
-        termsLabel.addGestureRecognizer(tapAction)
-    }
-    
-    @IBAction func tapLabel(_ sender: UITapGestureRecognizer) {
-        let text = (termsLabel.text)!
-        let termsRange = (text as NSString).range(of: "terms & conditions")
-        let privacyRange = (text as NSString).range(of: "privacy policy")
-        
-        if sender.didTapAttributedTextInLabel(label: termsLabel, inRange: termsRange) {
-            print("Tapped terms")
-        } else if sender.didTapAttributedTextInLabel(label: termsLabel, inRange: privacyRange) {
-            push(controller: PrivacyPolicyViewController.nibInstance())
-        }
     }
     
     @IBAction func signInButtonAction(_ sender: UIButton) {
@@ -52,11 +32,23 @@ class LoginViewController: HPViewController {
 private extension LoginViewController {
     
     private func setupController() {
+        
         container()?.showBrandingBar(false)
-        loginTableView.tableHeaderView = headerTableView
-        loginTableView.tableFooterView = footerTableView
-        registerTableCellAndNib(loginTableView, tableCellClass: LoginViewCell.self, cellID: "LoginViewCellID", nibName: "LoginViewCell")
-        addTappableLabel()
+        
+        addTapGesture(label: termsLabel)
+
+        registerTableCellAndNib(tableView_login, tableCellClass: LoginViewCell.self, cellID: "LoginViewCellID", nibName: "LoginViewCell")
+        
+        tableView_login.delegate = self
+        tableView_login.dataSource = self
+        tableView_login.reloadData()
+    }
+    
+    private func addTapGesture(label: UILabel) {
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapLabel))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tapGesture)
     }
     
     private func navigateToDashboard() {
@@ -68,6 +60,21 @@ private extension LoginViewController {
         
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard())
+    }
+    
+    @IBAction private func tapLabel(_ sender: UITapGestureRecognizer) {
+        
+        let text = (termsLabel.text)!
+        let termsRange = (text as NSString).range(of: "terms & conditions")
+        let privacyRange = (text as NSString).range(of: "privacy policy")
+        
+        if sender.didTapAttributedTextInLabel(label: termsLabel, inRange: termsRange) {
+            
+            print("Tapped terms")
+        } else if sender.didTapAttributedTextInLabel(label: termsLabel, inRange: privacyRange) {
+            
+            push(controller: PrivacyPolicyViewController.nibInstance())
+        }
     }
 }
 
@@ -84,36 +91,43 @@ extension LoginViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : LoginViewCell = loginTableView.dequeueReusableCell(withIdentifier: "LoginViewCellID") as! LoginViewCell
-        cell.usernameTextField.tag = indexPath.row+1
-        cell.usernameTextField.delegate = self
+        
+        let loginCell = tableView.dequeueReusableCell(withIdentifier: "LoginViewCellID") as! LoginViewCell
+        
+        //TODO: try to minimise code from viewController, and place it inside tablecell class
+        loginCell.usernameTextField.tag = indexPath.row + 1
+        loginCell.usernameTextField.delegate = self
+        
         switch  indexPath.row {
-        case 0:
-            cell.usernameTextField.placeholder = "Username"
-            cell.usernameTextField.returnKeyType = .next
-        case 1:
-            cell.usernameTextField.placeholder = "Password"
-            cell.usernameTextField.isSecureTextEntry = true
-            cell.usernameTextField.returnKeyType = .done
-        default:
             
-            return cell
+        case 0:
+            loginCell.usernameTextField.placeholder = "Username"
+            loginCell.usernameTextField.returnKeyType = .next
+            
+        case 1:
+            loginCell.usernameTextField.placeholder = "Password"
+            loginCell.usernameTextField.isSecureTextEntry = true
+            loginCell.usernameTextField.returnKeyType = .done
+            
+        default: break
         }
-        return cell
         
-        
+        return loginCell
     }
 }
 
 extension LoginViewController : UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.returnKeyType == .next {
-            let txt = self.view.viewWithTag(textField.tag + 1) as? UITextField
-            txt?.becomeFirstResponder()
-        }else{
+        
+        if textField.returnKeyType == .next,
+            let passwordTextField = tableView_login.viewWithTag(textField.tag + 1) as? UITextField {
+            
+            passwordTextField.becomeFirstResponder()
+        } else {
             textField.resignFirstResponder()
         }
+        
         return true
     }
-    
 }

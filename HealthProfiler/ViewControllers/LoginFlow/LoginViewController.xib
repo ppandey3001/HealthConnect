@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="HealthProfiler" customModuleProvider="target">
             <connections>
-                <outlet property="footerTableView" destination="P3Q-UU-bqD" id="NZC-iz-HlT"/>
-                <outlet property="headerTableView" destination="YDy-sw-TOn" id="6wv-ep-HLG"/>
-                <outlet property="loginTableView" destination="HJt-cT-FWY" id="rVW-xy-zVr"/>
+                <outlet property="tableView_login" destination="HJt-cT-FWY" id="uuT-lc-Aa1"/>
                 <outlet property="termsLabel" destination="8sd-fj-4Yq" id="lkb-Nc-aVV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,10 +23,106 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJt-cT-FWY">
                     <rect key="frame" x="0.0" y="44" width="414" height="790"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="0Z6-tA-r37"/>
-                        <outlet property="delegate" destination="-1" id="hlZ-E4-ypG"/>
-                    </connections>
+                    <view key="tableHeaderView" contentMode="scaleToFill" id="YDy-sw-TOn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="243"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="optum-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Eb2-gt-AQX">
+                                <rect key="frame" x="224" y="15" width="170" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="axI-rA-IaX"/>
+                                    <constraint firstAttribute="height" constant="80" id="bgv-0r-hnm"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="health_profiler_dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="RL0-YR-iZZ">
+                                <rect key="frame" x="20" y="128" width="374" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="X0l-nl-7jM"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="RL0-YR-iZZ" secondAttribute="trailing" constant="20" id="8Eb-I3-jzv"/>
+                            <constraint firstItem="RL0-YR-iZZ" firstAttribute="leading" secondItem="YDy-sw-TOn" secondAttribute="leading" constant="20" id="POT-cv-ltb"/>
+                            <constraint firstAttribute="trailing" secondItem="Eb2-gt-AQX" secondAttribute="trailing" constant="20" id="V9K-Zf-8jE"/>
+                            <constraint firstAttribute="bottom" secondItem="RL0-YR-iZZ" secondAttribute="bottom" constant="25" id="lmd-Ow-gLd"/>
+                            <constraint firstItem="Eb2-gt-AQX" firstAttribute="top" secondItem="YDy-sw-TOn" secondAttribute="top" constant="15" id="lqY-Dj-mMA"/>
+                        </constraints>
+                    </view>
+                    <view key="tableFooterView" contentMode="scaleToFill" id="P3Q-UU-bqD">
+                        <rect key="frame" x="0.0" y="1071" width="414" height="188"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGw-kb-DIa">
+                                <rect key="frame" x="20" y="20" width="374" height="148"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35d-rg-YP7">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="49.5"/>
+                                        <color key="backgroundColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="Sign In">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="signInButtonAction:" destination="-1" eventType="touchUpInside" id="hIB-3x-gOh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bw-eJ-PYM">
+                                        <rect key="frame" x="0.0" y="49.5" width="374" height="49"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="Forgot Password?">
+                                            <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ut-wC-pvY">
+                                        <rect key="frame" x="0.0" y="98.5" width="374" height="49.5"/>
+                                        <color key="backgroundColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="Register">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="12"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="registerButtonAction:" destination="-1" eventType="touchUpInside" id="idm-ik-vIU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7Bw-eJ-PYM" secondAttribute="trailing" id="6yV-oo-hWW"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Ut-wC-pvY" secondAttribute="trailing" id="8qe-Je-iBe"/>
+                                    <constraint firstAttribute="trailing" secondItem="35d-rg-YP7" secondAttribute="trailing" id="J90-9X-jFo"/>
+                                    <constraint firstItem="35d-rg-YP7" firstAttribute="leading" secondItem="fGw-kb-DIa" secondAttribute="leading" id="Jz6-iD-fTd"/>
+                                    <constraint firstItem="6Ut-wC-pvY" firstAttribute="height" secondItem="35d-rg-YP7" secondAttribute="height" id="QhZ-wf-NNN"/>
+                                    <constraint firstItem="7Bw-eJ-PYM" firstAttribute="height" secondItem="35d-rg-YP7" secondAttribute="height" id="Sue-T0-DJM"/>
+                                    <constraint firstItem="7Bw-eJ-PYM" firstAttribute="top" secondItem="35d-rg-YP7" secondAttribute="bottom" id="Yiu-EX-fWV"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Ut-wC-pvY" secondAttribute="bottom" id="byw-Dd-YrR"/>
+                                    <constraint firstItem="7Bw-eJ-PYM" firstAttribute="leading" secondItem="fGw-kb-DIa" secondAttribute="leading" id="e4b-lt-7A9"/>
+                                    <constraint firstItem="35d-rg-YP7" firstAttribute="top" secondItem="fGw-kb-DIa" secondAttribute="top" id="gMb-Ci-zwI"/>
+                                    <constraint firstItem="6Ut-wC-pvY" firstAttribute="leading" secondItem="fGw-kb-DIa" secondAttribute="leading" id="ga7-d3-G7m"/>
+                                    <constraint firstItem="6Ut-wC-pvY" firstAttribute="top" secondItem="7Bw-eJ-PYM" secondAttribute="bottom" id="jZf-AD-KSg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fGw-kb-DIa" secondAttribute="trailing" constant="20" id="7we-2N-qTh"/>
+                            <constraint firstItem="fGw-kb-DIa" firstAttribute="leading" secondItem="P3Q-UU-bqD" secondAttribute="leading" constant="20" id="Bod-Zy-lLu"/>
+                            <constraint firstAttribute="bottom" secondItem="fGw-kb-DIa" secondAttribute="bottom" constant="20" id="UD6-ep-vbr"/>
+                            <constraint firstItem="fGw-kb-DIa" firstAttribute="top" secondItem="P3Q-UU-bqD" secondAttribute="top" constant="20" id="YCe-O4-ZXa"/>
+                        </constraints>
+                    </view>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ht-tp-jd8">
                     <rect key="frame" x="0.0" y="834" width="414" height="1"/>
@@ -91,76 +185,6 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="84.057971014492765" y="-20.089285714285712"/>
-        </view>
-        <view contentMode="scaleToFill" id="YDy-sw-TOn">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="243"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="optum-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Eb2-gt-AQX">
-                    <rect key="frame" x="235" y="14" width="172" height="81"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="health_profiler_dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="RL0-YR-iZZ">
-                    <rect key="frame" x="36" y="127" width="342" height="90"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-            </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="ZUj-Zb-b0t"/>
-            <point key="canvasLocation" x="1346.376811594203" y="42.522321428571423"/>
-        </view>
-        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3Q-UU-bqD">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="188"/>
-            <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35d-rg-YP7">
-                    <rect key="frame" x="30" y="27" width="354" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                    <state key="normal" title="Sign In">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="12"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="signInButtonAction:" destination="-1" eventType="touchUpInside" id="hIB-3x-gOh"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ut-wC-pvY">
-                    <rect key="frame" x="30" y="116.5" width="354" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                    <state key="normal" title="Register">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="12"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="registerButtonAction:" destination="-1" eventType="touchUpInside" id="idm-ik-vIU"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bw-eJ-PYM">
-                    <rect key="frame" x="30" y="71.5" width="354" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="20"/>
-                    <state key="normal" title="Forgot Password?">
-                        <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
-            </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="RbM-Tx-0jd"/>
-            <point key="canvasLocation" x="-86.956521739130437" y="-680.35714285714278"/>
         </view>
     </objects>
     <resources>

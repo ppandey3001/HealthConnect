@@ -281,14 +281,13 @@
 		6B05B0BA2452C76B00C5A971 /* LoginFlow */ = {
 			isa = PBXGroup;
 			children = (
+				6BA8667824572385003BDBDF /* TableCell */,
 				6B05B0BD2452C7F300C5A971 /* LoginViewController.swift */,
 				6B05B0BE2452C7F300C5A971 /* LoginViewController.xib */,
-				FF49CD842456CEC300267787 /* LoginViewCell.swift */,
-				FF49CD832456CEC300267787 /* LoginViewCell.xib */,
 				6B05B0C32452C81900C5A971 /* RegistrationViewController.swift */,
 				6B05B0C42452C81900C5A971 /* RegistrationViewController.xib */,
-				FF49CD8C2456F42D00267787 /* PrivacyPolicyViewController.xib */,
 				FF49CD8F24570D9E00267787 /* PrivacyPolicyViewController.swift */,
+				FF49CD8C2456F42D00267787 /* PrivacyPolicyViewController.xib */,
 			);
 			path = LoginFlow;
 			sourceTree = "<group>";
@@ -318,6 +317,15 @@
 				6B2794782455641800DFF05A /* HPDataSource.swift */,
 			);
 			path = AuxiliaryClasses;
+			sourceTree = "<group>";
+		};
+		6BA8667824572385003BDBDF /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				FF49CD842456CEC300267787 /* LoginViewCell.swift */,
+				FF49CD832456CEC300267787 /* LoginViewCell.xib */,
+			);
+			path = TableCell;
 			sourceTree = "<group>";
 		};
 		B18FFE1E46106A4B1531D056 /* Frameworks */ = {
@@ -488,16 +496,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DrawerMenu/DrawerMenu.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DrawerMenu.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

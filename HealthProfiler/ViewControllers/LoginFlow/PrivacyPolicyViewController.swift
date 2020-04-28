@@ -11,6 +11,7 @@ import UIKit
 class PrivacyPolicyViewController: HPViewController {
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setupController()
     }
