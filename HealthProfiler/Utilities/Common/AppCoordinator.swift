@@ -13,7 +13,6 @@ class AppCoordinator {
     
     public var rootContainer: AppContainer?
     public var rootNavigationController: UINavigationController?
-    public var tabBarController: UITabBarController?
     
     /*
      
@@ -32,17 +31,12 @@ class AppCoordinator {
      */
     func getDashboard() -> DrawerWrapper {
         
-        //create new UITabBarController
-        let home = navigationController(HomeViewController.nibInstance(), tabTitle: "Home", tabIcon: "Hamburger")
-        let healthProfile = navigationController(HealthProfileViewController.nibInstance(), tabTitle: "Health Profile", tabIcon: "Hamburger")
-        let coverage = navigationController(CoverageViewController.nibInstance(), tabTitle: "Coverage", tabIcon: "Hamburger")
-        let manageConnections = navigationController(ManageConnectionsViewController.nibInstance(), tabTitle: "Manage Connections", tabIcon: "Hamburger")
-        
-        tabBarController = UITabBarController()
-        tabBarController?.viewControllers = [home,healthProfile, coverage, manageConnections]
+        //get new UITabBarController
+        let tabBarController = TabBarCoordinator.shared.getTabBar()
         
         let menu = MenuViewController.nibInstance()
-        return DrawerWrapper(tabBarController!, leftVC: menu)
+        
+        return DrawerWrapper(tabBarController, leftVC: menu)
     }
     
     /*
@@ -62,7 +56,7 @@ class AppCoordinator {
             navController.popToRootViewController(animated: true)
             
             //reset tabBarController
-            tabBarController = nil
+            TabBarCoordinator.shared.tabBarController = nil
         }
     }
 }
@@ -71,18 +65,5 @@ class AppCoordinator {
 
 private extension AppCoordinator {
     
-    /*
-     
-     */
-    private func navigationController(_ rootController: UIViewController,
-                                      tabTitle: String,
-                                      tabIcon: String) -> UINavigationController {
-        
-        rootController.tabBarItem = UITabBarItem.init(title: tabTitle,
-                                                      image: UIImage(named: tabIcon),
-                                                      selectedImage: UIImage(named: tabIcon))
-        rootController.navigationItem.title = tabTitle
-        rootController.addDrawerButton()
-        return UINavigationController(rootViewController: rootController)
-    }
+   
 }

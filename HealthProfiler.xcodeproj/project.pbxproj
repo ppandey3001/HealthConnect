@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,7 @@
 		6B05B0DE2452D1AA00C5A971 /* HPTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05B0DD2452D1AA00C5A971 /* HPTableView.swift */; };
 		6B05B0E62452D3E900C5A971 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B05B0E42452D3E900C5A971 /* AppContainer.swift */; };
 		6B05B0E72452D3E900C5A971 /* AppContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B05B0E52452D3E900C5A971 /* AppContainer.xib */; };
+		6B173ADB2457D2FF004D3DBF /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B173ADA2457D2FF004D3DBF /* TabBarCoordinator.swift */; };
 		6B279473245562CA00DFF05A /* MenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B279471245562CA00DFF05A /* MenuTableCell.swift */; };
 		6B279474245562CA00DFF05A /* MenuTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B279472245562CA00DFF05A /* MenuTableCell.xib */; };
 		6B2794772455640C00DFF05A /* HPEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2794762455640C00DFF05A /* HPEnums.swift */; };
@@ -86,6 +87,7 @@
 		6B05B0DD2452D1AA00C5A971 /* HPTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPTableView.swift; sourceTree = "<group>"; };
 		6B05B0E42452D3E900C5A971 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 		6B05B0E52452D3E900C5A971 /* AppContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppContainer.xib; sourceTree = "<group>"; };
+		6B173ADA2457D2FF004D3DBF /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		6B279471245562CA00DFF05A /* MenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableCell.swift; sourceTree = "<group>"; };
 		6B279472245562CA00DFF05A /* MenuTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableCell.xib; sourceTree = "<group>"; };
 		6B2794762455640C00DFF05A /* HPEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPEnums.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				6B05B0B22452C6B200C5A971 /* AppUtility.swift */,
 				6BC550A22454074800C0B1A8 /* AppTheme.swift */,
 				6BA8667124569D3D003BDBDF /* AppCoordinator.swift */,
+				6B173ADA2457D2FF004D3DBF /* TabBarCoordinator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				6B2794772455640C00DFF05A /* HPEnums.swift in Sources */,
 				6B05B0D12452C86300C5A971 /* CoverageViewController.swift in Sources */,
 				6B05B0BC2452C7D600C5A971 /* HPViewController.swift in Sources */,
+				6B173ADB2457D2FF004D3DBF /* TabBarCoordinator.swift in Sources */,
 				6B05B0CD2452C84E00C5A971 /* HealthProfileViewController.swift in Sources */,
 				6B05B0A92452C60B00C5A971 /* HealthProfiler.swift in Sources */,
 				6BA8667224569D3D003BDBDF /* AppCoordinator.swift in Sources */,

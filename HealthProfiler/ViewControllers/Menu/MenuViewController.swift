@@ -8,10 +8,11 @@ import UIKit
 class MenuViewController: HPViewController {
 
     @IBOutlet var tableView_menu: HPTableView!
-    private let menuTableCellID: String = "MenuTableCellID"
-    private var dataSource_menu = [HPMenuItem]()
     @IBOutlet var view_footer: UIView!
     @IBOutlet weak var label_appVersion: UILabel!
+
+    private let menuTableCellID: String = "MenuTableCellID"
+    private var dataSource_menu = [HPMenuItem]()
 
     override func viewDidLoad() {
         
@@ -69,14 +70,28 @@ private extension MenuViewController {
         //close drawer
         drawer()?.close(to: .left)
 
+        guard let tabBar = TabBarCoordinator.shared.tabBarController else {
+            return
+        }
+        let navigationIndex = TabBarCoordinator.shared.getNavigationIndex(type: option.type)
+        
+        guard let navController = tabBar.viewControllers?[navigationIndex] as? UINavigationController else {
+            return
+        }
+        
+        
         //navigate as per 'option.type'
-//        switch option.type {
-//
-//        case .home:
-//
+        switch option.type {
+
+        case .home, .coverage, .manageConnections:
+            navController.popToRootViewController(animated: false)
+            tabBar.selectedIndex = navigationIndex
+            
 //        case .myProfile:
-//
-//        }
+//            navController.pushViewController(RegistrationViewController.nibInstance(), animated: true)
+            
+        default: break
+        }
         
     }
     

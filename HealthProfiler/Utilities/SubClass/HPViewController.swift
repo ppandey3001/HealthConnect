@@ -14,6 +14,14 @@ import UIKit
  */
 class HPViewController: UIViewController {
 
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        super.viewWillDisappear(animated)
+        
+        //end editing
+        view.endEditing(true)
+    }
+    
     deinit {
         // make sure to remove the observer when this view controller is deinit
         NotificationCenter.default.removeObserver(self)

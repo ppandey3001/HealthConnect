@@ -35,3 +35,29 @@ enum HPMenuItemType {
         return itemTitle
     }
 }
+
+
+enum HPTabType {
+    
+    case home
+    case healthProfile
+    case coverage
+    case manageConnections
+    
+    public var tabIndex: Int {
+        
+        switch self {
+        case .home:
+            return 0
+            
+        case .healthProfile:
+            return 1
+            
+        case .coverage:
+            return 2
+            
+        case .manageConnections:
+            return 3
+        }
+    }
+}
