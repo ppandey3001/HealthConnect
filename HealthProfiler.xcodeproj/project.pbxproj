@@ -47,6 +47,7 @@
 		FF49CD8A2456F14E00267787 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD892456F14E00267787 /* UITapGestureRecognizerExtension.swift */; };
 		FF49CD8E2456F42D00267787 /* PrivacyPolicyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF49CD8C2456F42D00267787 /* PrivacyPolicyViewController.xib */; };
 		FF49CD9024570D9E00267787 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD8F24570D9E00267787 /* PrivacyPolicyViewController.swift */; };
+		FF49CD922457215B00267787 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD912457215B00267787 /* UITextField+Extensions.swift */; };
 		FF8ACE38244D723D00B283D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE37244D723D00B283D8 /* AppDelegate.swift */; };
 		FF8ACE3F244D723D00B283D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE3D244D723D00B283D8 /* Main.storyboard */; };
 		FF8ACE41244D723F00B283D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE40244D723F00B283D8 /* Assets.xcassets */; };
@@ -99,6 +100,7 @@
 		FF49CD892456F14E00267787 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		FF49CD8C2456F42D00267787 /* PrivacyPolicyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrivacyPolicyViewController.xib; sourceTree = "<group>"; };
 		FF49CD8F24570D9E00267787 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		FF49CD912457215B00267787 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		FF8ACE34244D723D00B283D8 /* HealthProfiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthProfiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8ACE37244D723D00B283D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8ACE3E244D723D00B283D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				6B05B0A22452C54300C5A971 /* UIViewController+Extension.swift */,
 				6B05B0D72452CEFE00C5A971 /* NSObject+Extension.swift */,
 				FF49CD892456F14E00267787 /* UITapGestureRecognizerExtension.swift */,
+				FF49CD912457215B00267787 /* UITextField+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				6B05B0B32452C6B200C5A971 /* AppUtility.swift in Sources */,
 				FF49CD8A2456F14E00267787 /* UITapGestureRecognizerExtension.swift in Sources */,
 				6BC550A32454074800C0B1A8 /* AppTheme.swift in Sources */,
+				FF49CD922457215B00267787 /* UITextField+Extensions.swift in Sources */,
 				6BC550A12453E64400C0B1A8 /* DrawerWrapper.swift in Sources */,
 				FF8ACE77244F230A00B283D8 /* BaseViewController.swift in Sources */,
 				FF8ACE73244EDA7A00B283D8 /* NavBar.swift in Sources */,

@@ -97,6 +97,8 @@ extension LoginViewController: UITableViewDataSource, UITableViewDelegate {
         //TODO: try to minimise code from viewController, and place it inside tablecell class
         loginCell.usernameTextField.tag = indexPath.row + 1
         loginCell.usernameTextField.delegate = self
+        loginCell.usernameTextField.addDoneButtonOnKeyboard()
+
         
         switch  indexPath.row {
             
