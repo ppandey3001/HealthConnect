@@ -108,6 +108,7 @@ extension LoginViewController: UITableViewDataSource, UITableViewDelegate {
             
         case 1:
             loginCell.usernameTextField.placeholder = "Password"
+            loginCell.iconImage.image = UIImage(named: "password-icon")
             loginCell.usernameTextField.isSecureTextEntry = true
             loginCell.usernameTextField.returnKeyType = .done
             

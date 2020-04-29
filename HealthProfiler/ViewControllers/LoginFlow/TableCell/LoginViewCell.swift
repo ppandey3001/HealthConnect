@@ -12,5 +12,7 @@ class LoginViewCell: UITableViewCell {
     
     @IBOutlet var iconImage : UIImageView!
     @IBOutlet var usernameTextField : UITextField!
+    @IBOutlet var showPasswordButton : UIButton!
+    @IBOutlet var txtFieldBackgroundView : UIView!
     
 }
