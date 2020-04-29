@@ -9,8 +9,10 @@
 import Foundation
 
 class LoginModal {
+    
     var username : String?
     var password : String?
+    var confirmPassword : String?
     var name : String?
     var email : String?
     var isTermsAccepted : Bool?

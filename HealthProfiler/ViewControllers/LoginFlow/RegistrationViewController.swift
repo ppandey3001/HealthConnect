@@ -6,12 +6,15 @@
 import UIKit
 
 class RegistrationViewController: HPViewController {
+    
     @IBOutlet private var tableView_register : UITableView!
     @IBOutlet private var terms_label : UILabel!
     @IBOutlet private var  check_button: UIButton!
     @IBOutlet private var  refresh_button: UIButton!
     @IBOutlet private var  verify_textField: UITextField!
     @IBOutlet private var  captcha_label: UILabel!
+    
+    private var dataSource_register = LoginModal()
     
     override func viewDidLoad() {
         
@@ -39,7 +42,7 @@ class RegistrationViewController: HPViewController {
     }
     
     @IBAction func showPasswordAction(_ sender: UIButton){
-
+        
     }
 }
 
@@ -47,6 +50,7 @@ class RegistrationViewController: HPViewController {
 private extension RegistrationViewController {
     
     private func setupController() {
+        
         container()?.showBrandingBar(true)
         
         addTapGesture(label: terms_label)
@@ -55,6 +59,7 @@ private extension RegistrationViewController {
         
         tableView_register.delegate = self
         tableView_register.dataSource = self
+        
         tableView_register.reloadData()
     }
     private func addTapGesture(label: UILabel) {
@@ -107,44 +112,10 @@ extension RegistrationViewController: UITableViewDataSource, UITableViewDelegate
         
         let loginCell = tableView.dequeueReusableCell(withIdentifier: "LoginViewCellID") as! LoginViewCell
         
-        //TODO: try to minimise code from viewController, and place it inside tablecell class
-        loginCell.usernameTextField.tag = indexPath.row + 1
-        loginCell.usernameTextField.delegate = self
-        loginCell.usernameTextField.addDoneButtonOnKeyboard()
-        loginCell.txtFieldBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
-        loginCell.txtFieldBackgroundView.layer.borderWidth = 1.0
-        loginCell.showPasswordButton.tag = indexPath.row + 1
+        loginCell.configureRegisterCell(index: indexPath.row, item : dataSource_register)
         
-        switch  indexPath.row {
-            
-        case 0:
-            loginCell.usernameTextField.placeholder = "Name"
-            loginCell.iconImage.image = UIImage(named: "name")
-            loginCell.usernameTextField.returnKeyType = .next
-            
-        case 1:
-            loginCell.usernameTextField.placeholder = "Email"
-            loginCell.iconImage.image = UIImage(named: "email")
-            loginCell.usernameTextField.returnKeyType = .next
-            
-        case 2:
-            loginCell.usernameTextField.placeholder = "Password"
-            loginCell.iconImage.image = UIImage(named: "password-icon")
-            loginCell.showPasswordButton.addTarget(self, action: #selector(showPasswordAction), for: .touchUpInside)
-            loginCell.showPasswordButton.isHidden = false
-            loginCell.usernameTextField.isSecureTextEntry = true
-            loginCell.usernameTextField.returnKeyType = .next
-            
-        case 3:
-            loginCell.usernameTextField.placeholder = "Confirm Password"
-            loginCell.iconImage.image = UIImage(named: "password-icon")
-            loginCell.showPasswordButton.addTarget(self, action: #selector(showPasswordAction), for: .touchUpInside)
-            loginCell.showPasswordButton.isHidden = false
-            loginCell.usernameTextField.isSecureTextEntry = true
-            loginCell.usernameTextField.returnKeyType = .done
-            
-        default: break
-        }
+        loginCell.usernameTextField.delegate = self
+        loginCell.showPasswordButton.addTarget(self, action: #selector(showPasswordAction), for: .touchUpInside)
         
         return loginCell
     }
@@ -163,6 +134,25 @@ extension RegistrationViewController : UITextFieldDelegate {
         }
         
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        switch textField.tag {
+        case 1:
+            dataSource_register.name = textField.text
+        case 2:
+            dataSource_register.email = textField.text
+        case 3:
+            dataSource_register.password = textField.text
+        case 4:
+            dataSource_register.confirmPassword = textField.text
+        case 5:
+            dataSource_register.verificationCode = textField.text
+            
+        default: break
+            
+        }
     }
 }
 

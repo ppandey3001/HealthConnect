@@ -10,6 +10,8 @@ class LoginViewController: HPViewController {
     @IBOutlet private var tableView_login : UITableView!
     @IBOutlet private var termsLabel : UILabel!
     
+    private var dataSource_login = LoginModal()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -36,7 +38,7 @@ private extension LoginViewController {
         container()?.showBrandingBar(false)
         
         addTapGesture(label: termsLabel)
-
+        
         registerTableCellAndNib(tableView_login, tableCellClass: LoginViewCell.self, cellID: "LoginViewCellID", nibName: "LoginViewCell")
         
         tableView_login.delegate = self
@@ -94,26 +96,9 @@ extension LoginViewController: UITableViewDataSource, UITableViewDelegate {
         
         let loginCell = tableView.dequeueReusableCell(withIdentifier: "LoginViewCellID") as! LoginViewCell
         
-        //TODO: try to minimise code from viewController, and place it inside tablecell class
-        loginCell.usernameTextField.tag = indexPath.row + 1
-        loginCell.usernameTextField.delegate = self
-        loginCell.usernameTextField.addDoneButtonOnKeyboard()
-
+        loginCell.configureLoginCell(index: indexPath.row, item : dataSource_login)
         
-        switch  indexPath.row {
-            
-        case 0:
-            loginCell.usernameTextField.placeholder = "Username"
-            loginCell.usernameTextField.returnKeyType = .next
-            
-        case 1:
-            loginCell.usernameTextField.placeholder = "Password"
-            loginCell.iconImage.image = UIImage(named: "password-icon")
-            loginCell.usernameTextField.isSecureTextEntry = true
-            loginCell.usernameTextField.returnKeyType = .done
-            
-        default: break
-        }
+        loginCell.usernameTextField.delegate = self
         
         return loginCell
     }
@@ -132,5 +117,18 @@ extension LoginViewController : UITextFieldDelegate {
         }
         
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        switch textField.tag {
+        case 1:
+            dataSource_login.username = textField.text
+        case 2:
+            dataSource_login.password = textField.text
+            
+        default: break
+            
+        }
     }
 }
