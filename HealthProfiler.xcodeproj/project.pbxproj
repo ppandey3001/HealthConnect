@@ -50,6 +50,8 @@
 		FF49CD9024570D9E00267787 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD8F24570D9E00267787 /* PrivacyPolicyViewController.swift */; };
 		FF49CD922457215B00267787 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD912457215B00267787 /* UITextField+Extensions.swift */; };
 		FF49CD9424596E3C00267787 /* LoginModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD9324596E3C00267787 /* LoginModal.swift */; };
+		FF49CD972459CBF000267787 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD952459CBF000267787 /* ForgotPasswordViewController.swift */; };
+		FF49CD982459CBF000267787 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF49CD962459CBF000267787 /* ForgotPasswordViewController.xib */; };
 		FF8ACE38244D723D00B283D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE37244D723D00B283D8 /* AppDelegate.swift */; };
 		FF8ACE3F244D723D00B283D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE3D244D723D00B283D8 /* Main.storyboard */; };
 		FF8ACE41244D723F00B283D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE40244D723F00B283D8 /* Assets.xcassets */; };
@@ -105,6 +107,8 @@
 		FF49CD8F24570D9E00267787 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		FF49CD912457215B00267787 /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		FF49CD9324596E3C00267787 /* LoginModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModal.swift; sourceTree = "<group>"; };
+		FF49CD952459CBF000267787 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		FF49CD962459CBF000267787 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		FF8ACE34244D723D00B283D8 /* HealthProfiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthProfiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8ACE37244D723D00B283D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8ACE3E244D723D00B283D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -297,6 +301,8 @@
 				FF49CD8F24570D9E00267787 /* PrivacyPolicyViewController.swift */,
 				FF49CD8C2456F42D00267787 /* PrivacyPolicyViewController.xib */,
 				FF49CD9324596E3C00267787 /* LoginModal.swift */,
+				FF49CD952459CBF000267787 /* ForgotPasswordViewController.swift */,
+				FF49CD962459CBF000267787 /* ForgotPasswordViewController.xib */,
 			);
 			path = LoginFlow;
 			sourceTree = "<group>";
@@ -464,6 +470,7 @@
 				6B05B0CE2452C84E00C5A971 /* HealthProfileViewController.xib in Resources */,
 				6B05B0DC2452D16F00C5A971 /* MenuViewController.xib in Resources */,
 				FF49CD8E2456F42D00267787 /* PrivacyPolicyViewController.xib in Resources */,
+				FF49CD982459CBF000267787 /* ForgotPasswordViewController.xib in Resources */,
 				FF8ACE41244D723F00B283D8 /* Assets.xcassets in Resources */,
 				FF49CD852456CEC300267787 /* LoginViewCell.xib in Resources */,
 				6B05B0C62452C81900C5A971 /* RegistrationViewController.xib in Resources */,
@@ -529,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B05B0DB2452D16F00C5A971 /* MenuViewController.swift in Sources */,
+				FF49CD972459CBF000267787 /* ForgotPasswordViewController.swift in Sources */,
 				6B2794792455641800DFF05A /* HPDataSource.swift in Sources */,
 				FF49CD862456CEC300267787 /* LoginViewCell.swift in Sources */,
 				6B05B0C52452C81900C5A971 /* RegistrationViewController.swift in Sources */,
