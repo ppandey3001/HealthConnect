@@ -26,6 +26,13 @@ extension UIViewController {
         tableView.register(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: cellID)
     }
     
+    //MARK: - Register custom collectionView cell -
+    func registerCollectionViewCellAndNib(_ collectionView: UICollectionView!, collectionCellClass: AnyClass!, cellID: String!, nibName: String!) {
+        
+        collectionView.register(collectionCellClass, forCellWithReuseIdentifier: cellID)
+        collectionView.register(UINib(nibName: nibName, bundle: nil), forCellWithReuseIdentifier: cellID)
+    }
+    
     //MARK: - Navigation helper method -
     func push(controller: UIViewController, animated: Bool = true) {
         

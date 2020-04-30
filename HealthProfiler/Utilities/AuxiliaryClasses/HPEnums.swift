@@ -35,6 +35,40 @@ enum HPProfileFieldType {
 }
 
 
+enum HPConnectionTabType {
+    
+    case healthInsurance
+    case providers
+    case labs
+    case devices
+    case pharmacy
+    case others
+
+    func attributes() -> (labelTitle: String, status: Bool, icon: String) {
+        
+        switch self {
+        case .healthInsurance:
+            return ("Health Insurance", false, "healthInsuranceIcon.png")
+            
+        case .providers:
+            return ("Providers", false, "DoctorIcon.png")
+            
+        case .labs:
+            return ("Labs", false, "LabIcon.png")
+            
+        case .devices:
+            return ("Devices", false, "DeviceIcon.png")
+            
+        case .pharmacy:
+            return ("Pharmacy", false, "PharmacyIcon.png")
+            
+        case .others:
+            return ("Others", false, "OthersIcon.png")
+        }
+    }
+}
+
+
 enum HPTabType {
     
     case home

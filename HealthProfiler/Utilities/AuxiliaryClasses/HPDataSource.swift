@@ -17,6 +17,18 @@ class HPProfileItem: NSObject {
 }
 
 
+class HPConnectionItem: NSObject {
+    
+    var type: HPConnectionTabType = .healthInsurance
+    
+    init(_ type: HPConnectionTabType) {
+        
+        self.type = type
+    }
+}
+
+
+
 class HPMenuItem: NSObject {
     
     var type: HPMenuItemType = .home
