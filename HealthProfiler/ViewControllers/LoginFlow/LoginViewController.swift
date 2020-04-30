@@ -40,10 +40,9 @@ private extension LoginViewController {
         addTapGesture(label: termsLabel)
         
         dataSource_login.removeAll()
-        dataSource_login.append(HPProfileItem(.userName))
-        dataSource_login.append(HPProfileItem(.password))
+        dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
 
-        registerTableCellAndNib(tableView_login, tableCellClass: LoginViewCell.self, cellID: "LoginViewCellID", nibName: "LoginViewCell")
+        registerTableCellAndNib(tableView_login, tableCellClass: LoginViewCell.self, cellID: LoginViewCell.reuseIdentifier(), nibName: "LoginViewCell")
         
         tableView_login.delegate = self
         tableView_login.dataSource = self
@@ -98,10 +97,10 @@ extension LoginViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let loginCell = tableView.dequeueReusableCell(withIdentifier: "LoginViewCellID") as! LoginViewCell
+        let loginCell = tableView.dequeueReusableCell(withIdentifier: LoginViewCell.reuseIdentifier(), for: indexPath) as! LoginViewCell
         loginCell.configureLoginCell(item: dataSource_login[indexPath.row], index: indexPath.row)
         loginCell.textField_input.delegate = self
-        loginCell.textField_input.returnKeyType = (indexPath.row == (dataSource_login.count - 1) ) ? .next : .done
+        loginCell.textField_input.returnKeyType = (indexPath.row == (dataSource_login.count - 1) ) ? .done : .next
         
         return loginCell
     }

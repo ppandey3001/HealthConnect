@@ -9,22 +9,17 @@
 import UIKit
 
 class ManageConnectionViewCell: UICollectionViewCell {
+    
     @IBOutlet var icon_imageview: UIImageView!
     @IBOutlet var title_label: UILabel!
     @IBOutlet var status_label: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
     //configure cell for manage connection items
-    func configureConnectionCell(item: HPConnectionItem, index: Int) {
+    func configureConnectionCell(item: HPConnectionItem) {
         
         let attributes = item.type.attributes()
         icon_imageview.image = UIImage(named: attributes.icon)
         title_label.text = attributes.labelTitle
         status_label.text = attributes.status == true ? "connected" : "No connections"
     }
-
 }

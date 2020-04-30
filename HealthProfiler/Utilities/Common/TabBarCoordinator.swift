@@ -13,6 +13,9 @@ class TabBarCoordinator {
     
     public var tabBarController: UITabBarController?
 
+    //marking init() as 'private' will disallow to create any other object of the class
+    private init() { }
+    
     /*
      
      */

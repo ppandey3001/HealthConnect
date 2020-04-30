@@ -7,11 +7,10 @@ import UIKit
 
 class MenuViewController: HPViewController {
 
-    @IBOutlet var tableView_menu: HPTableView!
-    @IBOutlet var view_footer: UIView!
-    @IBOutlet weak var label_appVersion: UILabel!
+    @IBOutlet private var tableView_menu: HPTableView!
+    @IBOutlet private var view_footer: UIView!
+    @IBOutlet private  var label_appVersion: UILabel!
 
-    private let menuTableCellID: String = "MenuTableCellID"
     private var dataSource_menu = [HPMenuItem]()
 
     override func viewDidLoad() {
@@ -29,7 +28,7 @@ private extension MenuViewController {
         view.backgroundColor = UIColor.colorFromRGB(105.0, 105.0, 105.0)
         
         //register all table cells to be used
-        registerTableCellAndNib(tableView_menu, tableCellClass: MenuTableCell.self, cellID: menuTableCellID, nibName: "MenuTableCell")
+        registerTableCellAndNib(tableView_menu, tableCellClass: MenuTableCell.self, cellID: MenuTableCell.reuseIdentifier(), nibName: "MenuTableCell")
         
         tableView_menu.delegate = self
         tableView_menu.dataSource = self
@@ -47,13 +46,7 @@ private extension MenuViewController {
         
         //refresh datasource
         dataSource_menu.removeAll()
-        dataSource_menu.append(HPMenuItem(.home))
-        dataSource_menu.append(HPMenuItem(.myProfile))
-        dataSource_menu.append(HPMenuItem(.manageConnections))
-        dataSource_menu.append(HPMenuItem(.myHealthProfile))
-        dataSource_menu.append(HPMenuItem(.coverage))
-        dataSource_menu.append(HPMenuItem(.myCareTeam))
-        dataSource_menu.append(HPMenuItem(.settings))
+        dataSource_menu = [HPMenuItem(.home), HPMenuItem(.myProfile), HPMenuItem(.manageConnections), HPMenuItem(.myHealthProfile), HPMenuItem(.coverage), HPMenuItem(.myCareTeam), HPMenuItem(.settings)]
         
         //refresh table footer view
         //TODO: not working, must be due to custom container, need to check
@@ -146,7 +139,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let menuTableCell = tableView.dequeueReusableCell(withIdentifier: menuTableCellID, for: indexPath) as! MenuTableCell
+        let menuTableCell = tableView.dequeueReusableCell(withIdentifier: MenuTableCell.reuseIdentifier(), for: indexPath) as! MenuTableCell
         menuTableCell.configureMenuCell(item: dataSource_menu[indexPath.row])
         return menuTableCell
     }

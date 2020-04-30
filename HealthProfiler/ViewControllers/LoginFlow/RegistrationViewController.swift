@@ -55,13 +55,9 @@ private extension RegistrationViewController {
         addTapGesture(label: terms_label)
         
         dataSource_register.removeAll()
-        dataSource_register.append(HPProfileItem(.name))
-        dataSource_register.append(HPProfileItem(.userName))
-        dataSource_register.append(HPProfileItem(.email))
-        dataSource_register.append(HPProfileItem(.password))
-        dataSource_register.append(HPProfileItem(.confirmPassword))
+        dataSource_register = [HPProfileItem(.name), HPProfileItem(.userName), HPProfileItem(.email), HPProfileItem(.password), HPProfileItem(.confirmPassword)]
 
-        registerTableCellAndNib(tableView_register, tableCellClass: LoginViewCell.self, cellID: "LoginViewCellID", nibName: "LoginViewCell")
+        registerTableCellAndNib(tableView_register, tableCellClass: LoginViewCell.self, cellID: LoginViewCell.reuseIdentifier(), nibName: "LoginViewCell")
         
         tableView_register.delegate = self
         tableView_register.dataSource = self
@@ -116,11 +112,11 @@ extension RegistrationViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let loginCell = tableView.dequeueReusableCell(withIdentifier: "LoginViewCellID") as! LoginViewCell
+        let loginCell = tableView.dequeueReusableCell(withIdentifier: LoginViewCell.reuseIdentifier(), for: indexPath) as! LoginViewCell
         loginCell.configureRegisterCell(item: dataSource_register[indexPath.row], index: indexPath.row)
         loginCell.textField_input.delegate = self
         loginCell.button_showSecureEntry.addTarget(self, action: #selector(showPasswordAction), for: .touchUpInside)
-        loginCell.textField_input.returnKeyType = (indexPath.row == (dataSource_register.count - 1) ) ? .next : .done
+        loginCell.textField_input.returnKeyType = (indexPath.row == (dataSource_register.count - 1) ) ? .done : .next
 
         return loginCell
     }

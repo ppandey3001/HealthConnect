@@ -8,18 +8,10 @@ import Foundation
 class HealthProfiler {
     
     /// The shared HealthProfiler instance
-    public static var shared: HealthProfiler {
-        get {
-            return sharedProfiler
-        }
-    }
-    // MARK: - Private functions
-    private static var sharedProfiler: HealthProfiler = {
-        
-        let instance = HealthProfiler()
-        return instance
-    }()
-    
+    public static let shared = HealthProfiler()
+
+    //marking init() as 'private' will disallow to create any other object of the class
+    private init() { }
     
 }
 

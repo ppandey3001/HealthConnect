@@ -7,18 +7,19 @@ import UIKit
 
 class HomeViewController: HPViewController {
     
-    @IBOutlet private var welcome_view : UIView!
-    
+    @IBOutlet var view_welcomeMessageContainer: UIView!
+    @IBOutlet var label_welcomeMessageTitle: UILabel!
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupController()
     }
     
-    @IBAction func getStartedAction(_ sender: UIButton) {
+    @IBAction func buttonAction_getStarted(_ sender: UIButton) {
         
-        welcome_view.isHidden = true
-        tabBarController?.selectedIndex = 3
+        view_welcomeMessageContainer.isHidden = true
+        tabBarController?.selectedIndex = HPTabType.manageConnections.tabIndex
     }
 }
 
@@ -27,6 +28,7 @@ private extension HomeViewController {
     
     private func setupController() {
         
+        label_welcomeMessageTitle.text = "Welcome John Doe!"
     }
 }
 

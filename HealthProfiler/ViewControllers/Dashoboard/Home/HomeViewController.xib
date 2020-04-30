@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="HealthProfiler" customModuleProvider="target">
             <connections>
+                <outlet property="label_welcomeMessageTitle" destination="gMi-Y9-uiD" id="lNZ-sN-7QS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="welcome_view" destination="IVO-Ag-8Ql" id="xf5-J3-Co7"/>
+                <outlet property="view_welcomeMessageContainer" destination="IVO-Ag-8Ql" id="0Nf-t5-DR7"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,66 +23,71 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVO-Ag-8Ql">
                     <rect key="frame" x="0.0" y="54" width="414" height="796"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome John Doe!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMi-Y9-uiD">
-                            <rect key="frame" x="62" y="50" width="289" height="28"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDD-oX-cww">
+                            <rect key="frame" x="50" y="50" width="314" height="253"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome John Doe!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMi-Y9-uiD">
+                                    <rect key="frame" x="0.0" y="0.0" width="314" height="23"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                    <color key="textColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihm-C7-8sA">
+                                    <rect key="frame" x="0.0" y="53" width="314" height="72"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <string key="text">On OptumHealthConnect, you can connect with your health insurance carrier and providers, view your labs and prescriptions, and centralize data from devices.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get started to create your connections now." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pof-m4-gfw">
+                                    <rect key="frame" x="0.0" y="155" width="314" height="18"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3x-Hp-cYz">
+                                    <rect key="frame" x="62" y="203" width="190" height="50"/>
+                                    <color key="backgroundColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="190" id="HDK-N8-qnn"/>
+                                        <constraint firstAttribute="height" constant="50" id="t59-O9-XCu"/>
+                                    </constraints>
+                                    <state key="normal" title="Get Started"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="25"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="buttonAction_getStarted:" destination="-1" eventType="touchUpInside" id="Qeo-TG-X9o"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="28" id="do5-0u-GJS"/>
+                                <constraint firstItem="S3x-Hp-cYz" firstAttribute="centerX" secondItem="sDD-oX-cww" secondAttribute="centerX" id="2k6-Po-5ZH"/>
+                                <constraint firstAttribute="bottom" secondItem="S3x-Hp-cYz" secondAttribute="bottom" id="3oq-el-esz"/>
+                                <constraint firstItem="Pof-m4-gfw" firstAttribute="leading" secondItem="sDD-oX-cww" secondAttribute="leading" id="68u-xH-Nl2"/>
+                                <constraint firstItem="Pof-m4-gfw" firstAttribute="top" secondItem="ihm-C7-8sA" secondAttribute="bottom" constant="30" id="6yv-LQ-Jwu"/>
+                                <constraint firstItem="S3x-Hp-cYz" firstAttribute="top" secondItem="Pof-m4-gfw" secondAttribute="bottom" constant="30" id="AWD-gE-dV1"/>
+                                <constraint firstAttribute="trailing" secondItem="Pof-m4-gfw" secondAttribute="trailing" id="EpU-zb-Cnw"/>
+                                <constraint firstAttribute="trailing" secondItem="gMi-Y9-uiD" secondAttribute="trailing" id="Ysu-WI-fUb"/>
+                                <constraint firstItem="ihm-C7-8sA" firstAttribute="top" secondItem="gMi-Y9-uiD" secondAttribute="bottom" constant="30" id="bi4-aZ-IoZ"/>
+                                <constraint firstItem="gMi-Y9-uiD" firstAttribute="top" secondItem="sDD-oX-cww" secondAttribute="top" id="blA-Xg-gjF"/>
+                                <constraint firstItem="gMi-Y9-uiD" firstAttribute="leading" secondItem="sDD-oX-cww" secondAttribute="leading" id="fHy-x5-XbF"/>
+                                <constraint firstAttribute="trailing" secondItem="ihm-C7-8sA" secondAttribute="trailing" id="gMJ-gL-KSn"/>
+                                <constraint firstItem="ihm-C7-8sA" firstAttribute="leading" secondItem="sDD-oX-cww" secondAttribute="leading" id="oFz-rp-IW5"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                            <color key="textColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihm-C7-8sA">
-                            <rect key="frame" x="67" y="88" width="281" height="144"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="144" id="dwU-hT-qnZ"/>
-                            </constraints>
-                            <string key="text">On OptumHealthConnect, you can connect with your health insurance carrier and providers, view your labs and prescriptions, and centralize data from devices.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get started to create your connections now." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pof-m4-gfw">
-                            <rect key="frame" x="67" y="242" width="281" height="43"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="43" id="Azc-He-QGJ"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3x-Hp-cYz">
-                            <rect key="frame" x="110" y="314" width="194" height="50"/>
-                            <color key="backgroundColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Ndv-1G-fGV"/>
-                            </constraints>
-                            <state key="normal" title="Get Started"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                    <integer key="value" value="25"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="getStartedAction:" destination="-1" eventType="touchUpInside" id="dTu-I6-py4"/>
-                            </connections>
-                        </button>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
-                        <constraint firstItem="Pof-m4-gfw" firstAttribute="top" secondItem="ihm-C7-8sA" secondAttribute="bottom" constant="10" id="4nQ-z9-ael"/>
-                        <constraint firstItem="gMi-Y9-uiD" firstAttribute="top" secondItem="IVO-Ag-8Ql" secondAttribute="top" constant="50" id="82h-Li-BbC"/>
-                        <constraint firstAttribute="trailing" secondItem="S3x-Hp-cYz" secondAttribute="trailing" constant="110" id="8YO-DK-Ikh"/>
-                        <constraint firstItem="S3x-Hp-cYz" firstAttribute="centerX" secondItem="IVO-Ag-8Ql" secondAttribute="centerX" id="AU0-fv-pIl"/>
-                        <constraint firstAttribute="trailing" secondItem="Pof-m4-gfw" secondAttribute="trailing" constant="66" id="AkW-b9-hsf"/>
-                        <constraint firstAttribute="trailing" secondItem="ihm-C7-8sA" secondAttribute="trailing" constant="66" id="DIn-BV-LCk"/>
-                        <constraint firstItem="S3x-Hp-cYz" firstAttribute="top" secondItem="Pof-m4-gfw" secondAttribute="bottom" constant="29" id="Fp7-Uc-3Py"/>
-                        <constraint firstAttribute="trailing" secondItem="gMi-Y9-uiD" secondAttribute="trailing" constant="63" id="Mi0-35-gBT"/>
-                        <constraint firstItem="Pof-m4-gfw" firstAttribute="leading" secondItem="IVO-Ag-8Ql" secondAttribute="leading" constant="67" id="Y8u-eX-zEZ"/>
-                        <constraint firstItem="S3x-Hp-cYz" firstAttribute="leading" secondItem="IVO-Ag-8Ql" secondAttribute="leading" constant="110" id="fRS-Ez-3I4"/>
-                        <constraint firstItem="ihm-C7-8sA" firstAttribute="leading" secondItem="IVO-Ag-8Ql" secondAttribute="leading" constant="67" id="gy2-Ck-OV1"/>
-                        <constraint firstItem="ihm-C7-8sA" firstAttribute="top" secondItem="gMi-Y9-uiD" secondAttribute="bottom" constant="10" id="jtk-dB-xNm"/>
-                        <constraint firstItem="gMi-Y9-uiD" firstAttribute="leading" secondItem="IVO-Ag-8Ql" secondAttribute="leading" constant="62" id="mt1-Ll-xoW"/>
+                        <constraint firstAttribute="trailing" secondItem="sDD-oX-cww" secondAttribute="trailing" constant="50" id="Jh7-Ml-avg"/>
+                        <constraint firstItem="sDD-oX-cww" firstAttribute="leading" secondItem="IVO-Ag-8Ql" secondAttribute="leading" constant="50" id="Ntk-Vz-4KG"/>
+                        <constraint firstItem="sDD-oX-cww" firstAttribute="top" secondItem="IVO-Ag-8Ql" secondAttribute="top" constant="50" id="beJ-yI-uNq"/>
                         <constraint firstAttribute="height" constant="796" id="vHq-Mg-nmQ"/>
                     </constraints>
                 </view>
