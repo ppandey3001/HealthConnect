@@ -20,6 +20,7 @@ class HPProfileItem: NSObject {
 class HPConnectionItem: NSObject {
     
     var type: HPConnectionTabType = .healthInsurance
+    var isConnected: Bool = false
     
     init(_ type: HPConnectionTabType) {
         

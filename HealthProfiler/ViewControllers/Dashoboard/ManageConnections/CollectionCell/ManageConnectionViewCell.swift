@@ -19,7 +19,7 @@ class ManageConnectionViewCell: UICollectionViewCell {
         
         let attributes = item.type.attributes()
         icon_imageview.image = UIImage(named: attributes.icon)
-        title_label.text = attributes.labelTitle
-        status_label.text = attributes.status == true ? "connected" : "No connections"
+        title_label.text = attributes.title
+        status_label.text = item.isConnected ? "connected" : "No connections"
     }
 }

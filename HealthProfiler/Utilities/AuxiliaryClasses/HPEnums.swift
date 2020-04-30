@@ -44,26 +44,26 @@ enum HPConnectionTabType {
     case pharmacy
     case others
 
-    func attributes() -> (labelTitle: String, status: Bool, icon: String) {
+    func attributes() -> (title: String, icon: String) {
         
         switch self {
         case .healthInsurance:
-            return ("Health Insurance", false, "healthInsuranceIcon.png")
+            return ("Health Insurance", "healthInsuranceIcon.png")
             
         case .providers:
-            return ("Providers", false, "DoctorIcon.png")
+            return ("Providers", "DoctorIcon.png")
             
         case .labs:
-            return ("Labs", false, "LabIcon.png")
+            return ("Labs", "LabIcon.png")
             
         case .devices:
-            return ("Devices", false, "DeviceIcon.png")
+            return ("Devices", "DeviceIcon.png")
             
         case .pharmacy:
-            return ("Pharmacy", false, "PharmacyIcon.png")
+            return ("Pharmacy", "PharmacyIcon.png")
             
         case .others:
-            return ("Others", false, "OthersIcon.png")
+            return ("Others", "OthersIcon.png")
         }
     }
 }
