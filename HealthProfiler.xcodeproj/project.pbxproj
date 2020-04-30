@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,6 +38,7 @@
 		6B279474245562CA00DFF05A /* MenuTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B279472245562CA00DFF05A /* MenuTableCell.xib */; };
 		6B2794772455640C00DFF05A /* HPEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2794762455640C00DFF05A /* HPEnums.swift */; };
 		6B2794792455641800DFF05A /* HPDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2794782455641800DFF05A /* HPDataSource.swift */; };
+		6B6F8350245A84D7000066A8 /* privacy_policy.html in Resources */ = {isa = PBXBuildFile; fileRef = 6B6F834F245A84D7000066A8 /* privacy_policy.html */; };
 		6B879A792452D50900F8880A /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B879A782452D50900F8880A /* SessionManager.swift */; };
 		6BA8667224569D3D003BDBDF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA8667124569D3D003BDBDF /* AppCoordinator.swift */; };
 		6BC550A12453E64400C0B1A8 /* DrawerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC550A02453E64400C0B1A8 /* DrawerWrapper.swift */; };
@@ -51,7 +52,6 @@
 		FF49CD922457215B00267787 /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD912457215B00267787 /* UITextField+Extensions.swift */; };
 		FF49CD9424596E3C00267787 /* LoginModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD9324596E3C00267787 /* LoginModal.swift */; };
 		FF8ACE38244D723D00B283D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE37244D723D00B283D8 /* AppDelegate.swift */; };
-		FF8ACE3F244D723D00B283D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE3D244D723D00B283D8 /* Main.storyboard */; };
 		FF8ACE41244D723F00B283D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE40244D723F00B283D8 /* Assets.xcassets */; };
 		FF8ACE44244D723F00B283D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE42244D723F00B283D8 /* LaunchScreen.storyboard */; };
 		FF8ACE73244EDA7A00B283D8 /* NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE72244EDA7A00B283D8 /* NavBar.swift */; };
@@ -92,6 +92,7 @@
 		6B279472245562CA00DFF05A /* MenuTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableCell.xib; sourceTree = "<group>"; };
 		6B2794762455640C00DFF05A /* HPEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPEnums.swift; sourceTree = "<group>"; };
 		6B2794782455641800DFF05A /* HPDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPDataSource.swift; sourceTree = "<group>"; };
+		6B6F834F245A84D7000066A8 /* privacy_policy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy_policy.html; sourceTree = "<group>"; };
 		6B879A782452D50900F8880A /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		6BA8667124569D3D003BDBDF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		6BC550A02453E64400C0B1A8 /* DrawerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerWrapper.swift; sourceTree = "<group>"; };
@@ -107,7 +108,6 @@
 		FF49CD9324596E3C00267787 /* LoginModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModal.swift; sourceTree = "<group>"; };
 		FF8ACE34244D723D00B283D8 /* HealthProfiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthProfiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8ACE37244D723D00B283D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF8ACE3E244D723D00B283D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF8ACE40244D723F00B283D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF8ACE43244D723F00B283D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF8ACE45244D723F00B283D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,10 +140,10 @@
 		6B05B08B2452B7C000C5A971 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FF8ACE3D244D723D00B283D8 /* Main.storyboard */,
 				FF8ACE40244D723F00B283D8 /* Assets.xcassets */,
 				FF8ACE42244D723F00B283D8 /* LaunchScreen.storyboard */,
 				FF8ACE45244D723F00B283D8 /* Info.plist */,
+				6B6F834F245A84D7000066A8 /* privacy_policy.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -459,6 +459,7 @@
 				6B05B0D22452C86300C5A971 /* CoverageViewController.xib in Resources */,
 				6B05B0D62452C87700C5A971 /* ManageConnectionsViewController.xib in Resources */,
 				FF8ACE44244D723F00B283D8 /* LaunchScreen.storyboard in Resources */,
+				6B6F8350245A84D7000066A8 /* privacy_policy.html in Resources */,
 				6B05B0C02452C7F300C5A971 /* LoginViewController.xib in Resources */,
 				FF8ACE75244EDA8B00B283D8 /* NavBar.xib in Resources */,
 				6B05B0CE2452C84E00C5A971 /* HealthProfileViewController.xib in Resources */,
@@ -468,7 +469,6 @@
 				FF49CD852456CEC300267787 /* LoginViewCell.xib in Resources */,
 				6B05B0C62452C81900C5A971 /* RegistrationViewController.xib in Resources */,
 				6B05B0E72452D3E900C5A971 /* AppContainer.xib in Resources */,
-				FF8ACE3F244D723D00B283D8 /* Main.storyboard in Resources */,
 				6B279474245562CA00DFF05A /* MenuTableCell.xib in Resources */,
 				6B05B0CA2452C83300C5A971 /* HomeViewController.xib in Resources */,
 			);
@@ -505,16 +505,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DrawerMenu/DrawerMenu.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DrawerMenu.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -568,14 +563,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FF8ACE3D244D723D00B283D8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FF8ACE3E244D723D00B283D8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FF8ACE42244D723F00B283D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

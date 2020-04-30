@@ -10,7 +10,7 @@ class LoginViewController: HPViewController {
     @IBOutlet private var tableView_login : UITableView!
     @IBOutlet private var termsLabel : UILabel!
     
-    private var dataSource_login = LoginModal()
+    private var dataSource_login = [HPProfileItem]()
     
     override func viewDidLoad() {
         
@@ -39,6 +39,10 @@ private extension LoginViewController {
         
         addTapGesture(label: termsLabel)
         
+        dataSource_login.removeAll()
+        dataSource_login.append(HPProfileItem(.userName))
+        dataSource_login.append(HPProfileItem(.password))
+
         registerTableCellAndNib(tableView_login, tableCellClass: LoginViewCell.self, cellID: "LoginViewCellID", nibName: "LoginViewCell")
         
         tableView_login.delegate = self
@@ -61,7 +65,7 @@ private extension LoginViewController {
         container()?.showBrandingBar(true)
         
         //Create new dashboard, and push
-        push(controller: AppCoordinator.shared.getDashboard())
+        push(controller: AppCoordinator.shared.getDashboard(), animated: false)
     }
     
     @IBAction private func tapLabel(_ sender: UITapGestureRecognizer) {
@@ -85,7 +89,7 @@ private extension LoginViewController {
 extension LoginViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return dataSource_login.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -95,10 +99,9 @@ extension LoginViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let loginCell = tableView.dequeueReusableCell(withIdentifier: "LoginViewCellID") as! LoginViewCell
-        
-        loginCell.configureLoginCell(index: indexPath.row, item : dataSource_login)
-        
-        loginCell.usernameTextField.delegate = self
+        loginCell.configureLoginCell(item: dataSource_login[indexPath.row], index: indexPath.row)
+        loginCell.textField_input.delegate = self
+        loginCell.textField_input.returnKeyType = (indexPath.row == (dataSource_login.count - 1) ) ? .next : .done
         
         return loginCell
     }
@@ -121,14 +124,16 @@ extension LoginViewController : UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        switch textField.tag {
-        case 1:
-            dataSource_login.username = textField.text
-        case 2:
-            dataSource_login.password = textField.text
-            
-        default: break
-            
-        }
+//        switch textField.tag {
+//
+//        case 1:
+//            dataSource_login.username = textField.text
+//
+//        case 2:
+//            dataSource_login.password = textField.text
+//
+//        default: break
+//
+//        }
     }
 }

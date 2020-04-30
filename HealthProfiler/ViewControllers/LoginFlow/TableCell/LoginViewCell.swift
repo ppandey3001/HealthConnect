@@ -10,73 +10,45 @@ import UIKit
 
 class LoginViewCell: UITableViewCell {
     
-    @IBOutlet var iconImage : UIImageView!
-    @IBOutlet var usernameTextField : UITextField!
-    @IBOutlet var showPasswordButton : UIButton!
-    @IBOutlet var txtFieldBackgroundView : UIView!
+    @IBOutlet var view_container : UIView!
+    @IBOutlet var imageView_icon : UIImageView!
+    @IBOutlet var textField_input : UITextField!
+    @IBOutlet var button_showSecureEntry : UIButton!
+    @IBOutlet var view_accessory: UIView!
     
-    func configureRegisterCell(index : Int, item : LoginModal) {
+    private func configureCell(with item: HPProfileItem, index: Int) {
         
-        usernameTextField.tag = index + 1
-        usernameTextField.addDoneButtonOnKeyboard()
-        txtFieldBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
-        txtFieldBackgroundView.layer.borderWidth = 1.0
-        showPasswordButton.tag = index + 1
+        textField_input.addDoneButtonOnKeyboard()
+        textField_input.tag = index + 1
         
-        switch  index {
-            
-        case 0:
-            usernameTextField.placeholder = "Name"
-            usernameTextField.text = item.name ?? ""
-            iconImage.image = UIImage(named: "name")
-            usernameTextField.returnKeyType = .next
-            
-        case 1:
-            usernameTextField.placeholder = "Email"
-            usernameTextField.text = item.email ?? ""
-            iconImage.image = UIImage(named: "email")
-            usernameTextField.returnKeyType = .next
-            
-        case 2:
-            usernameTextField.placeholder = "Password"
-            usernameTextField.text = item.password ?? ""
-            iconImage.image = UIImage(named: "password-icon")
-            showPasswordButton.isHidden = false
-            usernameTextField.isSecureTextEntry = true
-            usernameTextField.returnKeyType = .next
-            
-        case 3:
-            usernameTextField.placeholder = "Confirm Password"
-            usernameTextField.text = item.confirmPassword ?? ""
-            iconImage.image = UIImage(named: "password-icon")
-            showPasswordButton.isHidden = false
-            usernameTextField.isSecureTextEntry = true
-            usernameTextField.returnKeyType = .done
-            
-        default: break
-        }
+        textField_input.text = item.value
+
+        let attributes = item.type.attributes()
+        textField_input.isSecureTextEntry = attributes.isSecure
+        textField_input.placeholder = attributes.placeholder
+        imageView_icon.image = UIImage(named: attributes.icon)
+        view_accessory.isHidden = true
+    }
+}
+
+//MARK: public methods
+extension LoginViewCell {
+    
+    //configure cell for login items
+    func configureLoginCell(item: HPProfileItem, index: Int) {
+                
+        configureCell(with: item, index: index)
     }
     
-    func configureLoginCell(index : Int, item : LoginModal) {
-        usernameTextField.tag = index + 1
-        usernameTextField.addDoneButtonOnKeyboard()
+    //configure cell for registration items
+    func configureRegisterCell(item: HPProfileItem, index: Int) {
         
-        switch  index {
-            
-        case 0:
-            usernameTextField.placeholder = "Username"
-            usernameTextField.text = item.username ?? ""
-            usernameTextField.returnKeyType = .next
-            
-        case 1:
-            usernameTextField.placeholder = "Password"
-            usernameTextField.text = item.password ?? ""
-            iconImage.image = UIImage(named: "password-icon")
-            usernameTextField.isSecureTextEntry = true
-            usernameTextField.returnKeyType = .done
-            
-        default: break
-        }
+        configureCell(with: item, index: index)
+
+        view_container.layer.borderColor = UIColor.lightGray.cgColor
+        view_container.layer.borderWidth = 1.0
+        
+        let attributes = item.type.attributes()
+        view_accessory.isHidden = !attributes.isSecure
     }
-    
 }

@@ -2,11 +2,20 @@
 //  HPDataSource.swift
 //  HealthProfiler
 //
-//  Created by Krishna Kant Kaira on 26/04/20.
-//  Copyright © 2020 Pandey, Pooja. All rights reserved.
-//
 
 import Foundation
+
+class HPProfileItem: NSObject {
+    
+    var type: HPProfileFieldType = .userName
+    var value: String?
+    
+    init(_ type: HPProfileFieldType) {
+        
+        self.type = type
+    }
+}
+
 
 class HPMenuItem: NSObject {
     

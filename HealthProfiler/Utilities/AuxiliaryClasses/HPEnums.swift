@@ -2,11 +2,56 @@
 //  HPEnums.swift
 //  HealthProfiler
 //
-//  Created by Krishna Kant Kaira on 26/04/20.
-//  Copyright © 2020 Pandey, Pooja. All rights reserved.
-//
 
 import Foundation
+
+enum HPProfileFieldType {
+    
+    case userName
+    case password
+    case confirmPassword
+    case name
+    case email
+
+    func attributes() -> (placeholder: String, isSecure: Bool, icon: String) {
+        
+        switch self {
+        case .userName:
+            return ("username", false, "user-icon.png")
+            
+        case .password:
+            return ("password", true, "password-icon.png")
+            
+        case .confirmPassword:
+            return ("confirm password", true, "password-icon.png")
+            
+        case .name:
+            return ("name", false, "name.png")
+            
+        case .email:
+            return ("email", false, "email.png")
+        }
+    }
+}
+
+
+enum HPTabType {
+    
+    case home
+    case healthProfile
+    case coverage
+    case manageConnections
+    
+    public var tabIndex: Int {
+        
+        switch self {
+        case .home:  return 0
+        case .healthProfile: return 1
+        case .coverage: return 2
+        case .manageConnections: return 3
+        }
+    }
+}
 
 enum HPMenuItemType {
     
@@ -33,31 +78,5 @@ enum HPMenuItemType {
         }
         
         return itemTitle
-    }
-}
-
-
-enum HPTabType {
-    
-    case home
-    case healthProfile
-    case coverage
-    case manageConnections
-    
-    public var tabIndex: Int {
-        
-        switch self {
-        case .home:
-            return 0
-            
-        case .healthProfile:
-            return 1
-            
-        case .coverage:
-            return 2
-            
-        case .manageConnections:
-            return 3
-        }
     }
 }

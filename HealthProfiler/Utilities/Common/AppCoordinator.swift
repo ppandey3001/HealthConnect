@@ -53,7 +53,7 @@ class AppCoordinator {
                 container.showBrandingBar(false)
             }
             
-            navController.popToRootViewController(animated: true)
+            navController.popToRootViewController(animated: false)
             
             //reset tabBarController
             TabBarCoordinator.shared.tabBarController = nil

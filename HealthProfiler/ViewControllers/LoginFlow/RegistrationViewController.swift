@@ -9,13 +9,13 @@ class RegistrationViewController: HPViewController {
     
     @IBOutlet private var tableView_register : UITableView!
     @IBOutlet private var terms_label : UILabel!
-    @IBOutlet private var  check_button: UIButton!
-    @IBOutlet private var  refresh_button: UIButton!
-    @IBOutlet private var  verify_textField: UITextField!
-    @IBOutlet private var  captcha_label: UILabel!
+    @IBOutlet private var check_button: UIButton!
+    @IBOutlet private var refresh_button: UIButton!
+    @IBOutlet private var verify_textField: UITextField!
+    @IBOutlet private var captcha_label: UILabel!
     
-    private var dataSource_register = LoginModal()
-    
+    private var dataSource_register = [HPProfileItem]()
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -33,7 +33,6 @@ class RegistrationViewController: HPViewController {
     }
     
     @IBAction func refreshButtonAction(_ sender: UIButton) {
-        
         
     }
     
@@ -55,6 +54,13 @@ private extension RegistrationViewController {
         
         addTapGesture(label: terms_label)
         
+        dataSource_register.removeAll()
+        dataSource_register.append(HPProfileItem(.name))
+        dataSource_register.append(HPProfileItem(.userName))
+        dataSource_register.append(HPProfileItem(.email))
+        dataSource_register.append(HPProfileItem(.password))
+        dataSource_register.append(HPProfileItem(.confirmPassword))
+
         registerTableCellAndNib(tableView_register, tableCellClass: LoginViewCell.self, cellID: "LoginViewCellID", nibName: "LoginViewCell")
         
         tableView_register.delegate = self
@@ -77,7 +83,7 @@ private extension RegistrationViewController {
         container()?.showBrandingBar(true)
         
         //Create new dashboard, and push
-        push(controller: AppCoordinator.shared.getDashboard())
+        push(controller: AppCoordinator.shared.getDashboard(), animated: false)
     }
     
     @IBAction private func tapLabel(_ sender: UITapGestureRecognizer) {
@@ -97,11 +103,11 @@ private extension RegistrationViewController {
 }
 
 
-//MARK: Public methods
+//MARK: UITableViewDataSource, UITableViewDelegate
 extension RegistrationViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return dataSource_register.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -111,16 +117,16 @@ extension RegistrationViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let loginCell = tableView.dequeueReusableCell(withIdentifier: "LoginViewCellID") as! LoginViewCell
-        
-        loginCell.configureRegisterCell(index: indexPath.row, item : dataSource_register)
-        
-        loginCell.usernameTextField.delegate = self
-        loginCell.showPasswordButton.addTarget(self, action: #selector(showPasswordAction), for: .touchUpInside)
-        
+        loginCell.configureRegisterCell(item: dataSource_register[indexPath.row], index: indexPath.row)
+        loginCell.textField_input.delegate = self
+        loginCell.button_showSecureEntry.addTarget(self, action: #selector(showPasswordAction), for: .touchUpInside)
+        loginCell.textField_input.returnKeyType = (indexPath.row == (dataSource_register.count - 1) ) ? .next : .done
+
         return loginCell
     }
 }
 
+//MARK: UITextFieldDelegate
 extension RegistrationViewController : UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -138,21 +144,21 @@ extension RegistrationViewController : UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        switch textField.tag {
-        case 1:
-            dataSource_register.name = textField.text
-        case 2:
-            dataSource_register.email = textField.text
-        case 3:
-            dataSource_register.password = textField.text
-        case 4:
-            dataSource_register.confirmPassword = textField.text
-        case 5:
-            dataSource_register.verificationCode = textField.text
-            
-        default: break
-            
-        }
+//        switch textField.tag {
+//        case 1:
+//            dataSource_register.name = textField.text
+//        case 2:
+//            dataSource_register.email = textField.text
+//        case 3:
+//            dataSource_register.password = textField.text
+//        case 4:
+//            dataSource_register.confirmPassword = textField.text
+//        case 5:
+//            dataSource_register.verificationCode = textField.text
+//            
+//        default: break
+//            
+//        }
     }
 }
 
