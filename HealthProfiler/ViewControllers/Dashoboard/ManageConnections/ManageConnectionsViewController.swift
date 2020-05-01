@@ -81,4 +81,12 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
         
         return collectionCell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        container()?.showBrandingBar(true)
+        
+        self.navigationItem.title = ""
+        push(controller:InsurancePlanViewController.nibInstance())
+    }
 }

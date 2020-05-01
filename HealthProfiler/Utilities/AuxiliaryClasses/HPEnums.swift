@@ -34,6 +34,28 @@ enum HPProfileFieldType {
     }
 }
 
+enum HPHealthInsuranceType {
+    
+    case choosePayer
+    case planID
+    case memberID
+
+    func attributes() -> (placeholder: String, isSecure: Bool, icon: String) {
+        
+        switch self {
+        case .choosePayer:
+            return ("Choose your payer", false, "")
+            
+        case .planID:
+            return ("Health plan ID", true, "")
+            
+        case .memberID:
+            return ("Member ID", true, "name.png")
+            
+        }
+    }
+}
+
 
 enum HPConnectionTabType {
     

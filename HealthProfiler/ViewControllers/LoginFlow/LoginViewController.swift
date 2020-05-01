@@ -122,17 +122,6 @@ extension LoginViewController : UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
-//        switch textField.tag {
-//
-//        case 1:
-//            dataSource_login.username = textField.text
-//
-//        case 2:
-//            dataSource_login.password = textField.text
-//
-//        default: break
-//
-//        }
+    
     }
 }

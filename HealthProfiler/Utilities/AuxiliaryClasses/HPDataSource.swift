@@ -29,12 +29,23 @@ class HPConnectionItem: NSObject {
 }
 
 
-
 class HPMenuItem: NSObject {
     
     var type: HPMenuItemType = .home
     
     init(_ type: HPMenuItemType) {
+        
+        self.type = type
+    }
+}
+
+
+class HPHealthInsuranceItem: NSObject {
+    
+    var type: HPHealthInsuranceType = .choosePayer
+    var value: String?
+
+    init(_ type: HPHealthInsuranceType) {
         
         self.type = type
     }
