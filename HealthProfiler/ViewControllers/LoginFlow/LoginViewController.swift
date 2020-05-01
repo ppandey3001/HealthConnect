@@ -23,6 +23,12 @@ class LoginViewController: HPViewController {
         navigateToDashboard()
     }
     
+    @IBAction func buttonAction_forgotPassword(_ sender: UIButton) {
+        
+        container()?.showBrandingBar(true)
+        push(controller: ForgotPasswordViewController.nibInstance())
+    }
+    
     @IBAction func registerButtonAction(_ sender: UIButton) {
         
         container()?.showBrandingBar(true)

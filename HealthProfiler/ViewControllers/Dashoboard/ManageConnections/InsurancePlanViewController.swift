@@ -8,19 +8,17 @@
 
 import UIKit
 
-class InsurancePlanViewController: UIViewController {
+class InsurancePlanViewController: HPViewController {
     
     @IBOutlet private var tableView_insurance : UITableView!
     @IBOutlet private var terms_label : UILabel!
     
     private var dataSource_insurance = [HPHealthInsuranceItem]()
     
-    
     override func viewDidLoad() {
+
         super.viewDidLoad()
-        
         setupController()
-        
     }
     
     @IBAction func openPickerAction(_ sender: UIButton){
@@ -33,9 +31,7 @@ class InsurancePlanViewController: UIViewController {
 private extension InsurancePlanViewController {
     
     private func setupController() {
-        
-        container()?.showBrandingBar(true)
-        
+                
         dataSource_insurance.removeAll()
         dataSource_insurance = [HPHealthInsuranceItem(.choosePayer), HPHealthInsuranceItem(.planID), HPHealthInsuranceItem(.memberID)]
         

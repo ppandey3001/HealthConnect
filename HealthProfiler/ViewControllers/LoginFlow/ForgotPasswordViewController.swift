@@ -8,23 +8,34 @@
 
 import UIKit
 
-class ForgotPasswordViewController: UIViewController {
+class ForgotPasswordViewController: HPViewController {
 
+    @IBOutlet var textField_email: UITextField!
+    @IBOutlet var button_send: UIButton!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupController()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func buttonAction_back(_ sender: UIButton) {
+        
+        container()?.showBrandingBar(false)
+        pop()
     }
-    */
-
+    
+    @IBAction func buttonAction_send(_ sender: Any) {
+        
+    }
+    
 }
+
+//MARK: Private methods
+private extension ForgotPasswordViewController {
+    
+    private func setupController() {
+        container()?.showBrandingBar(true)
+    }
+}
+
