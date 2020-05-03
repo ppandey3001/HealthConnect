@@ -27,6 +27,14 @@ class InsurancePlanViewController: UIViewController {
         
     }
     
+    @IBAction func connectButtonAction(_ sender: UIButton){
+        
+        container()?.showBrandingBar(true)
+        
+        self.navigationItem.title = ""
+        push(controller: PayerSummaryViewController.nibInstance())
+    }
+    
 }
 
 //MARK: Private methods

@@ -57,6 +57,10 @@
 		FF49CD9D245AE45A00267787 /* ManageConnectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF49CD9B245AE45A00267787 /* ManageConnectionViewCell.xib */; };
 		FF49CDA0245BFAFB00267787 /* InsurancePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD9E245BFAFB00267787 /* InsurancePlanViewController.swift */; };
 		FF49CDA1245BFAFB00267787 /* InsurancePlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF49CD9F245BFAFB00267787 /* InsurancePlanViewController.xib */; };
+		FF49CDA4245C820F00267787 /* PayerSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CDA2245C820F00267787 /* PayerSummaryViewController.swift */; };
+		FF49CDA5245C820F00267787 /* PayerSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF49CDA3245C820F00267787 /* PayerSummaryViewController.xib */; };
+		FF49CDA9245ED84000267787 /* SummaryBenefitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CDA7245ED84000267787 /* SummaryBenefitCell.swift */; };
+		FF49CDAA245ED84000267787 /* SummaryBenefitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF49CDA8245ED84000267787 /* SummaryBenefitCell.xib */; };
 		FF8ACE38244D723D00B283D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE37244D723D00B283D8 /* AppDelegate.swift */; };
 		FF8ACE41244D723F00B283D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE40244D723F00B283D8 /* Assets.xcassets */; };
 		FF8ACE44244D723F00B283D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE42244D723F00B283D8 /* LaunchScreen.storyboard */; };
@@ -118,6 +122,10 @@
 		FF49CD9B245AE45A00267787 /* ManageConnectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManageConnectionViewCell.xib; sourceTree = "<group>"; };
 		FF49CD9E245BFAFB00267787 /* InsurancePlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsurancePlanViewController.swift; sourceTree = "<group>"; };
 		FF49CD9F245BFAFB00267787 /* InsurancePlanViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InsurancePlanViewController.xib; sourceTree = "<group>"; };
+		FF49CDA2245C820F00267787 /* PayerSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayerSummaryViewController.swift; sourceTree = "<group>"; };
+		FF49CDA3245C820F00267787 /* PayerSummaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayerSummaryViewController.xib; sourceTree = "<group>"; };
+		FF49CDA7245ED84000267787 /* SummaryBenefitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryBenefitCell.swift; sourceTree = "<group>"; };
+		FF49CDA8245ED84000267787 /* SummaryBenefitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryBenefitCell.xib; sourceTree = "<group>"; };
 		FF8ACE34244D723D00B283D8 /* HealthProfiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthProfiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8ACE37244D723D00B283D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8ACE40244D723F00B283D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -274,11 +282,14 @@
 		6B05B0B72452C76B00C5A971 /* ManageConnections */ = {
 			isa = PBXGroup;
 			children = (
+				FF49CDA6245ED7B200267787 /* TableCell */,
 				FF49CD99245AE40600267787 /* CollectionCell */,
 				6B05B0D32452C87700C5A971 /* ManageConnectionsViewController.swift */,
 				6B05B0D42452C87700C5A971 /* ManageConnectionsViewController.xib */,
 				FF49CD9E245BFAFB00267787 /* InsurancePlanViewController.swift */,
 				FF49CD9F245BFAFB00267787 /* InsurancePlanViewController.xib */,
+				FF49CDA2245C820F00267787 /* PayerSummaryViewController.swift */,
+				FF49CDA3245C820F00267787 /* PayerSummaryViewController.xib */,
 			);
 			path = ManageConnections;
 			sourceTree = "<group>";
@@ -369,6 +380,15 @@
 				FF49CD9B245AE45A00267787 /* ManageConnectionViewCell.xib */,
 			);
 			path = CollectionCell;
+			sourceTree = "<group>";
+		};
+		FF49CDA6245ED7B200267787 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				FF49CDA7245ED84000267787 /* SummaryBenefitCell.swift */,
+				FF49CDA8245ED84000267787 /* SummaryBenefitCell.xib */,
+			);
+			path = TableCell;
 			sourceTree = "<group>";
 		};
 		FF8ACE2B244D723D00B283D8 = {
@@ -484,6 +504,7 @@
 			files = (
 				6B05B0D22452C86300C5A971 /* CoverageViewController.xib in Resources */,
 				6B05B0D62452C87700C5A971 /* ManageConnectionsViewController.xib in Resources */,
+				FF49CDA5245C820F00267787 /* PayerSummaryViewController.xib in Resources */,
 				FF49CDA1245BFAFB00267787 /* InsurancePlanViewController.xib in Resources */,
 				FF49CD9D245AE45A00267787 /* ManageConnectionViewCell.xib in Resources */,
 				FF8ACE44244D723F00B283D8 /* LaunchScreen.storyboard in Resources */,
@@ -495,6 +516,7 @@
 				FF49CD8E2456F42D00267787 /* PrivacyPolicyViewController.xib in Resources */,
 				FF49CD982459CBF000267787 /* ForgotPasswordViewController.xib in Resources */,
 				FF8ACE41244D723F00B283D8 /* Assets.xcassets in Resources */,
+				FF49CDAA245ED84000267787 /* SummaryBenefitCell.xib in Resources */,
 				FF49CD852456CEC300267787 /* LoginViewCell.xib in Resources */,
 				6B05B0C62452C81900C5A971 /* RegistrationViewController.xib in Resources */,
 				6B05B0E72452D3E900C5A971 /* AppContainer.xib in Resources */,
@@ -561,6 +583,8 @@
 				6B05B0DB2452D16F00C5A971 /* MenuViewController.swift in Sources */,
 				FF49CD972459CBF000267787 /* ForgotPasswordViewController.swift in Sources */,
 				6B2794792455641800DFF05A /* HPDataSource.swift in Sources */,
+				FF49CDA9245ED84000267787 /* SummaryBenefitCell.swift in Sources */,
+				FF49CDA4245C820F00267787 /* PayerSummaryViewController.swift in Sources */,
 				FF49CD862456CEC300267787 /* LoginViewCell.swift in Sources */,
 				6B05B0C52452C81900C5A971 /* RegistrationViewController.swift in Sources */,
 				FF8ACE38244D723D00B283D8 /* AppDelegate.swift in Sources */,
