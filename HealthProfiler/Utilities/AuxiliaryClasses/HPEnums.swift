@@ -12,7 +12,7 @@ enum HPProfileFieldType {
     case confirmPassword
     case name
     case email
-
+    
     func attributes() -> (placeholder: String, isSecure: Bool, icon: String) {
         
         switch self {
@@ -39,7 +39,7 @@ enum HPHealthInsuranceType {
     case choosePayer
     case planID
     case memberID
-
+    
     func attributes() -> (placeholder: String, isSecure: Bool, icon: String) {
         
         switch self {
@@ -56,6 +56,46 @@ enum HPHealthInsuranceType {
     }
 }
 
+enum HPConnectedProviderType {
+    
+    case epicSystem
+    case cemer
+    case allScripts
+    
+    func attributes() -> (title: String, icon : String) {
+        
+        switch self {
+        case .epicSystem:
+            return  ("Powered by Epic Systems", "alberta")
+            
+        case .cemer:
+            return ("Powered by Cemer", "midland")
+            
+        case .allScripts:
+            return ("Powered by Allscripts", "alina_health")
+            
+        }
+    }
+}
+
+enum HPConnectedInsuranceType {
+    case medicare
+    case blueButton
+    
+    func attributes() -> (title: String, icon: String) {
+        
+        switch self {
+        case .medicare:
+            return ("Medicare Advantage PPO", "medicareLogo")
+            
+        case .blueButton:
+            return ("Blue Button 2.0", "ConnectImage")
+            
+        }
+    }
+    
+}
+
 
 enum HPConnectionTabType {
     
@@ -65,7 +105,7 @@ enum HPConnectionTabType {
     case devices
     case pharmacy
     case others
-
+    
     func attributes() -> (title: String, icon: String) {
         
         switch self {
@@ -118,7 +158,7 @@ enum HPMenuItemType {
     case coverage
     case myCareTeam
     case settings
-
+    
     public var title: String {
         
         var itemTitle = ""

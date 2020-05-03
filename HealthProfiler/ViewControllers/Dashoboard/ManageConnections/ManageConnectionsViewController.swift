@@ -85,7 +85,16 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         container()?.showBrandingBar(true)
+        switch indexPath.item {
+        case 0:
+            push(controller:InsurancePlanViewController.nibInstance())
+            
+        case 1:
+            push(controller:ConnectedPlansViewController.nibInstance())
+
+        default:
+            break
+        }
         
-        push(controller:InsurancePlanViewController.nibInstance())
     }
 }

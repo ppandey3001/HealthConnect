@@ -27,9 +27,17 @@ class PayerSummaryViewController: HPViewController {
     }
     
     @IBAction func showDetailsAction(_ sender : UIButton){
+        
         let briefView = tableView_Summary.viewWithTag(sender.tag)
         briefView?.isHidden = true
+        
         tableView_Summary.reloadData()
+    }
+    
+    @IBAction func blueButtonAction(_ sender : UIButton) {
+        
+        push(controller: ConnectedPlansViewController.nibInstance())
+        
     }
 
 }

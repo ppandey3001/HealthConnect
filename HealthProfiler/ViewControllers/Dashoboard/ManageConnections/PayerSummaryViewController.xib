@@ -241,6 +241,9 @@
                                 <state key="normal" title="Connect to Blue Button 2.0">
                                     <color key="titleColor" red="0.075122810900211334" green="0.39489781856536865" blue="0.61571198701858521" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="blueButtonAction:" destination="-1" eventType="touchUpInside" id="6Qr-fe-q2E"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSV-4F-KwP">
                                 <rect key="frame" x="35" y="66" width="104" height="20"/>

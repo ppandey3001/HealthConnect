@@ -29,8 +29,8 @@ class InsurancePlanViewController: HPViewController {
         
         container()?.showBrandingBar(true)
         
-        self.navigationItem.title = ""
         push(controller: PayerSummaryViewController.nibInstance())
+        
     }
     
 }

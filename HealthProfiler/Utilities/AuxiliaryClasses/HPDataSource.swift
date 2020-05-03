@@ -44,9 +44,33 @@ class HPHealthInsuranceItem: NSObject {
     
     var type: HPHealthInsuranceType = .choosePayer
     var value: String?
-
+    
     init(_ type: HPHealthInsuranceType) {
         
         self.type = type
     }
 }
+
+
+class HPConnectedInsuranceItem: NSObject {
+    
+    var type: HPConnectedInsuranceType = .medicare
+    var value: String?
+    
+    init(_ type: HPConnectedInsuranceType) {
+        
+        self.type = type
+    }
+}
+
+class HPConnectedProviderItem: NSObject {
+    
+    var type: HPConnectedProviderType = .epicSystem
+    var value: String?
+    
+    init(_ type: HPConnectedProviderType) {
+        
+        self.type = type
+    }
+}
+
