@@ -8,14 +8,35 @@
 
 import UIKit
 
-class ForgotPasswordViewController: UIViewController {
+class ForgotPasswordViewController: HPViewController {
 
+    @IBOutlet var textField_email: UITextField!
+    @IBOutlet var button_send: UIButton!
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupController()
     }
 
-
-
+    
+    @IBAction func buttonAction_back(_ sender: UIButton) {
+        
+        container()?.showBrandingBar(false)
+        pop()
+    }
+    
+    @IBAction func buttonAction_send(_ sender: Any) {
+        
+    }
+    
 }
+
+//MARK: Private methods
+private extension ForgotPasswordViewController {
+    
+    private func setupController() {
+        container()?.showBrandingBar(true)
+    }
+}
+

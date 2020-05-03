@@ -86,7 +86,6 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
         
         container()?.showBrandingBar(true)
         
-        self.navigationItem.title = ""
         push(controller:InsurancePlanViewController.nibInstance())
     }
 }
