@@ -78,6 +78,25 @@ enum HPConnectedProviderType {
     }
 }
 
+enum HPCoverageClaimType {
+    
+    case drPOe
+    case drSmith
+    
+    func attributes() -> (name : String, date : String, billAmt : String, share : String) {
+        
+        switch self {
+        case .drPOe:
+            return  ("Dr. Poe", "Mar 8", "$xx", "$xx")
+            
+        case .drSmith:
+            return ("Dr. Smith", "Mar 4", "$xx", "$xx")
+            
+        }
+    }
+    
+}
+
 enum HPConnectedInsuranceType {
     case medicare
     case blueButton

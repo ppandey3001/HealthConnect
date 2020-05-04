@@ -27,7 +27,7 @@ class ProviderConnectedCell: HPTableViewCell {
 //MARK: public methods
 extension ProviderConnectedCell {
     
-    //configure cell for login items
+    //configure cell for Provider items
     func configureProviderCell(item: HPConnectedProviderItem, index: Int) {
         
         let attributes = item.type.attributes()

@@ -74,3 +74,13 @@ class HPConnectedProviderItem: NSObject {
     }
 }
 
+class HPCoverageClaimItem: NSObject {
+    
+    var type: HPCoverageClaimType = .drPOe
+    
+    init(_ type: HPCoverageClaimType) {
+        
+        self.type = type
+    }
+}
+

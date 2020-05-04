@@ -14,7 +14,7 @@ class PayerSummaryViewController: HPViewController {
     @IBOutlet private var view_brief : UIView!
     @IBOutlet private var label_healthplan : UILabel!
     @IBOutlet private var tableView_Summary : UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,19 +39,19 @@ class PayerSummaryViewController: HPViewController {
         push(controller: ConnectedPlansViewController.nibInstance())
         
     }
-
+    
 }
 
 //MARK: Private methods
 private extension PayerSummaryViewController {
     
     private func setupController() {
-                
+        
         view_summary.layer.borderColor = UIColor.orange.cgColor
         view_summary.layer.borderWidth = 1.0
         
         registerTableCell(tableView_Summary, cellClass: SummaryBenefitCell.self)
-
+        
         tableView_Summary.delegate = self
         tableView_Summary.dataSource = self
         tableView_Summary.reloadData()
@@ -79,7 +79,7 @@ extension PayerSummaryViewController : UITableViewDelegate, UITableViewDataSourc
         
         summaryCell.medicareDetail_button.addTarget(self, action: #selector(showDetailsAction), for: .touchUpInside)
         summaryCell.pharmacyDetail_button.addTarget(self, action: #selector(showDetailsAction), for: .touchUpInside)
-
+        
         return summaryCell
     }
 }

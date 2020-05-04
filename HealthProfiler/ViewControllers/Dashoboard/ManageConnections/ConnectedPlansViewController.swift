@@ -12,7 +12,9 @@ class ConnectedPlansViewController: HPViewController {
     
     @IBOutlet private var tableView_Plans : UITableView!
     @IBOutlet private var providerHeader_view : UIView!
+    @IBOutlet private var insuranceHeader_view : UIView!
     @IBOutlet private var providerTerms_label : UILabel!
+    @IBOutlet private var categories_segmentControl : UISegmentedControl!
     @IBOutlet private var add_button : UIButton!
     
     private var dataSource_InsurancePlans = [HPConnectedInsuranceItem]()
@@ -26,13 +28,29 @@ class ConnectedPlansViewController: HPViewController {
         setupController()
     }
     
+    @IBAction func changeCategories_segmentControl(_ sender : UISegmentedControl){
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            isFromProvider = false
+        case 1:
+            isFromProvider = true
+            
+        default:
+            break
+        }
+        
+        setupController()
+        
+    }
+    
 }
 
 //MARK: Private methods
 private extension ConnectedPlansViewController {
     
     private func setupController() {
-                
+        
         dataSource_InsurancePlans.removeAll()
         dataSource_InsurancePlans = [HPConnectedInsuranceItem(.medicare), HPConnectedInsuranceItem(.blueButton)]
         
@@ -42,11 +60,16 @@ private extension ConnectedPlansViewController {
         registerTableCell(tableView_Plans, cellClass: InsurancePlanCell.self)
         registerTableCell(tableView_Plans, cellClass: ProviderConnectedCell.self)
         
+        tableView_Plans.tableHeaderView = insuranceHeader_view
+        providerTerms_label.isHidden = true
+        add_button.setTitle("Add Plan", for: .normal)
+        
         if isFromProvider == true {
             
             tableView_Plans.tableHeaderView = providerHeader_view
             providerTerms_label.isHidden = false
             add_button.setTitle("Add Provider", for: .normal)
+            categories_segmentControl.selectedSegmentIndex = 1
         }
         
         tableView_Plans.delegate = self
@@ -72,22 +95,23 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let planCell = tableView.dequeueReusableCell(withIdentifier: InsurancePlanCell.reuseableId(), for: indexPath) as! InsurancePlanCell
-        //        let providerCell = tableView.dequeueReusableCell(withIdentifier: ProviderConnectedCell.reuseIdentifier(), for: indexPath) as! ProviderConnectedCell
-        //
-        //        if isFromProvider == true {
-        //
-        //            providerCell.configureProviderCell(item: dataSource_provider[indexPath.row], index: indexPath.row)
-        //
-        //            return providerCell
-        //
-        //        }else {
-        planCell.configureInsuranceCell(item: dataSource_InsurancePlans[indexPath.row], index: indexPath.row)
         
-        return planCell
-        
-        
-        //        }
+        if isFromProvider == true {
+            let providerCell = tableView.dequeueReusableCell(withIdentifier: ProviderConnectedCell.reuseableId(), for: indexPath) as! ProviderConnectedCell
+            
+            providerCell.configureProviderCell(item: dataSource_provider[indexPath.row], index: indexPath.row)
+            
+            return providerCell
+            
+        }else {
+            let planCell = tableView.dequeueReusableCell(withIdentifier: InsurancePlanCell.reuseableId(), for: indexPath) as! InsurancePlanCell
+            
+            planCell.configureInsuranceCell(item: dataSource_InsurancePlans[indexPath.row], index: indexPath.row)
+            
+            return planCell
+            
+            
+        }
         
     }
 }

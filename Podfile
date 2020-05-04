@@ -8,4 +8,6 @@ target 'HealthProfiler' do
 
     pod 'DrawerMenu'
 
+    pod 'MultiSlider'
+
 end
