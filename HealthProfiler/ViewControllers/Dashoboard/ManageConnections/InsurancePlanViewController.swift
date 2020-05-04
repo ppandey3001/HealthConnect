@@ -40,11 +40,10 @@ private extension InsurancePlanViewController {
         dataSource_insurance.removeAll()
         dataSource_insurance = [HPHealthInsuranceItem(.choosePayer), HPHealthInsuranceItem(.planID), HPHealthInsuranceItem(.memberID)]
         
-        registerTableCellAndNib(tableView_insurance, tableCellClass: LoginViewCell.self, cellID: LoginViewCell.reuseIdentifier(), nibName: "LoginViewCell")
+        registerTableCell(tableView_insurance, cellClass: LoginViewCell.self)
         
         tableView_insurance.delegate = self
         tableView_insurance.dataSource = self
-        
         tableView_insurance.reloadData()
     }
     
@@ -91,7 +90,7 @@ extension InsurancePlanViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let insuranceCell = tableView.dequeueReusableCell(withIdentifier: LoginViewCell.reuseIdentifier(), for: indexPath) as! LoginViewCell
+        let insuranceCell = tableView.dequeueReusableCell(withIdentifier: LoginViewCell.reuseableId(), for: indexPath) as! LoginViewCell
         insuranceCell.configureHealthInsuranceCell(item: dataSource_insurance[indexPath.row], index: indexPath.row)
         insuranceCell.textField_input.delegate = self
         insuranceCell.button_showSecureEntry.addTarget(self, action: #selector(openPickerAction), for: .touchUpInside)

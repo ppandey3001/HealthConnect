@@ -28,7 +28,7 @@ private extension MenuViewController {
         view.backgroundColor = UIColor.colorFromRGB(105.0, 105.0, 105.0)
         
         //register all table cells to be used
-        registerTableCellAndNib(tableView_menu, tableCellClass: MenuTableCell.self, cellID: MenuTableCell.reuseIdentifier(), nibName: "MenuTableCell")
+        registerTableCell(tableView_menu, cellClass: MenuTableCell.self)
         
         tableView_menu.delegate = self
         tableView_menu.dataSource = self
@@ -139,7 +139,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let menuTableCell = tableView.dequeueReusableCell(withIdentifier: MenuTableCell.reuseIdentifier(), for: indexPath) as! MenuTableCell
+        let menuTableCell = tableView.dequeueReusableCell(withIdentifier: MenuTableCell.reuseableId(), for: indexPath) as! MenuTableCell
         menuTableCell.configureMenuCell(item: dataSource_menu[indexPath.row])
         return menuTableCell
     }

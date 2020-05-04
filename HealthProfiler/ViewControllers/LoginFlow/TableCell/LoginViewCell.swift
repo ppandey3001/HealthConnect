@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewCell: UITableViewCell {
+class LoginViewCell: HPTableViewCell {
     
     @IBOutlet var view_container : UIView!
     @IBOutlet var imageView_icon : UIImageView!

@@ -8,18 +8,13 @@
 
 import UIKit
 
-class InsurancePlanCell: UITableViewCell {
+class InsurancePlanCell: HPTableViewCell {
     
     @IBOutlet var title_label : UILabel!
     @IBOutlet var icon_imageView : UIImageView!
     @IBOutlet var activeStatus_Button : UIButton!
     @IBOutlet var refresh_Button : UIButton!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    
 }
 
 //MARK: public methods
@@ -31,7 +26,5 @@ extension InsurancePlanCell {
         let attributes = item.type.attributes()
         icon_imageView.image = UIImage(named: attributes.icon)
         title_label.text = attributes.title
-
     }
-    
 }

@@ -50,10 +50,11 @@ private extension PayerSummaryViewController {
         view_summary.layer.borderColor = UIColor.orange.cgColor
         view_summary.layer.borderWidth = 1.0
         
-        registerTableCellAndNib(tableView_Summary, tableCellClass: SummaryBenefitCell.self, cellID: SummaryBenefitCell.reuseIdentifier(), nibName: "SummaryBenefitCell")
+        registerTableCell(tableView_Summary, cellClass: SummaryBenefitCell.self)
+
         tableView_Summary.delegate = self
         tableView_Summary.dataSource = self
-
+        tableView_Summary.reloadData()
     }
 }
 
@@ -74,7 +75,7 @@ extension PayerSummaryViewController : UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let summaryCell = tableView.dequeueReusableCell(withIdentifier: SummaryBenefitCell.reuseIdentifier(), for: indexPath) as! SummaryBenefitCell
+        let summaryCell = tableView.dequeueReusableCell(withIdentifier: SummaryBenefitCell.reuseableId(), for: indexPath) as! SummaryBenefitCell
         
         summaryCell.medicareDetail_button.addTarget(self, action: #selector(showDetailsAction), for: .touchUpInside)
         summaryCell.pharmacyDetail_button.addTarget(self, action: #selector(showDetailsAction), for: .touchUpInside)

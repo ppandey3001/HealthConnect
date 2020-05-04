@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProviderConnectedCell: UITableViewCell {
+class ProviderConnectedCell: HPTableViewCell {
     
     @IBOutlet var title_label : UILabel!
     @IBOutlet var icon_imageView : UIImageView!

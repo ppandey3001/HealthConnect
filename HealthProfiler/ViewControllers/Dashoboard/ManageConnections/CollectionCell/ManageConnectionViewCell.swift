@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ManageConnectionViewCell: UICollectionViewCell {
+class ManageConnectionViewCell: HPCollectionViewCell {
     
     @IBOutlet var icon_imageview: UIImageView!
     @IBOutlet var title_label: UILabel!

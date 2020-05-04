@@ -55,7 +55,7 @@ private extension RegistrationViewController {
         dataSource_register.removeAll()
         dataSource_register = [HPProfileItem(.name), HPProfileItem(.userName), HPProfileItem(.email), HPProfileItem(.password), HPProfileItem(.confirmPassword)]
 
-        registerTableCellAndNib(tableView_register, tableCellClass: LoginViewCell.self, cellID: LoginViewCell.reuseIdentifier(), nibName: "LoginViewCell")
+        registerTableCell(tableView_register, cellClass: LoginViewCell.self)
         
         tableView_register.delegate = self
         tableView_register.dataSource = self
@@ -107,7 +107,7 @@ extension RegistrationViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let loginCell = tableView.dequeueReusableCell(withIdentifier: LoginViewCell.reuseIdentifier(), for: indexPath) as! LoginViewCell
+        let loginCell = tableView.dequeueReusableCell(withIdentifier: LoginViewCell.reuseableId(), for: indexPath) as! LoginViewCell
         loginCell.configureRegisterCell(item: dataSource_register[indexPath.row], index: indexPath.row)
         loginCell.textField_input.delegate = self
         loginCell.button_showSecureEntry.addTarget(self, action: #selector(showPasswordAction), for: .touchUpInside)

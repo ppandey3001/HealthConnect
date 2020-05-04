@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SummaryBenefitCell: UITableViewCell {
+class SummaryBenefitCell: HPTableViewCell {
     
     @IBOutlet var visitValue_label : UILabel!
     @IBOutlet var specialistValue_label : UILabel!

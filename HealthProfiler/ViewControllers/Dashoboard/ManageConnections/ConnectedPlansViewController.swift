@@ -39,12 +39,8 @@ private extension ConnectedPlansViewController {
         dataSource_provider.removeAll()
         dataSource_provider = [HPConnectedProviderItem(.epicSystem), HPConnectedProviderItem(.cemer), HPConnectedProviderItem(.allScripts)]
         
-        registerTableCellAndNib(tableView_Plans, tableCellClass: InsurancePlanCell.self, cellID: InsurancePlanCell.reuseIdentifier(), nibName: "InsurancePlanCell")
-        registerTableCellAndNib(tableView_Plans, tableCellClass: ProviderConnectedCell.self, cellID: ProviderConnectedCell.reuseIdentifier(), nibName: "ProviderConnectedCell")
-        
-        
-        tableView_Plans.delegate = self
-        tableView_Plans.dataSource = self
+        registerTableCell(tableView_Plans, cellClass: InsurancePlanCell.self)
+        registerTableCell(tableView_Plans, cellClass: ProviderConnectedCell.self)
         
         if isFromProvider == true {
             
@@ -53,6 +49,8 @@ private extension ConnectedPlansViewController {
             add_button.setTitle("Add Provider", for: .normal)
         }
         
+        tableView_Plans.delegate = self
+        tableView_Plans.dataSource = self
         tableView_Plans.reloadData()
     }
 }
@@ -74,7 +72,7 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let planCell = tableView.dequeueReusableCell(withIdentifier: InsurancePlanCell.reuseIdentifier(), for: indexPath) as! InsurancePlanCell
+        let planCell = tableView.dequeueReusableCell(withIdentifier: InsurancePlanCell.reuseableId(), for: indexPath) as! InsurancePlanCell
         //        let providerCell = tableView.dequeueReusableCell(withIdentifier: ProviderConnectedCell.reuseIdentifier(), for: indexPath) as! ProviderConnectedCell
         //
         //        if isFromProvider == true {

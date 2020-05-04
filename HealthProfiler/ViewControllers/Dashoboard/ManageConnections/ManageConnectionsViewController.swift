@@ -32,7 +32,7 @@ private extension ManageConnectionsViewController {
         dataSource_connection.append(HPConnectionItem(.pharmacy))
         dataSource_connection.append(HPConnectionItem(.others))
 
-        registerCollectionViewCellAndNib(connection_collectionView, collectionCellClass: ManageConnectionViewCell.self, cellID: ManageConnectionViewCell.reuseIdentifier(), nibName: "ManageConnectionViewCell")
+        registerCollectionCell(connection_collectionView, cellClass: ManageConnectionViewCell.self)
         
         connection_collectionView.alwaysBounceVertical = true
         connection_collectionView.delegate = self
@@ -74,7 +74,7 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: ManageConnectionViewCell.reuseIdentifier(), for: indexPath) as! ManageConnectionViewCell
+        let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: ManageConnectionViewCell.reuseableId(), for: indexPath) as! ManageConnectionViewCell
         collectionCell.configureConnectionCell(item: dataSource_connection[indexPath.row])
         
         return collectionCell
