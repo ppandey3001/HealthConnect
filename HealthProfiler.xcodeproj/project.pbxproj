@@ -140,7 +140,7 @@
 		FF49CDB0245F132C00267787 /* InsurancePlanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InsurancePlanCell.xib; sourceTree = "<group>"; };
 		FF49CDB3245F32AA00267787 /* ProviderConnectedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderConnectedCell.swift; sourceTree = "<group>"; };
 		FF49CDB4245F32AA00267787 /* ProviderConnectedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderConnectedCell.xib; sourceTree = "<group>"; };
-		FF8ACE34244D723D00B283D8 /* HealthProfiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthProfiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF8ACE34244D723D00B283D8 /* Health Profiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Health Profiler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8ACE37244D723D00B283D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8ACE40244D723F00B283D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF8ACE43244D723F00B283D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -425,7 +425,7 @@
 		FF8ACE35244D723D00B283D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FF8ACE34244D723D00B283D8 /* HealthProfiler.app */,
+				FF8ACE34244D723D00B283D8 /* Health Profiler.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -482,7 +482,7 @@
 			);
 			name = HealthProfiler;
 			productName = HealthProfiler;
-			productReference = FF8ACE34244D723D00B283D8 /* HealthProfiler.app */;
+			productReference = FF8ACE34244D723D00B283D8 /* Health Profiler.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -785,7 +785,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.optum.com.HealthProfiler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Health Profiler";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -804,7 +804,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.optum.com.HealthProfiler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Health Profiler";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
