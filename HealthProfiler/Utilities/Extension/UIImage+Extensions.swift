@@ -17,16 +17,20 @@ extension UIImage {
     }
     
     //bottom tab bar icon
-    class func tabIcon_Activity() -> UIImage? {
-        return UIImage.templateImage(name: "activity_icon")
+    class func tabIcon_home() -> UIImage? {
+        return UIImage.templateImage(name: "HomeIcon")
     }
     
-    class func tabIcon_Feed() -> UIImage? {
-        return UIImage.templateImage(name: "feed")
+    class func tabIcon_healthProfile() -> UIImage? {
+        return UIImage.templateImage(name: "HealthProfileIcon")
     }
     
-    class func tabIcon_Home() -> UIImage? {
-        return UIImage.templateImage(name: "home")
+    class func tabIcon_coverage() -> UIImage? {
+        return UIImage.templateImage(name: "CoverageIcon")
+    }
+    
+    class func tabIcon_manageConnections() -> UIImage? {
+        return UIImage.templateImage(name: "ManageConnections")
     }
 }
 
