@@ -46,9 +46,7 @@ class PayerSummaryViewController: HPViewController {
 private extension PayerSummaryViewController {
     
     private func setupController() {
-        
-        container()?.showBrandingBar(true)
-        
+                
         view_summary.layer.borderColor = UIColor.orange.cgColor
         view_summary.layer.borderWidth = 1.0
         

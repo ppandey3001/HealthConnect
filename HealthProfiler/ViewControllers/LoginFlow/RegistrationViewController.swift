@@ -50,8 +50,6 @@ private extension RegistrationViewController {
     
     private func setupController() {
         
-        container()?.showBrandingBar(true)
-        
         addTapGesture(label: terms_label)
         
         dataSource_register.removeAll()
@@ -74,9 +72,6 @@ private extension RegistrationViewController {
     private func navigateToDashboard() {
         
         //clear and reset input boxes and check boxes
-        
-        //show custom branding bar
-        container()?.showBrandingBar(true)
         
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)

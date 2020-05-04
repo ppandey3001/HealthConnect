@@ -21,6 +21,6 @@ class PrivacyPolicyViewController: HPViewController {
 private extension PrivacyPolicyViewController {
     
     private func setupController() {
-        container()?.showBrandingBar(true)
+
     }
 }

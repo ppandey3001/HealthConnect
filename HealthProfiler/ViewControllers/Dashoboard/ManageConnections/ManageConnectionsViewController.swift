@@ -23,9 +23,7 @@ class ManageConnectionsViewController: HPViewController {
 private extension ManageConnectionsViewController {
     
     private func setupController() {
-        
-        container()?.showBrandingBar(true)
-                
+                        
         dataSource_connection.removeAll()
         dataSource_connection.append(HPConnectionItem(.healthInsurance))
         dataSource_connection.append(HPConnectionItem(.providers))
@@ -84,17 +82,20 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        container()?.showBrandingBar(true)
-        switch indexPath.item {
-        case 0:
-            push(controller:InsurancePlanViewController.nibInstance())
-            
-        case 1:
-            push(controller:ConnectedPlansViewController.nibInstance())
-
-        default:
-            break
-        }
+        collectionView.deselectItem(at: indexPath, animated: true)
         
+        let connectionItem = dataSource_connection[indexPath.row]
+        switch connectionItem.type {
+            
+        case .healthInsurance:
+            push(controller: InsurancePlanViewController.nibInstance())
+            
+        case .providers:
+            let connectedPlans = ConnectedPlansViewController.nibInstance()
+            connectedPlans.isFromProvider = true
+            push(controller: connectedPlans)
+
+        default: break
+        }
     }
 }

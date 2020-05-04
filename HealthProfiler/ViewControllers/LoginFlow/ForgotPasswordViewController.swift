@@ -36,7 +36,7 @@ class ForgotPasswordViewController: HPViewController {
 private extension ForgotPasswordViewController {
     
     private func setupController() {
-        container()?.showBrandingBar(true)
+
     }
 }
 

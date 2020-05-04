@@ -21,10 +21,9 @@ class ConnectedPlansViewController: HPViewController {
     var isFromProvider : Bool?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        
         setupController()
-        
     }
     
 }
@@ -33,15 +32,12 @@ class ConnectedPlansViewController: HPViewController {
 private extension ConnectedPlansViewController {
     
     private func setupController() {
-        
-        container()?.showBrandingBar(true)
-        
+                
         dataSource_InsurancePlans.removeAll()
         dataSource_InsurancePlans = [HPConnectedInsuranceItem(.medicare), HPConnectedInsuranceItem(.blueButton)]
         
         dataSource_provider.removeAll()
         dataSource_provider = [HPConnectedProviderItem(.epicSystem), HPConnectedProviderItem(.cemer), HPConnectedProviderItem(.allScripts)]
-        
         
         registerTableCellAndNib(tableView_Plans, tableCellClass: InsurancePlanCell.self, cellID: InsurancePlanCell.reuseIdentifier(), nibName: "InsurancePlanCell")
         registerTableCellAndNib(tableView_Plans, tableCellClass: ProviderConnectedCell.self, cellID: ProviderConnectedCell.reuseIdentifier(), nibName: "ProviderConnectedCell")
@@ -55,11 +51,9 @@ private extension ConnectedPlansViewController {
             tableView_Plans.tableHeaderView = providerHeader_view
             providerTerms_label.isHidden = false
             add_button.setTitle("Add Provider", for: .normal)
-            
         }
         
         tableView_Plans.reloadData()
-        
     }
 }
 

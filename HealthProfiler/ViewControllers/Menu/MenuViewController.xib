@@ -126,7 +126,7 @@
                         </constraints>
                     </view>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSV-zz-IuD">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSV-zz-IuD">
                     <rect key="frame" x="364" y="54" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="oON-CD-2pO"/>

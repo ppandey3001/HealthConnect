@@ -27,10 +27,7 @@ class InsurancePlanViewController: HPViewController {
     
     @IBAction func connectButtonAction(_ sender: UIButton){
         
-        container()?.showBrandingBar(true)
-        
         push(controller: PayerSummaryViewController.nibInstance())
-        
     }
     
 }
