@@ -22,6 +22,10 @@ class InsurancePlanViewController: HPViewController {
     }
     
     @IBAction func openPickerAction(_ sender: UIButton){
+        HPPicker.sharedInstance.selectOption(title: "Choose your payer", dataArray: ["Aetna","Humana","Anthem","Cigna","UnitedHealthcare"], selectedIndex: 0) { (selectedText, index) in
+            print(selectedText)
+//            tableView_insurance.reloadData()
+        }
         
     }
     

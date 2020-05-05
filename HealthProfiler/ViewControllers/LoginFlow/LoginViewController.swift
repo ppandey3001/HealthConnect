@@ -71,6 +71,8 @@ private extension LoginViewController {
         
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)
+        tabBarController?.selectedIndex = HPTabType.manageConnections.tabIndex
+
     }
     
     @IBAction private func tapLabel(_ sender: UITapGestureRecognizer) {

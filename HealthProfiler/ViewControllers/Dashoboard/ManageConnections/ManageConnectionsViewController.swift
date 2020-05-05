@@ -9,6 +9,9 @@ class ManageConnectionsViewController: HPViewController {
     
     @IBOutlet private var connection_collectionView: UICollectionView!
     
+    @IBOutlet var view_welcomeMessageContainer: UIView!
+    @IBOutlet var label_welcomeMessageTitle: UILabel!
+    
     private var dataSource_connection = [HPConnectionItem]()
     private let margin : CGFloat = (UIScreen.main.bounds.width - 300.0) / 3.0
 
@@ -16,6 +19,12 @@ class ManageConnectionsViewController: HPViewController {
         
         super.viewDidLoad()
         setupController()
+    }
+    
+    @IBAction func buttonAction_getStarted(_ sender: UIButton) {
+        
+        view_welcomeMessageContainer.isHidden = true
+        
     }
 }
 
@@ -38,6 +47,9 @@ private extension ManageConnectionsViewController {
         connection_collectionView.delegate = self
         connection_collectionView.dataSource = self
         connection_collectionView.reloadData()
+        
+        label_welcomeMessageTitle.text = "Welcome John Doe!"
+
     }
 }
 
@@ -68,7 +80,7 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 150, height: 150)
+        return CGSize(width: 150, height: 140)
     }
     
     
