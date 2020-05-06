@@ -62,6 +62,7 @@ private extension RegistrationViewController {
         
         tableView_register.reloadData()
     }
+    
     private func addTapGesture(label: UILabel) {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapLabel))
@@ -76,7 +77,6 @@ private extension RegistrationViewController {
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)
         tabBarController?.selectedIndex = HPTabType.manageConnections.tabIndex
-
     }
     
     @IBAction private func tapLabel(_ sender: UITapGestureRecognizer) {
@@ -90,7 +90,9 @@ private extension RegistrationViewController {
             print("Tapped terms")
         } else if sender.didTapAttributedTextInLabel(label: terms_label, inRange: privacyRange) {
             
-            push(controller: PrivacyPolicyViewController.nibInstance())
+            let webContentController = WebContentViewController.nibInstance()
+            webContentController.type = .privacyPolicy
+            present(controller: UINavigationController(rootViewController: webContentController))
         }
     }
 }
@@ -137,21 +139,6 @@ extension RegistrationViewController : UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-//        switch textField.tag {
-//        case 1:
-//            dataSource_register.name = textField.text
-//        case 2:
-//            dataSource_register.email = textField.text
-//        case 3:
-//            dataSource_register.password = textField.text
-//        case 4:
-//            dataSource_register.confirmPassword = textField.text
-//        case 5:
-//            dataSource_register.verificationCode = textField.text
-//            
-//        default: break
-//            
-//        }
     }
 }
 

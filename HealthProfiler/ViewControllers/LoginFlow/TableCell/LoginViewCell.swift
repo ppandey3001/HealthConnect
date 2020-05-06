@@ -23,7 +23,6 @@ class LoginViewCell: HPTableViewCell {
         textField_input.tag = index + 1
         
         textField_input.text = item.value
-        button_showSecureEntry.setImage(UIImage(named: ""), for: .normal)
         let attributes = item.type.attributes()
         textField_input.isSecureTextEntry = attributes.isSecure
         textField_input.placeholder = attributes.placeholder
@@ -64,7 +63,12 @@ extension LoginViewCell {
         let attributes = item.type.attributes()
         textField_input.isSecureTextEntry = attributes.isSecure
         textField_input.placeholder = attributes.placeholder
-        imageView_icon.image = UIImage(named: attributes.icon)
+        if let iconString = attributes.icon,
+            let icon = UIImage(named: iconString) {
+            imageView_icon.image = icon
+        } else {
+            imageView_icon.image = nil
+        }
         view_accessory.isHidden = index == 0 ? false : true
         imageView_showpassowrd.isHidden = true
         view_container.layer.borderColor = UIColor.lightGray.cgColor

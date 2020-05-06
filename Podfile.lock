@@ -11,7 +11,7 @@ DEPENDENCIES:
   - MultiSlider
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AvailableHapticFeedback
     - DrawerMenu
     - MultiSlider
@@ -25,4 +25,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: df709babd4fd59d555e18d60455dad3ea4997146
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.1

@@ -113,6 +113,18 @@ extension UIViewController {
         present(alert, animated: true) {}
     }
     
+    func showRetryAlert(title: String?, message: String?, retryAction:@escaping() -> Void, cancelAction:@escaping() -> Void) {
+        
+        let alert = getAlertController(style: .alert, title: title, messege: message, options: ["Retry", "Cancel"], cancelTitle: nil) { (title) in
+            if (title == "Retry") {
+                DispatchQueue.main.async { retryAction() }
+            }
+            else {
+                DispatchQueue.main.async { cancelAction() }
+            }
+        }
+        present(alert, animated: true) {}
+    }
 }
 
 //navigationitem
