@@ -72,7 +72,6 @@ private extension LoginViewController {
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)
         tabBarController?.selectedIndex = HPTabType.manageConnections.tabIndex
-
     }
     
     @IBAction private func tapLabel(_ sender: UITapGestureRecognizer) {
@@ -86,7 +85,9 @@ private extension LoginViewController {
             print("Tapped terms")
         } else if sender.didTapAttributedTextInLabel(label: termsLabel, inRange: privacyRange) {
             
-            push(controller: PrivacyPolicyViewController.nibInstance())
+            let webContentController = WebContentViewController.nibInstance()
+            webContentController.type = .privacyPolicy
+            present(controller: UINavigationController(rootViewController: webContentController))
         }
     }
 }

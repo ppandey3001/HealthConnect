@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InsurancePlanViewController" customModule="HealthProfiler" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InsurancePlanViewController" customModule="Health_Profiler" customModuleProvider="target">
             <connections>
                 <outlet property="tableView_insurance" destination="EPD-Ic-rAt" id="GQ3-RP-pnv"/>
+                <outlet property="terms_label" destination="qkE-SP-zIw" id="jGR-Ej-ahn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,11 +41,11 @@
                     <rect key="frame" x="0.0" y="105" width="414" height="715"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <view key="tableFooterView" contentMode="scaleToFill" id="zoq-iq-lyX">
-                        <rect key="frame" x="0.0" y="828" width="414" height="150"/>
+                        <rect key="frame" x="0.0" y="828" width="414" height="100"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZV-vN-JQZ">
-                                <rect key="frame" x="29" y="32" width="355" height="50"/>
+                                <rect key="frame" x="29" y="25" width="355" height="50"/>
                                 <color key="backgroundColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Axd-ci-XAC"/>
@@ -65,8 +66,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="vZV-vN-JQZ" firstAttribute="centerY" secondItem="zoq-iq-lyX" secondAttribute="centerY" id="Gz8-fO-H1Q"/>
                             <constraint firstAttribute="trailing" secondItem="vZV-vN-JQZ" secondAttribute="trailing" constant="30" id="N6L-Ol-qY1"/>
-                            <constraint firstItem="vZV-vN-JQZ" firstAttribute="top" secondItem="zoq-iq-lyX" secondAttribute="top" constant="32" id="VtD-bV-VJS"/>
                             <constraint firstItem="vZV-vN-JQZ" firstAttribute="leading" secondItem="zoq-iq-lyX" secondAttribute="leading" constant="29" id="rB9-K2-iXP"/>
                         </constraints>
                     </view>

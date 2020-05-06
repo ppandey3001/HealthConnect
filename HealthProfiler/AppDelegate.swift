@@ -34,16 +34,3 @@ extension AppDelegate {
         window?.makeKeyAndVisible()
     }
 }
-
-
-
-
-
-/*
- ref docs:
- 
- singleton class:
- https://cocoacasts.com/what-is-a-singleton-and-how-to-create-one-in-swift
- 
- 
- */

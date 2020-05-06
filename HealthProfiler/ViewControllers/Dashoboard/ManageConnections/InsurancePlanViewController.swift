@@ -44,6 +44,7 @@ private extension InsurancePlanViewController {
         dataSource_insurance.removeAll()
         dataSource_insurance = [HPHealthInsuranceItem(.choosePayer), HPHealthInsuranceItem(.planID), HPHealthInsuranceItem(.memberID)]
         
+        addTapGesture(label: terms_label)
         registerTableCell(tableView_insurance, cellClass: LoginViewCell.self)
         
         tableView_insurance.delegate = self
@@ -69,7 +70,9 @@ private extension InsurancePlanViewController {
             print("Tapped terms")
         } else if sender.didTapAttributedTextInLabel(label: terms_label, inRange: privacyRange) {
             
-            push(controller: PrivacyPolicyViewController.nibInstance())
+            let webContentController = WebContentViewController.nibInstance()
+            webContentController.type = .privacyPolicy
+            present(controller: UINavigationController(rootViewController: webContentController))
         }
     }
     

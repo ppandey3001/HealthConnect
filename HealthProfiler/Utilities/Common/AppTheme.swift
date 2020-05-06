@@ -38,6 +38,6 @@ class AppTheme {
         /// UITabBarItem
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for:.normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for:.selected)
-        UITabBarItem.appearance().titlePositionAdjustment = UIOffset.init(horizontal: 0.0, vertical: 1.0)
+//        UITabBarItem.appearance().titlePositionAdjustment = UIOffset.init(horizontal: 0.0, vertical: 1.0)
     }
 }

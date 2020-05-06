@@ -6,6 +6,14 @@
 import Foundation
 import UIKit
 
+
+enum HPWebContentType {
+    
+    case privacyPolicy
+    case termsCondition
+    case content(html: String)
+}
+
 enum HPProfileFieldType {
     
     case userName
@@ -41,14 +49,14 @@ enum HPHealthInsuranceType {
     case planID
     case memberID
     
-    func attributes() -> (placeholder: String, isSecure: Bool, icon: String) {
+    func attributes() -> (placeholder: String, isSecure: Bool, icon: String?) {
         
         switch self {
         case .choosePayer:
-            return ("Choose your payer", false, "")
+            return ("Choose your payer", false, nil)
             
         case .planID:
-            return ("Health plan ID", true, "")
+            return ("Health plan ID", true, nil)
             
         case .memberID:
             return ("Member ID", true, "name.png")
