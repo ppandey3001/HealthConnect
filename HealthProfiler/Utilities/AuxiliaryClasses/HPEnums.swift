@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum HPProfileFieldType {
     
@@ -95,6 +96,123 @@ enum HPCoverageClaimType {
         }
     }
     
+}
+
+enum HPGapsInCareType {
+    
+    case appointment
+    case fluShot
+    case diabeties
+    case amaryl
+    case duetact
+    
+    func attributes() -> (name : String, bgColor: UIColor) {
+        
+        switch self {
+        case .appointment:
+            return("Missed appointment", UIColor.colorFromRGB(229.0, 244.0, 214.0))
+        case .fluShot:
+            return("Flu shot missed", UIColor.colorFromRGB(224.0, 224.0, 224.0))
+        case .diabeties:
+            return("Diabetes - Eye Exam", UIColor.colorFromRGB(250.0, 218.0, 198.0))
+        case .amaryl:
+            return("Missed Rx Refill - Amaryl", UIColor.colorFromRGB(250.0, 232.0, 198.0))
+        case .duetact:
+            return("Missed Rx Refill - Duetact", UIColor.colorFromRGB(250.0, 232.0, 198.0))
+            
+        }
+    }
+}
+
+enum HPAllergiesType {
+    
+    case cephalosporin
+    case sulfonamides
+    case cetaphil
+    case hydrochlorophate
+    case parabbin
+    
+    func attributes() -> (name : String, bgColor: UIColor) {
+        
+        switch self {
+        case .cephalosporin:
+            return("Cephalosporin", UIColor.colorFromRGB(236.0, 236.0, 236.0))
+        case .sulfonamides:
+            return("Sulfonamides", UIColor.colorFromRGB(236.0, 236.0, 236.0))
+        case .cetaphil:
+            return("Cetaphil", UIColor.colorFromRGB(236.0, 236.0, 236.0))
+        case .hydrochlorophate:
+            return("Hydrochlorophate", UIColor.colorFromRGB(236.0, 236.0, 236.0))
+        case .parabbin:
+            return("Parabbin", UIColor.colorFromRGB(236.0, 236.0, 236.0))
+            
+        }
+    }
+}
+
+enum HPConditionType {
+    
+    case diabetes
+    case backache
+    case survical
+    case bloodpressure
+    
+    func attributes() -> (name : String, bgColor: UIColor) {
+        
+        switch self {
+        case .diabetes:
+            return("Diabetes Type-2", .clear)
+        case .backache:
+            return("Back Ache", .clear)
+        case .survical:
+            return("Servical", .clear)
+        case .bloodpressure:
+            return("Blood Pressure", .clear)
+        }
+    }
+}
+
+enum HPMedicationType {
+    
+    case amoxicillin
+    case cephalexin
+    
+    func attributes() -> (name : String, dose: String, tillDate : String) {
+        
+        switch self {
+        case .amoxicillin:
+            return("Amoxicillin 250 MG/5ML", "3 tablets every day", "until 2nd June")
+        case .cephalexin:
+            return("Cephalexin 500 MG Cap", "2 Caps every day", "until 15TH June")
+        }
+    }
+}
+
+enum HPCareTeamType {
+    
+    case william
+    case mindy
+    case veena
+    case sharon
+    case rodney
+    
+    func attributes() -> (name : String, speciality: String) {
+        
+        switch self {
+            
+        case .william:
+            return("Dr. Williams Richards", "Cardiology")
+        case .mindy:
+            return("Dr. Mindy Jones", "Gen. Surgery")
+        case .veena:
+            return("Dr. Veena Krithik", "Cardiology")
+        case .sharon:
+            return("Dr. Sharon Colbert", "Endocrinology")
+        case .rodney:
+            return("Dr. Rodney Roe", "Optometrist")
+            
+        }
+    }
 }
 
 enum HPConnectedInsuranceType {

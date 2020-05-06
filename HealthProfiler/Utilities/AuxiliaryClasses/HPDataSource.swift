@@ -84,3 +84,52 @@ class HPCoverageClaimItem: NSObject {
     }
 }
 
+class HPGapsInCareItem: NSObject {
+    
+    var type: HPGapsInCareType = .appointment
+    
+    init(_ type: HPGapsInCareType) {
+        
+        self.type = type
+    }
+}
+
+class HPAllergiesItem: NSObject {
+    
+    var type: HPAllergiesType = .cephalosporin
+    
+    init(_ type: HPAllergiesType) {
+        
+        self.type = type
+    }
+}
+
+class HPConditionItem: NSObject {
+    
+    var type: HPConditionType = .diabetes
+    
+    init(_ type: HPConditionType) {
+        
+        self.type = type
+    }
+}
+
+class HPMedicationItem: NSObject {
+    
+    var type: HPMedicationType = .amoxicillin
+    
+    init(_ type: HPMedicationType) {
+        
+        self.type = type
+    }
+}
+
+class HPCareTeamItem: NSObject {
+    
+    var type: HPCareTeamType = .william
+    
+    init(_ type: HPCareTeamType) {
+        
+        self.type = type
+    }
+}

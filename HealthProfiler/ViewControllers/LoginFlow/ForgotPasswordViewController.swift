@@ -27,7 +27,8 @@ class ForgotPasswordViewController: HPViewController {
     }
     
     @IBAction func buttonAction_send(_ sender: Any) {
-        
+        container()?.showBrandingBar(false)
+        pop()
     }
     
 }

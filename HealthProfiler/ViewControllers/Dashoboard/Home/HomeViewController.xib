@@ -8,9 +8,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="HealthProfiler" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Health_Profiler" customModuleProvider="target">
             <connections>
+                <outlet property="bmi_label" destination="OEe-cY-Wg4" id="13D-FV-x9g"/>
+                <outlet property="bp_label" destination="8qN-hx-SRa" id="UNj-4n-uKE"/>
+                <outlet property="heartRate_label" destination="srQ-8r-F82" id="Xd3-Ni-dTB"/>
                 <outlet property="multiSlider" destination="VAW-a3-1wP" id="ZJz-5L-Wyt"/>
+                <outlet property="temp_label" destination="VG9-zW-kWQ" id="Ejz-92-zcq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="385"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kR8-eP-UtY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Flu" translatesAutoresizingMaskIntoConstraints="NO" id="kR8-eP-UtY">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="139" id="EGE-hF-gSK"/>
@@ -582,15 +586,10 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="134.59821428571428"/>
         </view>
-        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ke4-t5-9bf">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-            <point key="canvasLocation" x="955" y="152"/>
-        </tableView>
     </objects>
     <resources>
         <image name="Circle_Orange" width="14" height="16"/>
+        <image name="Flu" width="710" height="204"/>
         <image name="OthersIcon" width="80" height="80"/>
     </resources>
 </document>
