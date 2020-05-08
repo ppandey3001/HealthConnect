@@ -16,9 +16,9 @@ class HPVitalsItem: NSObject {
     
     init(_ data: Dictionary<String, Any>) {
         
-        heartrate = data.valueFor(key: "heartrate")
-        bloodpressure = data.valueFor(key: "bloodpressure")
-        bodytemprature = data.valueFor(key: "bodytemprature")
+        heartrate = data.valueFor(key: "heart rate")
+        bloodpressure = data.valueFor(key: "body pressure")
+        bodytemprature = data.valueFor(key: "body temprature")
         weight = data.valueFor(key: "weight")
         bmi = data.valueFor(key: "bmi")
         height = data.valueFor(key: "height")

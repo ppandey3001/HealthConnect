@@ -4,7 +4,7 @@
 //
 
 import UIKit
-//import SwiftyJSON
+import SwiftyJSON
 
 
 class HomeViewController: HPViewController {
@@ -27,7 +27,7 @@ class HomeViewController: HPViewController {
         setupController()
         callApi()
         addDrawerButton()
-        addProfileButton
+        addProfileButton()
     }
 }
 
