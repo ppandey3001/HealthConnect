@@ -64,8 +64,9 @@ private extension TabBarCoordinator {
         rootController.tabBarItem = UITabBarItem.init(title: tabTitle,
                                                       image: tabIcon,
                                                       selectedImage: tabIcon)
-        rootController.navigationItem.title = tabTitle
+        rootController.navigationItem.title = "John Doe  | 75 Years" //tabTitle
         rootController.addDrawerButton()
+        rootController.addProfileButton()
         return UINavigationController(rootViewController: rootController)
     }
 }

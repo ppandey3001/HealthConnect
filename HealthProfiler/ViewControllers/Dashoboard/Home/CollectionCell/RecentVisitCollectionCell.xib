@@ -83,7 +83,7 @@
             <size key="customSize" width="129" height="62"/>
             <connections>
                 <outlet property="date_label" destination="6SA-To-5wx" id="Mnn-9P-51W"/>
-                <outlet property="line_label" destination="FuL-5o-ren" id="ZWk-Cm-PQ2"/>
+                <outlet property="line_label" destination="FuL-5o-ren" id="wAU-XN-YRR"/>
                 <outlet property="practionerName_label" destination="gT4-VU-PQj" id="aoK-za-upm"/>
             </connections>
             <point key="canvasLocation" x="194.20289855072465" y="99.776785714285708"/>

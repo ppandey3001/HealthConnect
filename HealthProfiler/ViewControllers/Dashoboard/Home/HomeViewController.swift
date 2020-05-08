@@ -30,6 +30,7 @@ class HomeViewController: HPViewController {
         setupController()
         callApi()
         addDrawerButton()
+        addProfileButton()
     }
 }
 

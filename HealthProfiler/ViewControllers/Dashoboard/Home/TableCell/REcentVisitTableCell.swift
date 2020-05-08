@@ -38,6 +38,7 @@ extension REcentVisitTableCell : UICollectionViewDataSource, UICollectionViewDel
         
         let visitCell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentVisitCollectionCell.reuseableId(), for: indexPath) as! RecentVisitCollectionCell
         
+        visitCell.line_label.isHidden = indexPath.row == dataSource_recentVisit.count - 1 ? true : false
         visitCell.configureRecentVisitCell(item: dataSource_recentVisit[indexPath.row])
         
         return visitCell
