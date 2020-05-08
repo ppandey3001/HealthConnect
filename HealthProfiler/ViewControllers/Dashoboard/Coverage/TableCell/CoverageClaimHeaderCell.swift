@@ -10,9 +10,5 @@ import UIKit
 
 class CoverageClaimHeaderCell: HPTableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
 }

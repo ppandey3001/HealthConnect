@@ -15,14 +15,10 @@ class RecentCliamsListCell: HPTableViewCell {
     @IBOutlet var billAmtValue_label: UILabel!
     @IBOutlet var yourShareValue_label: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    
 }
 
 extension RecentCliamsListCell {
+    
     func configureRecentClaimCell (item: HPCoverageClaimItem, index: Int) {
         
         let attributes = item.type.attributes()
@@ -30,6 +26,5 @@ extension RecentCliamsListCell {
         dateValue_label.text = attributes.date
         billAmtValue_label.text = attributes.billAmt
         yourShareValue_label.text = attributes.share
-
     }
 }

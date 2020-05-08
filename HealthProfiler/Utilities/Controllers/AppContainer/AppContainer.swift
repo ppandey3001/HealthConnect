@@ -8,13 +8,16 @@ import UIKit
 public extension UIViewController {
     
     func container() -> AppContainer? {
+        
         var viewController: UIViewController? = self
         while viewController != nil {
+            
             if viewController is AppContainer {
                 return viewController as? AppContainer
             }
             viewController = viewController?.parent
         }
+        
         return nil
     }
 }
@@ -103,6 +106,5 @@ extension AppContainer {
         brandingHeaderBarView.isHidden = !show
         view.layoutSubviews()
     }
-    
 }
 

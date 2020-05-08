@@ -33,6 +33,7 @@ class ConnectedPlansViewController: HPViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             isFromProvider = false
+            
         case 1:
             isFromProvider = true
             
@@ -41,9 +42,7 @@ class ConnectedPlansViewController: HPViewController {
         }
         
         setupController()
-        
     }
-    
 }
 
 //MARK: Private methods
@@ -95,23 +94,19 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         if isFromProvider == true {
-            let providerCell = tableView.dequeueReusableCell(withIdentifier: ProviderConnectedCell.reuseableId(), for: indexPath) as! ProviderConnectedCell
             
+            let providerCell = tableView.dequeueReusableCell(withIdentifier: ProviderConnectedCell.reuseableId(), for: indexPath) as! ProviderConnectedCell
             providerCell.configureProviderCell(item: dataSource_provider[indexPath.row], index: indexPath.row)
             
             return providerCell
             
-        }else {
+        } else {
             let planCell = tableView.dequeueReusableCell(withIdentifier: InsurancePlanCell.reuseableId(), for: indexPath) as! InsurancePlanCell
             
             planCell.configureInsuranceCell(item: dataSource_InsurancePlans[indexPath.row], index: indexPath.row)
             
             return planCell
-            
-            
         }
-        
     }
 }

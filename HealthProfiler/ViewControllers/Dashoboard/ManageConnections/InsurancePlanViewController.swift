@@ -16,17 +16,17 @@ class InsurancePlanViewController: HPViewController {
     private var dataSource_insurance = [HPHealthInsuranceItem]()
     
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
         setupController()
     }
     
-    @IBAction func openPickerAction(_ sender: UIButton){
+    @IBAction func openPickerAction(_ sender: UIButton) {
+        
         HPPicker.sharedInstance.selectOption(title: "Choose your payer", dataArray: ["Aetna","Humana","Anthem","Cigna","UnitedHealthcare"], selectedIndex: 0) { (selectedText, index) in
             print(selectedText)
-//            tableView_insurance.reloadData()
+            //            tableView_insurance.reloadData()
         }
-        
     }
     
     @IBAction func connectButtonAction(_ sender: UIButton){
@@ -40,7 +40,7 @@ class InsurancePlanViewController: HPViewController {
 private extension InsurancePlanViewController {
     
     private func setupController() {
-                
+        
         dataSource_insurance.removeAll()
         dataSource_insurance = [HPHealthInsuranceItem(.choosePayer), HPHealthInsuranceItem(.planID), HPHealthInsuranceItem(.memberID)]
         

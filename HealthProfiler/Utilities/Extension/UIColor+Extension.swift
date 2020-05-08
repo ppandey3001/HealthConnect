@@ -67,11 +67,11 @@ extension UIColor {
 extension UIColor {
     
     func image(w: CGFloat = 1.0, h: CGFloat = 1.0) -> UIImage {
+        
         let size = CGSize(width: w, height: h)
         return UIGraphicsImageRenderer(size: size).image { rendererContext in
             self.setFill()
             rendererContext.fill(CGRect(origin: .zero, size: size))
         }
     }
-
 }

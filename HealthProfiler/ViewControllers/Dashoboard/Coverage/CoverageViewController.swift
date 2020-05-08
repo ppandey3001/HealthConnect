@@ -11,13 +11,13 @@ class CoverageViewController: HPViewController {
     
     private var dataSource_coverage = [HPCoverageClaimItem]()
     
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupController()
     }
 }
+
 
 //MARK: Private methods
 private extension CoverageViewController {
@@ -34,7 +34,6 @@ private extension CoverageViewController {
         coverage_tableView.delegate = self
         coverage_tableView.dataSource = self
         coverage_tableView.reloadData()
-        
     }
 }
 
@@ -43,6 +42,7 @@ private extension CoverageViewController {
 extension CoverageViewController {
     
 }
+
 
 extension CoverageViewController : UITableViewDelegate, UITableViewDataSource {
     
@@ -55,17 +55,21 @@ extension CoverageViewController : UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             return 170
+            
         case 1:
             return 90
+            
         case 2:
             return 55
-        default:
-            break
+            
+        default: break
         }
+        
         return 55
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let claimListCell = tableView.dequeueReusableCell(withIdentifier: RecentCliamsListCell.reuseableId()) as! RecentCliamsListCell
         
         switch indexPath.row {
@@ -82,8 +86,7 @@ extension CoverageViewController : UITableViewDelegate, UITableViewDataSource {
             claimListCell.configureRecentClaimCell(item: dataSource_coverage[indexPath.row - 2], index: indexPath.row - 2 )
             return claimListCell
             
-        default:
-            break
+        default: break
         }
         
         return claimListCell

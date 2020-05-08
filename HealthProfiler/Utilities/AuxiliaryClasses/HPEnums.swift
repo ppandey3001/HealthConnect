@@ -60,7 +60,6 @@ enum HPHealthInsuranceType {
             
         case .memberID:
             return ("Member ID", true, "name.png")
-            
         }
     }
 }
@@ -82,7 +81,6 @@ enum HPConnectedProviderType {
             
         case .allScripts:
             return ("Powered by Allscripts", "alina_health")
-            
         }
     }
 }
@@ -100,7 +98,6 @@ enum HPCoverageClaimType {
             
         case .drSmith:
             return ("Dr. Smith", "Mar 4", "$xx", "$xx")
-            
         }
     }
     
@@ -119,15 +116,18 @@ enum HPGapsInCareType {
         switch self {
         case .appointment:
             return("Missed appointment", UIColor.colorFromRGB(229.0, 244.0, 214.0))
+            
         case .fluShot:
             return("Flu shot missed", UIColor.colorFromRGB(224.0, 224.0, 224.0))
+            
         case .diabeties:
             return("Diabetes - Eye Exam", UIColor.colorFromRGB(250.0, 218.0, 198.0))
+            
         case .amaryl:
             return("Missed Rx Refill - Amaryl", UIColor.colorFromRGB(250.0, 232.0, 198.0))
+            
         case .duetact:
             return("Missed Rx Refill - Duetact", UIColor.colorFromRGB(250.0, 232.0, 198.0))
-            
         }
     }
 }
@@ -145,15 +145,18 @@ enum HPAllergiesType {
         switch self {
         case .cephalosporin:
             return("Cephalosporin", UIColor.colorFromRGB(236.0, 236.0, 236.0))
+            
         case .sulfonamides:
             return("Sulfonamides", UIColor.colorFromRGB(236.0, 236.0, 236.0))
+            
         case .cetaphil:
             return("Cetaphil", UIColor.colorFromRGB(236.0, 236.0, 236.0))
+            
         case .hydrochlorophate:
             return("Hydrochlorophate", UIColor.colorFromRGB(236.0, 236.0, 236.0))
+            
         case .parabbin:
             return("Parabbin", UIColor.colorFromRGB(236.0, 236.0, 236.0))
-            
         }
     }
 }
@@ -170,10 +173,13 @@ enum HPConditionType {
         switch self {
         case .diabetes:
             return("Diabetes Type-2", .clear)
+            
         case .backache:
             return("Back Ache", .clear)
+            
         case .survical:
             return("Servical", .clear)
+            
         case .bloodpressure:
             return("Blood Pressure", .clear)
         }
@@ -190,6 +196,7 @@ enum HPMedicationType {
         switch self {
         case .amoxicillin:
             return("Amoxicillin 250 MG/5ML", "3 tablets every day", "until 2nd June")
+            
         case .cephalexin:
             return("Cephalexin 500 MG Cap", "2 Caps every day", "until 15TH June")
         }
@@ -210,20 +217,24 @@ enum HPCareTeamType {
             
         case .william:
             return("Dr. Williams Richards", "Cardiology")
+            
         case .mindy:
             return("Dr. Mindy Jones", "Gen. Surgery")
+            
         case .veena:
             return("Dr. Veena Krithik", "Cardiology")
+            
         case .sharon:
             return("Dr. Sharon Colbert", "Endocrinology")
+            
         case .rodney:
             return("Dr. Rodney Roe", "Optometrist")
-            
         }
     }
 }
 
 enum HPConnectedInsuranceType {
+    
     case medicare
     case blueButton
     
@@ -235,10 +246,8 @@ enum HPConnectedInsuranceType {
             
         case .blueButton:
             return ("Blue Button 2.0", "ConnectImage")
-            
         }
     }
-    
 }
 
 

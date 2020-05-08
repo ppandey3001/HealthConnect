@@ -15,12 +15,6 @@ class ProviderConnectedCell: HPTableViewCell {
     @IBOutlet var activeStatus_Button : UIButton!
     @IBOutlet var refresh_Button : UIButton!
     @IBOutlet var connect_Button : UIButton!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     
 }
 
@@ -33,7 +27,6 @@ extension ProviderConnectedCell {
         let attributes = item.type.attributes()
         icon_imageView.image = UIImage(named: attributes.icon)
         title_label.text = attributes.title
-
     }
     
 }
