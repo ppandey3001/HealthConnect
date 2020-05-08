@@ -13,18 +13,16 @@ class REcentVisitTableCell: HPTableViewCell {
     @IBOutlet var collection : UICollectionView!
     var dataSource_recentVisit = [HPRecentVisitItem]()
     
-    
-    func registerCell(){
+    func registerCell() {
+        
         registerCollectionCell(collection, cellClass: RecentVisitCollectionCell.self)
         collection.dataSource = self
         collection.delegate = self
         collection.reloadData()
     }
-    
 }
 
 extension REcentVisitTableCell : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource_recentVisit.count
@@ -37,11 +35,8 @@ extension REcentVisitTableCell : UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let visitCell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentVisitCollectionCell.reuseableId(), for: indexPath) as! RecentVisitCollectionCell
-        
         visitCell.configureRecentVisitCell(item: dataSource_recentVisit[indexPath.row])
         
         return visitCell
-        
     }
-    
 }

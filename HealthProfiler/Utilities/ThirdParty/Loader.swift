@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 internal class Loader : UIView {
+    
     // MARK: - Properties
     var statusFont: UIFont?
     var statusColor: UIColor?
@@ -225,6 +226,7 @@ internal class Loader : UIView {
     
     //MARK:- Notification Register
     private func loaderRemove() {
+        
         NotificationCenter.default.removeObserver(self)
         labelStatus?.removeFromSuperview()
         labelStatus = nil
@@ -240,12 +242,15 @@ internal class Loader : UIView {
     
     //MARK:- Loader Size, Position
     private func hudSize() {
+        
         var rectLabel = CGRect.zero
         var widthHUD: CGFloat = 100
         var heightHUD: CGFloat = 100
         
-        if let labelStatus = self.labelStatus, let text = labelStatus.text, text.count > 0 {
-            let attributes:[NSAttributedString.Key:Any] = [NSAttributedString.Key.font: labelStatus.font]
+        if let labelStatus = self.labelStatus,
+            let text = labelStatus.text, text.count > 0,
+            let font = labelStatus.font {
+            let attributes:[NSAttributedString.Key:Any] = [NSAttributedString.Key.font: font]
             let options: NSStringDrawingOptions = [.usesFontLeading, .truncatesLastVisibleLine, .usesLineFragmentOrigin]
             rectLabel = text.boundingRect(with: CGSize(width: 200, height: 300), options: options, attributes: attributes, context: nil)
             

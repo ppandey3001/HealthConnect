@@ -28,7 +28,7 @@ class HPPicker: NSObject {
         
         if let currentController = APPDELEGATE.window?.rootViewController {
             
-            if let bgView = currentController.view.viewWithTag(viewTransperantTag) {
+            if currentController.view.viewWithTag(viewTransperantTag) != nil {
                 return
             }
             
@@ -133,7 +133,7 @@ class HPPicker: NSObject {
         
         if let currentController = APPDELEGATE.window?.rootViewController {
             
-            if let bgView = currentController.view.viewWithTag(viewTransperantTag) {
+            if currentController.view.viewWithTag(viewTransperantTag) != nil {
                 return
             }
             

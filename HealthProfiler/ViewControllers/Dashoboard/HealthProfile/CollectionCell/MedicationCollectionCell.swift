@@ -13,7 +13,6 @@ class MedicationCollectionCell: HPCollectionViewCell {
     @IBOutlet private var medicineName_label : UILabel!
     @IBOutlet private var dose_label : UILabel!
     @IBOutlet private var tillDate_label : UILabel!
-    
 }
 
 extension MedicationCollectionCell {
@@ -23,6 +22,5 @@ extension MedicationCollectionCell {
         medicineName_label.text = item.medicine
         dose_label.text = item.dosage
         //        tillDate_label.text = attributes.tillDate
-        
     }
 }
