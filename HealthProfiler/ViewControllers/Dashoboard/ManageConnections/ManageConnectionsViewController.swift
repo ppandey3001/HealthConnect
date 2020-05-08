@@ -8,13 +8,12 @@ import UIKit
 class ManageConnectionsViewController: HPViewController {
     
     @IBOutlet private var connection_collectionView: UICollectionView!
-    
-    @IBOutlet var view_welcomeMessageContainer: UIView!
-    @IBOutlet var label_welcomeMessageTitle: UILabel!
+    @IBOutlet private var view_welcomeMessageContainer: UIView!
+    @IBOutlet private var label_welcomeMessageTitle: UILabel!
     
     private var dataSource_connection = [HPConnectionItem]()
     private let margin : CGFloat = (UIScreen.main.bounds.width - 300.0) / 3.0
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -24,7 +23,6 @@ class ManageConnectionsViewController: HPViewController {
     @IBAction func buttonAction_getStarted(_ sender: UIButton) {
         
         view_welcomeMessageContainer.isHidden = true
-        
     }
 }
 
@@ -32,7 +30,7 @@ class ManageConnectionsViewController: HPViewController {
 private extension ManageConnectionsViewController {
     
     private func setupController() {
-                        
+        
         dataSource_connection.removeAll()
         dataSource_connection.append(HPConnectionItem(.healthInsurance))
         dataSource_connection.append(HPConnectionItem(.providers))
@@ -40,7 +38,7 @@ private extension ManageConnectionsViewController {
         dataSource_connection.append(HPConnectionItem(.devices))
         dataSource_connection.append(HPConnectionItem(.pharmacy))
         dataSource_connection.append(HPConnectionItem(.others))
-
+        
         registerCollectionCell(connection_collectionView, cellClass: ManageConnectionViewCell.self)
         
         connection_collectionView.alwaysBounceVertical = true
@@ -49,7 +47,6 @@ private extension ManageConnectionsViewController {
         connection_collectionView.reloadData()
         
         label_welcomeMessageTitle.text = "Welcome John Doe!"
-
     }
 }
 
@@ -73,7 +70,7 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return margin
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return margin
     }
@@ -106,7 +103,7 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
             let connectedPlans = ConnectedPlansViewController.nibInstance()
             connectedPlans.isFromProvider = true
             push(controller: connectedPlans)
-
+            
         default: break
         }
     }

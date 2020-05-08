@@ -19,21 +19,6 @@ extension UIViewController {
         return self.init(nibName: nibName, bundle: nil)
     }
     
-    //MARK: - Register custom table cell -
-    func registerTableCellAndNib(_ tableView: UITableView!, tableCellClass: AnyClass!, cellID: String!, nibName: String!) {
-        
-        tableView.register(tableCellClass, forCellReuseIdentifier: cellID)
-        tableView.register(UINib(nibName: nibName, bundle: nil), forCellReuseIdentifier: cellID)
-    }
-    
-    //MARK: - Register custom collectionView cell -
-    func registerCollectionViewCellAndNib(_ collectionView: UICollectionView!, collectionCellClass: AnyClass!, cellID: String!, nibName: String!) {
-        
-        collectionView.register(collectionCellClass, forCellWithReuseIdentifier: cellID)
-        collectionView.register(UINib(nibName: nibName, bundle: nil), forCellWithReuseIdentifier: cellID)
-    }
-    
-    
     //MARK: - Register custom tableView cell -
     func registerTableCell(_ tableView: UITableView, cellClass: HPTableViewCell.Type) {
         
@@ -44,11 +29,16 @@ extension UIViewController {
     
     //MARK: - Register custom collectionView cell -
     func registerCollectionCell(_ collectionView: UICollectionView, cellClass: HPCollectionViewCell.Type) {
-                
+        
         let cellID = cellClass.reuseableId()
         collectionView.register(cellClass, forCellWithReuseIdentifier: cellID)
         collectionView.register(cellClass.nib(), forCellWithReuseIdentifier: cellID)
     }
+}
+
+
+/// Navigation
+extension UIViewController {
     
     //MARK: - Navigation helper method -
     func push(controller: UIViewController, animated: Bool = true) {
@@ -61,20 +51,20 @@ extension UIViewController {
         _ = self.navigationController?.popViewController(animated: animated)
     }
     
-    func popTo(controller: UIViewController, animated: Bool = true) {
-        
-        _ = self.navigationController?.popToViewController(controller, animated: animated)
-    }
-    
     func popToRoot(animated: Bool = true) {
         
         _ = self.navigationController?.popToRootViewController(animated: animated)
     }
+    
     func present(controller: UIViewController, animated: Bool = true) {
         
         self.present(controller, animated: true, completion: nil)
     }
-    
+}
+
+
+/// AlertController
+extension UIViewController {
     
     //Return alertController with style (.actionSheet OR .alert)
     func getAlertController(style: UIAlertController.Style, title:String?, messege: String?, options:[String], cancelTitle: String?, clickAction:@escaping(_ title: String) -> Void) ->  UIAlertController {
@@ -127,6 +117,7 @@ extension UIViewController {
     }
 }
 
+
 //navigationitem
 extension UIViewController {
     
@@ -136,6 +127,7 @@ extension UIViewController {
         hamburger.frame = CGRect(x: 0.0, y: 0.0, width: 45.0, height: 40.0)
         hamburger.setImage(UIImage(named: "Hamburger.png"), for: .normal)
         hamburger.setImage(UIImage(named: "Hamburger.png"), for: .highlighted)
+        hamburger.imageEdgeInsets = UIEdgeInsets(top: 4.0, left: 0.0, bottom: 4.0, right: 8.0)
         hamburger.addTarget(self, action: #selector(openDrawer), for: .touchUpInside)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: hamburger)

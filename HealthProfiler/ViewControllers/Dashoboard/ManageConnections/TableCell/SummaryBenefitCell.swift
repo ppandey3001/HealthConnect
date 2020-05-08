@@ -21,17 +21,5 @@ class SummaryBenefitCell: HPTableViewCell {
     @IBOutlet var pharmacyBrief_view : UIView!
     @IBOutlet var medicareDetail_button : UIButton!
     @IBOutlet var pharmacyDetail_button : UIButton!
-
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
 }

@@ -16,13 +16,13 @@ class PayerSummaryViewController: HPViewController {
     @IBOutlet private var tableView_Summary : UITableView!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        
         setupController()
-        
     }
     
     @IBAction func payerDetailAction(_ sender : UIButton) {
+        
         view_brief.isHidden = true
     }
     
@@ -37,7 +37,6 @@ class PayerSummaryViewController: HPViewController {
     @IBAction func blueButtonAction(_ sender : UIButton) {
         
         push(controller: ConnectedPlansViewController.nibInstance())
-        
     }
     
 }

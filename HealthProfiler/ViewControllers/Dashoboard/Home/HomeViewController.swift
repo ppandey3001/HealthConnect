@@ -8,6 +8,7 @@ import SwiftyJSON
 
 
 class HomeViewController: HPViewController {
+    
     @IBOutlet private var temp_label : UILabel!
     @IBOutlet private var heartRate_label : UILabel!
     @IBOutlet private var bp_label : UILabel!
@@ -28,8 +29,8 @@ class HomeViewController: HPViewController {
         super.viewDidLoad()
         setupController()
         callApi()
+        addDrawerButton()
     }
-    
 }
 
 //MARK: Private methods

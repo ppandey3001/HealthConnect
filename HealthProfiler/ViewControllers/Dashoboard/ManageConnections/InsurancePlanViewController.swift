@@ -28,7 +28,6 @@ class InsurancePlanViewController: HPViewController {
             item.value = selectedText
             self.tableView_insurance.reloadData()
         }
-        
     }
     
     @IBAction func connectButtonAction(_ sender: UIButton){

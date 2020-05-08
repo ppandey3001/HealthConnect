@@ -36,6 +36,7 @@ class HealthProfileViewController: HPViewController {
     }
 }
 
+
 //MARK: Private methods
 private extension HealthProfileViewController {
     
@@ -46,7 +47,6 @@ private extension HealthProfileViewController {
         
         healthProfiler_tableView.delegate = self
         healthProfiler_tableView.dataSource = self
-        
     }
     
     func callApi(){
@@ -147,7 +147,9 @@ extension HealthProfileViewController {
     
 }
 
+
 extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         5
     }
@@ -170,6 +172,7 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch indexPath.row {
         case 0:
             let profilerCell = tableView.dequeueReusableCell(withIdentifier: HealthProfilerCell.reuseableId(), for: indexPath) as! HealthProfilerCell
@@ -191,21 +194,17 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
             
         case 3...4:
             let profilerCell = tableView.dequeueReusableCell(withIdentifier: HealthProfilerCell.reuseableId(), for: indexPath) as! HealthProfilerCell
-            
             profilerCell.registerCell()
             profilerCell.datasource_medication = datasource_medication
             profilerCell.datasource_careteam = datasource_careteam
             profilerCell.title_label.text = indexPath.row == 3 ? "Medications" : "My Care Team"
             profilerCell.cellType = indexPath.row == 3 ? 1 : 2
             
-            
             return profilerCell
             
-        default:
-            break
+        default: break
         }
+        
         return UITableViewCell()
     }
-    
 }
-

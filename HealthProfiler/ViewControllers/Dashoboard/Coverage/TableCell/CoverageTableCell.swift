@@ -10,10 +10,4 @@ import UIKit
 
 class CoverageTableCell: HPTableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    
 }

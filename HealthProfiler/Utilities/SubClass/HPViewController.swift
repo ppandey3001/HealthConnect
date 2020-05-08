@@ -14,10 +14,9 @@ import UIKit
  */
 class HPViewController: UIViewController {
     
-
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
         
         //remove back button title, which will show '<' icon automatically
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "",
