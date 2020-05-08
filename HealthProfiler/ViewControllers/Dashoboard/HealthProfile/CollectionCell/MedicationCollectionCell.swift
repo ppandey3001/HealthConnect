@@ -20,10 +20,9 @@ extension MedicationCollectionCell {
     
     func configureMedicationCell(item: HPMedicationItem) {
         
-        let attributes = item.type.attributes()
-        medicineName_label.text = attributes.name
-        dose_label.text = attributes.dose
-        tillDate_label.text = attributes.tillDate
+        medicineName_label.text = item.medicine
+        dose_label.text = item.dosage
+        //        tillDate_label.text = attributes.tillDate
         
     }
 }

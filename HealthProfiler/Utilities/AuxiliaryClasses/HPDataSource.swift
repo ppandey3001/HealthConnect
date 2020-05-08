@@ -86,50 +86,123 @@ class HPCoverageClaimItem: NSObject {
 
 class HPGapsInCareItem: NSObject {
     
-    var type: HPGapsInCareType = .appointment
+    var date : String = ""
+    var code : String = ""
+    var gap : String = ""
     
-    init(_ type: HPGapsInCareType) {
+    
+    public  func getGapsInCareDataFrom(dataDict : Dictionary<String, Any>) -> HPGapsInCareItem {
+        let obj = HPGapsInCareItem()
+        obj.date = "\(dataDict.validatedValue("date", expected: "" as AnyObject))"
+        obj.code = "\(dataDict.validatedValue("code", expected: "" as AnyObject))"
+        obj.gap = "\(dataDict.validatedValue("gap", expected: "" as AnyObject))"
         
-        self.type = type
+        return obj
     }
+    
 }
 
 class HPAllergiesItem: NSObject {
     
-    var type: HPAllergiesType = .cephalosporin
+    var criticality : String = ""
+    var status : String = ""
+    var allergy : String = ""
     
-    init(_ type: HPAllergiesType) {
+    
+    public  func getAllergyDataFrom(dataDict : Dictionary<String, Any>) -> HPAllergiesItem {
+        let obj = HPAllergiesItem()
+        obj.criticality = "\(dataDict.validatedValue("criticality", expected: "" as AnyObject))"
+        obj.status = "\(dataDict.validatedValue("status", expected: "" as AnyObject))"
+        obj.allergy = "\(dataDict.validatedValue("allergy", expected: "" as AnyObject))"
         
-        self.type = type
+        return obj
     }
+    
 }
+
 
 class HPConditionItem: NSObject {
     
-    var type: HPConditionType = .diabetes
+    var condition : String = ""
+    var clinicalStatus : String = ""
+    var verificationStatus : String = ""
     
-    init(_ type: HPConditionType) {
+    
+    public  func getConditionDataFrom(dataDict : Dictionary<String, Any>) -> HPConditionItem {
+        let obj = HPConditionItem()
+        obj.condition = "\(dataDict.validatedValue("condition", expected: "" as AnyObject))"
+        obj.clinicalStatus = "\(dataDict.validatedValue("clinicalStatus", expected: "" as AnyObject))"
+        obj.verificationStatus = "\(dataDict.validatedValue("verificationStatus", expected: "" as AnyObject))"
         
-        self.type = type
+        return obj
     }
+    
 }
 
 class HPMedicationItem: NSObject {
     
-    var type: HPMedicationType = .amoxicillin
+    var dosage : String = ""
+    var medicine : String = ""
     
-    init(_ type: HPMedicationType) {
+    public  func getMedicationDataFrom(dataDict : Dictionary<String, Any>) -> HPMedicationItem {
+        let obj = HPMedicationItem()
+        obj.dosage = "\(dataDict.validatedValue("dosage", expected: "" as AnyObject))"
+        obj.medicine = "\(dataDict.validatedValue("medicine", expected: "" as AnyObject))"
         
-        self.type = type
+        return obj
     }
+    
 }
 
 class HPCareTeamItem: NSObject {
     
-    var type: HPCareTeamType = .william
+    var practitioner : String = ""
+    var speciality : String = ""
     
-    init(_ type: HPCareTeamType) {
+    public  func getCareTeamDataFrom(dataDict : Dictionary<String, Any>) -> HPCareTeamItem {
+        let obj = HPCareTeamItem()
+        obj.practitioner = "\(dataDict.validatedValue("practitioner", expected: "" as AnyObject))"
+        obj.speciality = "\(dataDict.validatedValue("speciality", expected: "" as AnyObject))"
         
-        self.type = type
+        return obj
     }
+    
+}
+
+class HPVitalsItem: NSObject {
+    
+    var heartrate : String = ""
+    var bloodpressure : String = ""
+    var bodytemprature : String = ""
+    var weight : String = ""
+    var bmi : String = ""
+    var height : String = ""
+    
+    public  func getVitalsDataFrom(dataDict : Dictionary<String, Any>) -> HPVitalsItem {
+        let obj = HPVitalsItem()
+        obj.heartrate = "\(dataDict.validatedValue("heart rate", expected: "" as AnyObject))"
+        obj.bloodpressure = "\(dataDict.validatedValue("body pressure", expected: "" as AnyObject))"
+        obj.bodytemprature = "\(dataDict.validatedValue("body temprature", expected: "" as AnyObject))"
+        obj.weight = "\(dataDict.validatedValue("weight", expected: "" as AnyObject))"
+        obj.bmi = "\(dataDict.validatedValue("bmi", expected: "" as AnyObject))"
+        obj.height = "\(dataDict.validatedValue("height", expected: "" as AnyObject))"
+        
+        return obj
+    }
+    
+}
+
+class HPRecentVisitItem: NSObject {
+    
+    var practitioner : String = ""
+    var date : String = ""
+    
+    public  func getRecentVisitDataFrom(dataDict : Dictionary<String, Any>) -> HPRecentVisitItem {
+        let obj = HPRecentVisitItem()
+        obj.practitioner = "\(dataDict.validatedValue("practitioner", expected: "" as AnyObject))"
+        obj.date = "\(dataDict.validatedValue("date", expected: "" as AnyObject))"
+        
+        return obj
+    }
+    
 }

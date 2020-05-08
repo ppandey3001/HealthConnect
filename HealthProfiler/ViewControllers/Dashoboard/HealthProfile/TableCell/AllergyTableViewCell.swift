@@ -23,18 +23,6 @@ class AllergyTableViewCell: HPTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        datasource_allergy.removeAll()
-        datasource_allergy.append(HPAllergiesItem(.cephalosporin))
-        datasource_allergy.append(HPAllergiesItem(.sulfonamides))
-        datasource_allergy.append(HPAllergiesItem(.cetaphil))
-        datasource_allergy.append(HPAllergiesItem(.hydrochlorophate))
-        
-        datasource_condition.removeAll()
-        datasource_condition.append(HPConditionItem(.diabetes))
-        datasource_condition.append(HPConditionItem(.backache))
-        datasource_condition.append(HPConditionItem(.survical))
-        datasource_condition.append(HPConditionItem(.bloodpressure))
-        
     }
     
     func registerCell(){

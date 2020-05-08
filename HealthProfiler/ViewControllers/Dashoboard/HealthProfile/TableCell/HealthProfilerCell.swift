@@ -23,25 +23,6 @@ class HealthProfilerCell: HPTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        datasource_gapsInCare.removeAll()
-        datasource_gapsInCare.append(HPGapsInCareItem(.appointment))
-        datasource_gapsInCare.append(HPGapsInCareItem(.fluShot))
-        datasource_gapsInCare.append(HPGapsInCareItem(.diabeties))
-        datasource_gapsInCare.append(HPGapsInCareItem(.amaryl))
-        datasource_gapsInCare.append(HPGapsInCareItem(.duetact))
-        
-        datasource_medication.removeAll()
-        datasource_medication.append(HPMedicationItem(.amoxicillin))
-        datasource_medication.append(HPMedicationItem(.cephalexin))
-        
-        datasource_careteam.removeAll()
-        datasource_careteam.append(HPCareTeamItem(.william))
-        datasource_careteam.append(HPCareTeamItem(.mindy))
-        datasource_careteam.append(HPCareTeamItem(.veena))
-        datasource_careteam.append(HPCareTeamItem(.sharon))
-        datasource_careteam.append(HPCareTeamItem(.rodney))
-        
     }
     
     func registerCell(){
