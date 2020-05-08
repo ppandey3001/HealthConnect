@@ -21,6 +21,5 @@ extension CareTeamCollectionCell {
         
         doctorName_label.text = item.practitioner
         speciality_label.text = item.speciality
-        
     }
 }

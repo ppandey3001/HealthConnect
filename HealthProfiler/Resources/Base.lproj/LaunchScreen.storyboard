@@ -29,12 +29,6 @@
                                     <constraint firstAttribute="height" constant="40" id="pXS-xh-xjH"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POWERED BY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WW2-vI-uMc">
-                                <rect key="frame" x="165.5" y="767.5" width="83" height="16"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="health_profiler_dashboard" translatesAutoresizingMaskIntoConstraints="NO" id="SMl-GL-rJm">
                                 <rect key="frame" x="50" y="378" width="314" height="60"/>
                                 <constraints>
@@ -47,11 +41,9 @@
                             <constraint firstItem="a1c-ks-2yu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FyZ-cU-AfI"/>
                             <constraint firstItem="gqb-9a-R3K" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HWZ-Vu-sQ9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SMl-GL-rJm" secondAttribute="trailing" constant="50" id="JAe-jn-8hV"/>
-                            <constraint firstItem="WW2-vI-uMc" firstAttribute="centerX" secondItem="a1c-ks-2yu" secondAttribute="centerX" id="NSZ-rb-pm6"/>
                             <constraint firstItem="gqb-9a-R3K" firstAttribute="top" secondItem="a1c-ks-2yu" secondAttribute="bottom" constant="15" id="aEh-vn-vV4"/>
                             <constraint firstItem="SMl-GL-rJm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="f24-F4-Ec5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gqb-9a-R3K" secondAttribute="bottom" constant="10" id="jli-qu-7Qo"/>
-                            <constraint firstItem="a1c-ks-2yu" firstAttribute="top" secondItem="WW2-vI-uMc" secondAttribute="bottom" id="qOj-MX-5gA"/>
                             <constraint firstItem="SMl-GL-rJm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-40" id="wuH-6B-B1y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

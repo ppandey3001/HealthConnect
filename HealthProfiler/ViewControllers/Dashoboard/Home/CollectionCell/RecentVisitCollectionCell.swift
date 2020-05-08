@@ -22,6 +22,5 @@ extension RecentVisitCollectionCell{
         
         practionerName_label.text = item.practitioner
         date_label.text = item.date
-        
     }
 }

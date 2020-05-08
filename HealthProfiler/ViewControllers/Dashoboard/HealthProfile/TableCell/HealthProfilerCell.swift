@@ -19,13 +19,8 @@ class HealthProfilerCell: HPTableViewCell {
     var datasource_medication = [HPMedicationItem]()
     var datasource_careteam = [HPCareTeamItem]()
     
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     func registerCell(){
+        
         registerCollectionCell(section_collectionView, cellClass: GapsInCareCollectionCell.self)
         registerCollectionCell(section_collectionView, cellClass: MedicationCollectionCell.self)
         registerCollectionCell(section_collectionView, cellClass: CareTeamCollectionCell.self)
@@ -38,7 +33,6 @@ class HealthProfilerCell: HPTableViewCell {
         section_collectionView.dataSource = self
         section_collectionView.reloadData()
     }
-    
 }
 
 extension HealthProfilerCell : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{

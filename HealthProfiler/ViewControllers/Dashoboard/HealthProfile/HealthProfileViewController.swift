@@ -11,17 +11,10 @@ class HealthProfileViewController: HPViewController {
     @IBOutlet private var healthProfiler_tableView: UITableView!
     
     var datasource_allergy = [HPAllergiesItem]()
-    var allergyResult = HPAllergiesItem()
-    
     var datasource_conditions = [HPConditionItem]()
-    var conditionResult = HPConditionItem()
     var datasource_medication = [HPMedicationItem]()
-    var medicationResult = HPMedicationItem()
     var datasource_careteam = [HPCareTeamItem]()
-    var careteamResult = HPCareTeamItem()
     var datasource_gapsInCare = [HPGapsInCareItem]()
-    var gapsInCareResult = HPGapsInCareItem()
-    
     
     override func viewDidLoad() {
         
@@ -32,7 +25,7 @@ class HealthProfileViewController: HPViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        
     }
 }
 
@@ -58,7 +51,8 @@ private extension HealthProfileViewController {
         callApiForGapsInCareList()
     }
     
-    func callApiForAllegyList(){
+    func callApiForAllegyList() {
+        
         Loader.show()
         let params = [
             "id" : "24",
@@ -68,15 +62,19 @@ private extension HealthProfileViewController {
             if response != nil {
                 let responseData = JSON(response as Any)
                 print("getting response", responseData)
-                for obj in responseData.rawValue as! Array<Dictionary<String, Any>?>  {
-                    self.datasource_allergy.append(self.allergyResult.getAllergyDataFrom(dataDict: (obj )!))
+                
+                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
+                    for obj in dataList  {
+                        self.datasource_allergy.append(HPAllergiesItem(obj))
+                    }
                 }
                 self.healthProfiler_tableView.reloadData()
             }
         }
     }
     
-    func callApiForConditionsList(){
+    func callApiForConditionsList() {
+        
         let params = [
             "id" : "24",
         ]
@@ -85,15 +83,20 @@ private extension HealthProfileViewController {
             if response != nil {
                 let responseData = JSON(response as Any)
                 print("getting response", responseData)
-                for obj in responseData.rawValue as! Array<Dictionary<String, Any>?>  {
-                    self.datasource_conditions.append(self.conditionResult.getConditionDataFrom(dataDict: (obj )!))
+                
+                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
+                    for obj in dataList  {
+                        self.datasource_conditions.append(HPConditionItem(obj))
+                    }
                 }
+                
                 self.healthProfiler_tableView.reloadData()
             }
         }
     }
     
-    func callApiForMedicationList(){
+    func callApiForMedicationList() {
+        
         let params = [
             "id" : "24",
         ]
@@ -102,15 +105,20 @@ private extension HealthProfileViewController {
             if response != nil {
                 let responseData = JSON(response as Any)
                 print("getting response", responseData)
-                for obj in responseData.rawValue as! Array<Dictionary<String, Any>?>  {
-                    self.datasource_medication.append(self.medicationResult.getMedicationDataFrom(dataDict: (obj )!))
+                
+                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
+                    for obj in dataList  {
+                        self.datasource_medication.append(HPMedicationItem(obj))
+                    }
                 }
+                
                 self.healthProfiler_tableView.reloadData()
             }
         }
     }
     
-    func callApiForCareTeamList(){
+    func callApiForCareTeamList() {
+        
         let params = [
             "id" : "24",
         ]
@@ -118,33 +126,37 @@ private extension HealthProfileViewController {
             print(JSON(response as Any))
             if response != nil {
                 let responseData = JSON(response as Any)
-                for obj in responseData.rawValue as! Array<Dictionary<String, Any>?>  {
-                    self.datasource_careteam.append(self.careteamResult.getCareTeamDataFrom(dataDict: (obj )!))
+                
+                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
+                    for obj in dataList  {
+                        self.datasource_careteam.append(HPCareTeamItem(obj))
+                    }
                 }
+                
+                
                 self.healthProfiler_tableView.reloadData()
             }
         }
     }
     
-    func callApiForGapsInCareList(){
+    func callApiForGapsInCareList() {
+        
         ApiCallManager.sharedInstance.fetchDataFromRemote(params: [:], methodType: .get, apiName: "getGapsInCare") { (response, error) in
             print(JSON(response as Any))
             if response != nil {
                 let responseData = JSON(response as Any)
                 Loader.dismiss()
-                for obj in responseData.rawValue as! Array<Dictionary<String, Any>?>  {
-                    self.datasource_gapsInCare.append(self.gapsInCareResult.getGapsInCareDataFrom(dataDict: (obj )!))
+                
+                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
+                    for obj in dataList  {
+                        self.datasource_gapsInCare.append(HPGapsInCareItem(obj))
+                    }
                 }
+                
                 self.healthProfiler_tableView.reloadData()
             }
         }
     }
-}
-
-
-//MARK: Public methods
-extension HealthProfileViewController {
-    
 }
 
 

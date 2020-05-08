@@ -18,7 +18,6 @@ class ForgotPasswordViewController: HPViewController {
         super.viewDidLoad()
         setupController()
     }
-
     
     @IBAction func buttonAction_back(_ sender: UIButton) {
         

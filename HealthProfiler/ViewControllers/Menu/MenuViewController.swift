@@ -120,12 +120,6 @@ private extension MenuViewController {
 }
 
 
-//MARK: Public methods
-extension MenuViewController {
-    
-}
-
-
 //MARK: - Tableview Delegate/DataSource Methods
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     

@@ -17,18 +17,17 @@ class GapsInCareCollectionCell: HPCollectionViewCell {
 }
 
 extension GapsInCareCollectionCell {
+    
     func configureGapsInCareCell(item: HPGapsInCareItem) {
                 
 //        coloredBg_view.backgroundColor = attributes.bgColor
         title_label.text = item.gap
-        
     }
     
     func configureAllergyCell(item: HPAllergiesItem) {
         
         coloredBg_view.backgroundColor = UIColor.colorFromRGB(236.0, 236.0, 236.0)
         title_label.text = item.allergy
-        
     }
     
     func configureConditionCareCell(item: HPConditionItem) {
@@ -36,6 +35,5 @@ extension GapsInCareCollectionCell {
         coloredBg_view.backgroundColor = .clear
         title_label.text = item.condition
         title_label.textColor = .orange
-        
     }
 }
