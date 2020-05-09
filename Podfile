@@ -6,8 +6,8 @@ target 'HealthProfiler' do
   use_frameworks!
 
     pod 'DrawerMenu'
-    pod 'Alamofire'
     pod 'SwiftyJSON'
     pod 'MultiSlider'
+    pod 'Alamofire'
 
 end

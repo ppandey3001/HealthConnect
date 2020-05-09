@@ -6,7 +6,6 @@
 import UIKit
 import SwiftyJSON
 
-
 class HomeViewController: HPViewController {
     
     @IBOutlet private var temp_label : UILabel!
@@ -18,16 +17,13 @@ class HomeViewController: HPViewController {
     
     @IBOutlet private var recent_tableView : UITableView!
     
-    var dataSource_vital = HPVitalsItem([:])
+    var userVital: HPVitalsItem?
     var dataSource_recentVisit = [HPRecentVisitItem]()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupController()
-        callApi()
-        addDrawerButton()
-        addProfileButton()
     }
 }
 
@@ -35,45 +31,64 @@ class HomeViewController: HPViewController {
 private extension HomeViewController {
     
     private func setupController() {
-        
-        temp_label.text = dataSource_vital.bodytemprature
-        heartRate_label.text = (dataSource_vital.heartrate ?? "") + " BPM"
-        bp_label.text = dataSource_vital.bloodpressure
-        bmi_label.text = dataSource_vital.bmi
-        height_label.text = dataSource_vital.height
-        weight_label.text = dataSource_vital.weight
-        
+                
         registerTableCell(recent_tableView, cellClass: REcentVisitTableCell.self)
         
         recent_tableView.delegate = self
         recent_tableView.dataSource = self
         recent_tableView.reloadData()
+        
+        //fetch data from server
+        callApiForVitalsList()
+//        callApiForRecentVisitList()
     }
     
-    private func callApi() {
+    private func userVitalReceived(vital: HPVitalsItem) {
         
-        callApiForVitalsList()
-        callApiForRecentVisitList()
+        userVital = vital
+        temp_label.text = userVital?.bodytemprature
+        heartRate_label.text = (userVital?.heartrate ?? "N/A") + " BPM"
+        bp_label.text = userVital?.bloodpressure
+        bmi_label.text = userVital?.bmi
+        height_label.text = userVital?.height
+        weight_label.text = userVital?.weight
     }
+}
+
+//MARK: - API interaction -
+extension HomeViewController {
     
     private func callApiForVitalsList() {
         
         Loader.show()
-        let params = [
-            "id" : "24",
-        ]
-        ApiCallManager.sharedInstance.fetchDataFromRemote(params: params, methodType: .get, apiName: "Vitals?") { (response, error) in
-            print(JSON(response as Any))
-            if response != nil {
-                let responseData = JSON(response as Any)
+        
+        HealthProfiler.networkManager.getVitalData(id: "24") { [weak self] (vitalItem, error) in
+            
+            if let strongSelf = self {
                 
-                if let obj = responseData.rawValue as? Array<Dictionary<String, Any>>,
-                    let vitals = obj.first {
-                    self.dataSource_vital = HPVitalsItem(vitals)
+                if let vitalItem = vitalItem {
+                    strongSelf.userVitalReceived(vital: vitalItem)
+                } else {
+                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
-                self.setupController()
             }
         }
+        
+        
+//        let params = [
+//            "id" : "24",
+//        ]
+//        ApiCallManager.sharedInstance.fetchDataFromRemote(params: params, methodType: .get, apiName: "Vitals?") { (response, error) in
+//            print(JSON(response as Any))
+//            if response != nil {
+//                let responseData = JSON(response as Any)
+//                
+//                if let obj = responseData.rawValue as? Array<Dictionary<String, Any>>,
+//                    let vitals = obj.first {
+//                    self.userVitalReceived(vital: HPVitalsItem(vitals))
+//                }
+//            }
+//        }
     }
     
     private func callApiForRecentVisitList() {
@@ -93,17 +108,18 @@ private extension HomeViewController {
                         self.dataSource_recentVisit.append(HPRecentVisitItem(obj))
                     }
                 }
-                self.setupController()
+                self.recent_tableView.reloadData()
             }
         }
     }
 }
 
 
+//MARK: - UITableViewDelegate, UITableViewDataSource -
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 1
+        return ((dataSource_recentVisit.count > 0) ? 1 : 0)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

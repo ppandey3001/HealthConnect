@@ -9,10 +9,22 @@ class HealthProfiler {
     
     /// The shared HealthProfiler instance
     public static let shared = HealthProfiler()
-
-    //marking init() as 'private' will disallow to create any other object of the class
-    private init() { }
     
+    /// NetworkManager
+    public static var networkManager: NetworkManager {
+        get {
+            return shared.networkManager
+        }
+    }
+    
+    /// Private vars
+    private var networkManager: NetworkManager
+    
+    //marking init() as 'private' will disallow to create object from outside
+    private init() {
+        
+        self.networkManager = NetworkManager(with: SessionManager())
+    }
 }
 
 
