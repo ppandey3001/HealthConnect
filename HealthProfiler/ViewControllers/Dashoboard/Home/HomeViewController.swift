@@ -37,7 +37,7 @@ private extension HomeViewController {
         recent_tableView.delegate = self
         recent_tableView.dataSource = self
         recent_tableView.reloadData()
-        
+        addProfileButton()
         //fetch data from server
         callApiForVitalsList()
         callApiForRecentVisitList()
@@ -93,24 +93,40 @@ extension HomeViewController {
     
     private func callApiForRecentVisitList() {
         
-        let params = [
-            "id" : "24",
-        ]
-        ApiCallManager.sharedInstance.fetchDataFromRemote(params: params, methodType: .get, apiName: "RecentVisits?") { (response, error) in
-            print(JSON(response as Any))
-            if response != nil {
-                let responseData = JSON(response as Any)
+        
+        HealthProfiler.networkManager.getRecentVisitList(id: "24") { [weak self] (visitList, error) in
+            
+            if let strongSelf = self {
                 Loader.dismiss()
-                print("getting response", responseData)
-                
-                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
-                    for obj in dataList  {
-                        self.dataSource_recentVisit.append(HPRecentVisitItem(obj))
-                    }
+
+                if let visitList = visitList {
+                    strongSelf.dataSource_recentVisit = visitList
+                    strongSelf.recent_tableView.reloadData()
+                } else {
+                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
-                self.recent_tableView.reloadData()
             }
         }
+        
+        
+//        let params = [
+//            "id" : "24",
+//        ]
+//        ApiCallManager.sharedInstance.fetchDataFromRemote(params: params, methodType: .get, apiName: "RecentVisits?") { (response, error) in
+//            print(JSON(response as Any))
+//            if response != nil {
+//                let responseData = JSON(response as Any)
+//                Loader.dismiss()
+//                print("getting response", responseData)
+//
+//                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
+//                    for obj in dataList  {
+//                        self.dataSource_recentVisit.append(HPRecentVisitItem(obj))
+//                    }
+//                }
+//                self.recent_tableView.reloadData()
+//            }
+//        }
     }
 }
 

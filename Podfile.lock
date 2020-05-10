@@ -11,7 +11,7 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - DrawerMenu
     - OAuthSwift
@@ -25,4 +25,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 3fd76fc5a469e3684c01baf4b89c68d896d5d634
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.1

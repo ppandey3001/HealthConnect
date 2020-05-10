@@ -136,10 +136,11 @@ extension UIViewController {
     func addProfileButton() {
         
         let profile = UIButton(type: .custom)
-        profile.frame = CGRect(x: self.view.frame.width - 60 , y: 0.0, width: 35.0, height: 40.0)
+        profile.frame = CGRect(x: 0.0 , y: 0.0, width: 40.0, height: 40.0)
         profile.setImage(UIImage(named: "profile.png"), for: .normal)
         profile.setImage(UIImage(named: "profile.png"), for: .highlighted)
-        profile.imageEdgeInsets = UIEdgeInsets(top: 4.0, left: 0.0, bottom: 4.0, right: 8.0)
+        profile.imageEdgeInsets = UIEdgeInsets(top: 4.0, left: 8.0, bottom: 4.0, right: 0.0)
+        profile.imageView?.contentMode = .scaleAspectFit
 //        profile.addTarget(self, action: #selector(openProfile), for: .touchUpInside)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profile)

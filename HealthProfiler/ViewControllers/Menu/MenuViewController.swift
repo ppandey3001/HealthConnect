@@ -97,6 +97,14 @@ private extension MenuViewController {
     
     @IBAction func buttonAction_privacyPolicy(_ sender: Any) {
         
+        drawer()?.close(to: .left)
+        guard let tabBar = TabBarCoordinator.shared.tabBarController else {
+            return
+        }
+        
+        let webContentController = WebContentViewController.nibInstance()
+        webContentController.type = .privacyPolicy
+        tabBar.present(controller: UINavigationController(rootViewController: webContentController))
     }
     
     @IBAction func buttonAction_logout(_ sender: Any) {

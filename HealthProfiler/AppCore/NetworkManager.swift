@@ -26,9 +26,10 @@ extension NetworkManager {
             
             sessionManager.request(request) { (data, error) in
                 
-                if let rawData = data {
+                if let rawData = data?[SessionManager.dataKey] as? Array<Dictionary<String, Any>>,
+                    let vitalItem = rawData.first {
                     
-                    completion(HPVitalsItem(rawData), nil)
+                    completion(HPVitalsItem(vitalItem), nil)
                 } else {
                     completion(nil, error ?? AppError.invalidResponse())
                 }
@@ -46,8 +47,8 @@ extension NetworkManager {
             
             sessionManager.request(request) { (data, error) in
                 
-                if let rawData = data, let visitsRawData = rawData["recentVisit"] as? [[String: Any]] {
-                    
+                if let visitsRawData = data?[SessionManager.dataKey] as? Array<Dictionary<String, Any>> {
+                
                     var visits = [HPRecentVisitItem]()
                     for visitRaw in visitsRawData {
                         visits.append(HPRecentVisitItem(visitRaw))

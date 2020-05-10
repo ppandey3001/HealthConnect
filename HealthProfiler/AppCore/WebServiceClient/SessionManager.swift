@@ -8,6 +8,8 @@ import Alamofire
 
 class SessionManager {
     
+    static let dataKey = "_data_"
+    
     let session: Session = {
         let manager = ServerTrustManager(evaluators: ["hprofiler-api-optum-ehr-intlab.ocp-elr-core-nonprod.optum.com": DisabledEvaluator()])
         let configuration = URLSessionConfiguration.af.default
@@ -36,9 +38,21 @@ class SessionManager {
                         
                     case .success(let value):
                         
-                        if JSONSerialization.isValidJSONObject(value),
-                            let json = value as? [String : Any] {
-                            completion(json, nil)
+                        if JSONSerialization.isValidJSONObject(value) {
+                            
+                            if value is Array<Any> {
+                                
+                                completion([SessionManager.dataKey : value], nil)
+                                
+                            } else  if value is String {
+                                
+                                completion([SessionManager.dataKey : value], nil)
+                                
+                            } else if let json = value as? [String : Any] {
+                                
+                                completion(json, nil)
+                            }
+                            
                         } else {
                             completion(nil, AppError.invalidResponse())
                         }
