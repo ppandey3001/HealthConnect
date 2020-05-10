@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OAuthSwift
 
 class PayerSummaryViewController: HPViewController {
     
@@ -35,8 +36,8 @@ class PayerSummaryViewController: HPViewController {
     }
     
     @IBAction func blueButtonAction(_ sender : UIButton) {
-        
-        push(controller: ConnectedPlansViewController.nibInstance())
+        callBlueBUttonApi()
+//        push(controller: ConnectedPlansViewController.nibInstance())
     }
     
 }
@@ -55,7 +56,39 @@ private extension PayerSummaryViewController {
         tableView_Summary.dataSource = self
         tableView_Summary.reloadData()
     }
-}
+    
+    private func callBlueBUttonApi() {
+//        let oauthswift = OAuth2Swift(
+//          consumerKey: "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik",         // [1] Enter google app settings
+//          consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U",        // No secret required
+//          authorizeUrl: "https://sandbox.bluebutton.cms.gov/v1/o/authorize/?",
+//          accessTokenUrl: "https://sandbox.bluebutton.cms.gov/v1/o/token/",
+//          responseType: "code"
+//        )
+        // create an instance and retain it
+      let  oauthswift = OAuth2Swift(
+            consumerKey:    "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik",
+            consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U",
+            authorizeUrl:   "https://sandbox.bluebutton.cms.gov/v1/o/authorize/?",
+            accessTokenUrl: "https://sandbox.bluebutton.cms.gov/v1/o/token/",
+
+            responseType:   "code"
+        )
+        let handle = oauthswift.authorize(
+            withCallbackURL: "optumHealthConnect://oauth-callback",
+            scope: "", state:"") { result in
+            switch result {
+            case .success(let (credential, response, parameters)):
+              print(credential.oauthToken, response)
+              // Do your request
+            case .failure(let error):
+              print(error.localizedDescription)
+            }
+        }
+    }
+
+      
+    }
 
 //MARK: Public methods
 extension PayerSummaryViewController {

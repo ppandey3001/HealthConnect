@@ -40,7 +40,7 @@ private extension HomeViewController {
         
         //fetch data from server
         callApiForVitalsList()
-//        callApiForRecentVisitList()
+        callApiForRecentVisitList()
     }
     
     private func userVitalReceived(vital: HPVitalsItem) {

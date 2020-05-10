@@ -48,5 +48,12 @@
 		<key>NSExceptionAllowsInsecureHTTPLoads</key>
 		<true/>
 	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>optumHealthConnect</string>
+		</dict>
+	</array>
 </dict>
 </plist>

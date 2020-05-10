@@ -29,7 +29,7 @@ class TabBarCoordinator {
         
         tabBarController = UITabBarController()
         tabBarController?.viewControllers = [home,healthProfile, coverage, manageConnections]
-        
+        tabBarController?.selectedIndex = 3
         return tabBarController!
     }
     

@@ -7,7 +7,7 @@ target 'HealthProfiler' do
 
     pod 'DrawerMenu'
     pod 'SwiftyJSON'
-    pod 'MultiSlider'
     pod 'Alamofire'
+    pod 'OAuthSwift'
 
 end
