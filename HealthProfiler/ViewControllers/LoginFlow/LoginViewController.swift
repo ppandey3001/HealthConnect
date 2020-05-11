@@ -36,7 +36,8 @@ class LoginViewController: HPViewController {
         }
         
         if let userName = userName,
-            let password = password {
+            let password = password,
+            ((userName.count > 0) && (password.count > 0)) {
             
             view.endEditing(true)
             
@@ -182,9 +183,21 @@ extension LoginViewController : UITextFieldDelegate {
             
             let textFieldText: NSString = (textField.text ?? "") as NSString
             let txtAfterUpdate = textFieldText.replacingCharacters(in: range, with: string)
-                 
+            
             let profileItem = dataSource_login[index]
             profileItem.value = txtAfterUpdate
+        }
+        
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        
+        let index = textField.tag - 1
+        if index >= 0, index < dataSource_login.count {
+            
+            let profileItem = dataSource_login[index]
+            profileItem.value = ""
         }
         
         return true

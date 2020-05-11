@@ -31,8 +31,8 @@ class InsurancePlanViewController: HPViewController {
     }
     
     @IBAction func connectButtonAction(_ sender: UIButton){
+        push(controller: HumanaViewController.nibInstance())
         
-        push(controller: PayerSummaryViewController.nibInstance())
     }
     
 }

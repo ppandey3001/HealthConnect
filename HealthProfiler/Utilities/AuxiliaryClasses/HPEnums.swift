@@ -43,6 +43,27 @@ enum HPProfileFieldType {
     }
 }
 
+enum HPHumanaType {
+    
+    case planID
+    case memberID
+    case dateOfBirth
+    
+    func attributes() -> (title: String, placeholder: String) {
+        
+        switch self {
+        case .planID:
+            return ("Health Plan ID", "")
+            
+        case .memberID:
+            return ("Member ID", "")
+            
+        case .dateOfBirth:
+            return ("Date Of Birth", "mm/dd/yyyy")
+        }
+    }
+}
+
 enum HPHealthInsuranceType {
     
     case choosePayer

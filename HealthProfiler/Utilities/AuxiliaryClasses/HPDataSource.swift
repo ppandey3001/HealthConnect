@@ -16,6 +16,18 @@ class HPProfileItem: NSObject {
     }
 }
 
+class HPHumanaItem: NSObject {
+    
+    var type: HPHumanaType = .planID
+    var value: String?
+    
+    init(_ type: HPHumanaType) {
+        
+        self.type = type
+    }
+}
+
+
 
 class HPConnectionItem: NSObject {
     

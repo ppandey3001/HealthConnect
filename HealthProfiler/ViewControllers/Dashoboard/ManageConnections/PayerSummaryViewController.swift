@@ -36,8 +36,14 @@ class PayerSummaryViewController: HPViewController {
     }
     
     @IBAction func blueButtonAction(_ sender : UIButton) {
+        
         callBlueBUttonApi()
-//        push(controller: ConnectedPlansViewController.nibInstance())
+    }
+    
+    @IBAction func nextButtonAction(_ sender: UIButton){
+        
+            push(controller: ConnectedPlansViewController.nibInstance())
+
     }
     
 }
@@ -57,15 +63,21 @@ private extension PayerSummaryViewController {
         tableView_Summary.reloadData()
     }
     
+
+    
     private func callBlueBUttonApi() {
-//        let oauthswift = OAuth2Swift(
-//          consumerKey: "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik",         // [1] Enter google app settings
-//          consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U",        // No secret required
-//          authorizeUrl: "https://sandbox.bluebutton.cms.gov/v1/o/authorize/?",
-//          accessTokenUrl: "https://sandbox.bluebutton.cms.gov/v1/o/token/",
-//          responseType: "code"
-//        )
-        // create an instance and retain it
+
+        
+//        var buffer = [UInt8](repeating: 0, count: 32)
+//        _ = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
+//        let verifier = Data(bytes: buffer).base64EncodedString()
+//            .replacingOccurrences(of: "+", with: "-")
+//             .replacingOccurrences(of: "/", with: "-")
+//             .replacingOccurrences(of: "=", with: "-")
+//             .trimmingCharacters(in: .whitespaces)
+////       let code_challenge = BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))
+//        // create an instance and retain it
+//
       let  oauthswift = OAuth2Swift(
             consumerKey:    "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik",
             consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U",
@@ -74,12 +86,18 @@ private extension PayerSummaryViewController {
 
             responseType:   "code"
         )
+        oauthswift.allowMissingStateCheck = true
+         //2
+         oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
+
+         guard let rwURL = URL(string: "optumHealthConnect://authorize") else { return }
+
         let handle = oauthswift.authorize(
-            withCallbackURL: "optumHealthConnect://oauth-callback",
-            scope: "", state:"") { result in
+            withCallbackURL: rwURL,
+            scope: "patient/Coverage.read", state:"OptumHealthConnect") { result in
             switch result {
             case .success(let (credential, response, parameters)):
-              print(credential.oauthToken, response)
+                print(credential.oauthToken, response ?? "error")
               // Do your request
             case .failure(let error):
               print(error.localizedDescription)
@@ -115,4 +133,3 @@ extension PayerSummaryViewController : UITableViewDelegate, UITableViewDataSourc
         return summaryCell
     }
 }
-
