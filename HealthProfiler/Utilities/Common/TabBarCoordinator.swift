@@ -12,6 +12,9 @@ class TabBarCoordinator {
     public static let shared = TabBarCoordinator()
     
     public var tabBarController: UITabBarController?
+    
+    let user = UserDefaults.standard.string(forKey: "name")
+
 
     //marking init() as 'private' will disallow to create any other object of the class
     private init() { }
@@ -29,7 +32,8 @@ class TabBarCoordinator {
         
         tabBarController = UITabBarController()
         tabBarController?.viewControllers = [home,healthProfile, coverage, manageConnections]
-        tabBarController?.selectedIndex = 3
+        
+        tabBarController?.selectedIndex = (user == "wilma") ? 3 : 0
         return tabBarController!
     }
     
@@ -64,7 +68,8 @@ private extension TabBarCoordinator {
         rootController.tabBarItem = UITabBarItem.init(title: tabTitle,
                                                       image: tabIcon,
                                                       selectedImage: tabIcon)
-        rootController.navigationItem.title = "John Doe  |  75 Years" //tabTitle
+        
+        rootController.navigationItem.title = (user == "wilma") ? "Wilma Smith  |  70 Years" : "Fredrick Smart  |  73 Years"//tabTitle
         rootController.addDrawerButton()
         rootController.addProfileButton()
         return UINavigationController(rootViewController: rootController)

@@ -19,8 +19,17 @@ class LoginViewController: HPViewController {
     }
     
     @IBAction func signInButtonAction(_ sender: UIButton) {
+        self.view.endEditing(true)
+        let username =  dataSource_login[0]
+        let password =  dataSource_login[1]
         
-        navigateToDashboard()
+        if (username.value == "wilma" && password.value == "wilma") || (username.value == "fredrick" && password.value == "fredrick") {
+            UserDefaults.standard.set(username.value, forKey: "name")
+            navigateToDashboard()
+            
+        }else {
+            showInformativeAlert(title: "Error", message: "Sorry, your username and/or password are incorrect. Please try again.")
+        }
     }
     
     @IBAction func buttonAction_forgotPassword(_ sender: UIButton) {
@@ -47,7 +56,7 @@ private extension LoginViewController {
         
         dataSource_login.removeAll()
         dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
-
+        
         registerTableCell(tableView_login, cellClass: LoginViewCell.self)
         
         tableView_login.delegate = self
@@ -131,6 +140,8 @@ extension LoginViewController : UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-    
+        let obj = dataSource_login[textField.tag - 1]
+        obj.value = textField.text
+        
     }
 }

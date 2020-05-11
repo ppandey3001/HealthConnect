@@ -72,11 +72,16 @@ private extension RegistrationViewController {
     
     private func navigateToDashboard() {
         
+        // For demo purpose registration is not working so pop to login view controller
+        showInformativeAlert(title: "Success", message: "Registration is successfully completed. Login to get started")
+        popToRoot()
+
         //clear and reset input boxes and check boxes
-        
+
         //Create new dashboard, and push
-        push(controller: AppCoordinator.shared.getDashboard(), animated: false)
-        tabBarController?.selectedIndex = HPTabType.manageConnections.tabIndex
+//        push(controller: AppCoordinator.shared.getDashboard(), animated: false)
+//        tabBarController?.selectedIndex = HPTabType.manageConnections.tabIndex
+        
     }
     
     @IBAction private func tapLabel(_ sender: UITapGestureRecognizer) {

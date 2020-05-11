@@ -117,9 +117,6 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
-                                        <connections>
-                                            <action selector="buttonAction_forgotPassword:" destination="-1" eventType="touchUpInside" id="Rob-EK-mfG"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

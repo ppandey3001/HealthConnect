@@ -14,10 +14,25 @@ class ManageConnectionsViewController: HPViewController {
     private var dataSource_connection = [HPConnectionItem]()
     private let margin : CGFloat = (UIScreen.main.bounds.width - 300.0) / 3.0
     
+    let user = UserDefaults.standard.string(forKey: "name")
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupController()
+        
+        if user == "fredrick" {
+            let connectedPlans = ConnectedPlansViewController.nibInstance()
+            connectedPlans.isFromProvider = false
+            push(controller: connectedPlans)
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+        
     }
     
     @IBAction func buttonAction_getStarted(_ sender: UIButton) {
@@ -45,6 +60,13 @@ private extension ManageConnectionsViewController {
         connection_collectionView.delegate = self
         connection_collectionView.dataSource = self
         connection_collectionView.reloadData()
+        
+        
+        if user == "fredrick" {
+            
+            view_welcomeMessageContainer.isHidden = true
+            
+        }
         
         label_welcomeMessageTitle.text = "Welcome John Doe!"
     }
@@ -97,7 +119,16 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
         switch connectionItem.type {
             
         case .healthInsurance:
-            push(controller: InsurancePlanViewController.nibInstance())
+            if user == "fredrick" {
+                
+                let connectedPlans = ConnectedPlansViewController.nibInstance()
+                connectedPlans.isFromProvider = false
+                push(controller: connectedPlans)
+                
+            }else {
+                
+                push(controller: InsurancePlanViewController.nibInstance())
+            }
             
         case .providers:
             let connectedPlans = ConnectedPlansViewController.nibInstance()
