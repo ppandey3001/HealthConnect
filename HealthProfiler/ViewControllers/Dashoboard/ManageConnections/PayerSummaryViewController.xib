@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PayerSummaryViewController" customModule="HealthProfiler" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PayerSummaryViewController" customModule="Health_Profiler" customModuleProvider="target">
             <connections>
                 <outlet property="label_healthplan" destination="dDs-5X-o9k" id="FUh-zz-Apv"/>
                 <outlet property="tableView_Summary" destination="5Nm-zM-3Al" id="i1G-FY-TKt"/>
@@ -222,7 +222,7 @@
                         </constraints>
                     </view>
                     <view key="tableFooterView" contentMode="scaleToFill" id="JxD-ag-5S4">
-                        <rect key="frame" x="0.0" y="1063" width="414" height="120"/>
+                        <rect key="frame" x="0.0" y="1063" width="414" height="166"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ConnectImage" translatesAutoresizingMaskIntoConstraints="NO" id="sVN-zQ-NYm">
@@ -256,11 +256,33 @@
                                     <color key="titleColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCx-0C-EiQ">
+                                <rect key="frame" x="30" y="96" width="355" height="50"/>
+                                <color key="backgroundColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Afy-zy-ibe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButtonAction:" destination="-1" eventType="touchUpInside" id="bqZ-UC-q29"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SSV-4F-KwP" firstAttribute="leading" secondItem="JxD-ag-5S4" secondAttribute="leading" constant="35" id="7Mp-k8-31u"/>
                             <constraint firstAttribute="trailing" secondItem="ibf-sb-GGW" secondAttribute="trailing" constant="59" id="Fd4-9U-EB0"/>
+                            <constraint firstAttribute="bottom" secondItem="uCx-0C-EiQ" secondAttribute="bottom" constant="20" id="Gqg-xJ-eqH"/>
+                            <constraint firstAttribute="trailing" secondItem="uCx-0C-EiQ" secondAttribute="trailing" constant="29" id="JMO-pU-l25"/>
+                            <constraint firstItem="uCx-0C-EiQ" firstAttribute="leading" secondItem="JxD-ag-5S4" secondAttribute="leading" constant="30" id="Srh-xl-Ug4"/>
                             <constraint firstItem="SSV-4F-KwP" firstAttribute="top" secondItem="sVN-zQ-NYm" secondAttribute="bottom" constant="11" id="YR8-Lb-X0g"/>
                             <constraint firstItem="sVN-zQ-NYm" firstAttribute="top" secondItem="JxD-ag-5S4" secondAttribute="top" constant="15" id="air-Hd-m0t"/>
                             <constraint firstItem="ibf-sb-GGW" firstAttribute="top" secondItem="JxD-ag-5S4" secondAttribute="top" constant="20" id="jfH-4O-7PG"/>
