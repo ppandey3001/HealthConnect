@@ -20,6 +20,8 @@ class HealthProfiler {
     /// Private vars
     private var networkManager: NetworkManager
     
+    var loggedInUser: HPUserItem?
+    
     //marking init() as 'private' will disallow to create object from outside
     private init() {
         

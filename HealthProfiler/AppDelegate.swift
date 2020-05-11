@@ -48,6 +48,9 @@ extension AppDelegate {
         //customize appearance
         AppTheme.applyAppearance()
         
+        //load dummy data
+        DummyData.shared.loadUserData_demo()
+
         window?.makeKeyAndVisible()
     }
 }

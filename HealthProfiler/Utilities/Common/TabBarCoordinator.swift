@@ -32,8 +32,7 @@ class TabBarCoordinator {
         
         tabBarController = UITabBarController()
         tabBarController?.viewControllers = [home,healthProfile, coverage, manageConnections]
-        
-        tabBarController?.selectedIndex = (user == "wilma") ? 3 : 0
+//        tabBarController?.selectedIndex = (user == "wilma") ? 3 : 0
         return tabBarController!
     }
     
@@ -68,8 +67,10 @@ private extension TabBarCoordinator {
         rootController.tabBarItem = UITabBarItem.init(title: tabTitle,
                                                       image: tabIcon,
                                                       selectedImage: tabIcon)
-        
-        rootController.navigationItem.title = (user == "wilma") ? "Wilma Smith  |  70 Years" : "Fredrick Smart  |  73 Years"//tabTitle
+        if let user = HealthProfiler.shared.loggedInUser,
+            let name = user.name, let age = user.age {
+            rootController.navigationItem.title = "\(name)  |  \(age) Years"
+        }
         rootController.addDrawerButton()
         rootController.addProfileButton()
         return UINavigationController(rootViewController: rootController)

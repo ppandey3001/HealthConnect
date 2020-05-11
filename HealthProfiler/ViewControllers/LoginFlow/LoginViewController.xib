@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,10 +55,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGw-kb-DIa">
-                                <rect key="frame" x="30" y="5" width="355" height="185"/>
+                                <rect key="frame" x="30" y="10" width="355" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="35d-rg-YP7">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="45"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="46.5"/>
                                         <color key="backgroundColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Sign In">
@@ -74,7 +74,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bw-eJ-PYM">
-                                        <rect key="frame" x="0.0" y="45" width="355" height="45"/>
+                                        <rect key="frame" x="0.0" y="46.5" width="355" height="47"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="Forgot Password?">
@@ -85,7 +85,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ut-wC-pvY">
-                                        <rect key="frame" x="0.0" y="90" width="355" height="45"/>
+                                        <rect key="frame" x="0.0" y="93.5" width="355" height="46.5"/>
                                         <color key="backgroundColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Register">
@@ -101,10 +101,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wic-dK-sye">
-                                        <rect key="frame" x="0.0" y="135" width="355" height="45"/>
+                                        <rect key="frame" x="0.0" y="140" width="355" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="NrY-1E-rdq"/>
+                                            <constraint firstAttribute="height" constant="40" id="NrY-1E-rdq"/>
                                         </constraints>
                                         <state key="normal">
                                             <attributedString key="attributedTitle">
@@ -130,7 +130,7 @@
                                     <constraint firstItem="6Ut-wC-pvY" firstAttribute="height" secondItem="35d-rg-YP7" secondAttribute="height" id="QhZ-wf-NNN"/>
                                     <constraint firstItem="7Bw-eJ-PYM" firstAttribute="height" secondItem="35d-rg-YP7" secondAttribute="height" id="Sue-T0-DJM"/>
                                     <constraint firstItem="7Bw-eJ-PYM" firstAttribute="top" secondItem="35d-rg-YP7" secondAttribute="bottom" id="Yiu-EX-fWV"/>
-                                    <constraint firstAttribute="bottom" secondItem="6Ut-wC-pvY" secondAttribute="bottom" constant="50" id="byw-Dd-YrR"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Ut-wC-pvY" secondAttribute="bottom" constant="40" id="byw-Dd-YrR"/>
                                     <constraint firstItem="7Bw-eJ-PYM" firstAttribute="leading" secondItem="fGw-kb-DIa" secondAttribute="leading" id="e4b-lt-7A9"/>
                                     <constraint firstItem="35d-rg-YP7" firstAttribute="top" secondItem="fGw-kb-DIa" secondAttribute="top" id="gMb-Ci-zwI"/>
                                     <constraint firstItem="wic-dK-sye" firstAttribute="top" secondItem="6Ut-wC-pvY" secondAttribute="bottom" id="gZR-iJ-Oum"/>
@@ -144,7 +144,7 @@
                             <constraint firstAttribute="trailing" secondItem="fGw-kb-DIa" secondAttribute="trailing" constant="29" id="7we-2N-qTh"/>
                             <constraint firstItem="fGw-kb-DIa" firstAttribute="leading" secondItem="P3Q-UU-bqD" secondAttribute="leading" constant="30" id="Bod-Zy-lLu"/>
                             <constraint firstAttribute="bottom" secondItem="fGw-kb-DIa" secondAttribute="bottom" id="UD6-ep-vbr"/>
-                            <constraint firstItem="fGw-kb-DIa" firstAttribute="top" secondItem="P3Q-UU-bqD" secondAttribute="top" constant="5" id="YCe-O4-ZXa"/>
+                            <constraint firstItem="fGw-kb-DIa" firstAttribute="top" secondItem="P3Q-UU-bqD" secondAttribute="top" constant="10" id="YCe-O4-ZXa"/>
                         </constraints>
                     </view>
                 </tableView>

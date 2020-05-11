@@ -7,14 +7,20 @@
 		<dict>
 			<key>user</key>
 			<dict>
+				<key>id</key>
+				<string>24</string>
 				<key>username</key>
-				<string></string>
-				<key>email</key>
-				<string></string>
+				<string>johndoe</string>
 				<key>password</key>
-				<string></string>
+				<string>12345</string>
+				<key>email</key>
+				<string>john.doe@company_domain.com</string>
 				<key>name</key>
-				<string></string>
+				<string>John Doe</string>
+				<key>isFirstTimeUser</key>
+				<true/>
+				<key>age</key>
+				<string>43</string>
 			</dict>
 			<key>detail</key>
 			<dict>
@@ -27,14 +33,46 @@
 		<dict>
 			<key>user</key>
 			<dict>
+				<key>id</key>
+				<string>21</string>
 				<key>username</key>
-				<string></string>
-				<key>email</key>
-				<string></string>
+				<string>walter</string>
 				<key>password</key>
-				<string></string>
+				<string>12345</string>
+				<key>email</key>
+				<string>walter.white@company_domain.com</string>
 				<key>name</key>
+				<string>Walter Hartwell White</string>
+				<key>isFirstTimeUser</key>
+				<false/>
+				<key>age</key>
+				<string>41</string>
+			</dict>
+			<key>detail</key>
+			<dict>
+				<key>dummyDataAttrib1</key>
 				<string></string>
+				<key>dummyDataAttrib2</key>
+				<string></string>
+			</dict>
+		</dict>
+		<dict>
+			<key>user</key>
+			<dict>
+				<key>id</key>
+				<string>27</string>
+				<key>username</key>
+				<string>professor</string>
+				<key>password</key>
+				<string>12345</string>
+				<key>email</key>
+				<string>sergio.marquina@company_domain.com</string>
+				<key>name</key>
+				<string>Sergio Marquina</string>
+				<key>isFirstTimeUser</key>
+				<false/>
+				<key>age</key>
+				<string>34</string>
 			</dict>
 			<key>detail</key>
 			<dict>
