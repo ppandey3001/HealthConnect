@@ -175,9 +175,6 @@
 		6BC550A22454074800C0B1A8 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		6BEACF4724692965004B5C4E /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		6BEACF49246929F1004B5C4E /* HPUserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPUserItem.swift; sourceTree = "<group>"; };
-		B831D69FE69F76AF761B5532 /* Pods_HealthProfiler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthProfiler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF759F551B6AA02A9FE2C654 /* Pods-HealthProfiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.release.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.release.xcconfig"; sourceTree = "<group>"; };
-		EDE1358D78D430DAB0E4B697 /* Pods-HealthProfiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.debug.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.debug.xcconfig"; sourceTree = "<group>"; };
 		91AD92ABABBCDCC2D9E86A39 /* Pods-HealthProfiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.debug.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.debug.xcconfig"; sourceTree = "<group>"; };
 		FE2B63B7F46C756574B27BB2 /* Pods_HealthProfiler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthProfiler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF49CD832456CEC300267787 /* LoginViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewCell.xib; sourceTree = "<group>"; };
@@ -757,22 +754,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/DrawerMenu/DrawerMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DrawerMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
