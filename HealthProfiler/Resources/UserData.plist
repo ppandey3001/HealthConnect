@@ -10,17 +10,17 @@
 				<key>id</key>
 				<string>24</string>
 				<key>username</key>
-				<string>johndoe</string>
+				<string>wilma</string>
 				<key>password</key>
-				<string>12345</string>
+				<string>wilma</string>
 				<key>email</key>
 				<string>john.doe@company_domain.com</string>
 				<key>name</key>
-				<string>John Doe</string>
+				<string>Wilma Smith</string>
 				<key>isFirstTimeUser</key>
 				<true/>
 				<key>age</key>
-				<string>43</string>
+				<string>70</string>
 			</dict>
 			<key>detail</key>
 			<dict>
@@ -36,17 +36,17 @@
 				<key>id</key>
 				<string>21</string>
 				<key>username</key>
-				<string>walter</string>
+				<string>fredrick</string>
 				<key>password</key>
-				<string>12345</string>
+				<string>fredrick</string>
 				<key>email</key>
 				<string>walter.white@company_domain.com</string>
 				<key>name</key>
-				<string>Walter Hartwell White</string>
+				<string>Fredrick Smart</string>
 				<key>isFirstTimeUser</key>
 				<false/>
 				<key>age</key>
-				<string>41</string>
+				<string>73</string>
 			</dict>
 			<key>detail</key>
 			<dict>

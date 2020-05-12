@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             guard let url = URLContexts.first?.url else {
                 return
             }
+
                 OAuthSwift.handle(url: url)
     }
 }

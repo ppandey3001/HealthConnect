@@ -20,15 +20,7 @@ class LoginViewController: HPViewController {
     
     @IBAction func signInButtonAction(_ sender: UIButton) {
         self.view.endEditing(true)
-//        let username =  dataSource_login[0]
-//        let password =  dataSource_login[1]
-//
-//        if (username.value == "wilma" && password.value == "wilma") || (username.value == "fredrick" && password.value == "fredrick") {
-//            UserDefaults.standard.set(username.value, forKey: "name")
-//            navigateToDashboard()
-//
-//        }else {
-//            showInformativeAlert(title: "Error", message: "Sorry, your username and/or password are incorrect. Please try again.")
+        
         var userName: String?
         var password: String?
         
@@ -57,12 +49,12 @@ class LoginViewController: HPViewController {
                     if let user = user {
                         strongSelf.userAuthorised(user: user)
                     } else {
-                        strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                        strongSelf.showInformativeAlert(title: "Error", message: "Sorry, your username and/or password are incorrect. Please try again.")
                     }
                 }
             }
         } else {
-            showInformativeAlert(title: "Error", message: "Please enter valid username and password")
+            showInformativeAlert(title: "Error", message: "Sorry, your username and/or password are incorrect. Please try again.")
         }
     }
     

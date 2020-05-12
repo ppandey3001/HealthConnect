@@ -66,6 +66,8 @@ private extension PayerSummaryViewController {
 
     
     private func callBlueBUttonApi() {
+//        guard let url = URL(string: "https://sandbox.bluebutton.cms.gov/v1/o/authorize/?response_type=code&client_id=9FTkjlaFygjcy4KAqxRZoDHUCK4MHCptUSOIoZUa&redirect_uri=https%3A%2F%2Fsandbox.bluebutton.cms.gov%2Ftestclient%2Fcallback&state=EJSoRZeicsUen39chtOpuo193x1I3e") else { return }
+//        UIApplication.shared.open(url)
 
         
 //        var buffer = [UInt8](repeating: 0, count: 32)
@@ -81,28 +83,33 @@ private extension PayerSummaryViewController {
       let  oauthswift = OAuth2Swift(
             consumerKey:    "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik",
             consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U",
-            authorizeUrl:   "https://sandbox.bluebutton.cms.gov/v1/o/authorize/?",
+            authorizeUrl:   "https://sandbox.bluebutton.cms.gov/v1/o/authorize/",
             accessTokenUrl: "https://sandbox.bluebutton.cms.gov/v1/o/token/",
 
             responseType:   "code"
         )
+        let codeVerifier = "abcd1234".data(using: .utf8)?.base64EncodedString()
+        let codeChallenge : String = "S256"
+
+        oauthswift.accessTokenBasicAuthentification = true
         oauthswift.allowMissingStateCheck = true
          //2
          oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
-
-         guard let rwURL = URL(string: "optumHealthConnect://authorize") else { return }
-
-        let handle = oauthswift.authorize(
-            withCallbackURL: rwURL,
-            scope: "patient/Coverage.read", state:"OptumHealthConnect") { result in
-            switch result {
-            case .success(let (credential, response, parameters)):
-                print(credential.oauthToken, response ?? "error")
-              // Do your request
-            case .failure(let error):
-              print(error.localizedDescription)
-            }
-        }
+         let handle = oauthswift.authorize(
+             withCallbackURL: "optumHealthConnect:/oauth2redirect/example-provider",
+             scope: "profile",
+             state:"State01",
+             codeChallenge: codeChallenge,
+             codeChallengeMethod: "S256",
+             codeVerifier: codeVerifier ?? "") { result in
+             switch result {
+             case .success(let (credential, response, parameters)):
+               print(credential.oauthToken,response,parameters)
+               // Do your request
+             case .failure(let error):
+                print(error._code, error.description, error.errorCode)
+             }
+         }
     }
 
       
@@ -132,4 +139,19 @@ extension PayerSummaryViewController : UITableViewDelegate, UITableViewDataSourc
         
         return summaryCell
     }
+}
+extension String {
+
+    func fromBase64() -> String? {
+        guard let data = Data(base64Encoded: self) else {
+            return nil
+        }
+
+        return String(data: data, encoding: .utf8)
+    }
+
+    func toBase64() -> String {
+        return Data(self.utf8).base64EncodedString()
+    }
+
 }

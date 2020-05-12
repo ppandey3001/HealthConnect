@@ -20,12 +20,19 @@ class ConnectedPlansViewController: HPViewController {
     private var dataSource_InsurancePlans = [HPConnectedInsuranceItem]()
     private var dataSource_provider = [HPConnectedProviderItem]()
     
+    let user = HealthProfiler.shared.loggedInUser
+    
     var isFromProvider : Bool?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView_Plans.reloadData()
+
     }
     
     @IBAction func changeCategories_segmentControl(_ sender : UISegmentedControl){
@@ -43,6 +50,12 @@ class ConnectedPlansViewController: HPViewController {
         
         setupController()
     }
+    
+    @IBAction func allenaConnectAction(_ sender: UIButton){
+        let allena = AllenaHealthViewController.nibInstance()
+        allena.dataSource_provider = dataSource_provider
+        push(controller: allena)
+    }
 }
 
 //MARK: Private methods
@@ -51,10 +64,11 @@ private extension ConnectedPlansViewController {
     private func setupController() {
         
         dataSource_InsurancePlans.removeAll()
-        dataSource_InsurancePlans = [HPConnectedInsuranceItem(.medicare), HPConnectedInsuranceItem(.blueButton)]
+
+        dataSource_InsurancePlans = user?.isFirstTimeUser == true ? [HPConnectedInsuranceItem(.humana), HPConnectedInsuranceItem(.blueButton)] : [HPConnectedInsuranceItem(.medicare), HPConnectedInsuranceItem(.blueButton)]
         
         dataSource_provider.removeAll()
-        dataSource_provider = [HPConnectedProviderItem(.epicSystem), HPConnectedProviderItem(.cemer), HPConnectedProviderItem(.allScripts)]
+        dataSource_provider = user?.isFirstTimeUser == true ? [HPConnectedProviderItem(.epicSystem), HPConnectedProviderItem(.cemer)] : [ HPConnectedProviderItem(.cemer), HPConnectedProviderItem(.allScripts)]
         
         registerTableCell(tableView_Plans, cellClass: InsurancePlanCell.self)
         registerTableCell(tableView_Plans, cellClass: ProviderConnectedCell.self)
@@ -98,6 +112,9 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
             
             let providerCell = tableView.dequeueReusableCell(withIdentifier: ProviderConnectedCell.reuseableId(), for: indexPath) as! ProviderConnectedCell
             providerCell.configureProviderCell(item: dataSource_provider[indexPath.row], index: indexPath.row)
+            if indexPath.row == 1 {
+                providerCell.connect_Button.addTarget(self, action: #selector(allenaConnectAction), for: .touchUpInside)
+            }
             
             return providerCell
             

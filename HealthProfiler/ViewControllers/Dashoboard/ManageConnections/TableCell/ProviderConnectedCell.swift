@@ -27,6 +27,8 @@ extension ProviderConnectedCell {
         let attributes = item.type.attributes()
         icon_imageView.image = UIImage(named: attributes.icon)
         title_label.text = attributes.title
+        activeStatus_Button.isSelected = item.isConnected ?? false
+        connect_Button.isSelected = item.isConnected ?? false
     }
     
 }

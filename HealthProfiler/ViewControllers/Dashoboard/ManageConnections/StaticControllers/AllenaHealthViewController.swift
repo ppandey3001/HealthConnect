@@ -9,22 +9,26 @@
 import UIKit
 
 class AllenaHealthViewController: UIViewController {
+    
+    @IBOutlet private var terms_view: UIView!
+     var dataSource_provider = [HPConnectedProviderItem]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        terms_view.isHidden = true
+
 
         // Do any additional setup after loading the view.
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func signInBUttonAction(_ sender: UIButton){
+        terms_view.isHidden = false
+        dataSource_provider[1].isConnected = true
     }
-    */
+    
+    @IBAction func acceptBUttonAction(_ sender: UIButton){
+        pop()
+    }
 
 }

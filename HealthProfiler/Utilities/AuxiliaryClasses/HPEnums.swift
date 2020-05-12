@@ -98,7 +98,7 @@ enum HPConnectedProviderType {
             return  ("Powered by Epic Systems", "alberta")
             
         case .cemer:
-            return ("Powered by Cemer", "midland")
+            return ("Powered by Cerner", "midland")
             
         case .allScripts:
             return ("Powered by Allscripts", "alina_health")
@@ -258,12 +258,16 @@ enum HPConnectedInsuranceType {
     
     case medicare
     case blueButton
-    
+    case humana
+
     func attributes() -> (title: String, icon: String) {
         
         switch self {
         case .medicare:
-            return ("Medicare Advantage PPO", "medicareLogo")
+            return ("United Health Care", "medicareLogo")
+            
+        case .humana:
+                return ("Humana", "medicareLogo")
             
         case .blueButton:
             return ("Blue Button 2.0", "ConnectImage")
