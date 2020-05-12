@@ -43,12 +43,14 @@ private extension HealthProfileViewController {
     }
     
     func callApi(){
-        
+        let status = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
+        if status == true {
         callApiForAllegyList()
         callApiForMedicationList()
         callApiForConditionsList()
         callApiForCareTeamList()
         callApiForGapsInCareList()
+        }
     }
     
     func callApiForAllegyList() {
@@ -169,11 +171,11 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 105
+            return 128
         case 1...2:
-            return 70
+            return 91
         case 3:
-            return 105
+            return 128
         case 4:
             return 120
         default:

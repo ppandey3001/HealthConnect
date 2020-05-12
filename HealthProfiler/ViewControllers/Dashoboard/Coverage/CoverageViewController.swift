@@ -10,11 +10,20 @@ class CoverageViewController: HPViewController {
     @IBOutlet private var coverage_tableView : UITableView!
     
     private var dataSource_coverage = [HPCoverageClaimItem]()
-    
+        
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        dataSource_coverage.removeAll()
+        let status = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
+        dataSource_coverage = status == true ?  [HPCoverageClaimItem(.drMinnnie), HPCoverageClaimItem(.drJones), HPCoverageClaimItem(.drAllison), HPCoverageClaimItem(.drNorma), HPCoverageClaimItem(.drJohn), HPCoverageClaimItem(.drTammy), HPCoverageClaimItem(.drWilliam), HPCoverageClaimItem(.drGayle), HPCoverageClaimItem(.drVeena), HPCoverageClaimItem(.drJohnson)] : [HPCoverageClaimItem(.drPOe), HPCoverageClaimItem(.drSmith)]
+        coverage_tableView.reloadData()
+        
     }
 }
 
@@ -23,9 +32,6 @@ class CoverageViewController: HPViewController {
 private extension CoverageViewController {
     
     private func setupController() {
-        
-        dataSource_coverage.removeAll()
-        dataSource_coverage = [HPCoverageClaimItem(.drPOe), HPCoverageClaimItem(.drSmith)]
         
         registerTableCell(coverage_tableView, cellClass: CoverageTableCell.self)
         registerTableCell(coverage_tableView, cellClass: CoverageClaimHeaderCell.self)
@@ -60,12 +66,12 @@ extension CoverageViewController : UITableViewDelegate, UITableViewDataSource {
             return 90
             
         case 2:
-            return 55
+            return 72
             
         default: break
         }
         
-        return 55
+        return 72
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

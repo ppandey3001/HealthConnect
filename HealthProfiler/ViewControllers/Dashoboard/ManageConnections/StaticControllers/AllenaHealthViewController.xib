@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllenaHealthViewController" customModule="Health_Profiler" customModuleProvider="target">
             <connections>
+                <outlet property="name" destination="B83-6G-eSG" id="w73-U3-tch"/>
                 <outlet property="terms_view" destination="DIC-0V-YJj" id="TTQ-6I-C3m"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -77,7 +78,7 @@
                                     <constraint firstItem="f2a-Ok-uNm" firstAttribute="centerX" secondItem="LWv-lR-X4P" secondAttribute="centerX" id="z9H-77-4WM"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Allina_Large" translatesAutoresizingMaskIntoConstraints="NO" id="Kf7-Jy-ypV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adventist" translatesAutoresizingMaskIntoConstraints="NO" id="Kf7-Jy-ypV">
                                 <rect key="frame" x="87" y="215" width="240" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="SJs-VC-Jgo"/>
@@ -314,7 +315,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Allina_Large" width="526" height="156"/>
+        <image name="adventist" width="111" height="31"/>
         <image name="profile" width="56" height="56"/>
     </resources>
 </document>

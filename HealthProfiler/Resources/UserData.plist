@@ -21,6 +21,8 @@
 				<true/>
 				<key>age</key>
 				<string>70</string>
+				<key>isBlueButtonLogin</key>
+				<false/>
 			</dict>
 			<key>detail</key>
 			<dict>
@@ -47,6 +49,8 @@
 				<false/>
 				<key>age</key>
 				<string>73</string>
+				<key>isBlueButtonLogin</key>
+				<true/>
 			</dict>
 			<key>detail</key>
 			<dict>

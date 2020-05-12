@@ -54,9 +54,9 @@ extension HealthProfilerCell : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch cellType {
         case 0:
-            return CGSize(width: 120, height: 60)
+            return CGSize(width: 120, height: 70)
         case 1:
-            return CGSize(width: 180, height: 80)
+            return CGSize(width: 180, height: 90)
         case 2:
             return CGSize(width: 110, height: 90)
         default:

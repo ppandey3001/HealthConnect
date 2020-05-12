@@ -21,12 +21,12 @@ class ManageConnectionsViewController: HPViewController {
         super.viewDidLoad()
         setupController()
         
-        if user?.isFirstTimeUser == false {
-            let connectedPlans = ConnectedPlansViewController.nibInstance()
-            connectedPlans.isFromProvider = false
-            push(controller: connectedPlans)
-        }
-        
+//        if user?.isFirstTimeUser == false {
+//            let connectedPlans = ConnectedPlansViewController.nibInstance()
+//            connectedPlans.isFromProvider = false
+//            push(controller: connectedPlans)
+//        }
+//        
     }
     
     override func viewWillAppear(_ animated: Bool) {

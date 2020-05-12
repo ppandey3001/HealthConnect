@@ -134,10 +134,13 @@ private extension LoginViewController {
         
         //show custom branding bar
         container()?.showBrandingBar(true)
-        
+        UserDefaults.standard.setValue(isNewUser ? false : true, forKey: "isBlueButtonLogin")
+
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)
+        TabBarCoordinator.shared.tabBarStatus(isUserConnected: isNewUser ? false : true)
         TabBarCoordinator.shared.tabBarController?.selectedIndex = isNewUser ? HPTabType.manageConnections.tabIndex : HPTabType.home.tabIndex
+        
     }
 }
 

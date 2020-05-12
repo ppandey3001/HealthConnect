@@ -13,6 +13,7 @@ class HPUserItem: NSObject {
     var email: String?
     var name: String?
     var isFirstTimeUser: Bool = false
+    var isBlueButtonLogin: Bool = false
     var age: String?
 
     init(_ data: Dictionary<String, Any>) {

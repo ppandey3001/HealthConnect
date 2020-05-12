@@ -15,6 +15,20 @@ class PayerSummaryViewController: HPViewController {
     @IBOutlet private var view_brief : UIView!
     @IBOutlet private var label_healthplan : UILabel!
     @IBOutlet private var tableView_Summary : UITableView!
+    let services = Services()
+    let  oauthswift = OAuth2Swift(
+        consumerKey:    "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik",
+        consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U",
+        authorizeUrl:   "https://sandbox.bluebutton.cms.gov/v1/o/authorize/",
+        accessTokenUrl: "https://sandbox.bluebutton.cms.gov/v1/o/token/",
+        
+        responseType:   "code",
+        contentType:    "application/json"
+        
+    )
+    
+    let user = HealthProfiler.shared.loggedInUser
+
     
     override func viewDidLoad() {
         
@@ -36,14 +50,17 @@ class PayerSummaryViewController: HPViewController {
     }
     
     @IBAction func blueButtonAction(_ sender : UIButton) {
+        var parameters = [String:String]()
+        parameters["consumerKey"] = "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik"
+        parameters["consumerSecret"] = "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U"
         
-        callBlueBUttonApi()
+        callBlueBUttonApi(parameters)
     }
     
     @IBAction func nextButtonAction(_ sender: UIButton){
         
-            push(controller: ConnectedPlansViewController.nibInstance())
-
+        push(controller: ConnectedPlansViewController.nibInstance())
+        
     }
     
 }
@@ -63,57 +80,57 @@ private extension PayerSummaryViewController {
         tableView_Summary.reloadData()
     }
     
-
-    
-    private func callBlueBUttonApi() {
-//        guard let url = URL(string: "https://sandbox.bluebutton.cms.gov/v1/o/authorize/?response_type=code&client_id=9FTkjlaFygjcy4KAqxRZoDHUCK4MHCptUSOIoZUa&redirect_uri=https%3A%2F%2Fsandbox.bluebutton.cms.gov%2Ftestclient%2Fcallback&state=EJSoRZeicsUen39chtOpuo193x1I3e") else { return }
-//        UIApplication.shared.open(url)
-
+    func showTokenAlert(name: String?, credential: OAuthSwiftCredential) {
+        var message = "oauth_token:\(credential.oauthToken)"
+        if !credential.oauthTokenSecret.isEmpty {
+            message += "\n\noauth_token_secret:\(credential.oauthTokenSecret)"
+        }
+        self.showAlertView(title: name ?? "Service", message: message)
         
-//        var buffer = [UInt8](repeating: 0, count: 32)
-//        _ = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
-//        let verifier = Data(bytes: buffer).base64EncodedString()
-//            .replacingOccurrences(of: "+", with: "-")
-//             .replacingOccurrences(of: "/", with: "-")
-//             .replacingOccurrences(of: "=", with: "-")
-//             .trimmingCharacters(in: .whitespaces)
-////       let code_challenge = BASE64URL-ENCODE(SHA256(ASCII(code_verifier)))
-//        // create an instance and retain it
-//
-      let  oauthswift = OAuth2Swift(
-            consumerKey:    "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik",
-            consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U",
-            authorizeUrl:   "https://sandbox.bluebutton.cms.gov/v1/o/authorize/",
-            accessTokenUrl: "https://sandbox.bluebutton.cms.gov/v1/o/token/",
-
-            responseType:   "code"
-        )
+        if let service = name {
+            services.updateService(service, dico: ["authentified":"1"])
+            // TODO refresh graphic
+        }
+    }
+    func showAlertView(title: String, message: String) {
+        #if os(iOS)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        #elseif os(OSX)
+        let alert = NSAlert()
+        alert.messageText = title
+        alert.informativeText = message
+        alert.addButton(withTitle: "Close")
+        alert.runModal()
+        #endif
+    }
+    
+    private func callBlueBUttonApi(_ serviceParameters: [String:String]) {
+        
         let codeVerifier = "abcd1234".data(using: .utf8)?.base64EncodedString()
         let codeChallenge : String = "S256"
-
+        
         oauthswift.accessTokenBasicAuthentification = true
-        oauthswift.allowMissingStateCheck = true
-         //2
-         oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
-         let handle = oauthswift.authorize(
-             withCallbackURL: "optumHealthConnect:/oauth2redirect/example-provider",
-             scope: "profile",
-             state:"State01",
-             codeChallenge: codeChallenge,
-             codeChallengeMethod: "S256",
-             codeVerifier: codeVerifier ?? "") { result in
-             switch result {
-             case .success(let (credential, response, parameters)):
-               print(credential.oauthToken,response,parameters)
-               // Do your request
-             case .failure(let error):
-                print(error._code, error.description, error.errorCode)
-             }
-         }
+        //        oauthswift.allowMissingStateCheck = true
+        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
+        let _ = oauthswift.authorize(
+        withCallbackURL: "com.optum.com.healthprofiler://callback", scope: "patient/Coverage.read", state: "State01", codeChallenge: codeChallenge, codeChallengeMethod: "S256", codeVerifier: codeVerifier ?? "") { result in
+            switch result {
+            case .success(let (credential, _, _)):
+                self.showTokenAlert(name: serviceParameters["name"], credential: credential)
+            case .failure(let error):
+                print(error.description)
+                UserDefaults.standard.setValue(true, forKey: "isBlueButtonLogin")
+                TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
+                self.push(controller: ConnectedPlansViewController.nibInstance())
+            }
+        }
+        
     }
-
-      
-    }
+    
+    
+}
 
 //MARK: Public methods
 extension PayerSummaryViewController {
@@ -141,17 +158,17 @@ extension PayerSummaryViewController : UITableViewDelegate, UITableViewDataSourc
     }
 }
 extension String {
-
+    
     func fromBase64() -> String? {
         guard let data = Data(base64Encoded: self) else {
             return nil
         }
-
+        
         return String(data: data, encoding: .utf8)
     }
-
+    
     func toBase64() -> String {
         return Data(self.utf8).base64EncodedString()
     }
-
+    
 }

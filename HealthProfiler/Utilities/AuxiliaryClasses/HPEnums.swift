@@ -26,19 +26,19 @@ enum HPProfileFieldType {
         
         switch self {
         case .userName:
-            return ("username", false, "user-icon.png")
+            return ("Username", false, "user-icon.png")
             
         case .password:
-            return ("password", true, "password-icon.png")
+            return ("Password", true, "password-icon.png")
             
         case .confirmPassword:
-            return ("confirm password", true, "password-icon.png")
+            return ("Confirm password", true, "password-icon.png")
             
         case .name:
-            return ("name", false, "name.png")
+            return ("Name", false, "name.png")
             
         case .email:
-            return ("email", false, "email.png")
+            return ("Email", false, "email.png")
         }
     }
 }
@@ -87,21 +87,21 @@ enum HPHealthInsuranceType {
 
 enum HPConnectedProviderType {
     
-    case epicSystem
-    case cemer
-    case allScripts
+    case methodist
+    case advent
+    case southwest
     
-    func attributes() -> (title: String, icon : String) {
+    func attributes() -> (title: String, icon : String, poweredBy : String) {
         
         switch self {
-        case .epicSystem:
-            return  ("Powered by Epic Systems", "alberta")
+        case .methodist:
+            return  ("Dr. John Shier - Family Practice", "methodist", "cerner")
             
-        case .cemer:
-            return ("Powered by Cerner", "midland")
+        case .advent:
+            return ("Dr. Minny Jones - Neurology", "adventist", "cerner")
             
-        case .allScripts:
-            return ("Powered by Allscripts", "alina_health")
+        case .southwest:
+            return ("Dr. William Richards - Cardilogy", "southwestmedical", "Allscripts")
         }
     }
 }
@@ -111,6 +111,17 @@ enum HPCoverageClaimType {
     case drPOe
     case drSmith
     
+    case drMinnnie
+    case drJones
+    case drAllison
+    case drNorma
+    case drJohn
+    case drTammy
+    case drWilliam
+    case drGayle
+    case drVeena
+    case drJohnson
+    
     func attributes() -> (name : String, date : String, billAmt : String, share : String) {
         
         switch self {
@@ -119,6 +130,26 @@ enum HPCoverageClaimType {
             
         case .drSmith:
             return ("Dr. Smith", "Mar 4", "$xx", "$xx")
+        case .drMinnnie:
+                return ("Dr. Minny Jones", "Feb 4, 2020", "90 USD", "60 USD")
+        case .drJones:
+                return ("Dr. Minny Jones", "Feb 4, 2020", "650 USD", "350 USD")
+        case .drAllison:
+                return ("Dr. Allison Allscripts", "Mar 4, 2020", "70 USD", "30 USD")
+        case .drNorma:
+                return ("Dr. Norma Lewi", "Mar 4, 2020", "100 USD", "20 USD")
+        case .drJohn:
+                return ("Dr. John Shier", "Jan 6, 2020", "40 USD", "10 USD")
+        case .drTammy:
+                return ("Dr. Tammy Allscripts", "Jan 6, 2020", "50 USD", "40 USD")
+        case .drWilliam:
+                return ("Dr. William Richards", "Mar 4, 2020", "50 USD", "40 USD")
+        case .drGayle:
+                return ("Dr. Gayle Laakman", "Jab 30, 2020", "40 USD", "30 USD")
+        case .drVeena:
+                return ("Dr. Veena Karthik", "Jab 30, 2020", "60 USD", "40 USD")
+        case .drJohnson:
+                return ("Dr. Johnson Kary", "Jab 30, 2020", "200 USD", "150 USD")
         }
     }
     

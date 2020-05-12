@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import  OAuthSwift
 
 class ConnectedPlansViewController: HPViewController {
     
@@ -24,6 +25,17 @@ class ConnectedPlansViewController: HPViewController {
     
     var isFromProvider : Bool?
     
+    let  oauthswift = OAuth2Swift(
+        consumerKey:    "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik",
+        consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U",
+        authorizeUrl:   "https://sandbox.bluebutton.cms.gov/v1/o/authorize/",
+        accessTokenUrl: "https://sandbox.bluebutton.cms.gov/v1/o/token/",
+        
+        responseType:   "code",
+        contentType:    "application/json"
+        
+    )
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -32,7 +44,7 @@ class ConnectedPlansViewController: HPViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView_Plans.reloadData()
-
+        
     }
     
     @IBAction func changeCategories_segmentControl(_ sender : UISegmentedControl){
@@ -56,6 +68,10 @@ class ConnectedPlansViewController: HPViewController {
         allena.dataSource_provider = dataSource_provider
         push(controller: allena)
     }
+    
+    @IBAction func blueButtonConnectAction(_ sender: UIButton){
+        callBlueBUttonApi()
+    }
 }
 
 //MARK: Private methods
@@ -64,11 +80,11 @@ private extension ConnectedPlansViewController {
     private func setupController() {
         
         dataSource_InsurancePlans.removeAll()
-
+        
         dataSource_InsurancePlans = user?.isFirstTimeUser == true ? [HPConnectedInsuranceItem(.humana), HPConnectedInsuranceItem(.blueButton)] : [HPConnectedInsuranceItem(.medicare), HPConnectedInsuranceItem(.blueButton)]
         
         dataSource_provider.removeAll()
-        dataSource_provider = user?.isFirstTimeUser == true ? [HPConnectedProviderItem(.epicSystem), HPConnectedProviderItem(.cemer)] : [ HPConnectedProviderItem(.cemer), HPConnectedProviderItem(.allScripts)]
+        dataSource_provider = user?.isFirstTimeUser == true ? [HPConnectedProviderItem(.advent)] : [ HPConnectedProviderItem(.southwest), HPConnectedProviderItem(.advent)]
         
         registerTableCell(tableView_Plans, cellClass: InsurancePlanCell.self)
         registerTableCell(tableView_Plans, cellClass: ProviderConnectedCell.self)
@@ -89,6 +105,28 @@ private extension ConnectedPlansViewController {
         tableView_Plans.dataSource = self
         tableView_Plans.reloadData()
     }
+    
+    private func callBlueBUttonApi() {
+        
+        let codeVerifier = "abcd1234".data(using: .utf8)?.base64EncodedString()
+        let codeChallenge : String = "S256"
+        
+        oauthswift.accessTokenBasicAuthentification = true
+        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
+        let _ = oauthswift.authorize(
+        withCallbackURL: "com.optum.com.HealthProfiler://callback", scope: "patient/Coverage.read", state: "State01", codeChallenge: codeChallenge, codeChallengeMethod: "S256", codeVerifier: codeVerifier ?? "") { result in
+            switch result {
+            case .success(let (credential, _, _)):
+                print(credential)
+            case .failure(let error):
+                print(error.description)
+                TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
+                UserDefaults.standard.setValue(true, forKey: "isBlueButtonLogin")
+                self.tableView_Plans.reloadData()
+            }
+        }
+        
+    }
 }
 
 //MARK: Public methods
@@ -103,7 +141,7 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return isFromProvider == true ? 135 : 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -111,8 +149,8 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
         if isFromProvider == true {
             
             let providerCell = tableView.dequeueReusableCell(withIdentifier: ProviderConnectedCell.reuseableId(), for: indexPath) as! ProviderConnectedCell
-            providerCell.configureProviderCell(item: dataSource_provider[indexPath.row], index: indexPath.row)
-            if indexPath.row == 1 {
+            providerCell.configureProviderCell(item: dataSource_provider[indexPath.row], index: indexPath.row, user: user?.isFirstTimeUser ?? false)
+            if indexPath.row == 0 && user?.isFirstTimeUser == true {
                 providerCell.connect_Button.addTarget(self, action: #selector(allenaConnectAction), for: .touchUpInside)
             }
             
@@ -122,7 +160,9 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
             let planCell = tableView.dequeueReusableCell(withIdentifier: InsurancePlanCell.reuseableId(), for: indexPath) as! InsurancePlanCell
             
             planCell.configureInsuranceCell(item: dataSource_InsurancePlans[indexPath.row], index: indexPath.row)
-            
+            if indexPath.row == 1 {
+                planCell.activeStatus_Button.addTarget(self, action: #selector(blueButtonConnectAction), for: .touchUpInside)
+            }
             return planCell
         }
     }

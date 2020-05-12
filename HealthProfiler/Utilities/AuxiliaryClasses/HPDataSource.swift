@@ -76,7 +76,7 @@ class HPConnectedInsuranceItem: NSObject {
 }
 
 class HPConnectedProviderItem: NSObject {
-    var type: HPConnectedProviderType = .epicSystem
+    var type: HPConnectedProviderType = .methodist
     var isConnected: Bool?
     
     init(_ type: HPConnectedProviderType) {

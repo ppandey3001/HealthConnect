@@ -13,9 +13,6 @@ class TabBarCoordinator {
     
     public var tabBarController: UITabBarController?
     
-    let user = UserDefaults.standard.string(forKey: "name")
-
-
     //marking init() as 'private' will disallow to create any other object of the class
     private init() { }
     
@@ -32,8 +29,21 @@ class TabBarCoordinator {
         
         tabBarController = UITabBarController()
         tabBarController?.viewControllers = [home,healthProfile, coverage, manageConnections]
-//        tabBarController?.selectedIndex = (user == "wilma") ? 3 : 0
         return tabBarController!
+    }
+    
+    func tabBarStatus(isUserConnected: Bool){
+        if let items = tabBarController?.tabBar.items {
+            for index in 0...items.count-2 {
+                
+                let itemToDisable = items[index]
+                if isUserConnected == true {
+                    itemToDisable.isEnabled = true
+                }else {
+                    itemToDisable.isEnabled = false
+                }
+            }
+        }
     }
     
     func getNavigationIndex(type: HPMenuItemType) -> Int {

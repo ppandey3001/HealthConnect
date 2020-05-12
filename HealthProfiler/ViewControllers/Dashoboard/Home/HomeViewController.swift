@@ -39,8 +39,11 @@ private extension HomeViewController {
         recent_tableView.reloadData()
         addProfileButton()
         //fetch data from server
+        let status = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
+        if status == true {
         callApiForVitalsList()
         callApiForRecentVisitList()
+        }
     }
     
     private func userVitalReceived(vital: HPVitalsItem) {
