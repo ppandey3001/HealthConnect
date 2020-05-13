@@ -13,8 +13,8 @@ class HealthProfilerCell: HPTableViewCell {
     @IBOutlet var section_collectionView : UICollectionView!
     @IBOutlet var title_label : UILabel!
     
+    //private  vars
     var cellType : Int = 0
-    
     var datasource_gapsInCare = [HPGapsInCareItem]()
     var datasource_medication = [HPMedicationItem]()
     var datasource_careteam = [HPCareTeamItem]()
@@ -25,7 +25,7 @@ class HealthProfilerCell: HPTableViewCell {
         registerCollectionCell(section_collectionView, cellClass: MedicationCollectionCell.self)
         registerCollectionCell(section_collectionView, cellClass: CareTeamCollectionCell.self)
         
-        if (cellType != 2){
+        if (cellType != 2) {
             section_collectionView.backgroundColor = .clear
         }
         section_collectionView.alwaysBounceHorizontal = true
@@ -39,6 +39,7 @@ extension HealthProfilerCell : UICollectionViewDataSource, UICollectionViewDeleg
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         switch cellType {
         case 0:
             return datasource_gapsInCare.count
@@ -52,6 +53,7 @@ extension HealthProfilerCell : UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         switch cellType {
         case 0:
             return CGSize(width: 120, height: 70)
@@ -67,26 +69,24 @@ extension HealthProfilerCell : UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         switch cellType {
+            
         case 0:
             let gapsCell = collectionView.dequeueReusableCell(withReuseIdentifier: GapsInCareCollectionCell.reuseableId(), for: indexPath) as! GapsInCareCollectionCell
             gapsCell.configureGapsInCareCell(item: datasource_gapsInCare[indexPath.row])
-            
             return gapsCell
+            
         case 1:
             let medicationCell = collectionView.dequeueReusableCell(withReuseIdentifier: MedicationCollectionCell.reuseableId(), for: indexPath) as! MedicationCollectionCell
             medicationCell.configureMedicationCell(item: datasource_medication[indexPath.row])
-            
             return medicationCell
+            
         case 2:
             let careCell = collectionView.dequeueReusableCell(withReuseIdentifier: CareTeamCollectionCell.reuseableId(), for: indexPath) as! CareTeamCollectionCell
             careCell.configureCareCell(item: datasource_careteam[indexPath.row])
-            
             return careCell
+            
         default:
-            break
-        }
-        return UICollectionViewCell()
-        
+            return UICollectionViewCell()
+        }        
     }
-    
 }

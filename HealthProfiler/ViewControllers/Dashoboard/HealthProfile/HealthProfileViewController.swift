@@ -20,12 +20,6 @@ class HealthProfileViewController: HPViewController {
         
         super.viewDidLoad()
         setupController()
-        callApi()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
     }
 }
 
@@ -40,20 +34,23 @@ private extension HealthProfileViewController {
         
         healthProfiler_tableView.delegate = self
         healthProfiler_tableView.dataSource = self
+        callApi()
     }
     
-    func callApi(){
-        let status = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
-        if status == true {
-        callApiForAllegyList()
-        callApiForMedicationList()
-        callApiForConditionsList()
-        callApiForCareTeamList()
-        callApiForGapsInCareList()
+    private func callApi(){
+        
+        let isBlueButtonLogin = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
+        if isBlueButtonLogin {
+            
+            callApiForAllegyList()
+            callApiForMedicationList()
+            callApiForConditionsList()
+            callApiForCareTeamList()
+            callApiForGapsInCareList()
         }
     }
     
-    func callApiForAllegyList() {
+    private func callApiForAllegyList() {
         
         Loader.show()
         let params = [
@@ -75,7 +72,7 @@ private extension HealthProfileViewController {
         }
     }
     
-    func callApiForConditionsList() {
+    private func callApiForConditionsList() {
         
         let params = [
             "id" : "24",
@@ -97,7 +94,7 @@ private extension HealthProfileViewController {
         }
     }
     
-    func callApiForMedicationList() {
+    private func callApiForMedicationList() {
         
         let params = [
             "id" : "24",
@@ -119,7 +116,7 @@ private extension HealthProfileViewController {
         }
     }
     
-    func callApiForCareTeamList() {
+    private func callApiForCareTeamList() {
         
         let params = [
             "id" : "24",
@@ -141,7 +138,7 @@ private extension HealthProfileViewController {
         }
     }
     
-    func callApiForGapsInCareList() {
+    private func callApiForGapsInCareList() {
         
         ApiCallManager.sharedInstance.fetchDataFromRemote(params: [:], methodType: .get, apiName: "getGapsInCare") { (response, error) in
             print(JSON(response as Any))

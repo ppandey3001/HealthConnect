@@ -11,26 +11,36 @@ import UIKit
 class AllenaHealthViewController: UIViewController {
     
     @IBOutlet private var terms_view: UIView!
-     @IBOutlet private var name: UILabel!
-     var dataSource_provider = [HPConnectedProviderItem]()
-    let user = HealthProfiler.shared.loggedInUser
-
-
+    @IBOutlet private var name: UILabel!
+    
+    //private vars
+    var dataSource_provider = [HPConnectedProviderItem]()
+    private let user = HealthProfiler.shared.loggedInUser
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        terms_view.isHidden = true
-        name.text = user?.name
-
-        // Do any additional setup after loading the view.
+        setupController()
     }
-
-    @IBAction func signInBUttonAction(_ sender: UIButton){
+    
+    @IBAction func signInBUttonAction(_ sender: UIButton) {
+        
         terms_view.isHidden = false
         dataSource_provider[0].isConnected = true
     }
     
-    @IBAction func acceptBUttonAction(_ sender: UIButton){
+    @IBAction func acceptBUttonAction(_ sender: UIButton) {
         pop()
     }
+}
 
+
+//private mthods
+extension AllenaHealthViewController {
+    
+    private func setupController() {
+        
+        terms_view.isHidden = true
+        name.text = user?.name
+    }
 }

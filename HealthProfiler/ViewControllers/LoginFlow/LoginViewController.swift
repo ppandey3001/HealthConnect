@@ -19,6 +19,7 @@ class LoginViewController: HPViewController {
     }
     
     @IBAction func signInButtonAction(_ sender: UIButton) {
+        
         self.view.endEditing(true)
         
         var userName: String?
@@ -94,6 +95,12 @@ private extension LoginViewController {
         
         dataSource_login.removeAll()
         dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
+        
+        //WARNING: dev purpose only, remove once completed
+        for item in dataSource_login {
+            item.value = "wilma"
+        }
+        
         tableView_login.reloadData()
     }
     
@@ -138,9 +145,8 @@ private extension LoginViewController {
 
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)
-        TabBarCoordinator.shared.tabBarStatus(isUserConnected: isNewUser ? false : true)
+        TabBarCoordinator.shared.tabBarStatus(isUserConnected: !isNewUser)
         TabBarCoordinator.shared.tabBarController?.selectedIndex = isNewUser ? HPTabType.manageConnections.tabIndex : HPTabType.home.tabIndex
-        
     }
 }
 

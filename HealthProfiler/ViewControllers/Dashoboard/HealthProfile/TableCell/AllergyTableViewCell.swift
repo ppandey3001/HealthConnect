@@ -20,12 +20,8 @@ class AllergyTableViewCell: HPTableViewCell {
     var datasource_allergy = [HPAllergiesItem]()
     var datasource_condition = [HPConditionItem]()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    func registerCell() {
         
-    }
-    
-    func registerCell(){
         registerCollectionCell(section_collectionView, cellClass: GapsInCareCollectionCell.self)
         
         section_collectionView.alwaysBounceHorizontal = true
@@ -33,18 +29,21 @@ class AllergyTableViewCell: HPTableViewCell {
         section_collectionView.dataSource = self
         section_collectionView.reloadData()
     }
-    
 }
+
 
 extension AllergyTableViewCell : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         switch cellType {
+            
         case 0:
             return datasource_allergy.count
+            
         case 1:
             return datasource_condition.count
+            
         default:
             return 0
         }
@@ -61,18 +60,18 @@ extension AllergyTableViewCell : UICollectionViewDataSource, UICollectionViewDel
         gapsCell.title_label.font = gapsCell.title_label.font.withSize(12)
         
         switch cellType {
+            
         case 0:
             gapsCell.configureAllergyCell(item: datasource_allergy[indexPath.row])
-            
             return gapsCell
+            
         case 1:
             gapsCell.configureConditionCareCell(item: datasource_condition[indexPath.row])
             return gapsCell
+            
         default:
-            break
+            return UICollectionViewCell()
         }
-        return UICollectionViewCell()
-        
     }
     
 }

@@ -21,8 +21,10 @@ class InsurancePlanViewController: HPViewController {
         setupController()
     }
     
-    @IBAction func openPickerAction(_ sender: UIButton){
+    @IBAction func openPickerAction(_ sender: UIButton) {
+        
         HPPicker.sharedInstance.selectOption(title: "", dataArray: ["Aetna","Humana","Anthem","Cigna","UnitedHealthcare"], selectedIndex: 0) { (selectedText, index) in
+            
             print(selectedText)
             let  item = self.dataSource_insurance[0]
             item.value = selectedText
@@ -32,9 +34,7 @@ class InsurancePlanViewController: HPViewController {
     
     @IBAction func connectButtonAction(_ sender: UIButton){
         push(controller: HumanaViewController.nibInstance())
-        
     }
-    
 }
 
 //MARK: Private methods

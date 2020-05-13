@@ -29,15 +29,16 @@ extension ProviderConnectedCell {
         icon_imageView.image = UIImage(named: attributes.icon)
         poweredBy.image = UIImage(named: attributes.poweredBy)
         title_label.text = attributes.title
-        if user == true {
+        
+        if user {
+            
             activeStatus_Button.isSelected = item.isConnected ?? false
             connect_Button.isSelected = item.isConnected ?? false
             
-        }else{
+        } else {
+            
             activeStatus_Button.isSelected = true
             connect_Button.isSelected = true
         }
-        
     }
-    
 }

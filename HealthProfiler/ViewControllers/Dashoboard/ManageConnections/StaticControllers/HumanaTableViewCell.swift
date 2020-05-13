@@ -17,10 +17,10 @@ class HumanaTableViewCell: HPTableViewCell {
         super.awakeFromNib()
         input_textField.layer.borderColor = UIColor.lightGray.cgColor
     }
-
-    
 }
-extension HumanaTableViewCell{
+
+extension HumanaTableViewCell {
+    
      func configureHumanaCell(item: HPHumanaItem, index: Int) {
         
         input_textField.layer.borderColor = UIColor.lightGray.cgColor

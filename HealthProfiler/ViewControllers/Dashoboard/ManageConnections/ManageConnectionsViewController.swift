@@ -14,23 +14,23 @@ class ManageConnectionsViewController: HPViewController {
     private var dataSource_connection = [HPConnectionItem]()
     private let margin : CGFloat = (UIScreen.main.bounds.width - 300.0) / 3.0
     
-     let user = HealthProfiler.shared.loggedInUser
+    let user = HealthProfiler.shared.loggedInUser
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         setupController()
         
-//        if user?.isFirstTimeUser == false {
-//            let connectedPlans = ConnectedPlansViewController.nibInstance()
-//            connectedPlans.isFromProvider = false
-//            push(controller: connectedPlans)
-//        }
-//        
+        //        if user?.isFirstTimeUser == false {
+        //            let connectedPlans = ConnectedPlansViewController.nibInstance()
+        //            connectedPlans.isFromProvider = false
+        //            push(controller: connectedPlans)
+        //        }
+        //        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        
         
     }
     
@@ -62,7 +62,7 @@ private extension ManageConnectionsViewController {
         
         
         if user?.isFirstTimeUser == false {
-
+            
             view_welcomeMessageContainer.isHidden = true
             
         }
@@ -119,12 +119,12 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
             
         case .healthInsurance:
             if user?.isFirstTimeUser == false {
-
+                
                 let connectedPlans = ConnectedPlansViewController.nibInstance()
                 connectedPlans.isFromProvider = false
                 push(controller: connectedPlans)
                 
-            }else {
+            } else {
                 
                 push(controller: InsurancePlanViewController.nibInstance())
             }

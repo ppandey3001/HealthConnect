@@ -20,10 +20,16 @@ class CoverageViewController: HPViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         dataSource_coverage.removeAll()
-        let status = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
-        dataSource_coverage = status == true ?  [HPCoverageClaimItem(.drMinnnie), HPCoverageClaimItem(.drJones), HPCoverageClaimItem(.drAllison), HPCoverageClaimItem(.drNorma), HPCoverageClaimItem(.drJohn), HPCoverageClaimItem(.drTammy), HPCoverageClaimItem(.drWilliam), HPCoverageClaimItem(.drGayle), HPCoverageClaimItem(.drVeena), HPCoverageClaimItem(.drJohnson)] : [HPCoverageClaimItem(.drPOe), HPCoverageClaimItem(.drSmith)]
-        coverage_tableView.reloadData()
+        let isBlueButtonLogin = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
         
+        if isBlueButtonLogin {
+            
+            dataSource_coverage = [HPCoverageClaimItem(.drMinnnie), HPCoverageClaimItem(.drJones), HPCoverageClaimItem(.drAllison), HPCoverageClaimItem(.drNorma), HPCoverageClaimItem(.drJohn), HPCoverageClaimItem(.drTammy), HPCoverageClaimItem(.drWilliam), HPCoverageClaimItem(.drGayle), HPCoverageClaimItem(.drVeena), HPCoverageClaimItem(.drJohnson)]
+        } else {
+            dataSource_coverage = [HPCoverageClaimItem(.drPOe), HPCoverageClaimItem(.drSmith)]
+        }
+        
+        coverage_tableView.reloadData()
     }
 }
 

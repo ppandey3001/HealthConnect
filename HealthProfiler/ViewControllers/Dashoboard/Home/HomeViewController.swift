@@ -14,11 +14,10 @@ class HomeViewController: HPViewController {
     @IBOutlet private var bmi_label : UILabel!
     @IBOutlet private var height_label : UILabel!
     @IBOutlet private var weight_label : UILabel!
-    
     @IBOutlet private var recent_tableView : UITableView!
     
-    var userVital: HPVitalsItem?
-    var dataSource_recentVisit = [HPRecentVisitItem]()
+    private var userVital: HPVitalsItem?
+    private var dataSource_recentVisit = [HPRecentVisitItem]()
     
     override func viewDidLoad() {
         
@@ -76,26 +75,9 @@ extension HomeViewController {
                 }
             }
         }
-        
-        
-//        let params = [
-//            "id" : "24",
-//        ]
-//        ApiCallManager.sharedInstance.fetchDataFromRemote(params: params, methodType: .get, apiName: "Vitals?") { (response, error) in
-//            print(JSON(response as Any))
-//            if response != nil {
-//                let responseData = JSON(response as Any)
-//                
-//                if let obj = responseData.rawValue as? Array<Dictionary<String, Any>>,
-//                    let vitals = obj.first {
-//                    self.userVitalReceived(vital: HPVitalsItem(vitals))
-//                }
-//            }
-//        }
     }
     
     private func callApiForRecentVisitList() {
-        
         
         HealthProfiler.networkManager.getRecentVisitList(id: "24") { [weak self] (visitList, error) in
             
@@ -110,26 +92,6 @@ extension HomeViewController {
                 }
             }
         }
-        
-        
-//        let params = [
-//            "id" : "24",
-//        ]
-//        ApiCallManager.sharedInstance.fetchDataFromRemote(params: params, methodType: .get, apiName: "RecentVisits?") { (response, error) in
-//            print(JSON(response as Any))
-//            if response != nil {
-//                let responseData = JSON(response as Any)
-//                Loader.dismiss()
-//                print("getting response", responseData)
-//
-//                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
-//                    for obj in dataList  {
-//                        self.dataSource_recentVisit.append(HPRecentVisitItem(obj))
-//                    }
-//                }
-//                self.recent_tableView.reloadData()
-//            }
-//        }
     }
 }
 
@@ -152,5 +114,4 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         visitsCell.dataSource_recentVisit = dataSource_recentVisit
         return visitsCell
     }
-    
 }

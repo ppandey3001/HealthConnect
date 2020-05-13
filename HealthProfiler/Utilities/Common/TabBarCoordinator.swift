@@ -32,16 +32,14 @@ class TabBarCoordinator {
         return tabBarController!
     }
     
-    func tabBarStatus(isUserConnected: Bool){
+    func tabBarStatus(isUserConnected: Bool) {
+        
         if let items = tabBarController?.tabBar.items {
-            for index in 0...items.count-2 {
+            
+            for index in 0...(items.count - 2) {
                 
                 let itemToDisable = items[index]
-                if isUserConnected == true {
-                    itemToDisable.isEnabled = true
-                }else {
-                    itemToDisable.isEnabled = false
-                }
+                itemToDisable.isEnabled = isUserConnected
             }
         }
     }

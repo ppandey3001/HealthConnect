@@ -14,19 +14,19 @@ class HumanaViewController: HPViewController {
     
     private var dataSource_humana = [HPHumanaItem]()
     
-    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         setupController()
-        
     }
     
     @IBAction func connectButtonAction(_ sender: UIButton){
         
         push(controller: PayerSummaryViewController.nibInstance())
     }
-    
 }
+
+
 //MARK: Private methods
 private extension HumanaViewController {
     
@@ -43,11 +43,9 @@ private extension HumanaViewController {
         humana_tableView.dataSource = self
         humana_tableView.reloadData()
     }
-    
 }
 
 
-//MARK: Public methods
 extension HumanaViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,6 +67,7 @@ extension HumanaViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+
 extension HumanaViewController : UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -83,5 +82,4 @@ extension HumanaViewController : UITextFieldDelegate {
         
         return true
     }
-    
 }
