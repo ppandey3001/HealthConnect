@@ -141,7 +141,10 @@ private extension LoginViewController {
         
         //show custom branding bar
         container()?.showBrandingBar(true)
+        
         UserDefaults.standard.setValue(isNewUser ? false : true, forKey: "isBlueButtonLogin")
+        UserDefaults.standard.setValue(isNewUser ? false : true, forKey: "isProviderConnected")
+        UserDefaults.standard.setValue(isNewUser ? false : true, forKey: "isInsurerConnected")
 
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)

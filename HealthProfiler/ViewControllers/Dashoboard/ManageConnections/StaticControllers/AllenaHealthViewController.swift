@@ -27,6 +27,7 @@ class AllenaHealthViewController: UIViewController {
         
         terms_view.isHidden = false
         dataSource_provider[0].isConnected = true
+        UserDefaults.standard.setValue(true, forKey: "isProviderConnected")
     }
     
     @IBAction func acceptBUttonAction(_ sender: UIButton) {

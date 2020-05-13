@@ -10,11 +10,11 @@ class HealthProfileViewController: HPViewController {
     
     @IBOutlet private var healthProfiler_tableView: UITableView!
     
-    var datasource_allergy = [HPAllergiesItem]()
-    var datasource_conditions = [HPConditionItem]()
-    var datasource_medication = [HPMedicationItem]()
-    var datasource_careteam = [HPCareTeamItem]()
-    var datasource_gapsInCare = [HPGapsInCareItem]()
+    var datasource_allergyList = [HPAllergiesItem]()
+    var datasource_conditionList = [HPConditionItem]()
+    var datasource_medicationList = [HPMedicationItem]()
+    var datasource_careteamList = [HPCareTeamItem]()
+    var datasource_gapsInCareList = [HPGapsInCareItem]()
     
     override func viewDidLoad() {
         
@@ -42,121 +42,116 @@ private extension HealthProfileViewController {
         let isBlueButtonLogin = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
         if isBlueButtonLogin {
             
-            callApiForAllegyList()
-            callApiForMedicationList()
-            callApiForConditionsList()
-            callApiForCareTeamList()
+            callApiForAllegyList(id: "24")
+            callApiForMedicationList(id: "24")
+            callApiForConditionList(id: "24")
+            callApiForCareTeamList(id: "24")
             callApiForGapsInCareList()
         }
     }
     
-    private func callApiForAllegyList() {
+}
+
+//MARK: - API interaction -
+extension HealthProfileViewController {
+    
+    private func callApiForAllegyList(id : String) {
         
         Loader.show()
-        let params = [
-            "id" : "24",
-        ]
-        ApiCallManager.sharedInstance.fetchDataFromRemote(params: params, methodType: .get, apiName: "AllergyIntolerance?") { (response, error) in
-            print(JSON(response as Any))
-            if response != nil {
-                let responseData = JSON(response as Any)
-                print("getting response", responseData)
-                
-                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
-                    for obj in dataList  {
-                        self.datasource_allergy.append(HPAllergiesItem(obj))
-                    }
+        
+        HealthProfiler.networkManager.getAllergyData(id: id) { [weak self] (allergyList, error) in
+            
+            if let strongSelf = self {
+                Loader.dismiss()
+                strongSelf.datasource_allergyList.removeAll()
+                if let allergyList = allergyList {
+                    strongSelf.datasource_allergyList = allergyList
+                    strongSelf.healthProfiler_tableView.reloadData()
+                } else {
+                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
-                self.healthProfiler_tableView.reloadData()
             }
         }
     }
     
-    private func callApiForConditionsList() {
+    private func callApiForCareTeamList(id : String) {
         
-        let params = [
-            "id" : "24",
-        ]
-        ApiCallManager.sharedInstance.fetchDataFromRemote(params: params, methodType: .get, apiName: "Condition?") { (response, error) in
-            print(JSON(response as Any))
-            if response != nil {
-                let responseData = JSON(response as Any)
-                print("getting response", responseData)
-                
-                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
-                    for obj in dataList  {
-                        self.datasource_conditions.append(HPConditionItem(obj))
-                    }
+        Loader.show()
+        
+        HealthProfiler.networkManager.getCareTeamData(id: id) { [weak self] (careTeamList, error) in
+            
+            if let strongSelf = self {
+                Loader.dismiss()
+                strongSelf.datasource_careteamList.removeAll()
+                if let careList = careTeamList {
+                    strongSelf.datasource_careteamList = careList
+                    strongSelf.healthProfiler_tableView.reloadData()
+                } else {
+                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
-                
-                self.healthProfiler_tableView.reloadData()
             }
         }
     }
     
-    private func callApiForMedicationList() {
+    private func callApiForConditionList(id : String) {
         
-        let params = [
-            "id" : "24",
-        ]
-        ApiCallManager.sharedInstance.fetchDataFromRemote(params: params, methodType: .get, apiName: "Medication?") { (response, error) in
-            print(JSON(response as Any))
-            if response != nil {
-                let responseData = JSON(response as Any)
-                print("getting response", responseData)
-                
-                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
-                    for obj in dataList  {
-                        self.datasource_medication.append(HPMedicationItem(obj))
-                    }
+        Loader.show()
+        
+        HealthProfiler.networkManager.getConditionData(id: id) { [weak self] (conditionList, error) in
+            
+            if let strongSelf = self {
+                Loader.dismiss()
+                strongSelf.datasource_conditionList.removeAll()
+                if let conditionList = conditionList {
+                    strongSelf.datasource_conditionList = conditionList
+                    strongSelf.healthProfiler_tableView.reloadData()
+                } else {
+                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
-                
-                self.healthProfiler_tableView.reloadData()
             }
         }
     }
     
-    private func callApiForCareTeamList() {
+    private func callApiForMedicationList(id : String) {
         
-        let params = [
-            "id" : "24",
-        ]
-        ApiCallManager.sharedInstance.fetchDataFromRemote(params: params, methodType: .get, apiName: "CareTeam?") { (response, error) in
-            print(JSON(response as Any))
-            if response != nil {
-                let responseData = JSON(response as Any)
-                
-                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
-                    for obj in dataList  {
-                        self.datasource_careteam.append(HPCareTeamItem(obj))
-                    }
+        Loader.show()
+        
+        HealthProfiler.networkManager.getMedicationData(id: id) { [weak self] (medicationList, error) in
+            
+            if let strongSelf = self {
+                Loader.dismiss()
+                strongSelf.datasource_medicationList.removeAll()
+                if let medicationList = medicationList {
+                    strongSelf.datasource_medicationList = medicationList
+                    strongSelf.healthProfiler_tableView.reloadData()
+                } else {
+                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
-                
-                
-                self.healthProfiler_tableView.reloadData()
             }
         }
     }
     
     private func callApiForGapsInCareList() {
         
-        ApiCallManager.sharedInstance.fetchDataFromRemote(params: [:], methodType: .get, apiName: "getGapsInCare") { (response, error) in
-            print(JSON(response as Any))
-            if response != nil {
-                let responseData = JSON(response as Any)
+        Loader.show()
+        
+        HealthProfiler.networkManager.getGapsInCareData() { [weak self] (gapsInCareList, error) in
+            
+            if let strongSelf = self {
                 Loader.dismiss()
-                
-                if let dataList = responseData.rawValue as? Array<Dictionary<String, Any>> {
-                    for obj in dataList  {
-                        self.datasource_gapsInCare.append(HPGapsInCareItem(obj))
-                    }
+                strongSelf.datasource_gapsInCareList.removeAll()
+                if let gapsInCareList = gapsInCareList {
+                    strongSelf.datasource_gapsInCareList = gapsInCareList
+                    strongSelf.healthProfiler_tableView.reloadData()
+                } else {
+                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
-                
-                self.healthProfiler_tableView.reloadData()
             }
         }
     }
+    
 }
+
 
 
 extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSource {
@@ -168,13 +163,13 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 128
+            return 150
         case 1...2:
-            return 91
+            return 100
         case 3:
-            return 128
+            return 150
         case 4:
-            return 120
+            return 150
         default:
             break
         }
@@ -191,14 +186,14 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
             profilerCell.cellType = 0
             profilerCell.registerCell()
             profilerCell.title_label.text = "Gaps In Care"
-            profilerCell.datasource_gapsInCare = datasource_gapsInCare
+            profilerCell.datasource_gapsInCare = datasource_gapsInCareList
             return profilerCell
             
         case 1...2:
             let allergyCell = tableView.dequeueReusableCell(withIdentifier: AllergyTableViewCell.reuseableId(), for: indexPath) as! AllergyTableViewCell
             allergyCell.registerCell()
-            allergyCell.datasource_allergy = datasource_allergy
-            allergyCell.datasource_condition = datasource_conditions
+            allergyCell.datasource_allergy = datasource_allergyList
+            allergyCell.datasource_condition = datasource_conditionList
             allergyCell.title_label.text = indexPath.row == 1 ? "Allergies" : "Conditions"
             allergyCell.cellType = indexPath.row == 1 ? 0 : 1
             return allergyCell
@@ -206,8 +201,8 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
         case 3...4:
             let profilerCell = tableView.dequeueReusableCell(withIdentifier: HealthProfilerCell.reuseableId(), for: indexPath) as! HealthProfilerCell
             profilerCell.registerCell()
-            profilerCell.datasource_medication = datasource_medication
-            profilerCell.datasource_careteam = datasource_careteam
+            profilerCell.datasource_medication = datasource_medicationList
+            profilerCell.datasource_careteam = datasource_careteamList
             profilerCell.title_label.text = indexPath.row == 3 ? "Medications" : "My Care Team"
             profilerCell.cellType = indexPath.row == 3 ? 1 : 2
             

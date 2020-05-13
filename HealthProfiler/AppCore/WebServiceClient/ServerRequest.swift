@@ -9,11 +9,17 @@ import Alamofire
 enum ServerAPI: String {
     
     case login = "app/login"
-
+    
     case vitals = "Vitals"
     case recentVisit = "RecentVisits"
-
-
+    case eob = "eob"
+    case gapsInCare = "getGapsInCare"
+    case allergy = "AllergyIntolerance"
+    case medication = "Medication"
+    case condition = "Condition"
+    case careTeam = "CareTeam"
+    
+    
     public var type: HTTPMethod {
         
         switch self {
@@ -28,7 +34,7 @@ enum ServerAPI: String {
 
 
 class ServerRequest {
-        
+    
     /// base URL for requests
     public var baseURL: URL? {
         get {
@@ -53,10 +59,10 @@ class ServerRequest {
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
                 
                 if methodType == .get {
-
+                    
                     return try Alamofire.URLEncoding.default.encode(request, with: parameters)
                 } else {
-
+                    
                     let jsonData = try JSONSerialization.data(withJSONObject: parameters)
                     request.httpBody = jsonData
                     return request
@@ -72,7 +78,7 @@ class ServerRequest {
         
         return nil
     }
-       
+    
 }
 
 extension ServerRequest {
@@ -84,6 +90,27 @@ extension ServerRequest {
         return getRequest(with: params, api: .vitals)
     }
     
+    //Eob list request
+    func getEobDataReq(token: String) -> URLRequest? {
+        
+        let params: [String : Any] = ["token" : token]
+        return getRequest(with: params, api: .eob)
+    }
+    
+    //Allergy list request
+    func getAllergyDataReq(id: String) -> URLRequest? {
+        
+        let params: [String : Any] = ["id" : id]
+        return getRequest(with: params, api: .allergy)
+    }
+    
+    //GapsInCare list request
+    func getGapsInCareDataReq() -> URLRequest? {
+        
+        let params: [String : Any] = [:]
+        return getRequest(with: params, api: .gapsInCare)
+    }
+    
     //Recent visit list request
     func getRecentVisitListReq(id: String) -> URLRequest? {
         
@@ -91,8 +118,26 @@ extension ServerRequest {
         return getRequest(with: params, api: .recentVisit)
     }
     
+    //Medication list request
+    func getMedicationListReq(id: String) -> URLRequest? {
+        
+        let params: [String : Any] = ["id" : id]
+        return getRequest(with: params, api: .medication)
+    }
     
+    //Condition list request
+    func getConditionListReq(id: String) -> URLRequest? {
+        
+        let params: [String : Any] = ["id" : id]
+        return getRequest(with: params, api: .condition)
+    }
     
+    //Care Team list request
+    func getCareTeamListReq(id: String) -> URLRequest? {
+        
+        let params: [String : Any] = ["id" : id]
+        return getRequest(with: params, api: .careTeam)
+    }
     
     
     //Auth request

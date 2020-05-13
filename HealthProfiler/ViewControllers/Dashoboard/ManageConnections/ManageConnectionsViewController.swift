@@ -19,19 +19,14 @@ class ManageConnectionsViewController: HPViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        setupController()
         
-        //        if user?.isFirstTimeUser == false {
-        //            let connectedPlans = ConnectedPlansViewController.nibInstance()
-        //            connectedPlans.isFromProvider = false
-        //            push(controller: connectedPlans)
-        //        }
-        //        
+        setupController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        
+        connection_collectionView.reloadData()
+
     }
     
     @IBAction func buttonAction_getStarted(_ sender: UIButton) {
@@ -105,7 +100,7 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: ManageConnectionViewCell.reuseableId(), for: indexPath) as! ManageConnectionViewCell
-        collectionCell.configureConnectionCell(item: dataSource_connection[indexPath.row])
+        collectionCell.configureConnectionCell(item: dataSource_connection[indexPath.row], index: indexPath.row)
         
         return collectionCell
     }

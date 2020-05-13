@@ -56,13 +56,13 @@ extension HealthProfilerCell : UICollectionViewDataSource, UICollectionViewDeleg
         
         switch cellType {
         case 0:
-            return CGSize(width: 120, height: 70)
+            return CGSize(width: 120, height: 90)
         case 1:
-            return CGSize(width: 180, height: 90)
+            return CGSize(width: 180, height: 110)
         case 2:
-            return CGSize(width: 110, height: 90)
+            return CGSize(width: 110, height: 116)
         default:
-            return CGSize(width: 110, height: 90)
+            return CGSize(width: 110, height: 116)
         }
     }
     

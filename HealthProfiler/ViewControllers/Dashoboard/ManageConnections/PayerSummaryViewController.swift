@@ -8,6 +8,7 @@
 
 import UIKit
 import OAuthSwift
+import SwiftyJSON
 
 class PayerSummaryViewController: HPViewController {
     
@@ -16,12 +17,14 @@ class PayerSummaryViewController: HPViewController {
     @IBOutlet private var label_healthplan : UILabel!
     @IBOutlet private var tableView_Summary : UITableView!
     
+    private var dataSource_eobList = [HPEobItem]()
+    
     private let user = HealthProfiler.shared.loggedInUser
     private let services = Services()
     private let oauthswift = OAuth2Swift(
         
         consumerKey:    "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik",
-        consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U",
+        consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4UM6dLDiYg4G8eNQ62D8XJPizes6RaB4h1XEN1jUgo8cgq9cq18eIoYNWHbnQ2Xzu63eRkJRFvRriRQGb",
         authorizeUrl:   "https://sandbox.bluebutton.cms.gov/v1/o/authorize/",
         accessTokenUrl: "https://sandbox.bluebutton.cms.gov/v1/o/token/",
         
@@ -29,7 +32,7 @@ class PayerSummaryViewController: HPViewController {
         contentType:    "application/json"
     )
     
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -72,6 +75,8 @@ private extension PayerSummaryViewController {
         view_summary.layer.borderColor = UIColor.orange.cgColor
         view_summary.layer.borderWidth = 1.0
         
+        UserDefaults.standard.setValue(true, forKey: "isInsurerConnected")
+        
         registerTableCell(tableView_Summary, cellClass: SummaryBenefitCell.self)
         
         tableView_Summary.delegate = self
@@ -110,29 +115,58 @@ private extension PayerSummaryViewController {
     
     private func callBlueBUttonApi(_ serviceParameters: [String:String]) {
         
-        let codeVerifier = "abcd1234".data(using: .utf8)?.base64EncodedString()
-        let codeChallenge : String = "S256"
+        let codeVerifier = "wDAdQ_RVQuyGG3MgtlwMTOiB_ro.WMes96GFE6fVrp_WBezUZyfPcIAsThvfv0Be8CLirB4v8Cp2E.8Ug4dZ7s7pOGm4J3avLALFxqIDtrWLIi_X-.3X8pBiZgRmJs7a"
+        let codeChallenge : String = "nzH8oPZloiNJ-kUk0vJXI_vw5rU1mSODyFgPT3lkcIk"
         
         oauthswift.accessTokenBasicAuthentification = true
-        //        oauthswift.allowMissingStateCheck = true
         oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
         let _ = oauthswift.authorize(
-        withCallbackURL: "com.optum.com.healthprofiler://callback", scope: "patient/Coverage.read", state: "State01", codeChallenge: codeChallenge, codeChallengeMethod: "S256", codeVerifier: codeVerifier ?? "") { result in
+        withCallbackURL: "com.optum.com.healthprofiler://callback", scope: "patient/ExplanationOfBenefit.read", state: "State01", codeChallenge: codeChallenge, codeChallengeMethod: "S256", codeVerifier: codeVerifier) { result in
             
             switch result {
                 
             case .success(let (credential, _, _)):
-                self.showTokenAlert(name: serviceParameters["name"], credential: credential)
+                print(credential.oauthToken)
+                
+                UserDefaults.standard.setValue(true, forKey: "isBlueButtonLogin")
+                
+                TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
+                self.push(controller: ConnectedPlansViewController.nibInstance())
+                self.callApiForEobList(token: credential.oauthToken)
                 
             case .failure(let error):
                 print(error.description)
-                UserDefaults.standard.setValue(true, forKey: "isBlueButtonLogin")
-                TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
-                self.push(controller: ConnectedPlansViewController.nibInstance())
+                
             }
         }
     }
+    
 }
+
+//MARK: - API interaction -
+extension PayerSummaryViewController {
+    
+    private func callApiForEobList(token : String) {
+        
+        Loader.show()
+        
+        HealthProfiler.networkManager.getEobData(token: token) { [weak self] (eobList, error) in
+            
+            if let strongSelf = self {
+                Loader.dismiss()
+                strongSelf.dataSource_eobList.removeAll()
+                if let eobList = eobList {
+                    strongSelf.dataSource_eobList = eobList
+                    //                    strongSelf.recent_tableView.reloadData()
+                } else {
+                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                }
+            }
+        }
+    }
+    
+}
+
 
 extension PayerSummaryViewController : UITableViewDelegate, UITableViewDataSource {
     
@@ -152,21 +186,5 @@ extension PayerSummaryViewController : UITableViewDelegate, UITableViewDataSourc
         summaryCell.pharmacyDetail_button.addTarget(self, action: #selector(showDetailsAction), for: .touchUpInside)
         
         return summaryCell
-    }
-}
-
-
-extension String {
-    
-    func fromBase64() -> String? {
-        guard let data = Data(base64Encoded: self) else {
-            return nil
-        }
-        
-        return String(data: data, encoding: .utf8)
-    }
-    
-    func toBase64() -> String {
-        return Data(self.utf8).base64EncodedString()
     }
 }
