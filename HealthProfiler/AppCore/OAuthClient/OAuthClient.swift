@@ -33,6 +33,38 @@ class OAuthClient {
             )
         }
     }
+    
+    func authorize(controller: UIViewController, completion: @escaping ((String?, Error?) -> Void)) {
+        
+        guard let oauth2Client = oauth2Client else {
+            return
+        }
+        guard let config = config else {
+            return
+        }
+        
+        oauth2Client.accessTokenBasicAuthentification = true
+        oauth2Client.authorizeURLHandler = SafariURLHandler(viewController: controller, oauthSwift: oauth2Client)
+        oauth2Client.authorize(withCallbackURL: config.callBackURL,
+                               scope: config.scope,
+                               state: config.state,
+                               codeChallenge: config.codeChallenge,
+                               codeChallengeMethod: "S256",
+                               codeVerifier: config.codeVerifier) { result in
+                                
+                                DispatchQueue.main.async {
+                                    
+                                    switch result {
+                                        
+                                    case .success(let (credential, _, _)):
+                                        completion(credential.oauthToken, nil)
+                                        
+                                    case .failure(let error):
+                                        completion(nil, error)
+                                    }
+                                }
+        }
+    }
 }
 
 enum AuthProvider {

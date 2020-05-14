@@ -115,30 +115,45 @@ private extension PayerSummaryViewController {
     
     private func callBlueBUttonApi(_ serviceParameters: [String:String]) {
         
-        let codeVerifier = "wDAdQ_RVQuyGG3MgtlwMTOiB_ro.WMes96GFE6fVrp_WBezUZyfPcIAsThvfv0Be8CLirB4v8Cp2E.8Ug4dZ7s7pOGm4J3avLALFxqIDtrWLIi_X-.3X8pBiZgRmJs7a"
-        let codeChallenge : String = "nzH8oPZloiNJ-kUk0vJXI_vw5rU1mSODyFgPT3lkcIk"
-        
-        oauthswift.accessTokenBasicAuthentification = true
-        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
-        let _ = oauthswift.authorize(
-        withCallbackURL: "com.optum.com.healthprofiler://callback", scope: "patient/ExplanationOfBenefit.read", state: "State01", codeChallenge: codeChallenge, codeChallengeMethod: "S256", codeVerifier: codeVerifier) { result in
+        HealthProfiler.authClient.authorize(controller: self) { (token, error) in
             
-            switch result {
-                
-            case .success(let (credential, _, _)):
-                print(credential.oauthToken)
+            if let token = token {
                 
                 UserDefaults.standard.setValue(true, forKey: "isBlueButtonLogin")
                 
                 TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
                 self.push(controller: ConnectedPlansViewController.nibInstance())
-                self.callApiForEobList(token: credential.oauthToken)
-                
-            case .failure(let error):
-                print(error.description)
-                
+                self.callApiForEobList(token: token)
+            } else {
+                debugPrint(error.debugDescription)
             }
         }
+        
+        
+//        let codeVerifier = "wDAdQ_RVQuyGG3MgtlwMTOiB_ro.WMes96GFE6fVrp_WBezUZyfPcIAsThvfv0Be8CLirB4v8Cp2E.8Ug4dZ7s7pOGm4J3avLALFxqIDtrWLIi_X-.3X8pBiZgRmJs7a"
+//        let codeChallenge : String = "nzH8oPZloiNJ-kUk0vJXI_vw5rU1mSODyFgPT3lkcIk"
+//
+//        oauthswift.accessTokenBasicAuthentification = true
+//        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
+//        let _ = oauthswift.authorize(
+//        withCallbackURL: "com.optum.com.healthprofiler://callback", scope: "patient/ExplanationOfBenefit.read", state: "State01", codeChallenge: codeChallenge, codeChallengeMethod: "S256", codeVerifier: codeVerifier) { result in
+//
+//            switch result {
+//
+//            case .success(let (credential, _, _)):
+//                print(credential.oauthToken)
+//
+//                UserDefaults.standard.setValue(true, forKey: "isBlueButtonLogin")
+//
+//                TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
+//                self.push(controller: ConnectedPlansViewController.nibInstance())
+//                self.callApiForEobList(token: credential.oauthToken)
+//
+//            case .failure(let error):
+//                print(error.description)
+//
+//            }
+//        }
     }
     
 }
