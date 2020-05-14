@@ -31,10 +31,10 @@ private extension WebContentViewController {
         
         switch type {
         case .privacyPolicy:
-            htmlString = getHTMLContent(fileName: "privacy_policy")
+            htmlString = getHTMLContent(type: .privacyPolicy)
             
         case .termsCondition:
-               htmlString = getHTMLContent(fileName: "privacy_policy")
+               htmlString = getHTMLContent(type: .privacyPolicy)
            
         case .content(let html):
                htmlString = html
@@ -47,15 +47,12 @@ private extension WebContentViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self , action: #selector(buttonAction_done))
     }
     
-    private func getHTMLContent(fileName: String) -> String? {
+    private func getHTMLContent(type: ResourceType) -> String? {
         
         var html: String?
-        if let htmlPathURL = Bundle.main.url(forResource: fileName, withExtension: "html"){
-            do {
-                html = try String(contentsOf: htmlPathURL, encoding: .utf8)
-            } catch  {
-                debugPrint("Unable to get the file.")
-            }
+        
+        if let fileData = AppResource.getData(type: type) {
+            html = String(data: fileData, encoding: .utf8)
         }
 
         return html

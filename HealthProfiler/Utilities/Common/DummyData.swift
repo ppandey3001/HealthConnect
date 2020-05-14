@@ -13,13 +13,8 @@ class DummyData {
     
     func loadUserData_demo() {
         
-        guard let path = Bundle.main.path(forResource: "UserData", ofType: "plist") else { return }
-        
-        do {
-            
-            let url = URL(fileURLWithPath: path)
-            let data = try Data(contentsOf: url)
-            let plistRawData = try PropertyListSerialization.propertyList(from: data, options: .mutableContainers, format: nil) as! [String: Any]
+        if let userData = AppResource.getData(type: .demoUserData),
+            let plistRawData = try? PropertyListSerialization.propertyList(from: userData, options: .mutableContainers, format: nil) as? [String: Any] {
             
             userList = [HPUserItem]()
             if let ListOfUsers = plistRawData["ListOfUsers"] as? Array<Dictionary<String, Any>> {
@@ -30,9 +25,8 @@ class DummyData {
                     }
                 }
             }
-            
-        } catch let err {
-            debugPrint("Unable to load data. \(err)")
+        } else {
+            debugPrint("Unable to load data.")
         }
     }
 }
