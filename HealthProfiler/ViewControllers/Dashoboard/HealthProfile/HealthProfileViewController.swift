@@ -9,13 +9,23 @@ import SwiftyJSON
 class HealthProfileViewController: HPViewController {
     
     @IBOutlet private var healthProfiler_tableView: UITableView!
-    
+    @IBOutlet private var carePlanFooter_view: UIView!
+    @IBOutlet private var score_label: UILabel!
+    @IBOutlet private var status_label: UILabel!
+    @IBOutlet private var header_view: UIView!
+    @IBOutlet private var detail_label: UILabel!
+    @IBOutlet private var interoperability_label: UILabel!
+
     var datasource_allergyList = [HPAllergiesItem]()
     var datasource_conditionList = [HPConditionItem]()
     var datasource_medicationList = [HPMedicationItem]()
     var datasource_careteamList = [HPCareTeamItem]()
     var datasource_gapsInCareList = [HPGapsInCareItem]()
+    var carePlan : HPCarePlanItem?
     
+    let user = HealthProfiler.shared.loggedInUser
+
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -31,9 +41,18 @@ private extension HealthProfileViewController {
         
         registerTableCell(healthProfiler_tableView, cellClass: HealthProfilerCell.self)
         registerTableCell(healthProfiler_tableView, cellClass: AllergyTableViewCell.self)
-        
+        registerTableCell(healthProfiler_tableView, cellClass: CarePlanTableCell.self)
+
         healthProfiler_tableView.delegate = self
         healthProfiler_tableView.dataSource = self
+        if user?.isFirstTimeUser == true {
+            healthProfiler_tableView.tableHeaderView = header_view
+            carePlanFooter_view.isHidden = false
+        }else {
+            healthProfiler_tableView.tableHeaderView = nil
+            carePlanFooter_view.isHidden = true
+        }
+
         callApi()
     }
     
@@ -42,12 +61,29 @@ private extension HealthProfileViewController {
         let isBlueButtonLogin = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
         if isBlueButtonLogin {
             
+            if user?.isFirstTimeUser == true {
+            callApiForCarePlanList()
+                
+            }else {
+            
             callApiForAllegyList(id: "24")
             callApiForMedicationList(id: "24")
             callApiForConditionList(id: "24")
             callApiForCareTeamList(id: "24")
             callApiForGapsInCareList()
+            }
         }
+    }
+    
+    private func carePlanReceived(plan: HPCarePlanItem) {
+        
+        carePlan = plan
+        status_label.text = carePlan?.status
+        interoperability_label.text = carePlan?.interpretation
+        detail_label.text = carePlan?.careDescription
+        score_label.text = carePlan?.finalscore
+        healthProfiler_tableView.reloadData()
+
     }
     
 }
@@ -150,6 +186,23 @@ extension HealthProfileViewController {
         }
     }
     
+    private func callApiForCarePlanList() {
+        
+        Loader.show()
+        
+        HealthProfiler.networkManager.getCarePlanData() { [weak self] (carePlanList, error) in
+            
+            if let strongSelf = self {
+                Loader.dismiss()
+                if let carePlanList = carePlanList {
+                       strongSelf.carePlanReceived(plan: carePlanList)
+                   } else {
+                       strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                   }
+            }
+        }
+    }
+    
 }
 
 
@@ -157,10 +210,14 @@ extension HealthProfileViewController {
 extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        
+        return user?.isFirstTimeUser == true ? carePlan?.questionData.count ?? 0 : 5
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if user?.isFirstTimeUser == true {
+            return 85
+        }else {
         switch indexPath.row {
         case 0:
             return 150
@@ -174,10 +231,17 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
             break
         }
         return 90
+        }
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if user?.isFirstTimeUser == true {
+                  let careCell = tableView.dequeueReusableCell(withIdentifier: CarePlanTableCell.reuseableId(), for: indexPath) as! CarePlanTableCell
+            careCell.configureCarePlanCell(item: (carePlan?.questionData[indexPath.row])! , index: indexPath.row)
+            return careCell
+            
+        }else {
         
         switch indexPath.row {
         case 0:
@@ -209,6 +273,7 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
             return profilerCell
             
         default: break
+        }
         }
         
         return UITableViewCell()
