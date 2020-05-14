@@ -97,10 +97,10 @@ private extension LoginViewController {
         dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
         
         //WARNING: dev purpose only, remove once completed
-        for item in dataSource_login {
-            item.value = "wilma"
-        }
-        
+//        for item in dataSource_login {
+//            item.value = "wilma"
+//        }
+//
         tableView_login.reloadData()
     }
     

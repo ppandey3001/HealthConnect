@@ -85,7 +85,7 @@ private extension ConnectedPlansViewController {
         dataSource_InsurancePlans = user?.isFirstTimeUser == true ? [HPConnectedInsuranceItem(.humana), HPConnectedInsuranceItem(.blueButton)] : [HPConnectedInsuranceItem(.medicare), HPConnectedInsuranceItem(.blueButton)]
         
         dataSource_provider.removeAll()
-        dataSource_provider = user?.isFirstTimeUser == true ? [HPConnectedProviderItem(.advent)] : [ HPConnectedProviderItem(.southwest), HPConnectedProviderItem(.advent)]
+        dataSource_provider = user?.isFirstTimeUser == true ? [HPConnectedProviderItem(.advent)] : [ HPConnectedProviderItem(.southwest), HPConnectedProviderItem(.methodist)]
         
         registerTableCell(tableView_Plans, cellClass: InsurancePlanCell.self)
         registerTableCell(tableView_Plans, cellClass: ProviderConnectedCell.self)

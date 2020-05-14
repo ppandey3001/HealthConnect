@@ -18,7 +18,8 @@ enum ServerAPI: String {
     case medication = "Medication"
     case condition = "Condition"
     case careTeam = "CareTeam"
-    
+    case carePlan = "cerner/CarePlanJson"
+
     
     public var type: HTTPMethod {
         
@@ -109,6 +110,13 @@ extension ServerRequest {
         
         let params: [String : Any] = [:]
         return getRequest(with: params, api: .gapsInCare)
+    }
+    
+    //Care Plan list request
+    func getCarePlanDataReq() -> URLRequest? {
+        
+        let params: [String : Any] = [:]
+        return getRequest(with: params, api: .carePlan)
     }
     
     //Recent visit list request

@@ -109,6 +109,27 @@ extension NetworkManager {
         }
     }
     
+    func getCarePlanData(
+        completion: @escaping((HPCarePlanItem?, AppError?) -> Void) ) {
+        
+        if let request = serverReq.getCarePlanDataReq() {
+            
+            sessionManager.request(request) { (data, error) in
+                
+                if let rawData = data?[SessionManager.dataKey] as? Array<Dictionary<String, Any>>,
+                    let carePlanItem = rawData.first {
+                    
+                    completion(HPCarePlanItem(carePlanItem), nil)
+                } else {
+                    completion(nil, error ?? AppError.invalidResponse())
+                }
+            }
+        } else {
+            completion(nil, AppError.invalidRequest)
+        }
+    }
+    
+    
     
     func getMedicationData(id: String,
                            completion: @escaping(([HPMedicationItem]?, AppError?) -> Void) ) {
