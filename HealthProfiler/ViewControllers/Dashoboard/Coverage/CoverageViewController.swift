@@ -10,7 +10,8 @@ class CoverageViewController: HPViewController {
     @IBOutlet private var coverage_tableView : UITableView!
     
     private var dataSource_coverage = [HPCoverageClaimItem]()
-        
+    private let user = HealthProfiler.shared.loggedInUser
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -19,14 +20,18 @@ class CoverageViewController: HPViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        dataSource_coverage.removeAll()
-        let isBlueButtonLogin = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
+        super.viewWillAppear(animated)
         
-        if isBlueButtonLogin {
+        dataSource_coverage.removeAll()
+        
+        //fetch data from server
+        if let user = user,
+            user.blueButtonConnected {
             
             dataSource_coverage = [HPCoverageClaimItem(.drMinnnie), HPCoverageClaimItem(.drJones), HPCoverageClaimItem(.drAllison), HPCoverageClaimItem(.drNorma), HPCoverageClaimItem(.drJohn), HPCoverageClaimItem(.drTammy), HPCoverageClaimItem(.drWilliam), HPCoverageClaimItem(.drGayle), HPCoverageClaimItem(.drVeena), HPCoverageClaimItem(.drJohnson)]
         } else {
             dataSource_coverage = [HPCoverageClaimItem(.drPOe), HPCoverageClaimItem(.drSmith)]
+            
         }
         
         coverage_tableView.reloadData()
@@ -50,12 +55,7 @@ private extension CoverageViewController {
 }
 
 
-//MARK: Public methods
-extension CoverageViewController {
-    
-}
-
-
+//UITableViewDelegate, UITableViewDataSource
 extension CoverageViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

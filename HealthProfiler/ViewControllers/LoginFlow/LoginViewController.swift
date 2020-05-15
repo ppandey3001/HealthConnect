@@ -97,10 +97,10 @@ private extension LoginViewController {
         dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
         
         //WARNING: dev purpose only, remove once completed
-//        for item in dataSource_login {
-//            item.value = "wilma"
-//        }
-//
+        for item in dataSource_login {
+            item.value = "wilma"
+        }
+
         tableView_login.reloadData()
     }
     
@@ -142,12 +142,9 @@ private extension LoginViewController {
         //show custom branding bar
         container()?.showBrandingBar(true)
         
-        UserDefaults.standard.setValue(isNewUser ? false : true, forKey: "isBlueButtonLogin")
-        UserDefaults.standard.setValue(isNewUser ? false : true, forKey: "isProviderConnected")
-        UserDefaults.standard.setValue(isNewUser ? false : true, forKey: "isInsurerConnected")
-
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)
+        
         TabBarCoordinator.shared.tabBarStatus(isUserConnected: !isNewUser)
         TabBarCoordinator.shared.tabBarController?.selectedIndex = isNewUser ? HPTabType.manageConnections.tabIndex : HPTabType.home.tabIndex
     }

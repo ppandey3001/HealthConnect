@@ -18,6 +18,7 @@ class HomeViewController: HPViewController {
     
     private var userVital: HPVitalsItem?
     private var dataSource_recentVisit = [HPRecentVisitItem]()
+    private var user = HealthProfiler.shared.loggedInUser
     
     override func viewDidLoad() {
         
@@ -37,11 +38,13 @@ private extension HomeViewController {
         recent_tableView.dataSource = self
         recent_tableView.reloadData()
         addProfileButton()
+        
         //fetch data from server
-        let status = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
-        if status == true {
-        callApiForVitalsList()
-        callApiForRecentVisitList()
+        if let user = user,
+            user.blueButtonConnected {
+            
+            callApiForVitalsList()
+            callApiForRecentVisitList()
         }
     }
     

@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import OAuthSwift
-import SwiftyJSON
 
 class PayerSummaryViewController: HPViewController {
     
@@ -18,20 +16,7 @@ class PayerSummaryViewController: HPViewController {
     @IBOutlet private var tableView_Summary : UITableView!
     
     private var dataSource_eobList = [HPEobItem]()
-    
     private let user = HealthProfiler.shared.loggedInUser
-    private let services = Services()
-    private let oauthswift = OAuth2Swift(
-        
-        consumerKey:    "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik",
-        consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4UM6dLDiYg4G8eNQ62D8XJPizes6RaB4h1XEN1jUgo8cgq9cq18eIoYNWHbnQ2Xzu63eRkJRFvRriRQGb",
-        authorizeUrl:   "https://sandbox.bluebutton.cms.gov/v1/o/authorize/",
-        accessTokenUrl: "https://sandbox.bluebutton.cms.gov/v1/o/token/",
-        
-        responseType:   "code",
-        contentType:    "application/json"
-    )
-    
     
     override func viewDidLoad() {
         
@@ -44,20 +29,21 @@ class PayerSummaryViewController: HPViewController {
         view_brief.isHidden = true
     }
     
-    @IBAction func showDetailsAction(_ sender : UIButton){
-        
-        let briefView = tableView_Summary.viewWithTag(sender.tag)
-        briefView?.isHidden = true
-        tableView_Summary.reloadData()
-    }
-    
     @IBAction func blueButtonAction(_ sender : UIButton) {
         
-        var parameters = [String:String]()
-        parameters["consumerKey"] = "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik"
-        parameters["consumerSecret"] = "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U"
-        
-        callBlueBUttonApi(parameters)
+        HealthProfiler.authClient.authorize(controller: self) { [weak self] (token, error) in
+            
+            if let token = token {
+                
+                HealthProfiler.shared.loggedInUser?.blueButtonConnected = true
+                
+                TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
+                self?.push(controller: ConnectedPlansViewController.nibInstance())
+                self?.callApiForEobList(token: token)
+            } else {
+                debugPrint(error.debugDescription)
+            }
+        }
     }
     
     @IBAction func nextButtonAction(_ sender: UIButton){
@@ -75,8 +61,8 @@ private extension PayerSummaryViewController {
         view_summary.layer.borderColor = UIColor.orange.cgColor
         view_summary.layer.borderWidth = 1.0
         
-        UserDefaults.standard.setValue(true, forKey: "isInsurerConnected")
-        
+        HealthProfiler.shared.loggedInUser?.isInsurerConnected = true
+
         registerTableCell(tableView_Summary, cellClass: SummaryBenefitCell.self)
         
         tableView_Summary.delegate = self
@@ -84,78 +70,12 @@ private extension PayerSummaryViewController {
         tableView_Summary.reloadData()
     }
     
-    func showTokenAlert(name: String?, credential: OAuthSwiftCredential) {
+    @objc private func showDetailsAction(_ sender : UIButton){
         
-        var message = "oauth_token:\(credential.oauthToken)"
-        if !credential.oauthTokenSecret.isEmpty {
-            message += "\n\noauth_token_secret:\(credential.oauthTokenSecret)"
-        }
-        self.showAlertView(title: name ?? "Service", message: message)
-        
-        if let service = name {
-            services.updateService(service, dico: ["authentified":"1"])
-            // TODO refresh graphic
-        }
+        let briefView = tableView_Summary.viewWithTag(sender.tag)
+        briefView?.isHidden = true
+        tableView_Summary.reloadData()
     }
-    
-    func showAlertView(title: String, message: String) {
-        
-        #if os(iOS)
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        #elseif os(OSX)
-        let alert = NSAlert()
-        alert.messageText = title
-        alert.informativeText = message
-        alert.addButton(withTitle: "Close")
-        alert.runModal()
-        #endif
-    }
-    
-    private func callBlueBUttonApi(_ serviceParameters: [String:String]) {
-        
-        HealthProfiler.authClient.authorize(controller: self) { (token, error) in
-            
-            if let token = token {
-                
-                UserDefaults.standard.setValue(true, forKey: "isBlueButtonLogin")
-                
-                TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
-                self.push(controller: ConnectedPlansViewController.nibInstance())
-                self.callApiForEobList(token: token)
-            } else {
-                debugPrint(error.debugDescription)
-            }
-        }
-        
-        
-//        let codeVerifier = "wDAdQ_RVQuyGG3MgtlwMTOiB_ro.WMes96GFE6fVrp_WBezUZyfPcIAsThvfv0Be8CLirB4v8Cp2E.8Ug4dZ7s7pOGm4J3avLALFxqIDtrWLIi_X-.3X8pBiZgRmJs7a"
-//        let codeChallenge : String = "nzH8oPZloiNJ-kUk0vJXI_vw5rU1mSODyFgPT3lkcIk"
-//
-//        oauthswift.accessTokenBasicAuthentification = true
-//        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
-//        let _ = oauthswift.authorize(
-//        withCallbackURL: "com.optum.com.healthprofiler://callback", scope: "patient/ExplanationOfBenefit.read", state: "State01", codeChallenge: codeChallenge, codeChallengeMethod: "S256", codeVerifier: codeVerifier) { result in
-//
-//            switch result {
-//
-//            case .success(let (credential, _, _)):
-//                print(credential.oauthToken)
-//
-//                UserDefaults.standard.setValue(true, forKey: "isBlueButtonLogin")
-//
-//                TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
-//                self.push(controller: ConnectedPlansViewController.nibInstance())
-//                self.callApiForEobList(token: credential.oauthToken)
-//
-//            case .failure(let error):
-//                print(error.description)
-//
-//            }
-//        }
-    }
-    
 }
 
 //MARK: - API interaction -
@@ -179,10 +99,10 @@ extension PayerSummaryViewController {
             }
         }
     }
-    
 }
 
 
+//UITableViewDelegate, UITableViewDataSource
 extension PayerSummaryViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

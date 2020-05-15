@@ -13,9 +13,11 @@ class HPUserItem: NSObject {
     var email: String?
     var name: String?
     var isFirstTimeUser: Bool = false
-    var isBlueButtonLogin: Bool = false
     var age: String?
-
+    var blueButtonConnected: Bool = false
+    var isProviderConnected: Bool = false
+    var isInsurerConnected: Bool = false
+    
     init(_ data: Dictionary<String, Any>) {
         
         id = data.valueFor(key: "id")
@@ -23,7 +25,10 @@ class HPUserItem: NSObject {
         password = data.valueFor(key: "password")
         email = data.valueFor(key: "email")
         name = data.valueFor(key: "name")
-        isFirstTimeUser = data.valueFor(key: "isFirstTimeUser") ?? false
         age = data.valueFor(key: "age")
+        isFirstTimeUser = data.valueFor(key: "isFirstTimeUser") ?? false
+        blueButtonConnected = data.valueFor(key: "blueButtonConnected") ?? false
+        isProviderConnected = data.valueFor(key: "isProviderConnected") ?? false
+        isInsurerConnected = data.valueFor(key: "isInsurerConnected") ?? false
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import  OAuthSwift
 
 class ConnectedPlansViewController: HPViewController {
     
@@ -21,20 +20,11 @@ class ConnectedPlansViewController: HPViewController {
     //private vars
     private var dataSource_InsurancePlans = [HPConnectedInsuranceItem]()
     private let user = HealthProfiler.shared.loggedInUser
-    private let  oauthswift = OAuth2Swift(
-        consumerKey:    "gjK4RnBIvCWaj1ocdYyiyKuD8qsmTnRtG2H3RGik",
-        consumerSecret: "ld9EvgboAj5Bxe1SHFXbllgsbc4ni3aYH9ct486spRZFERM4U",
-        authorizeUrl:   "https://sandbox.bluebutton.cms.gov/v1/o/authorize/",
-        accessTokenUrl: "https://sandbox.bluebutton.cms.gov/v1/o/token/",
-        
-        responseType:   "code",
-        contentType:    "application/json"
-    )
     
     //public vars
     var isFromProvider : Bool?
     var dataSource_provider = [HPConnectedProviderItem]()
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -71,7 +61,19 @@ class ConnectedPlansViewController: HPViewController {
     }
     
     @IBAction func blueButtonConnectAction(_ sender: UIButton) {
-        callBlueBUttonApi()
+        
+        HealthProfiler.authClient.authorize(controller: self) { [weak self] (token, error) in
+            
+            if token != nil {
+                
+                HealthProfiler.shared.loggedInUser?.blueButtonConnected = true
+                TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
+                self?.tableView_Plans.reloadData()
+
+            } else {
+                debugPrint(error.debugDescription)
+            }
+        }
     }
 }
 
@@ -106,32 +108,10 @@ private extension ConnectedPlansViewController {
         tableView_Plans.dataSource = self
         tableView_Plans.reloadData()
     }
-    
-    private func callBlueBUttonApi() {
-        
-        let codeVerifier = "abcd1234".data(using: .utf8)?.base64EncodedString()
-        let codeChallenge : String = "S256"
-        
-        oauthswift.accessTokenBasicAuthentification = true
-        oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
-        let _ = oauthswift.authorize(
-        withCallbackURL: "com.optum.com.HealthProfiler://callback", scope: "patient/Coverage.read", state: "State01", codeChallenge: codeChallenge, codeChallengeMethod: "S256", codeVerifier: codeVerifier ?? "") { result in
-            
-            switch result {
-            case .success(let (credential, _, _)):
-                print(credential)
-                
-            case .failure(let error):
-                print(error.description)
-                TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
-                UserDefaults.standard.setValue(true, forKey: "isBlueButtonLogin")
-                self.tableView_Plans.reloadData()
-            }
-        }
-    }
 }
 
 
+//UITableViewDelegate, UITableViewDataSource
 extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

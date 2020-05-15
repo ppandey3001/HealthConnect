@@ -14,9 +14,7 @@ class ManageConnectionViewCell: HPCollectionViewCell {
     @IBOutlet var title_label: UILabel!
     @IBOutlet var status_label: UILabel!
     @IBOutlet var coloredbg_view: UIView!
-    
-    let user = HealthProfiler.shared.loggedInUser
-    
+        
     //configure cell for manage connection items
     func configureConnectionCell(item: HPConnectionItem, index: Int) {
         
@@ -25,19 +23,19 @@ class ManageConnectionViewCell: HPCollectionViewCell {
         title_label.text = attributes.title
         if index == 0 || index == 1 {
             
-            let insurerStatus: Bool =   UserDefaults.standard.bool(forKey: "isInsurerConnected")
-            let providerStatus: Bool  =  UserDefaults.standard.bool(forKey: "isProviderConnected")
+            let insurerStatus = (HealthProfiler.shared.loggedInUser?.isInsurerConnected ?? false)
+            let providerStatus = (HealthProfiler.shared.loggedInUser?.isProviderConnected ?? false)
+            
             if index == 0 {
                 
                 status_label.textColor = insurerStatus == true ? UIColor.colorFromRGB(89, 189, 20) : UIColor.lightGray
                 coloredbg_view.backgroundColor = insurerStatus == true ? UIColor.colorFromRGB(89, 189, 20) : UIColor.colorFromRGB(201, 201, 201)
-                status_label.text =  insurerStatus == true ? "Connected" : "No connections"
-            }else if index == 1 {
+                status_label.text =  insurerStatus ? "Connected" : "No connections"
+            } else if index == 1 {
                 
                 status_label.textColor = providerStatus == true ? UIColor.colorFromRGB(89, 189, 20) : UIColor.lightGray
                 coloredbg_view.backgroundColor = providerStatus == true ? UIColor.colorFromRGB(89, 189, 20) : UIColor.colorFromRGB(201, 201, 201)
-                status_label.text =  providerStatus == true ? "Connected" : "No connections"
-                
+                status_label.text =  providerStatus ? "Connected" : "No connections"
             }
         } else {
             status_label.textColor = UIColor.lightGray

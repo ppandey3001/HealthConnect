@@ -15,7 +15,7 @@ class HealthProfileViewController: HPViewController {
     @IBOutlet private var header_view: UIView!
     @IBOutlet private var detail_label: UILabel!
     @IBOutlet private var interoperability_label: UILabel!
-
+    
     var datasource_allergyList = [HPAllergiesItem]()
     var datasource_conditionList = [HPConditionItem]()
     var datasource_medicationList = [HPMedicationItem]()
@@ -23,9 +23,8 @@ class HealthProfileViewController: HPViewController {
     var datasource_gapsInCareList = [HPGapsInCareItem]()
     var carePlan : HPCarePlanItem?
     
-    let user = HealthProfiler.shared.loggedInUser
-
-
+    private let user = HealthProfiler.shared.loggedInUser
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -42,7 +41,7 @@ private extension HealthProfileViewController {
         registerTableCell(healthProfiler_tableView, cellClass: HealthProfilerCell.self)
         registerTableCell(healthProfiler_tableView, cellClass: AllergyTableViewCell.self)
         registerTableCell(healthProfiler_tableView, cellClass: CarePlanTableCell.self)
-
+        
         healthProfiler_tableView.delegate = self
         healthProfiler_tableView.dataSource = self
         if user?.isFirstTimeUser == true {
@@ -52,25 +51,27 @@ private extension HealthProfileViewController {
             healthProfiler_tableView.tableHeaderView = nil
             carePlanFooter_view.isHidden = true
         }
-
+        
         callApi()
     }
     
     private func callApi(){
         
-        let isBlueButtonLogin = UserDefaults.standard.bool(forKey: "isBlueButtonLogin")
-        if isBlueButtonLogin {
+        //fetch data from server
+        if let user = user,
+            user.blueButtonConnected {
             
-            if user?.isFirstTimeUser == true {
-            callApiForCarePlanList()
+            if user.isFirstTimeUser {
                 
-            }else {
-            
-            callApiForAllegyList(id: "24")
-            callApiForMedicationList(id: "24")
-            callApiForConditionList(id: "24")
-            callApiForCareTeamList(id: "24")
-            callApiForGapsInCareList()
+                callApiForCarePlanList()
+                
+            } else {
+                
+                callApiForAllegyList(id: "24")
+                callApiForMedicationList(id: "24")
+                callApiForConditionList(id: "24")
+                callApiForCareTeamList(id: "24")
+                callApiForGapsInCareList()
             }
         }
     }
@@ -83,7 +84,7 @@ private extension HealthProfileViewController {
         detail_label.text = carePlan?.careDescription
         score_label.text = carePlan?.finalscore
         healthProfiler_tableView.reloadData()
-
+        
     }
     
 }
@@ -195,10 +196,10 @@ extension HealthProfileViewController {
             if let strongSelf = self {
                 Loader.dismiss()
                 if let carePlanList = carePlanList {
-                       strongSelf.carePlanReceived(plan: carePlanList)
-                   } else {
-                       strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
-                   }
+                    strongSelf.carePlanReceived(plan: carePlanList)
+                } else {
+                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                }
             }
         }
     }
@@ -213,67 +214,70 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
         
         return user?.isFirstTimeUser == true ? carePlan?.questionData.count ?? 0 : 5
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         if user?.isFirstTimeUser == true {
             return 85
-        }else {
-        switch indexPath.row {
-        case 0:
-            return 150
-        case 1...2:
-            return 100
-        case 3:
-            return 150
-        case 4:
-            return 150
-        default:
-            break
-        }
-        return 90
+        } else {
+            switch indexPath.row {
+            case 0:
+                return 150
+            case 1...2:
+                return 100
+            case 3:
+                return 150
+            case 4:
+                return 150
+            default:
+                break
+            }
+            return 90
         }
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if user?.isFirstTimeUser == true {
-                  let careCell = tableView.dequeueReusableCell(withIdentifier: CarePlanTableCell.reuseableId(), for: indexPath) as! CarePlanTableCell
+            
+            let careCell = tableView.dequeueReusableCell(withIdentifier: CarePlanTableCell.reuseableId(), for: indexPath) as! CarePlanTableCell
             careCell.configureCarePlanCell(item: (carePlan?.questionData[indexPath.row])! , index: indexPath.row)
             return careCell
             
-        }else {
-        
-        switch indexPath.row {
-        case 0:
-            let profilerCell = tableView.dequeueReusableCell(withIdentifier: HealthProfilerCell.reuseableId(), for: indexPath) as! HealthProfilerCell
+        } else {
             
-            profilerCell.cellType = 0
-            profilerCell.registerCell()
-            profilerCell.title_label.text = "Gaps In Care"
-            profilerCell.datasource_gapsInCare = datasource_gapsInCareList
-            return profilerCell
-            
-        case 1...2:
-            let allergyCell = tableView.dequeueReusableCell(withIdentifier: AllergyTableViewCell.reuseableId(), for: indexPath) as! AllergyTableViewCell
-            allergyCell.registerCell()
-            allergyCell.datasource_allergy = datasource_allergyList
-            allergyCell.datasource_condition = datasource_conditionList
-            allergyCell.title_label.text = indexPath.row == 1 ? "Allergies" : "Conditions"
-            allergyCell.cellType = indexPath.row == 1 ? 0 : 1
-            return allergyCell
-            
-        case 3...4:
-            let profilerCell = tableView.dequeueReusableCell(withIdentifier: HealthProfilerCell.reuseableId(), for: indexPath) as! HealthProfilerCell
-            profilerCell.registerCell()
-            profilerCell.datasource_medication = datasource_medicationList
-            profilerCell.datasource_careteam = datasource_careteamList
-            profilerCell.title_label.text = indexPath.row == 3 ? "Medications" : "My Care Team"
-            profilerCell.cellType = indexPath.row == 3 ? 1 : 2
-            
-            return profilerCell
-            
-        default: break
-        }
+            switch indexPath.row {
+            case 0:
+                let profilerCell = tableView.dequeueReusableCell(withIdentifier: HealthProfilerCell.reuseableId(), for: indexPath) as! HealthProfilerCell
+                
+                profilerCell.cellType = 0
+                profilerCell.registerCell()
+                profilerCell.title_label.text = "Gaps In Care"
+                profilerCell.datasource_gapsInCare = datasource_gapsInCareList
+                return profilerCell
+                
+            case 1...2:
+                let allergyCell = tableView.dequeueReusableCell(withIdentifier: AllergyTableViewCell.reuseableId(), for: indexPath) as! AllergyTableViewCell
+                allergyCell.registerCell()
+                allergyCell.datasource_allergy = datasource_allergyList
+                allergyCell.datasource_condition = datasource_conditionList
+                allergyCell.title_label.text = indexPath.row == 1 ? "Allergies" : "Conditions"
+                allergyCell.cellType = indexPath.row == 1 ? 0 : 1
+                return allergyCell
+                
+            case 3...4:
+                let profilerCell = tableView.dequeueReusableCell(withIdentifier: HealthProfilerCell.reuseableId(), for: indexPath) as! HealthProfilerCell
+                profilerCell.registerCell()
+                profilerCell.datasource_medication = datasource_medicationList
+                profilerCell.datasource_careteam = datasource_careteamList
+                profilerCell.title_label.text = indexPath.row == 3 ? "Medications" : "My Care Team"
+                profilerCell.cellType = indexPath.row == 3 ? 1 : 2
+                
+                return profilerCell
+                
+            default: break
+            }
         }
         
         return UITableViewCell()
