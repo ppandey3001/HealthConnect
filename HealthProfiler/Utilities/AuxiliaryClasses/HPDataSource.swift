@@ -85,6 +85,15 @@ class HPConnectedProviderItem: NSObject {
     }
 }
 
+class HPCernerCareTeamItem: NSObject {
+    var type: HPCernerCareTeamType = .john
+    
+    init(_ type: HPCernerCareTeamType) {
+        
+        self.type = type
+    }
+}
+
 class HPCoverageClaimItem: NSObject {
     
     var type: HPCoverageClaimType = .drPOe
@@ -93,4 +102,20 @@ class HPCoverageClaimItem: NSObject {
         
         self.type = type
     }
+    
+    
+    
+}
+
+class HPCernerConditionItem: NSObject {
+    
+    var type: HPCernerConditionType = .atherosclerosis
+    
+    init(_ type: HPCernerConditionType) {
+        
+        self.type = type
+    }
+    
+    
+    
 }

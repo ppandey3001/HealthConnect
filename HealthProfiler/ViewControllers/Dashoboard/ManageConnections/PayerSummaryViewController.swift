@@ -24,6 +24,12 @@ class PayerSummaryViewController: HPViewController {
         setupController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        container()?.showBrandingBar(true)
+        
+    }
+    
     @IBAction func payerDetailAction(_ sender : UIButton) {
         
         view_brief.isHidden = true
@@ -62,7 +68,7 @@ private extension PayerSummaryViewController {
         view_summary.layer.borderWidth = 1.0
         
         HealthProfiler.shared.loggedInUser?.isInsurerConnected = true
-
+        
         registerTableCell(tableView_Summary, cellClass: SummaryBenefitCell.self)
         
         tableView_Summary.delegate = self

@@ -226,4 +226,27 @@ extension NetworkManager {
             completion(nil, AppError.invalidRequest)
         }
     }
+    
+    func getCostEstimatorResultList(id: String,
+                            completion: @escaping(([HPCostEstimatorList]?, AppError?) -> Void) ) {
+        
+        if let request = serverReq.getCostEstimatorListReq(id: id) {
+            
+            sessionManager.request(request) { (data, error) in
+                
+                if let estimatorRawData = data?[SessionManager.dataKey] as? Array<Dictionary<String, Any>> {
+                    
+                    var lists = [HPCostEstimatorList]()
+                    for listRaw in estimatorRawData {
+                        lists.append(HPCostEstimatorList(listRaw))
+                    }
+                    completion(lists, nil)
+                } else {
+                    completion(nil, error ?? AppError.invalidResponse())
+                }
+            }
+        } else {
+            completion(nil, AppError.invalidRequest)
+        }
+    }
 }

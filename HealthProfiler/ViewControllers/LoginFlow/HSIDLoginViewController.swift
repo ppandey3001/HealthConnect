@@ -1,15 +1,16 @@
 //
-//  LoginViewController.swift
+//  HSIDLoginViewController.swift
 //  HealthProfiler
+//
+//  Created by Pandey, Pooja on 03/06/20.
+//  Copyright © 2020 Pandey, Pooja. All rights reserved.
 //
 
 import UIKit
-import DataCache
 
-class LoginViewController: HPViewController {
+class HSIDLoginViewController: HPViewController {
     
     @IBOutlet private var tableView_login : UITableView!
-    @IBOutlet private var termsLabel : UILabel!
     
     private var dataSource_login = [HPProfileItem]()
     
@@ -61,39 +62,21 @@ class LoginViewController: HPViewController {
         }
     }
     
-    @IBAction func buttonAction_forgotPassword(_ sender: UIButton) {
+    @IBAction func buttonAction_back(_ sender: UIButton) {
         
-        container()?.showBrandingBar(true)
-        push(controller: ForgotPasswordViewController.nibInstance())
+        container()?.showBrandingBar(false)
+        pop()
     }
-    
-    @IBAction func registerButtonAction(_ sender: UIButton) {
-        
-        container()?.showBrandingBar(true)
-        push(controller: RegistrationViewController.nibInstance())
-    }
-    
-    @IBAction func HSIDButtonAction(_ sender: UIButton) {
-        
-        container()?.showBrandingBar(true)
-        push(controller: HSIDLoginViewController.nibInstance())
-    }
-    
-    @IBAction func clearButtonAction(_ sender: UIButton) {
-        
-        DataCache.instance.cleanAll()
-    }
+
 }
 
 //MARK: Private methods
-private extension LoginViewController {
+private extension HSIDLoginViewController {
     
     private func setupController() {
         
-        container()?.showBrandingBar(false)
-        
-        addTapGesture(label: termsLabel)
-        
+        container()?.showBrandingBar(true)
+                
         dataSource_login.removeAll()
         dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
         
@@ -111,35 +94,12 @@ private extension LoginViewController {
         
         //WARNING: dev purpose only, remove once completed
         for item in dataSource_login {
-            item.value = "wilma"
+            item.value = "fredrick"
         }
 
         tableView_login.reloadData()
     }
-    
-    private func addTapGesture(label: UILabel) {
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapLabel))
-        label.isUserInteractionEnabled = true
-        label.addGestureRecognizer(tapGesture)
-    }
-    
-    @IBAction private func tapLabel(_ sender: UITapGestureRecognizer) {
-        
-        let text = (termsLabel.text)!
-        let termsRange = (text as NSString).range(of: "terms & conditions")
-        let privacyRange = (text as NSString).range(of: "privacy policy")
-        
-        if sender.didTapAttributedTextInLabel(label: termsLabel, inRange: termsRange) {
-            
-            print("Tapped terms")
-        } else if sender.didTapAttributedTextInLabel(label: termsLabel, inRange: privacyRange) {
-            
-            let webContentController = WebContentViewController.nibInstance()
-            webContentController.type = .privacyPolicy
-            present(controller: UINavigationController(rootViewController: webContentController))
-        }
-    }
+
     
     private func userAuthorised(user: HPUserItem) {
         
@@ -158,16 +118,15 @@ private extension LoginViewController {
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)
         
-        let connectedStatus =  DataCache.instance.readString(forKey: "BlueButtonConnectedWilma") == "true" ? true : false
+        TabBarCoordinator.shared.tabBarStatus(isUserConnected: !isNewUser)
         TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: isNewUser ? false : true)
-        TabBarCoordinator.shared.tabBarStatus(isUserConnected: isNewUser ? connectedStatus : !isNewUser)
         TabBarCoordinator.shared.tabBarController?.selectedIndex = isNewUser ? HPTabType.manageConnections.tabIndex : HPTabType.home.tabIndex
     }
 }
 
 
 //MARK: Public methods
-extension LoginViewController: UITableViewDataSource, UITableViewDelegate {
+extension HSIDLoginViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource_login.count
@@ -188,7 +147,7 @@ extension LoginViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension LoginViewController : UITextFieldDelegate {
+extension HSIDLoginViewController : UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         

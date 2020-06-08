@@ -65,18 +65,24 @@ class OAuthClient {
                                 }
         }
     }
+    
 }
+
+
 
 enum AuthProvider {
     
     case none
     case blueButton
+    case cerner
     
     func getConfig() -> AuthConfiguration? {
         
         var recourceType: ResourceType?
         
         switch self {
+        case .cerner: recourceType = .cernerConfig
+            
         case .blueButton: recourceType = .blueButtonConfig
         default: break
         }

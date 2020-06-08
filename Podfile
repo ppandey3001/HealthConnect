@@ -9,5 +9,6 @@ target 'HealthProfiler' do
     pod 'SwiftyJSON'
     pod 'Alamofire'
     pod 'OAuthSwift'
+    pod 'DataCache'
 
 end

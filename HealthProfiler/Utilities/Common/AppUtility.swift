@@ -5,7 +5,6 @@
 
 import Foundation
 
-class AppUtility {
-    
-    
+ class AppUtility {
+ 
 }

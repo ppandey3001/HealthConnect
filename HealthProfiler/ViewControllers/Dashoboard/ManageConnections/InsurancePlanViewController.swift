@@ -21,20 +21,27 @@ class InsurancePlanViewController: HPViewController {
         setupController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        container()?.showBrandingBar(true)
+        
+    }
+    
     @IBAction func openPickerAction(_ sender: UIButton) {
         
-        HPPicker.sharedInstance.selectOption(title: "", dataArray: ["Aetna","Humana","Anthem","Cigna","UnitedHealthcare"], selectedIndex: 0) { (selectedText, index) in
+        HPPicker.sharedInstance.selectOption(title: "", dataArray: ["Humana","Aetna","Anthem","Cigna","UnitedHealthcare"], selectedIndex: 0) { (selectedText, index) in
             
             print(selectedText)
             let  item = self.dataSource_insurance[0]
             item.value = selectedText
             self.tableView_insurance.reloadData()
+            if item.value == "Humana" {
+                self.push(controller: HumanaViewController.nibInstance())
+
+            }
         }
     }
-    
-    @IBAction func connectButtonAction(_ sender: UIButton){
-        push(controller: HumanaViewController.nibInstance())
-    }
+
 }
 
 //MARK: Private methods
@@ -43,7 +50,7 @@ private extension InsurancePlanViewController {
     private func setupController() {
         
         dataSource_insurance.removeAll()
-        dataSource_insurance = [HPHealthInsuranceItem(.choosePayer), HPHealthInsuranceItem(.planID), HPHealthInsuranceItem(.memberID)]
+        dataSource_insurance = [HPHealthInsuranceItem(.choosePayer)]
         
         addTapGesture(label: terms_label)
         registerTableCell(tableView_insurance, cellClass: LoginViewCell.self)

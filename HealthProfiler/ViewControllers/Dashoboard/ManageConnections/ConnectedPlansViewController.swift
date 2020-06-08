@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DataCache
 
 class ConnectedPlansViewController: HPViewController {
     
@@ -34,6 +35,8 @@ class ConnectedPlansViewController: HPViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        container()?.showBrandingBar(true)
         tableView_Plans.reloadData()
     }
     
@@ -55,9 +58,22 @@ class ConnectedPlansViewController: HPViewController {
     
     @IBAction func allenaConnectAction(_ sender: UIButton) {
         
-        let allena = AllenaHealthViewController.nibInstance()
-        allena.dataSource_provider = dataSource_provider
-        push(controller: allena)
+        HealthProfiler.authClientCerner.authorize(controller: self) { [weak self] (token, error) in
+            
+            if let token = token {
+                
+                HealthProfiler.shared.loggedInUser?.isProviderConnected = true
+                print("cerner Token",token)
+                self?.tableView_Plans.reloadData()
+                let date = Date().toString(dateFormat: "MMM dd, yyyy")
+                DataCache.instance.write(string: date, forKey: "CernerConnectionTime")
+                HealthProfiler.shared.loggedInUser?.cernerConnected = true
+
+            } else {
+                debugPrint(error.debugDescription)
+            }
+        }
+
     }
     
     @IBAction func blueButtonConnectAction(_ sender: UIButton) {
@@ -68,6 +84,9 @@ class ConnectedPlansViewController: HPViewController {
                 
                 HealthProfiler.shared.loggedInUser?.blueButtonConnected = true
                 TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
+                let date = Date().toString(dateFormat: "MMM dd, yyyy")
+                DataCache.instance.write(string: date, forKey: "BlueButtonConnectionTime")
+                DataCache.instance.write(string: "true", forKey: "BlueButtonConnectedWilma")
                 self?.tableView_Plans.reloadData()
 
             } else {
@@ -75,6 +94,8 @@ class ConnectedPlansViewController: HPViewController {
             }
         }
     }
+    
+    
 }
 
 //MARK: Private methods
@@ -87,7 +108,7 @@ private extension ConnectedPlansViewController {
         dataSource_InsurancePlans = user?.isFirstTimeUser == true ? [HPConnectedInsuranceItem(.humana), HPConnectedInsuranceItem(.blueButton)] : [HPConnectedInsuranceItem(.medicare), HPConnectedInsuranceItem(.blueButton)]
         
         dataSource_provider.removeAll()
-        dataSource_provider = user?.isFirstTimeUser == true ? [HPConnectedProviderItem(.advent)] : [ HPConnectedProviderItem(.southwest), HPConnectedProviderItem(.methodist)]
+        dataSource_provider = user?.isFirstTimeUser ?? false ? user?.blueButtonConnected ?? false ? [HPConnectedProviderItem(.advent)] : [] : user?.blueButtonConnected ?? false ?  [ HPConnectedProviderItem(.southwest),  HPConnectedProviderItem(.methodist)] : [ HPConnectedProviderItem(.southwest)]
         
         registerTableCell(tableView_Plans, cellClass: InsurancePlanCell.self)
         registerTableCell(tableView_Plans, cellClass: ProviderConnectedCell.self)
@@ -119,7 +140,7 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return isFromProvider == true ? 135 : 100
+        return isFromProvider == true ? 169 : 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -129,6 +150,8 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
             let providerCell = tableView.dequeueReusableCell(withIdentifier: ProviderConnectedCell.reuseableId(), for: indexPath) as! ProviderConnectedCell
             providerCell.configureProviderCell(item: dataSource_provider[indexPath.row], index: indexPath.row, user: user?.isFirstTimeUser ?? false)
             if indexPath.row == 0 && user?.isFirstTimeUser == true {
+                providerCell.connect_Button.addTarget(self, action: #selector(allenaConnectAction), for: .touchUpInside)
+            }else if indexPath.row == 1{
                 providerCell.connect_Button.addTarget(self, action: #selector(allenaConnectAction), for: .touchUpInside)
             }
             

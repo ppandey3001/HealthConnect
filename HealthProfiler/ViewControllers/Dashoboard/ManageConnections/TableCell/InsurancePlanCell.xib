@@ -16,16 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-uX-KVM">
-                        <rect key="frame" x="15" y="34" width="34" height="34"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="34" id="hgy-i5-zSq"/>
-                            <constraint firstAttribute="width" constant="34" id="zHP-52-Qat"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="700-Sn-Khs">
-                        <rect key="frame" x="64" y="24" width="146" height="53"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="700-Sn-Khs">
+                        <rect key="frame" x="15" y="43" width="187" height="44"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -49,13 +41,24 @@
                         </constraints>
                         <state key="normal" image="Refresh_orange"/>
                     </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zqf-uX-KVM">
+                        <rect key="frame" x="15" y="21" width="65" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="HT2-ez-4a1"/>
+                            <constraint firstAttribute="width" constant="65" id="zjh-l3-0vS"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="VfQ-x5-oHt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="31" id="59G-8O-XXW"/>
-                    <constraint firstItem="zqf-uX-KVM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="34" id="7a1-Ix-V99"/>
                     <constraint firstItem="M4O-id-cm4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="31" id="7pW-Jt-CUF"/>
+                    <constraint firstAttribute="bottom" secondItem="700-Sn-Khs" secondAttribute="bottom" constant="15" id="9lu-SQ-v0B"/>
+                    <constraint firstItem="VfQ-x5-oHt" firstAttribute="leading" secondItem="700-Sn-Khs" secondAttribute="trailing" constant="8" id="AS3-sZ-Tcv"/>
+                    <constraint firstItem="zqf-uX-KVM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="Jaj-ZY-1v5"/>
+                    <constraint firstItem="zqf-uX-KVM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="P7U-t2-P9C"/>
+                    <constraint firstItem="700-Sn-Khs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="XjH-Cp-ehu"/>
                     <constraint firstAttribute="trailing" secondItem="M4O-id-cm4" secondAttribute="trailing" constant="20" id="c9f-75-p3z"/>
-                    <constraint firstItem="zqf-uX-KVM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="cyW-eR-fq4"/>
+                    <constraint firstItem="700-Sn-Khs" firstAttribute="top" secondItem="zqf-uX-KVM" secondAttribute="bottom" constant="1" id="kVZ-Zd-6fO"/>
                     <constraint firstItem="M4O-id-cm4" firstAttribute="leading" secondItem="VfQ-x5-oHt" secondAttribute="trailing" constant="10" id="zSa-Ch-Z0x"/>
                 </constraints>
             </tableViewCellContentView>

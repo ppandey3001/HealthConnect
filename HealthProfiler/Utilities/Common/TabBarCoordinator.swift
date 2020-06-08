@@ -35,12 +35,36 @@ class TabBarCoordinator {
     func tabBarStatus(isUserConnected: Bool) {
         
         if let items = tabBarController?.tabBar.items {
+            if HealthProfiler.shared.loggedInUser?.isFirstTimeUser ?? false {
+                for index in 0...(items.count - 2) {
+                    
+                    let itemToDisable = items[index]
+                    itemToDisable.isEnabled = index == 0 ? false : isUserConnected
+                }
+            }else {
             
             for index in 0...(items.count - 2) {
                 
                 let itemToDisable = items[index]
                 itemToDisable.isEnabled = isUserConnected
             }
+            }
+        }
+    }
+    
+    func tabBarNavigationTitle(isDetailDisplayed : Bool) {
+        if let items = tabBarController?.viewControllers {
+                for index in 0...(items.count - 1) {
+                    
+                    let itemToDisable = items[index]
+                    if let user = HealthProfiler.shared.loggedInUser,
+                        let name = user.name, let age = user.age, let gender = user.gender {
+                        itemToDisable.navigationController?.navigationItem.title = "\(name)  |  \(age) Years  | \(gender)"
+                }
+            
+
+
+                }
         }
     }
     
@@ -76,8 +100,9 @@ private extension TabBarCoordinator {
                                                       image: tabIcon,
                                                       selectedImage: tabIcon)
         if let user = HealthProfiler.shared.loggedInUser,
-            let name = user.name, let age = user.age {
-            rootController.navigationItem.title = "\(name)  |  \(age) Years"
+            let name = user.name, let age = user.age, let gender = user.gender {
+//            rootController.navigationItem.title = "\(name)  |  \(age) Years"
+            rootController.navigationItem.title = HealthProfiler.shared.loggedInUser?.isFirstTimeUser ?? false ? "\(name)" : "\(name)  |  \(age) Years  | \(gender)"
         }
         rootController.addDrawerButton()
         rootController.addProfileButton()

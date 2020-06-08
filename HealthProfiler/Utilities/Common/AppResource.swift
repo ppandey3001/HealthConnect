@@ -31,7 +31,8 @@ enum ResourceType {
     case privacyPolicy
     case demoUserData
     case blueButtonConfig
-    
+    case cernerConfig
+
     func resource() -> Resource {
         
         switch self {
@@ -43,6 +44,8 @@ enum ResourceType {
             
         case .blueButtonConfig:
             return Resource(name: "BlueButtonConfiguration", ext: "json")
+        case .cernerConfig:
+            return Resource(name: "CernerConfiguration", ext: "json")
         }
     }
 }

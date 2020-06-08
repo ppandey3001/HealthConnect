@@ -18,6 +18,9 @@ class HealthProfilerCell: HPTableViewCell {
     var datasource_gapsInCare = [HPGapsInCareItem]()
     var datasource_medication = [HPMedicationItem]()
     var datasource_careteam = [HPCareTeamItem]()
+    var dataSourceCernerTeam = [HPCernerCareTeamItem]()
+    private let user = HealthProfiler.shared.loggedInUser
+
     
     func registerCell(){
         
@@ -28,6 +31,11 @@ class HealthProfilerCell: HPTableViewCell {
         if (cellType != 2) {
             section_collectionView.backgroundColor = .clear
         }
+       if user?.isFirstTimeUser ?? false {
+        section_collectionView.backgroundColor = .clear
+
+        }
+
         section_collectionView.alwaysBounceHorizontal = true
         section_collectionView.delegate = self
         section_collectionView.dataSource = self
@@ -46,7 +54,14 @@ extension HealthProfilerCell : UICollectionViewDataSource, UICollectionViewDeleg
         case 1:
             return datasource_medication.count
         case 2:
+            if user?.isFirstTimeUser ?? false {
+                return dataSourceCernerTeam.count
+
+            }else {
             return datasource_careteam.count
+
+            }
+
         default:
             return 0
         }
@@ -82,7 +97,12 @@ extension HealthProfilerCell : UICollectionViewDataSource, UICollectionViewDeleg
             
         case 2:
             let careCell = collectionView.dequeueReusableCell(withReuseIdentifier: CareTeamCollectionCell.reuseableId(), for: indexPath) as! CareTeamCollectionCell
-            careCell.configureCareCell(item: datasource_careteam[indexPath.row])
+            if user?.isFirstTimeUser ?? false {
+                careCell.configureCernerCareCell(item: dataSourceCernerTeam[indexPath.row])
+             }else {
+                careCell.configureCareCell(item: datasource_careteam[indexPath.row])
+
+            }
             return careCell
             
         default:

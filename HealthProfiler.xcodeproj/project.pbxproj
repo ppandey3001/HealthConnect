@@ -66,7 +66,7 @@
 		6BD6A358246D0F790045DD67 /* BlueButtonConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6BD6A357246D0F790045DD67 /* BlueButtonConfiguration.json */; };
 		6BEACF4824692965004B5C4E /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEACF4724692965004B5C4E /* DummyData.swift */; };
 		6BEACF4A246929F1004B5C4E /* HPUserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEACF49246929F1004B5C4E /* HPUserItem.swift */; };
-		CF0956F292937BF22823E20F /* Pods_HealthProfiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355C3C4B09F07F85666728C9 /* Pods_HealthProfiler.framework */; };
+		7FE18B45938A524247AB1B55 /* Pods_HealthProfiler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDC6A4339DC38141BDA9703B /* Pods_HealthProfiler.framework */; };
 		FF49CD852456CEC300267787 /* LoginViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF49CD832456CEC300267787 /* LoginViewCell.xib */; };
 		FF49CD862456CEC300267787 /* LoginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD842456CEC300267787 /* LoginViewCell.swift */; };
 		FF49CD8A2456F14E00267787 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CD892456F14E00267787 /* UITapGestureRecognizerExtension.swift */; };
@@ -89,6 +89,17 @@
 		FF49CDB6245F32AA00267787 /* ProviderConnectedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF49CDB4245F32AA00267787 /* ProviderConnectedCell.xib */; };
 		FF49CDBA2460179600267787 /* CoverageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF49CDB82460179600267787 /* CoverageTableCell.swift */; };
 		FF49CDBB2460179600267787 /* CoverageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF49CDB92460179600267787 /* CoverageTableCell.xib */; };
+		FF81426E24853F210026EB5D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF81426D24853F200026EB5D /* CoreData.framework */; };
+		FF814272248582110026EB5D /* CernerConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = FF814271248582110026EB5D /* CernerConfiguration.json */; };
+		FF814275248781070026EB5D /* HSIDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF814273248781070026EB5D /* HSIDLoginViewController.swift */; };
+		FF814276248781070026EB5D /* HSIDLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF814274248781070026EB5D /* HSIDLoginViewController.xib */; };
+		FF8142792488D8200026EB5D /* HumanaCredentialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8142772488D8200026EB5D /* HumanaCredentialsViewController.swift */; };
+		FF81427A2488D8200026EB5D /* HumanaCredentialsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8142782488D8200026EB5D /* HumanaCredentialsViewController.xib */; };
+		FF81427E248943CD0026EB5D /* Date+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF81427D248943CC0026EB5D /* Date+Extentions.swift */; };
+		FF814281248A26870026EB5D /* CernerConditionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF81427F248A26870026EB5D /* CernerConditionTableCell.swift */; };
+		FF814282248A26870026EB5D /* CernerConditionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF814280248A26870026EB5D /* CernerConditionTableCell.xib */; };
+		FF814285248A28A60026EB5D /* CernerConditionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF814283248A28A60026EB5D /* CernerConditionCollectionCell.swift */; };
+		FF814286248A28A60026EB5D /* CernerConditionCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF814284248A28A60026EB5D /* CernerConditionCollectionCell.xib */; };
 		FF826AFB24602F9100844479 /* CoverageClaimHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF826AF924602F9100844479 /* CoverageClaimHeaderCell.swift */; };
 		FF826AFC24602F9100844479 /* CoverageClaimHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF826AFA24602F9100844479 /* CoverageClaimHeaderCell.xib */; };
 		FF826AFF246036AE00844479 /* RecentCliamsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF826AFD246036AE00844479 /* RecentCliamsListCell.swift */; };
@@ -97,6 +108,9 @@
 		FF8ACE38244D723D00B283D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8ACE37244D723D00B283D8 /* AppDelegate.swift */; };
 		FF8ACE41244D723F00B283D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE40244D723F00B283D8 /* Assets.xcassets */; };
 		FF8ACE44244D723F00B283D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF8ACE42244D723F00B283D8 /* LaunchScreen.storyboard */; };
+		FF91E41F248E09B700333484 /* HPCostEstimatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E41E248E09B700333484 /* HPCostEstimatorList.swift */; };
+		FF91E422248E1ABE00333484 /* CostListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E420248E1ABE00333484 /* CostListTableCell.swift */; };
+		FF91E423248E1ABE00333484 /* CostListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF91E421248E1ABE00333484 /* CostListTableCell.xib */; };
 		FFA8F1F12461A99B00E71886 /* HealthProfilerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1EF2461A99B00E71886 /* HealthProfilerCell.swift */; };
 		FFA8F1F22461A99B00E71886 /* HealthProfilerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8F1F02461A99B00E71886 /* HealthProfilerCell.xib */; };
 		FFA8F1F52461BDDA00E71886 /* GapsInCareCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1F32461BDDA00E71886 /* GapsInCareCollectionCell.swift */; };
@@ -127,9 +141,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B10482CDDB3E1A0BD8C92F0 /* Pods-HealthProfiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.debug.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.debug.xcconfig"; sourceTree = "<group>"; };
-		355C3C4B09F07F85666728C9 /* Pods_HealthProfiler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthProfiler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		63BF94C1DAC70E5420DC295A /* Pods-HealthProfiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.release.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.release.xcconfig"; sourceTree = "<group>"; };
 		6B05B0952452BD1500C5A971 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		6B05B0972452BDFF00C5A971 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		6B05B0992452C0B000C5A971 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
@@ -189,6 +200,9 @@
 		6BD6A357246D0F790045DD67 /* BlueButtonConfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BlueButtonConfiguration.json; sourceTree = "<group>"; };
 		6BEACF4724692965004B5C4E /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		6BEACF49246929F1004B5C4E /* HPUserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPUserItem.swift; sourceTree = "<group>"; };
+		B6374EAC7AFEF943DB2FD519 /* Pods-HealthProfiler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.release.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.release.xcconfig"; sourceTree = "<group>"; };
+		BDC6A4339DC38141BDA9703B /* Pods_HealthProfiler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthProfiler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDBCF2FB8A599814A0DC5B53 /* Pods-HealthProfiler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthProfiler.debug.xcconfig"; path = "Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler.debug.xcconfig"; sourceTree = "<group>"; };
 		FF49CD832456CEC300267787 /* LoginViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewCell.xib; sourceTree = "<group>"; };
 		FF49CD842456CEC300267787 /* LoginViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewCell.swift; sourceTree = "<group>"; };
 		FF49CD892456F14E00267787 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
@@ -211,6 +225,17 @@
 		FF49CDB4245F32AA00267787 /* ProviderConnectedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProviderConnectedCell.xib; sourceTree = "<group>"; };
 		FF49CDB82460179600267787 /* CoverageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageTableCell.swift; sourceTree = "<group>"; };
 		FF49CDB92460179600267787 /* CoverageTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoverageTableCell.xib; sourceTree = "<group>"; };
+		FF81426D24853F200026EB5D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FF814271248582110026EB5D /* CernerConfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CernerConfiguration.json; sourceTree = "<group>"; };
+		FF814273248781070026EB5D /* HSIDLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSIDLoginViewController.swift; sourceTree = "<group>"; };
+		FF814274248781070026EB5D /* HSIDLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HSIDLoginViewController.xib; sourceTree = "<group>"; };
+		FF8142772488D8200026EB5D /* HumanaCredentialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanaCredentialsViewController.swift; sourceTree = "<group>"; };
+		FF8142782488D8200026EB5D /* HumanaCredentialsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HumanaCredentialsViewController.xib; sourceTree = "<group>"; };
+		FF81427D248943CC0026EB5D /* Date+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Extentions.swift"; path = "../../../../../../.Trash/Date+Extentions.swift"; sourceTree = "<group>"; };
+		FF81427F248A26870026EB5D /* CernerConditionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CernerConditionTableCell.swift; sourceTree = "<group>"; };
+		FF814280248A26870026EB5D /* CernerConditionTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CernerConditionTableCell.xib; sourceTree = "<group>"; };
+		FF814283248A28A60026EB5D /* CernerConditionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CernerConditionCollectionCell.swift; sourceTree = "<group>"; };
+		FF814284248A28A60026EB5D /* CernerConditionCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CernerConditionCollectionCell.xib; sourceTree = "<group>"; };
 		FF826AF924602F9100844479 /* CoverageClaimHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageClaimHeaderCell.swift; sourceTree = "<group>"; };
 		FF826AFA24602F9100844479 /* CoverageClaimHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoverageClaimHeaderCell.xib; sourceTree = "<group>"; };
 		FF826AFD246036AE00844479 /* RecentCliamsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCliamsListCell.swift; sourceTree = "<group>"; };
@@ -221,6 +246,9 @@
 		FF8ACE40244D723F00B283D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF8ACE43244D723F00B283D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF8ACE45244D723F00B283D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF91E41E248E09B700333484 /* HPCostEstimatorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPCostEstimatorList.swift; sourceTree = "<group>"; };
+		FF91E420248E1ABE00333484 /* CostListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostListTableCell.swift; sourceTree = "<group>"; };
+		FF91E421248E1ABE00333484 /* CostListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostListTableCell.xib; sourceTree = "<group>"; };
 		FFA8F1EF2461A99B00E71886 /* HealthProfilerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthProfilerCell.swift; sourceTree = "<group>"; };
 		FFA8F1F02461A99B00E71886 /* HealthProfilerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthProfilerCell.xib; sourceTree = "<group>"; };
 		FFA8F1F32461BDDA00E71886 /* GapsInCareCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapsInCareCollectionCell.swift; sourceTree = "<group>"; };
@@ -256,7 +284,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B6DACEF24630C0400163D0F /* WebKit.framework in Frameworks */,
-				CF0956F292937BF22823E20F /* Pods_HealthProfiler.framework in Frameworks */,
+				FF81426E24853F210026EB5D /* CoreData.framework in Frameworks */,
+				7FE18B45938A524247AB1B55 /* Pods_HealthProfiler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,8 +295,8 @@
 		68640E3DA9C03448FE8B1EE4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1B10482CDDB3E1A0BD8C92F0 /* Pods-HealthProfiler.debug.xcconfig */,
-				63BF94C1DAC70E5420DC295A /* Pods-HealthProfiler.release.xcconfig */,
+				FDBCF2FB8A599814A0DC5B53 /* Pods-HealthProfiler.debug.xcconfig */,
+				B6374EAC7AFEF943DB2FD519 /* Pods-HealthProfiler.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -275,6 +304,7 @@
 		6B05B08B2452B7C000C5A971 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FF814271248582110026EB5D /* CernerConfiguration.json */,
 				FF8ACE40244D723F00B283D8 /* Assets.xcassets */,
 				FF8ACE42244D723F00B283D8 /* LaunchScreen.storyboard */,
 				FF8ACE45244D723F00B283D8 /* Info.plist */,
@@ -332,6 +362,7 @@
 				FF49CD912457215B00267787 /* UITextField+Extensions.swift */,
 				FFA8F20724644C9A00E71886 /* GeneralExtension.swift */,
 				6B7A3D9624659B1D0070DE2A /* Dictionary+Extensions.swift */,
+				FF81427D248943CC0026EB5D /* Date+Extentions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -460,6 +491,8 @@
 				6B05B0C42452C81900C5A971 /* RegistrationViewController.xib */,
 				FF49CD952459CBF000267787 /* ForgotPasswordViewController.swift */,
 				FF49CD962459CBF000267787 /* ForgotPasswordViewController.xib */,
+				FF814273248781070026EB5D /* HSIDLoginViewController.swift */,
+				FF814274248781070026EB5D /* HSIDLoginViewController.xib */,
 			);
 			path = LoginFlow;
 			sourceTree = "<group>";
@@ -505,6 +538,7 @@
 				6B7A3DA22465A1210070DE2A /* HPRecentVisitItem.swift */,
 				FFAC2214246C143F004E76B3 /* HPEobItem.swift */,
 				FFAC2216246D2E93004E76B3 /* HPCarePlanItem.swift */,
+				FF91E41E248E09B700333484 /* HPCostEstimatorList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -530,8 +564,9 @@
 		9904CF04515F4E5E9B82BBFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF81426D24853F200026EB5D /* CoreData.framework */,
 				6B6DACEE24630C0300163D0F /* WebKit.framework */,
-				355C3C4B09F07F85666728C9 /* Pods_HealthProfiler.framework */,
+				BDC6A4339DC38141BDA9703B /* Pods_HealthProfiler.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -630,6 +665,8 @@
 				FFA8F1FC2461C47D00E71886 /* MedicationCollectionCell.xib */,
 				FFA8F1FF2461DFA100E71886 /* CareTeamCollectionCell.swift */,
 				FFA8F2002461DFA100E71886 /* CareTeamCollectionCell.xib */,
+				FF814283248A28A60026EB5D /* CernerConditionCollectionCell.swift */,
+				FF814284248A28A60026EB5D /* CernerConditionCollectionCell.xib */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -643,6 +680,8 @@
 				FFA8F1F82461C2CD00E71886 /* AllergyTableViewCell.xib */,
 				FFAC2218246D4B04004E76B3 /* CarePlanTableCell.swift */,
 				FFAC2219246D4B04004E76B3 /* CarePlanTableCell.xib */,
+				FF81427F248A26870026EB5D /* CernerConditionTableCell.swift */,
+				FF814280248A26870026EB5D /* CernerConditionTableCell.xib */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -661,6 +700,8 @@
 			children = (
 				FFA8F2092464821200E71886 /* REcentVisitTableCell.swift */,
 				FFA8F20A2464821200E71886 /* REcentVisitTableCell.xib */,
+				FF91E420248E1ABE00333484 /* CostListTableCell.swift */,
+				FF91E421248E1ABE00333484 /* CostListTableCell.xib */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -674,6 +715,8 @@
 				FFA8F21D24687DE100E71886 /* HumanaTableViewCell.xib */,
 				FFA8F2202468841300E71886 /* AllenaHealthViewController.swift */,
 				FFA8F2212468841300E71886 /* AllenaHealthViewController.xib */,
+				FF8142772488D8200026EB5D /* HumanaCredentialsViewController.swift */,
+				FF8142782488D8200026EB5D /* HumanaCredentialsViewController.xib */,
 			);
 			path = StaticControllers;
 			sourceTree = "<group>";
@@ -685,11 +728,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF8ACE5E244D723F00B283D8 /* Build configuration list for PBXNativeTarget "HealthProfiler" */;
 			buildPhases = (
-				2EBA4D484839A7F65453D01B /* [CP] Check Pods Manifest.lock */,
+				3817F8BD2EE416A17063C4AE /* [CP] Check Pods Manifest.lock */,
 				FF8ACE30244D723D00B283D8 /* Sources */,
 				FF8ACE31244D723D00B283D8 /* Frameworks */,
 				FF8ACE32244D723D00B283D8 /* Resources */,
-				45F33F04BDAB14F30D4A7654 /* [CP] Embed Pods Frameworks */,
+				66D4D7D17FFCC4ABC9A5FA34 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -743,20 +786,25 @@
 				6B7A00772464F0FE00F0C018 /* UserData.plist in Resources */,
 				6B05B0D22452C86300C5A971 /* CoverageViewController.xib in Resources */,
 				FFA8F21F24687DE100E71886 /* HumanaTableViewCell.xib in Resources */,
+				FF814272248582110026EB5D /* CernerConfiguration.json in Resources */,
 				6B05B0D62452C87700C5A971 /* ManageConnectionsViewController.xib in Resources */,
 				FF49CDBB2460179600267787 /* CoverageTableCell.xib in Resources */,
 				FF49CDA5245C820F00267787 /* PayerSummaryViewController.xib in Resources */,
 				FF826AFC24602F9100844479 /* CoverageClaimHeaderCell.xib in Resources */,
 				FF49CDA1245BFAFB00267787 /* InsurancePlanViewController.xib in Resources */,
 				FF49CD9D245AE45A00267787 /* ManageConnectionViewCell.xib in Resources */,
+				FF81427A2488D8200026EB5D /* HumanaCredentialsViewController.xib in Resources */,
 				FF8ACE44244D723F00B283D8 /* LaunchScreen.storyboard in Resources */,
 				FFA8F1FA2461C2CD00E71886 /* AllergyTableViewCell.xib in Resources */,
 				6B6F8350245A84D7000066A8 /* privacy_policy.html in Resources */,
 				FF49CDB6245F32AA00267787 /* ProviderConnectedCell.xib in Resources */,
 				FFA8F20C2464821200E71886 /* REcentVisitTableCell.xib in Resources */,
 				6B05B0C02452C7F300C5A971 /* LoginViewController.xib in Resources */,
+				FF814286248A28A60026EB5D /* CernerConditionCollectionCell.xib in Resources */,
 				6BD6A358246D0F790045DD67 /* BlueButtonConfiguration.json in Resources */,
 				FFA8F2232468841300E71886 /* AllenaHealthViewController.xib in Resources */,
+				FF814282248A26870026EB5D /* CernerConditionTableCell.xib in Resources */,
+				FF814276248781070026EB5D /* HSIDLoginViewController.xib in Resources */,
 				6B05B0CE2452C84E00C5A971 /* HealthProfileViewController.xib in Resources */,
 				6B05B0DC2452D16F00C5A971 /* MenuViewController.xib in Resources */,
 				FFA8F1F62461BDDA00E71886 /* GapsInCareCollectionCell.xib in Resources */,
@@ -776,13 +824,14 @@
 				FF49CDAE245F084900267787 /* ConnectedPlansViewController.xib in Resources */,
 				6B279474245562CA00DFF05A /* MenuTableCell.xib in Resources */,
 				6B05B0CA2452C83300C5A971 /* HomeViewController.xib in Resources */,
+				FF91E423248E1ABE00333484 /* CostListTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2EBA4D484839A7F65453D01B /* [CP] Check Pods Manifest.lock */ = {
+		3817F8BD2EE416A17063C4AE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -804,17 +853,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		45F33F04BDAB14F30D4A7654 /* [CP] Embed Pods Frameworks */ = {
+		66D4D7D17FFCC4ABC9A5FA34 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/DataCache/DataCache.framework",
+				"${BUILT_PRODUCTS_DIR}/DrawerMenu/DrawerMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HealthProfiler/Pods-HealthProfiler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DataCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DrawerMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -838,6 +900,7 @@
 				6B2794792455641800DFF05A /* HPDataSource.swift in Sources */,
 				6BD6A356246D0E1A0045DD67 /* AuthConfiguration.swift in Sources */,
 				FF49CDA9245ED84000267787 /* SummaryBenefitCell.swift in Sources */,
+				FF81427E248943CD0026EB5D /* Date+Extentions.swift in Sources */,
 				6B1C98E4246691D5005163EB /* AppError.swift in Sources */,
 				FF49CDA4245C820F00267787 /* PayerSummaryViewController.swift in Sources */,
 				6BEACF4824692965004B5C4E /* DummyData.swift in Sources */,
@@ -848,6 +911,7 @@
 				FF49CD862456CEC300267787 /* LoginViewCell.swift in Sources */,
 				6BD6A354246D09B50045DD67 /* AppResource.swift in Sources */,
 				6B1C98E0246691BE005163EB /* ServerRequest.swift in Sources */,
+				FF8142792488D8200026EB5D /* HumanaCredentialsViewController.swift in Sources */,
 				6B05B0C52452C81900C5A971 /* RegistrationViewController.swift in Sources */,
 				FF8ACE38244D723D00B283D8 /* AppDelegate.swift in Sources */,
 				6B05B0D52452C87700C5A971 /* ManageConnectionsViewController.swift in Sources */,
@@ -860,6 +924,7 @@
 				6B6DACEC246301F700163D0F /* WebContentViewController.swift in Sources */,
 				FFA8F20B2464821200E71886 /* REcentVisitTableCell.swift in Sources */,
 				6B05B0C92452C83300C5A971 /* HomeViewController.swift in Sources */,
+				FF814275248781070026EB5D /* HSIDLoginViewController.swift in Sources */,
 				6B05B0BF2452C7F300C5A971 /* LoginViewController.swift in Sources */,
 				6B879A792452D50900F8880A /* SessionManager.swift in Sources */,
 				6B2794772455640C00DFF05A /* HPEnums.swift in Sources */,
@@ -877,11 +942,15 @@
 				6BA8667224569D3D003BDBDF /* AppCoordinator.swift in Sources */,
 				6B05B09C2452C17F00C5A971 /* HPTableViewCell.swift in Sources */,
 				FF49CDB1245F132C00267787 /* InsurancePlanCell.swift in Sources */,
+				FF814285248A28A60026EB5D /* CernerConditionCollectionCell.swift in Sources */,
 				FFA8F1F92461C2CD00E71886 /* AllergyTableViewCell.swift in Sources */,
 				6B7A3D9D2465A0E80070DE2A /* HPMedicationItem.swift in Sources */,
+				FF91E422248E1ABE00333484 /* CostListTableCell.swift in Sources */,
 				FFAC2215246C143F004E76B3 /* HPEobItem.swift in Sources */,
 				FF49CDA0245BFAFB00267787 /* InsurancePlanViewController.swift in Sources */,
 				6B05B0B32452C6B200C5A971 /* AppUtility.swift in Sources */,
+				FF91E41F248E09B700333484 /* HPCostEstimatorList.swift in Sources */,
+				FF814281248A26870026EB5D /* CernerConditionTableCell.swift in Sources */,
 				6B7A3D9B24659CFB0070DE2A /* HPConditionItem.swift in Sources */,
 				6B1C98E62466A572005163EB /* NetworkManager.swift in Sources */,
 				FF49CD9C245AE45A00267787 /* ManageConnectionViewCell.swift in Sources */,
@@ -1038,7 +1107,7 @@
 		};
 		FF8ACE5F244D723F00B283D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B10482CDDB3E1A0BD8C92F0 /* Pods-HealthProfiler.debug.xcconfig */;
+			baseConfigurationReference = FDBCF2FB8A599814A0DC5B53 /* Pods-HealthProfiler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1057,7 +1126,7 @@
 		};
 		FF8ACE60244D723F00B283D8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63BF94C1DAC70E5420DC295A /* Pods-HealthProfiler.release.xcconfig */;
+			baseConfigurationReference = B6374EAC7AFEF943DB2FD519 /* Pods-HealthProfiler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,28 +1,32 @@
 PODS:
   - Alamofire (5.1.0)
+  - DataCache (1.5)
   - DrawerMenu (1.0.1)
   - OAuthSwift (2.1.0)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - DataCache
   - DrawerMenu
   - OAuthSwift
   - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
+    - DataCache
     - DrawerMenu
     - OAuthSwift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  DataCache: 8099e01aa35c2fd30f3410aae14ef5a130f6524b
   DrawerMenu: f6ca91901e2b21086e3c19bcca278d3d3127e85f
   OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 3fd76fc5a469e3684c01baf4b89c68d896d5d634
+PODFILE CHECKSUM: 7e44f8f8646ba21edbbf49f17392570650b22b0e
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.6.1

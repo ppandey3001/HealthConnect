@@ -22,4 +22,12 @@ extension CareTeamCollectionCell {
         doctorName_label.text = item.practitioner
         speciality_label.text = item.speciality
     }
+    
+    
+    func configureCernerCareCell(item: HPCernerCareTeamItem) {
+        
+        let attributes = item.type.attributes()
+        doctorName_label.text = attributes.name
+        speciality_label.text = attributes.speciality
+    }
 }

@@ -21,8 +21,12 @@
 				<true/>
 				<key>age</key>
 				<string>70</string>
+				<key>gender</key>
+				<string>F</string>
 				<key>blueButtonConnected</key>
 				<false/>
+				<key>cernerConnected</key>
+				<string>YES</string>
 				<key>isProviderConnected</key>
 				<false/>
 				<key>isInsurerConnected</key>
@@ -42,12 +46,16 @@
 				<string>walter.white@company_domain.com</string>
 				<key>name</key>
 				<string>Fredrick Smart</string>
+				<key>gender</key>
+				<string>M</string>
 				<key>isFirstTimeUser</key>
 				<false/>
 				<key>age</key>
 				<string>73</string>
 				<key>blueButtonConnected</key>
-				<true/>
+				<false/>
+				<key>cernerConnected</key>
+				<string>NO</string>
 				<key>isProviderConnected</key>
 				<true/>
 				<key>isInsurerConnected</key>

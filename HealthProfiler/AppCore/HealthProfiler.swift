@@ -24,9 +24,16 @@ class HealthProfiler {
         }
     }
     
+    /// OAuthClient for 'Cerner'
+    public static var authClientCerner: OAuthClient {
+        get {
+            return shared.authClientCerner
+        }
+    }
     /// Private vars
     private var networkManager: NetworkManager
     private var authClient: OAuthClient
+    private var authClientCerner: OAuthClient
 
     var loggedInUser: HPUserItem?
     
@@ -35,6 +42,7 @@ class HealthProfiler {
         
         self.networkManager = NetworkManager(with: SessionManager())
         self.authClient = OAuthClient(provider: AuthProvider.blueButton)
+        self.authClientCerner = OAuthClient(provider: AuthProvider.cerner)
     }
 }
 

@@ -12,6 +12,7 @@ enum ServerAPI: String {
     
     case vitals = "Vitals"
     case recentVisit = "RecentVisits"
+    case providerSearch = "getProviderSearch"
     case eob = "eob"
     case gapsInCare = "getGapsInCare"
     case allergy = "AllergyIntolerance"
@@ -124,6 +125,13 @@ extension ServerRequest {
         
         let params: [String : Any] = ["id" : id]
         return getRequest(with: params, api: .recentVisit)
+    }
+    
+    //Cost Estimator list request
+    func getCostEstimatorListReq(id: String) -> URLRequest? {
+        
+        let params: [String : Any] = ["specialityCode" : id]
+        return getRequest(with: params, api: .providerSearch)
     }
     
     //Medication list request

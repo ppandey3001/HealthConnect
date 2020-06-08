@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import DataCache
 
 class ManageConnectionsViewController: HPViewController {
     
@@ -26,6 +27,7 @@ class ManageConnectionsViewController: HPViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         connection_collectionView.reloadData()
+        container()?.showBrandingBar(true)
 
     }
     
@@ -39,6 +41,7 @@ class ManageConnectionsViewController: HPViewController {
 private extension ManageConnectionsViewController {
     
     private func setupController() {
+        
         
         dataSource_connection.removeAll()
         dataSource_connection.append(HPConnectionItem(.healthInsurance))
@@ -113,7 +116,7 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
         switch connectionItem.type {
             
         case .healthInsurance:
-            if user?.isFirstTimeUser == false {
+            if user?.isFirstTimeUser == false ||  HealthProfiler.shared.loggedInUser?.isInsurerConnected ?? false{
                 
                 let connectedPlans = ConnectedPlansViewController.nibInstance()
                 connectedPlans.isFromProvider = false
@@ -125,9 +128,11 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
             }
             
         case .providers:
+            if HealthProfiler.shared.loggedInUser?.isInsurerConnected ?? false {
             let connectedPlans = ConnectedPlansViewController.nibInstance()
             connectedPlans.isFromProvider = true
             push(controller: connectedPlans)
+            }
             
         default: break
         }

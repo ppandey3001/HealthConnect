@@ -1,0 +1,11 @@
+{
+    "consumerKey" : "625eb530-17d4-491a-a6f7-39bfef308570",
+    "authorizeURL" : "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/personas/patient/authorize?aud=https://fhir-myrecord.sandboxcerner.com/dstu2/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca",
+    "accessTokenURL" : "https://authorization.sandboxcerner.com/tenants/0b8a0111-e8e6-4c26-a91c-5069cbc6b1ca/protocols/oauth2/profiles/smart-v1/token/",
+    
+    "callBackURL" : "com.optum.com.healthprofiler://callback",
+    "responseType" : "code",
+    "contentType" : "application/x-www-form-urlencoded",
+    "scope" : "user/CarePlan.read",
+    "state" : "State01"
+}

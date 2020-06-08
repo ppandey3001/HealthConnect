@@ -16,7 +16,9 @@ class ProviderConnectedCell: HPTableViewCell {
     @IBOutlet var activeStatus_Button : UIButton!
     @IBOutlet var refresh_Button : UIButton!
     @IBOutlet var connect_Button : UIButton!
-    
+    @IBOutlet var suggestion_View : UIView!
+    @IBOutlet var suggestion_Label : UILabel!
+
 }
 
 //MARK: public methods
@@ -32,13 +34,17 @@ extension ProviderConnectedCell {
         
         if user {
             
-            activeStatus_Button.isSelected = item.isConnected ?? false
+            activeStatus_Button.isSelected = HealthProfiler.shared.loggedInUser?.isProviderConnected ?? false
             connect_Button.isSelected = item.isConnected ?? false
+            suggestion_View.isHidden =  (HealthProfiler.shared.loggedInUser?.isProviderConnected ?? false)
+            suggestion_Label.text = "You have recently visited \(attributes.title), Do you want to connect with them ?"
             
         } else {
-            
-            activeStatus_Button.isSelected = true
-            connect_Button.isSelected = true
+            activeStatus_Button.isSelected = item.type == .southwest ? true : (HealthProfiler.shared.loggedInUser?.cernerConnected ?? false)
+            connect_Button.isSelected = item.type == .southwest ? true : (HealthProfiler.shared.loggedInUser?.cernerConnected ?? false)
+            suggestion_View.isHidden = item.type == .southwest ? true : (HealthProfiler.shared.loggedInUser?.cernerConnected ?? false)
+            suggestion_Label.text = "You have recently visited \(attributes.title), Do you want to connect with them ?"
+
         }
     }
 }

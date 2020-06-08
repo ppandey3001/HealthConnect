@@ -1,14 +1,14 @@
 //
-//  HumanaViewController.swift
+//  HumanaCredentialsViewController.swift
 //  HealthProfiler
 //
-//  Created by Pandey, Pooja on 10/05/20.
+//  Created by Pandey, Pooja on 04/06/20.
 //  Copyright © 2020 Pandey, Pooja. All rights reserved.
 //
 
 import UIKit
 
-class HumanaViewController: HPViewController {
+class HumanaCredentialsViewController: UIViewController {
     
     @IBOutlet private var humana_tableView: UITableView!
     
@@ -26,28 +26,24 @@ class HumanaViewController: HPViewController {
         
     }
     
-    @IBAction func connectButtonAction(_ sender: UIButton){
+    @IBAction func signInButtonAction(_ sender: UIButton){
         
         TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: true)
         HealthProfiler.shared.loggedInUser?.isInsurerConnected = true
         push(controller: ConnectedPlansViewController.nibInstance())
     }
-    
-    @IBAction func credentialsButtonAction(_ sender: UIButton){
-        push(controller: HumanaCredentialsViewController.nibInstance())
-    }
 }
 
 
 //MARK: Private methods
-private extension HumanaViewController {
+private extension HumanaCredentialsViewController {
     
     private func setupController() {
         
         container()?.showBrandingBar(false)
         
         dataSource_humana.removeAll()
-        dataSource_humana = [HPHumanaItem(.planID), HPHumanaItem(.memberID), HPHumanaItem(.dateOfBirth)]
+        dataSource_humana = [HPHumanaItem(.username), HPHumanaItem(.password)]
         
         registerTableCell(humana_tableView, cellClass: HumanaTableViewCell.self)
         
@@ -58,7 +54,7 @@ private extension HumanaViewController {
 }
 
 
-extension HumanaViewController: UITableViewDataSource, UITableViewDelegate {
+extension HumanaCredentialsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource_humana.count
@@ -80,7 +76,7 @@ extension HumanaViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 
-extension HumanaViewController : UITextFieldDelegate {
+extension HumanaCredentialsViewController : UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -95,3 +91,4 @@ extension HumanaViewController : UITextFieldDelegate {
         return true
     }
 }
+
