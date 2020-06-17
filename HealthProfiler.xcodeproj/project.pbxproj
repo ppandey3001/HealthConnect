@@ -111,6 +111,9 @@
 		FF91E41F248E09B700333484 /* HPCostEstimatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E41E248E09B700333484 /* HPCostEstimatorList.swift */; };
 		FF91E422248E1ABE00333484 /* CostListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E420248E1ABE00333484 /* CostListTableCell.swift */; };
 		FF91E423248E1ABE00333484 /* CostListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF91E421248E1ABE00333484 /* CostListTableCell.xib */; };
+		FF91E4262492383100333484 /* AllergyCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E4242492383100333484 /* AllergyCollectionCell.swift */; };
+		FF91E4272492383100333484 /* AllergyCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF91E4252492383100333484 /* AllergyCollectionCell.xib */; };
+		FF91E42B249747C500333484 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E42A249747C500333484 /* WKWebViewController.swift */; };
 		FFA8F1F12461A99B00E71886 /* HealthProfilerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1EF2461A99B00E71886 /* HealthProfilerCell.swift */; };
 		FFA8F1F22461A99B00E71886 /* HealthProfilerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8F1F02461A99B00E71886 /* HealthProfilerCell.xib */; };
 		FFA8F1F52461BDDA00E71886 /* GapsInCareCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1F32461BDDA00E71886 /* GapsInCareCollectionCell.swift */; };
@@ -249,6 +252,9 @@
 		FF91E41E248E09B700333484 /* HPCostEstimatorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPCostEstimatorList.swift; sourceTree = "<group>"; };
 		FF91E420248E1ABE00333484 /* CostListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostListTableCell.swift; sourceTree = "<group>"; };
 		FF91E421248E1ABE00333484 /* CostListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostListTableCell.xib; sourceTree = "<group>"; };
+		FF91E4242492383100333484 /* AllergyCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyCollectionCell.swift; sourceTree = "<group>"; };
+		FF91E4252492383100333484 /* AllergyCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllergyCollectionCell.xib; sourceTree = "<group>"; };
+		FF91E42A249747C500333484 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		FFA8F1EF2461A99B00E71886 /* HealthProfilerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthProfilerCell.swift; sourceTree = "<group>"; };
 		FFA8F1F02461A99B00E71886 /* HealthProfilerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthProfilerCell.xib; sourceTree = "<group>"; };
 		FFA8F1F32461BDDA00E71886 /* GapsInCareCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapsInCareCollectionCell.swift; sourceTree = "<group>"; };
@@ -652,6 +658,7 @@
 			children = (
 				6B6DACEA246301F700163D0F /* WebContentViewController.swift */,
 				6B6DACEB246301F700163D0F /* WebContentViewController.xib */,
+				FF91E42A249747C500333484 /* WKWebViewController.swift */,
 			);
 			path = CommonControllers;
 			sourceTree = "<group>";
@@ -667,6 +674,8 @@
 				FFA8F2002461DFA100E71886 /* CareTeamCollectionCell.xib */,
 				FF814283248A28A60026EB5D /* CernerConditionCollectionCell.swift */,
 				FF814284248A28A60026EB5D /* CernerConditionCollectionCell.xib */,
+				FF91E4242492383100333484 /* AllergyCollectionCell.swift */,
+				FF91E4252492383100333484 /* AllergyCollectionCell.xib */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -813,6 +822,7 @@
 				FF8ACE41244D723F00B283D8 /* Assets.xcassets in Resources */,
 				FFA8F219246877D000E71886 /* HumanaViewController.xib in Resources */,
 				FF49CDAA245ED84000267787 /* SummaryBenefitCell.xib in Resources */,
+				FF91E4272492383100333484 /* AllergyCollectionCell.xib in Resources */,
 				6B6DACED246301F700163D0F /* WebContentViewController.xib in Resources */,
 				FF49CDB2245F132C00267787 /* InsurancePlanCell.xib in Resources */,
 				FFA8F1F22461A99B00E71886 /* HealthProfilerCell.xib in Resources */,
@@ -940,6 +950,7 @@
 				6B05B0A92452C60B00C5A971 /* HealthProfiler.swift in Sources */,
 				FFAC221A246D4B04004E76B3 /* CarePlanTableCell.swift in Sources */,
 				6BA8667224569D3D003BDBDF /* AppCoordinator.swift in Sources */,
+				FF91E4262492383100333484 /* AllergyCollectionCell.swift in Sources */,
 				6B05B09C2452C17F00C5A971 /* HPTableViewCell.swift in Sources */,
 				FF49CDB1245F132C00267787 /* InsurancePlanCell.swift in Sources */,
 				FF814285248A28A60026EB5D /* CernerConditionCollectionCell.swift in Sources */,
@@ -950,6 +961,7 @@
 				FF49CDA0245BFAFB00267787 /* InsurancePlanViewController.swift in Sources */,
 				6B05B0B32452C6B200C5A971 /* AppUtility.swift in Sources */,
 				FF91E41F248E09B700333484 /* HPCostEstimatorList.swift in Sources */,
+				FF91E42B249747C500333484 /* WKWebViewController.swift in Sources */,
 				FF814281248A26870026EB5D /* CernerConditionTableCell.swift in Sources */,
 				6B7A3D9B24659CFB0070DE2A /* HPConditionItem.swift in Sources */,
 				6B1C98E62466A572005163EB /* NetworkManager.swift in Sources */,
@@ -1110,15 +1122,18 @@
 			baseConfigurationReference = FDBCF2FB8A599814A0DC5B53 /* Pods-HealthProfiler.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P9M6497XS6;
 				INFOPLIST_FILE = HealthProfiler/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.optum.com.HealthProfiler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uhg.ent.mobile.HealthConnect;
 				PRODUCT_NAME = "Health Profiler";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1129,15 +1144,18 @@
 			baseConfigurationReference = B6374EAC7AFEF943DB2FD519 /* Pods-HealthProfiler.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P9M6497XS6;
 				INFOPLIST_FILE = HealthProfiler/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.optum.com.HealthProfiler;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uhg.ent.mobile.HealthConnect;
 				PRODUCT_NAME = "Health Profiler";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

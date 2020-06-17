@@ -12,7 +12,14 @@ class CareTeamCollectionCell: HPCollectionViewCell {
     
     @IBOutlet private var doctorName_label : UILabel!
     @IBOutlet private var speciality_label : UILabel!
+    @IBOutlet private var bg_View : UIView!
     
+    func registerCell(){
+        bg_View.layer.cornerRadius = 10.0
+        bg_View.layer.borderColor = UIColor.lightGray.cgColor
+        bg_View.layer.borderWidth = 1.0
+    }
+
 }
 
 extension CareTeamCollectionCell {

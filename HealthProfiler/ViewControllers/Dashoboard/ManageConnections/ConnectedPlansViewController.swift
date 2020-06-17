@@ -20,6 +20,8 @@ class ConnectedPlansViewController: HPViewController {
     
     //private vars
     private var dataSource_InsurancePlans = [HPConnectedInsuranceItem]()
+    private var dataSource_eobList = [HPEobItem]()
+
     private let user = HealthProfiler.shared.loggedInUser
     
     //public vars
@@ -68,12 +70,12 @@ class ConnectedPlansViewController: HPViewController {
                 let date = Date().toString(dateFormat: "MMM dd, yyyy")
                 DataCache.instance.write(string: date, forKey: "CernerConnectionTime")
                 HealthProfiler.shared.loggedInUser?.cernerConnected = true
-
+                
             } else {
                 debugPrint(error.debugDescription)
             }
         }
-
+        
     }
     
     @IBAction func blueButtonConnectAction(_ sender: UIButton) {
@@ -87,8 +89,10 @@ class ConnectedPlansViewController: HPViewController {
                 let date = Date().toString(dateFormat: "MMM dd, yyyy")
                 DataCache.instance.write(string: date, forKey: "BlueButtonConnectionTime")
                 DataCache.instance.write(string: "true", forKey: "BlueButtonConnectedWilma")
-                self?.tableView_Plans.reloadData()
+                self?.callApiForEobList(token: token ?? "")
 
+                self?.tableView_Plans.reloadData()
+                
             } else {
                 debugPrint(error.debugDescription)
             }
@@ -108,10 +112,11 @@ private extension ConnectedPlansViewController {
         dataSource_InsurancePlans = user?.isFirstTimeUser == true ? [HPConnectedInsuranceItem(.humana), HPConnectedInsuranceItem(.blueButton)] : [HPConnectedInsuranceItem(.medicare), HPConnectedInsuranceItem(.blueButton)]
         
         dataSource_provider.removeAll()
-        dataSource_provider = user?.isFirstTimeUser ?? false ? user?.blueButtonConnected ?? false ? [HPConnectedProviderItem(.advent)] : [] : user?.blueButtonConnected ?? false ?  [ HPConnectedProviderItem(.southwest),  HPConnectedProviderItem(.methodist)] : [ HPConnectedProviderItem(.southwest)]
+        dataSource_provider = user?.isFirstTimeUser ?? false ? user?.blueButtonConnected ?? false ? [HPConnectedProviderItem(.advent)] : [] : user?.blueButtonConnected ?? false ?  [ HPConnectedProviderItem(.southwest),  HPConnectedProviderItem(.advent)] : [ HPConnectedProviderItem(.southwest)]
         
         registerTableCell(tableView_Plans, cellClass: InsurancePlanCell.self)
         registerTableCell(tableView_Plans, cellClass: ProviderConnectedCell.self)
+        self.navigationItem.hidesBackButton = true
         
         tableView_Plans.tableHeaderView = insuranceHeader_view
         providerTerms_label.isHidden = true
@@ -128,6 +133,25 @@ private extension ConnectedPlansViewController {
         tableView_Plans.delegate = self
         tableView_Plans.dataSource = self
         tableView_Plans.reloadData()
+    }
+    
+    private func callApiForEobList(token : String) {
+        
+        Loader.show()
+        
+        HealthProfiler.networkManager.getEobData(token: token) { [weak self] (eobList, error) in
+            
+            if let strongSelf = self {
+                Loader.dismiss()
+                strongSelf.dataSource_eobList.removeAll()
+                if let eobList = eobList {
+                    strongSelf.dataSource_eobList = eobList
+                    //                    strongSelf.recent_tableView.reloadData()
+                } else {
+                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                }
+            }
+        }
     }
 }
 

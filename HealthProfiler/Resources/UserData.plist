@@ -23,10 +23,14 @@
 				<string>70</string>
 				<key>gender</key>
 				<string>F</string>
+				<key>memberID</key>
+				<string>9436473</string>
 				<key>blueButtonConnected</key>
 				<false/>
 				<key>cernerConnected</key>
 				<string>YES</string>
+				<key>isHumanaConnected</key>
+				<string>NO</string>
 				<key>isProviderConnected</key>
 				<false/>
 				<key>isInsurerConnected</key>
@@ -54,6 +58,10 @@
 				<string>73</string>
 				<key>blueButtonConnected</key>
 				<false/>
+				<key>isHumanaConnected</key>
+				<string>YES</string>
+				<key>memberID</key>
+				<string>8795281</string>
 				<key>cernerConnected</key>
 				<string>NO</string>
 				<key>isProviderConnected</key>

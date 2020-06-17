@@ -140,25 +140,25 @@ enum HPHumanaType {
             case .drSmith:
                 return ("Dr. Smith", "Mar 4", "$xx", "$xx")
             case .drMinnnie:
-                return ("Dr. Minny Jones", "Feb 4, 2020", "90 USD", "60 USD")
+                return ("Dr. Norma Lewis", "Jab 30, 2020", "90 USD", "60 USD")
             case .drJones:
-                return ("Dr. Minny Jones", "Feb 4, 2020", "650 USD", "350 USD")
+                return ("Dr. Norma Lewis", "Jab 30, 2020", "650 USD", "350 USD")
             case .drAllison:
-                return ("Dr. Allison Allscripts", "Mar 4, 2020", "70 USD", "30 USD")
+                return ("Dr. Norma Lewis", "Jan 6, 2020", "70 USD", "30 USD")
             case .drNorma:
-                return ("Dr. Norma Lewi", "Mar 4, 2020", "100 USD", "20 USD")
+                return ("Dr. Norma Lewis", "Jab 30, 2020", "100 USD", "20 USD")
             case .drJohn:
-                return ("Dr. John Shier", "Jan 6, 2020", "40 USD", "10 USD")
+                return ("Dr. Tammy Allscripts", "Mar 4, 2020", "40 USD", "10 USD")
             case .drTammy:
-                return ("Dr. Tammy Allscripts", "Jan 6, 2020", "50 USD", "40 USD")
+                return ("Dr. MK Rastogi", "Mar 4, 2020", "50 USD", "40 USD")
             case .drWilliam:
-                return ("Dr. William Richards", "Mar 4, 2020", "50 USD", "40 USD")
+                return ("Dr. Gayle Laakman", "Mar 4, 2020", "50 USD", "40 USD")
             case .drGayle:
-                return ("Dr. Gayle Laakman", "Jab 30, 2020", "40 USD", "30 USD")
+                return ("Dr. MK Rastogi", "Jan 6, 2020", "40 USD", "30 USD")
             case .drVeena:
-                return ("Dr. Veena Karthik", "Jab 30, 2020", "60 USD", "40 USD")
+                return ("Dr. Minny Jones", "Jab 30, 2020", "60 USD", "40 USD")
             case .drJohnson:
-                return ("Dr. Johnson Kary", "Jab 30, 2020", "200 USD", "150 USD")
+                return ("Dr. Norma Lewis", "Feb 4, 2020", "200 USD", "150 USD")
             }
         }
         
@@ -176,7 +176,7 @@ enum HPHumanaType {
                 return ("Atherosclerosis of native arteries of extremities with rest pain, left leg", "", "", "", "", "")
                 
             case .chronic:
-                return ("Chronic kidney disease, stage 3 (moderate)", "Lab Tests Reviewed", "At Goal", DataCache.instance.readString(forKey: "CernerConnection") ?? "", "Poorly-Controlled", "Treatment Ordered")
+                return ("Chronic kidney disease, stage 3 (moderate)", "", "", "", "", "")
 
             }
         }

@@ -81,7 +81,38 @@ class LoginViewController: HPViewController {
     
     @IBAction func clearButtonAction(_ sender: UIButton) {
         
+        DummyData.shared.authorise(username: "wilma", pwd: "wilma") { [weak self] (user, error) in
+            
+            if let strongSelf = self {
+                
+                if let user = user {
+//                    strongSelf.userAuthorised(user: user)
+                    user.blueButtonConnected = false
+                    user.cernerConnected = true
+                    user.isHumanaConnected = false
+                    user.isProviderConnected = false
+                    user.isInsurerConnected = false
+                }
+            }
+        }
+        DummyData.shared.authorise(username: "fredrick", pwd: "fredrick") { [weak self] (user, error) in
+            
+            if let strongSelf = self {
+                
+                if let user = user {
+//                    strongSelf.userAuthorised(user: user)
+                    user.blueButtonConnected = false
+                    user.cernerConnected = false
+                    user.isHumanaConnected = true
+                    user.isProviderConnected = true
+                    user.isInsurerConnected = true
+                }
+            }
+        }
+        
+        
         DataCache.instance.cleanAll()
+        
     }
 }
 
@@ -109,10 +140,10 @@ private extension LoginViewController {
         dataSource_login.removeAll()
         dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
         
-        //WARNING: dev purpose only, remove once completed
-        for item in dataSource_login {
-            item.value = "wilma"
-        }
+//        //WARNING: dev purpose only, remove once completed
+//        for item in dataSource_login {
+//            item.value = "wilma"
+//        }
 
         tableView_login.reloadData()
     }

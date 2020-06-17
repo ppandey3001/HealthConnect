@@ -103,6 +103,16 @@ extension UIViewController {
         present(alert, animated: true) {}
     }
     
+    func showRegistrationAlert(title: String?, message: String?, cancelAction:(() -> Void)? = nil) {
+        
+        let alert = getAlertController(style: .alert, title: title, messege: message, options: [], cancelTitle: "OK") { (title) in
+            if (title == "OK") {
+                DispatchQueue.main.async { self.pop() }
+            }
+        }
+        present(alert, animated: true) {}
+    }
+    
     func showRetryAlert(title: String?, message: String?, retryAction:@escaping() -> Void, cancelAction:@escaping() -> Void) {
         
         let alert = getAlertController(style: .alert, title: title, messege: message, options: ["Retry", "Cancel"], cancelTitle: nil) { (title) in

@@ -22,7 +22,7 @@ class AllergyTableViewCell: HPTableViewCell {
     
     func registerCell() {
         
-        registerCollectionCell(section_collectionView, cellClass: GapsInCareCollectionCell.self)
+        registerCollectionCell(section_collectionView, cellClass: AllergyCollectionCell.self)
         
         section_collectionView.alwaysBounceHorizontal = true
         section_collectionView.delegate = self
@@ -50,14 +50,13 @@ extension AllergyTableViewCell : UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 90)
+        return CGSize(width: 139, height: 92)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let gapsCell = collectionView.dequeueReusableCell(withReuseIdentifier: GapsInCareCollectionCell.reuseableId(), for: indexPath) as! GapsInCareCollectionCell
-        gapsCell.icon_imageView.isHidden = true
-        gapsCell.title_label.font = gapsCell.title_label.font.withSize(12)
+        let gapsCell = collectionView.dequeueReusableCell(withReuseIdentifier: AllergyCollectionCell.reuseableId(), for: indexPath) as! AllergyCollectionCell
+
         
         switch cellType {
             

@@ -30,6 +30,7 @@ class HumanaCredentialsViewController: UIViewController {
         
         TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: true)
         HealthProfiler.shared.loggedInUser?.isInsurerConnected = true
+        TabBarCoordinator.shared.tabBarStatus(isUserConnected: false)
         push(controller: ConnectedPlansViewController.nibInstance())
     }
 }
@@ -69,6 +70,8 @@ extension HumanaCredentialsViewController: UITableViewDataSource, UITableViewDel
         let humanaCell = tableView.dequeueReusableCell(withIdentifier: HumanaTableViewCell.reuseableId(), for: indexPath) as! HumanaTableViewCell
         humanaCell.configureHumanaCell(item: dataSource_humana[indexPath.row], index: indexPath.row)
         humanaCell.input_textField.delegate = self
+        humanaCell.input_textField.text = indexPath.row == 0 ? "wilma_smart" : "111111"
+        humanaCell.input_textField.isSecureTextEntry = indexPath.row == 0 ? false : true
         humanaCell.input_textField.returnKeyType = (indexPath.row == (dataSource_humana.count - 1) ) ? .done : .next
         
         return humanaCell

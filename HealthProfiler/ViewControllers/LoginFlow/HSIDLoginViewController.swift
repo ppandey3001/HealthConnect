@@ -50,7 +50,6 @@ class HSIDLoginViewController: HPViewController {
                     
                     if let user = user {
                         strongSelf.userAuthorised(user: user)
-//                        DataCache.instance.write(string: userName, forKey: "myKey")
 
                     } else {
                         strongSelf.showInformativeAlert(title: "Error", message: "Sorry, your username and/or password are incorrect. Please try again.")
@@ -92,10 +91,10 @@ private extension HSIDLoginViewController {
         dataSource_login.removeAll()
         dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
         
-        //WARNING: dev purpose only, remove once completed
-        for item in dataSource_login {
-            item.value = "fredrick"
-        }
+//        WARNING: dev purpose only, remove once completed
+       // for item in dataSource_login {
+       //     item.value = "fredrick"
+       // }
 
         tableView_login.reloadData()
     }

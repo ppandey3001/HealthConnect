@@ -35,11 +35,26 @@ class TabBarCoordinator {
     func tabBarStatus(isUserConnected: Bool) {
         
         if let items = tabBarController?.tabBar.items {
+
             if HealthProfiler.shared.loggedInUser?.isFirstTimeUser ?? false {
+                let item = items[0]
+                item.isEnabled = false
                 for index in 0...(items.count - 2) {
-                    
                     let itemToDisable = items[index]
-                    itemToDisable.isEnabled = index == 0 ? false : isUserConnected
+                    if index == 2 {
+                       itemToDisable.isEnabled = HealthProfiler.shared.loggedInUser?.isInsurerConnected ?? false
+                    } else if index == 1 {
+                        itemToDisable.isEnabled = isUserConnected
+                    }
+//
+//                    itemToDisable.isEnabled = index == 0 ? false : isUserConnected
+//                    if isUserConnected == false {
+////                        itemToDisable.isEnabled = index == 0 ? false : false
+//                        itemToDisable.isEnabled = index == 1 ? false : HealthProfiler.shared.loggedInUser?.isInsurerConnected ?? false
+//                    }
+//                    itemToDisable.isEnabled = index == 0 ? false : isUserConnected
+
+
                 }
             }else {
             
@@ -102,7 +117,7 @@ private extension TabBarCoordinator {
         if let user = HealthProfiler.shared.loggedInUser,
             let name = user.name, let age = user.age, let gender = user.gender {
 //            rootController.navigationItem.title = "\(name)  |  \(age) Years"
-            rootController.navigationItem.title = HealthProfiler.shared.loggedInUser?.isFirstTimeUser ?? false ? "\(name)" : "\(name)  |  \(age) Years  | \(gender)"
+            rootController.navigationItem.title = HealthProfiler.shared.loggedInUser?.isFirstTimeUser ?? false ? "\(name)" : "\(name)  |  \(age) Y  | \(gender)"
         }
         rootController.addDrawerButton()
         rootController.addProfileButton()
