@@ -50,6 +50,9 @@ public class AppContainer: UIViewController {
         setupController()
     }
     
+    /*
+     It gets called by OS to notify the view controller that the safe area insets of its root view changed.
+     */
     override public func viewSafeAreaInsetsDidChange() {
 
         let topPadding = view.safeAreaInsets.top

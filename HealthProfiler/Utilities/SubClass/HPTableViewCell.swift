@@ -6,7 +6,7 @@
 import Foundation
 import UIKit
 
-class HPTableViewCell: UITableViewCell {
+class HPTableViewCell: UITableViewCell, ReuseIdentifiable {
     
     override func awakeFromNib() {
         

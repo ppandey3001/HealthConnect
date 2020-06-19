@@ -28,7 +28,6 @@ class HPHumanaItem: NSObject {
 }
 
 
-
 class HPConnectionItem: NSObject {
     
     var type: HPConnectionTabType = .healthInsurance
@@ -75,7 +74,9 @@ class HPConnectedInsuranceItem: NSObject {
     }
 }
 
+
 class HPConnectedProviderItem: NSObject {
+    
     var type: HPConnectedProviderType = .methodist
     var isConnected: Bool?
     
@@ -85,7 +86,9 @@ class HPConnectedProviderItem: NSObject {
     }
 }
 
+
 class HPCernerCareTeamItem: NSObject {
+    
     var type: HPCernerCareTeamType = .john
     
     init(_ type: HPCernerCareTeamType) {
@@ -93,6 +96,7 @@ class HPCernerCareTeamItem: NSObject {
         self.type = type
     }
 }
+
 
 class HPCoverageClaimItem: NSObject {
     
@@ -102,10 +106,8 @@ class HPCoverageClaimItem: NSObject {
         
         self.type = type
     }
-    
-    
-    
 }
+
 
 class HPCernerConditionItem: NSObject {
     
@@ -115,7 +117,4 @@ class HPCernerConditionItem: NSObject {
         
         self.type = type
     }
-    
-    
-    
 }
