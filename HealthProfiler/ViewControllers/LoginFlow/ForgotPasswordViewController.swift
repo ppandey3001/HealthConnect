@@ -21,16 +21,15 @@ class ForgotPasswordViewController: HPViewController {
     
     @IBAction func buttonAction_back(_ sender: UIButton) {
         
-        container()?.showBrandingBar(false)
         pop()
     }
     
     @IBAction func buttonAction_send(_ sender: Any) {
-        container()?.showBrandingBar(false)
+
         pop()
     }
-    
 }
+
 
 //MARK: Private methods
 private extension ForgotPasswordViewController {

@@ -37,8 +37,6 @@ class ConnectedPlansViewController: HPViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        
-        container()?.showBrandingBar(true)
         tableView_Plans.reloadData()
     }
     

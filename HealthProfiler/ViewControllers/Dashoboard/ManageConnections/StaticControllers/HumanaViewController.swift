@@ -20,12 +20,6 @@ class HumanaViewController: HPViewController {
         setupController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        container()?.showBrandingBar(true)
-        
-    }
-    
     @IBAction func connectButtonAction(_ sender: UIButton){
         
         TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: true)
@@ -44,9 +38,7 @@ class HumanaViewController: HPViewController {
 private extension HumanaViewController {
     
     private func setupController() {
-        
-        container()?.showBrandingBar(false)
-        
+                
         dataSource_humana.removeAll()
         dataSource_humana = [HPHumanaItem(.planID), HPHumanaItem(.memberID), HPHumanaItem(.dateOfBirth)]
         

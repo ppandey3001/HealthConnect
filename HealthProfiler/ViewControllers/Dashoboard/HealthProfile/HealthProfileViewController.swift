@@ -45,6 +45,8 @@ class HealthProfileViewController: HPViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        super.viewWillAppear(animated)
+
         lastUpdated_label.text = DataCache.instance.readString(forKey: "CernerConnectionTime")
         existingUserLastUpdate_Label.text = DataCache.instance.readString(forKey: "AllScriptsUpdatedDate")
         if let user = user, user.isFirstTimeUser {
@@ -60,6 +62,7 @@ class HealthProfileViewController: HPViewController {
     }
     
     @IBAction func leftButtonAction(_ sender : UIButton) {
+        
         isCernerSelected = false
          upadateUI()
         existingUserLogo_ImageView.image = UIImage(named:"southWestLogoTrans")
@@ -68,6 +71,7 @@ class HealthProfileViewController: HPViewController {
     }
     
     @IBAction func rightButtonAction(_ sender : UIButton) {
+        
         isCernerSelected = true
          upadateUI()
         existingUserLogo_ImageView.image = UIImage(named:"adventist")
@@ -76,6 +80,7 @@ class HealthProfileViewController: HPViewController {
     }
     
     @IBAction func refreshCernerButtonAction(_ sender : UIButton) {
+        
         HealthProfiler.authClientCerner.authorize(controller: self) { [weak self] (token, error) in
             
             if let token = token {

@@ -63,19 +63,16 @@ class LoginViewController: HPViewController {
     
     @IBAction func buttonAction_forgotPassword(_ sender: UIButton) {
         
-        container()?.showBrandingBar(true)
         push(controller: ForgotPasswordViewController.nibInstance())
     }
     
     @IBAction func registerButtonAction(_ sender: UIButton) {
         
-        container()?.showBrandingBar(true)
         push(controller: RegistrationViewController.nibInstance())
     }
     
     @IBAction func HSIDButtonAction(_ sender: UIButton) {
         
-        container()?.showBrandingBar(true)
         push(controller: HSIDLoginViewController.nibInstance())
     }
     
@@ -111,9 +108,7 @@ class LoginViewController: HPViewController {
 private extension LoginViewController {
     
     private func setupController() {
-        
-        container()?.showBrandingBar(false)
-        
+                
         addTapGesture(label: termsLabel)
         
         dataSource_login.removeAll()
@@ -174,8 +169,6 @@ private extension LoginViewController {
         
         //clear and reset input boxes and check boxes
         
-        //show custom branding bar
-        container()?.showBrandingBar(true)
         
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)

@@ -21,12 +21,6 @@ class InsurancePlanViewController: HPViewController {
         setupController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        container()?.showBrandingBar(true)
-        
-    }
-    
     @IBAction func openPickerAction(_ sender: UIButton) {
         
         HPPicker.sharedInstance.selectOption(title: "", dataArray: ["Humana","Aetna","Anthem","Cigna","UnitedHealthcare"], selectedIndex: 0) { (selectedText, index) in

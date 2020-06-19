@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //setup/customize app launch
         setupApplicationLaunch()
-        setenv("CFNETWORK_DIAGNOSTICS", "3", 1)
+
         return true
     }
     
@@ -53,5 +53,9 @@ extension AppDelegate {
         DummyData.shared.loadUserData_demo()
         
         window?.makeKeyAndVisible()
+        
+        //enable network logging
+        //href: https://developer.apple.com/documentation/network/debugging_https_problems_with_cfnetwork_diagnostic_logging
+        setenv("CFNETWORK_DIAGNOSTICS", "3", 1)
     }
 }

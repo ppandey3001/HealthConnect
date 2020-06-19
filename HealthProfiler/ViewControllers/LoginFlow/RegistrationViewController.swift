@@ -23,8 +23,6 @@ class RegistrationViewController: HPViewController {
     }
     
     @IBAction func backButtonAction(_ sender: UIButton) {
-        
-        container()?.showBrandingBar(false)
         pop()
     }
     

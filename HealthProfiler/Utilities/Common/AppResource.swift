@@ -11,7 +11,7 @@ class AppResource {
         
         var data: Data?
         let resource = type.resource()
-
+        
         if let filePathURL = Bundle.main.url(forResource: resource.fileName, withExtension: resource.fileExtension) {
             
             do {
@@ -20,19 +20,19 @@ class AppResource {
                 debugPrint("Unable to get the file for: \(type) : \(resource.fileName).\(resource.fileExtension)")
             }
         }
-
+        
         return data
     }
 }
 
 
 enum ResourceType {
-        
+    
     case privacyPolicy
     case demoUserData
     case blueButtonConfig
     case cernerConfig
-
+    
     func resource() -> Resource {
         
         switch self {
@@ -44,6 +44,7 @@ enum ResourceType {
             
         case .blueButtonConfig:
             return Resource(name: "BlueButtonConfiguration", ext: "json")
+            
         case .cernerConfig:
             return Resource(name: "CernerConfiguration", ext: "json")
         }

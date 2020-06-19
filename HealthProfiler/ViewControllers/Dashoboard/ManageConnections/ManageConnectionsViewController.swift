@@ -20,14 +20,14 @@ class ManageConnectionsViewController: HPViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         setupController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
+        super.viewWillAppear(animated)
+
         connection_collectionView.reloadData()
-        container()?.showBrandingBar(true)
         
         if user?.isFirstTimeUser ?? false {
             self.navigationItem.title = user?.isInsurerConnected ?? false ? "\(user?.name! ?? "")  |  \(user?.age! ?? "") Y  | \(user?.gender! ?? "")" : "\(user?.name! ?? "")"

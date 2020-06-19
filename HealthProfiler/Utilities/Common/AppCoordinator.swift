@@ -11,7 +11,6 @@ class AppCoordinator {
     //
     public static let shared = AppCoordinator()
     
-    public var rootContainer: AppContainer?
     public var rootNavigationController: UINavigationController?
     
     //marking init() as 'private' will disallow to create any other object of the class
@@ -20,13 +19,12 @@ class AppCoordinator {
     /*
      
      */
-    func getRootContainer() -> AppContainer? {
+    func getRootContainer() -> UINavigationController? {
         
         rootNavigationController = UINavigationController(rootViewController: LoginViewController.nibInstance())
         rootNavigationController?.isNavigationBarHidden = true
-        rootContainer = AppContainer(rootNavigationController!)
-        
-        return rootContainer
+
+        return rootNavigationController
     }
     
     /*
@@ -52,10 +50,6 @@ class AppCoordinator {
         //navigate to login screen
         if let navController = rootNavigationController {
             
-            if let container = rootContainer {
-                container.showBrandingBar(false)
-            }
-            
             navController.popToRootViewController(animated: false)
             
             //reset tabBarController
@@ -63,7 +57,6 @@ class AppCoordinator {
         }
     }
 }
-
 
 
 private extension AppCoordinator {

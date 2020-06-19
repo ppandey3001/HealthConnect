@@ -33,10 +33,10 @@ class CoverageViewController: HPViewController {
         
         super.viewWillAppear(animated)
         updateUI()
-        
     }
     
     @IBAction func refreshButtonAction(_ sender : UIButton) {
+        
 //        HealthProfiler.shared.loggedInUser?.blueButtonConnected = false
         DataCache.instance.write(string: "", forKey: "BlueButtonConnectionTime")
         HealthProfiler.authClient.authorize(controller: self) { [weak self] (token, error) in

@@ -31,6 +31,8 @@ class HomeViewController: HPViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
         recent_tableView.reloadData()
     }
     

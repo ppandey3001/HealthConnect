@@ -20,12 +20,6 @@ class HumanaCredentialsViewController: UIViewController {
         setupController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        container()?.showBrandingBar(true)
-        
-    }
-    
     @IBAction func signInButtonAction(_ sender: UIButton){
         
         TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: true)
@@ -40,9 +34,7 @@ class HumanaCredentialsViewController: UIViewController {
 private extension HumanaCredentialsViewController {
     
     private func setupController() {
-        
-        container()?.showBrandingBar(false)
-        
+                
         dataSource_humana.removeAll()
         dataSource_humana = [HPHumanaItem(.username), HPHumanaItem(.password)]
         

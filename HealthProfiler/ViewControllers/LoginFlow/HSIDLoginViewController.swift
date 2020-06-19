@@ -62,8 +62,6 @@ class HSIDLoginViewController: HPViewController {
     }
     
     @IBAction func buttonAction_back(_ sender: UIButton) {
-        
-        container()?.showBrandingBar(false)
         pop()
     }
 
@@ -73,9 +71,7 @@ class HSIDLoginViewController: HPViewController {
 private extension HSIDLoginViewController {
     
     private func setupController() {
-        
-        container()?.showBrandingBar(true)
-                
+                        
         dataSource_login.removeAll()
         dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
         
@@ -111,8 +107,6 @@ private extension HSIDLoginViewController {
         
         //clear and reset input boxes and check boxes
         
-        //show custom branding bar
-        container()?.showBrandingBar(true)
         
         //Create new dashboard, and push
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)

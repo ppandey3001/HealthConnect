@@ -40,6 +40,9 @@ private extension MenuViewController {
             let buildVersion = info["CFBundleVersion"] as? String ?? "Unknown"
             label_appVersion.text = String(format: "App version %@ (%@)", appVersion, buildVersion)
         }
+        
+        view.layer.cornerRadius = 8.0
+        view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
     }
     
     private func refreshTableDataSource() {
@@ -51,11 +54,11 @@ private extension MenuViewController {
         //refresh table footer view
         //TODO: not working, must be due to custom container, need to check
         
-//        tableView_menu.tableFooterView = view_footer
-//        let tableHeaderHeight = (tableView_menu.tableHeaderView?.bounds.height ?? 0.0)
-//        let totalCellHeight = (CGFloat(dataSource_menu.count) * MenuTableCell.cellHeight())
-//        let footerHeight = (tableView_menu.frame.height - totalCellHeight - tableHeaderHeight)
-//        tableView_menu.tableFooterView?.frame = CGRect(x: 0.0, y: 0.0, width: tableView_menu.bounds.width, height: max(footerHeight, 160.0))
+        tableView_menu.tableFooterView = view_footer
+        let tableHeaderHeight = (tableView_menu.tableHeaderView?.bounds.height ?? 0.0)
+        let totalCellHeight = (CGFloat(dataSource_menu.count) * MenuTableCell.cellHeight())
+        let footerHeight = (tableView_menu.frame.height - totalCellHeight - tableHeaderHeight)
+        tableView_menu.tableFooterView?.frame = CGRect(x: 0.0, y: 0.0, width: tableView_menu.bounds.width, height: max(footerHeight, 160.0))
         
         tableView_menu.reloadData()
     }

@@ -23,12 +23,6 @@ class AllenaHealthViewController: UIViewController {
         setupController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        container()?.showBrandingBar(true)
-        
-    }
-    
     @IBAction func signInBUttonAction(_ sender: UIButton) {
         
         terms_view.isHidden = false
