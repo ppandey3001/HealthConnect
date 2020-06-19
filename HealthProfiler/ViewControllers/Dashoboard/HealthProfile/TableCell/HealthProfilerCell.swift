@@ -12,6 +12,7 @@ class HealthProfilerCell: HPTableViewCell {
     
     @IBOutlet var section_collectionView : UICollectionView!
     @IBOutlet var title_label : UILabel!
+    @IBOutlet var arrowIcon : UIImageView!
     
     //private  vars
     var cellType : Int = 0
@@ -33,6 +34,7 @@ class HealthProfilerCell: HPTableViewCell {
         }
        if user?.isFirstTimeUser ?? false {
         section_collectionView.backgroundColor = .clear
+        arrowIcon.isHidden = true
 
         }
 
@@ -71,11 +73,11 @@ extension HealthProfilerCell : UICollectionViewDataSource, UICollectionViewDeleg
         
         switch cellType {
         case 0:
-            return CGSize(width: 120, height: 90)
+            return CGSize(width: 157, height: 107)
         case 1:
             return CGSize(width: 180, height: 110)
         case 2:
-            return CGSize(width: 110, height: 116)
+            return CGSize(width: 169, height: 95)
         default:
             return CGSize(width: 110, height: 116)
         }
@@ -97,8 +99,10 @@ extension HealthProfilerCell : UICollectionViewDataSource, UICollectionViewDeleg
             
         case 2:
             let careCell = collectionView.dequeueReusableCell(withReuseIdentifier: CareTeamCollectionCell.reuseableId(), for: indexPath) as! CareTeamCollectionCell
+            careCell.registerCell()
             if user?.isFirstTimeUser ?? false {
                 careCell.configureCernerCareCell(item: dataSourceCernerTeam[indexPath.row])
+                
              }else {
                 careCell.configureCareCell(item: datasource_careteam[indexPath.row])
 

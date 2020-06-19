@@ -73,8 +73,7 @@ private extension RegistrationViewController {
     private func navigateToDashboard() {
         
         // For demo purpose registration is not working so pop to login view controller
-        showInformativeAlert(title: "Success", message: "Registration is successfully completed. Login to get started")
-        popToRoot()
+        showRegistrationAlert(title: "Success", message: "Registration is successfully completed. Login to get started")
 
         //clear and reset input boxes and check boxes
 
@@ -119,6 +118,7 @@ extension RegistrationViewController: UITableViewDataSource, UITableViewDelegate
         let loginCell = tableView.dequeueReusableCell(withIdentifier: LoginViewCell.reuseableId(), for: indexPath) as! LoginViewCell
         loginCell.configureRegisterCell(item: dataSource_register[indexPath.row], index: indexPath.row)
         loginCell.textField_input.delegate = self
+        loginCell.button_showSecureEntry.setImage(nil , for: .normal)
         loginCell.button_showSecureEntry.addTarget(self, action: #selector(showPasswordAction), for: .touchUpInside)
         loginCell.textField_input.returnKeyType = (indexPath.row == (dataSource_register.count - 1) ) ? .done : .next
 

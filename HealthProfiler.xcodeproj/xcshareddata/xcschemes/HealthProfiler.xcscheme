@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FF8ACE33244D723D00B283D8"
-               BuildableName = "Health Profiler.app"
+               BuildableName = "HealthConnect.app"
                BlueprintName = "HealthProfiler"
                ReferencedContainer = "container:HealthProfiler.xcodeproj">
             </BuildableReference>
@@ -65,11 +65,18 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF8ACE33244D723D00B283D8"
-            BuildableName = "Health Profiler.app"
+            BuildableName = "HealthConnect.app"
             BlueprintName = "HealthProfiler"
             ReferencedContainer = "container:HealthProfiler.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "CFNETWORK_DIAGNOSTICS"
+            value = "3"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -82,7 +89,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF8ACE33244D723D00B283D8"
-            BuildableName = "Health Profiler.app"
+            BuildableName = "HealthConnect.app"
             BlueprintName = "HealthProfiler"
             ReferencedContainer = "container:HealthProfiler.xcodeproj">
          </BuildableReference>

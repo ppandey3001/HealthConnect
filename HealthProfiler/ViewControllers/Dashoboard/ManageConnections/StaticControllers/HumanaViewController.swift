@@ -30,6 +30,7 @@ class HumanaViewController: HPViewController {
         
         TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: true)
         HealthProfiler.shared.loggedInUser?.isInsurerConnected = true
+        TabBarCoordinator.shared.tabBarStatus(isUserConnected: false)
         push(controller: ConnectedPlansViewController.nibInstance())
     }
     

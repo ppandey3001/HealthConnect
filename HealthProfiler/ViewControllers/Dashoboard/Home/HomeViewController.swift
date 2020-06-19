@@ -30,6 +30,10 @@ class HomeViewController: HPViewController {
         setupController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        recent_tableView.reloadData()
+    }
+    
     @IBAction func searchButtonAction(_ sender : UIButton) {
         view.endEditing(true)
         
@@ -110,9 +114,9 @@ extension HomeViewController {
     }
     
     private func callApiForCostEstimatorList() {
-        
+        Loader.show()
+
         HealthProfiler.networkManager.getCostEstimatorResultList(id: "208800000X") { [weak self] (estimatorList, error) in
-            Loader.show()
 
             if let strongSelf = self {
                 
@@ -150,6 +154,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         case 0 :
             let visitsCell = tableView.dequeueReusableCell(withIdentifier: REcentVisitTableCell.reuseableId(), for: indexPath) as! REcentVisitTableCell
             visitsCell.registerCell()
+            dataSource_recentVisit = dataSource_recentVisit.reversed()
             visitsCell.dataSource_recentVisit = dataSource_recentVisit
             return visitsCell
             
@@ -167,10 +172,10 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return section == 1 ? sectionHeader_view : nil
+        return section == 1 ? user?.blueButtonConnected ?? false ? sectionHeader_view : nil : nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 1 ? 151 : 0
+        return section == 1 ? user?.blueButtonConnected ?? false ? 151 : 0 : 0
     }
 }

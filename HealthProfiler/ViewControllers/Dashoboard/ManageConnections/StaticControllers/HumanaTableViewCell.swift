@@ -28,9 +28,7 @@ extension HumanaTableViewCell {
 
         input_textField.addDoneButtonOnKeyboard()
         input_textField.tag = index + 1
-        
-        input_textField.text = item.value
-        let attributes = item.type.attributes()
+            let attributes = item.type.attributes()
         label_title.text = attributes.title
         input_textField.placeholder = attributes.placeholder
     }

@@ -32,6 +32,11 @@ extension UIImage {
     class func tabIcon_manageConnections() -> UIImage? {
         return UIImage.templateImage(name: "ManageConnections")
     }
+    
+    class func tabIcon_myProfile() -> UIImage? {
+        return UIImage.templateImage(name: "user-icon")
+    }
+    
 }
 
 extension UIImage {

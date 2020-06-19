@@ -12,6 +12,7 @@ class GapsInCareCollectionCell: HPCollectionViewCell {
     
     @IBOutlet var coloredBg_view: UIView!
     @IBOutlet var title_label: UILabel!
+    @IBOutlet var date_label: UILabel!
     @IBOutlet var icon_imageView: UIImageView!
     
 }
@@ -22,6 +23,7 @@ extension GapsInCareCollectionCell {
                 
 //        coloredBg_view.backgroundColor = attributes.bgColor
         title_label.text = item.gap
+        date_label.text = item.date
     }
     
     func configureAllergyCell(item: HPAllergiesItem) {

@@ -28,7 +28,10 @@ class ManageConnectionsViewController: HPViewController {
         
         connection_collectionView.reloadData()
         container()?.showBrandingBar(true)
-
+        
+        if user?.isFirstTimeUser ?? false {
+            self.navigationItem.title = user?.isInsurerConnected ?? false ? "\(user?.name! ?? "")  |  \(user?.age! ?? "") Y  | \(user?.gender! ?? "")" : "\(user?.name! ?? "")"
+        }
     }
     
     @IBAction func buttonAction_getStarted(_ sender: UIButton) {
@@ -62,7 +65,8 @@ private extension ManageConnectionsViewController {
         if user?.isFirstTimeUser == false {
             
             view_welcomeMessageContainer.isHidden = true
-            
+        } else {
+            view_welcomeMessageContainer.isHidden = user?.isInsurerConnected ?? false ? true : false
         }
         let name = user?.name
         label_welcomeMessageTitle.text = "Welcome \(name!)!!"

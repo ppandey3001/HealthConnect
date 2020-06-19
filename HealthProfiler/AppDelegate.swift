@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //setup/customize app launch
         setupApplicationLaunch()
-        
+        setenv("CFNETWORK_DIAGNOSTICS", "3", 1)
         return true
     }
     
