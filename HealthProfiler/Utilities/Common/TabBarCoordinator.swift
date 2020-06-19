@@ -36,25 +36,25 @@ class TabBarCoordinator {
     func tabBarStatus(isUserConnected: Bool) {
         
         if let items = tabBarController?.tabBar.items {
-
+            
             if HealthProfiler.shared.loggedInUser?.isFirstTimeUser ?? false {
                 let item = items[0]
                 item.isEnabled = false
                 for index in 0...(items.count - 2) {
                     let itemToDisable = items[index]
                     if index == 2 {
-                       itemToDisable.isEnabled = HealthProfiler.shared.loggedInUser?.isInsurerConnected ?? false
+                        itemToDisable.isEnabled = HealthProfiler.shared.loggedInUser?.isInsurerConnected ?? false
                     } else if index == 1 {
                         itemToDisable.isEnabled = isUserConnected
                     }
                 }
-            }else {
-            
-            for index in 0...(items.count - 2) {
+            } else {
                 
-                let itemToDisable = items[index]
-                itemToDisable.isEnabled = isUserConnected
-            }
+                for index in 0...(items.count - 2) {
+                    
+                    let itemToDisable = items[index]
+                    itemToDisable.isEnabled = isUserConnected
+                }
             }
         }
     }
