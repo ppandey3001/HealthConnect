@@ -5,6 +5,6 @@
 
 import UIKit
 
-class HPCollectionViewCell: UICollectionViewCell {
+class HPCollectionViewCell: UICollectionViewCell, ReuseIdentifiable {
     
 }

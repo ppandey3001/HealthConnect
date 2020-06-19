@@ -24,7 +24,3 @@ extension ReuseIdentifiable {
         return UINib(nibName: String(describing: self), bundle: nil)
     }
 }
-
-// MARK: - UITableViewCell & UICollectionViewCell
-extension HPTableViewCell: ReuseIdentifiable {}
-extension HPCollectionViewCell: ReuseIdentifiable {}

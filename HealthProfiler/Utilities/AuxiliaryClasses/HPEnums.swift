@@ -2,7 +2,6 @@
 //  HPEnums.swift
 //  HealthProfiler
 //
-
 import Foundation
 import UIKit
 import DataCache
