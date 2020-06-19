@@ -262,7 +262,8 @@ enum HPHumanaType {
         case healthProfile
         case coverage
         case manageConnections
-        
+        case myProfile
+
         public var tabIndex: Int {
             
             switch self {
@@ -270,6 +271,7 @@ enum HPHumanaType {
             case .healthProfile: return 1
             case .coverage: return 2
             case .manageConnections: return 3
+            case .myProfile: return 4
             }
         }
     }

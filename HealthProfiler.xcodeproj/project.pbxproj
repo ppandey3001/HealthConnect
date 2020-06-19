@@ -114,6 +114,9 @@
 		FF91E4262492383100333484 /* AllergyCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E4242492383100333484 /* AllergyCollectionCell.swift */; };
 		FF91E4272492383100333484 /* AllergyCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF91E4252492383100333484 /* AllergyCollectionCell.xib */; };
 		FF91E42B249747C500333484 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E42A249747C500333484 /* WKWebViewController.swift */; };
+		FF91E42F249B7A6500333484 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E42D249B7A6500333484 /* ProfileViewController.swift */; };
+		FF91E430249B7A6500333484 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF91E42E249B7A6500333484 /* ProfileViewController.xib */; };
+		FF91E432249C6ABF00333484 /* OptumHealthConnectMobileAppRedesign.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF91E431249C6ABF00333484 /* OptumHealthConnectMobileAppRedesign.pdf */; };
 		FFA8F1F12461A99B00E71886 /* HealthProfilerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1EF2461A99B00E71886 /* HealthProfilerCell.swift */; };
 		FFA8F1F22461A99B00E71886 /* HealthProfilerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8F1F02461A99B00E71886 /* HealthProfilerCell.xib */; };
 		FFA8F1F52461BDDA00E71886 /* GapsInCareCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1F32461BDDA00E71886 /* GapsInCareCollectionCell.swift */; };
@@ -244,7 +247,7 @@
 		FF826AFD246036AE00844479 /* RecentCliamsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCliamsListCell.swift; sourceTree = "<group>"; };
 		FF826AFE246036AE00844479 /* RecentCliamsListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentCliamsListCell.xib; sourceTree = "<group>"; };
 		FF826B012461737700844479 /* HPPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HPPicker.swift; sourceTree = "<group>"; };
-		FF8ACE34244D723D00B283D8 /* Health Profiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Health Profiler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF8ACE34244D723D00B283D8 /* HealthConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8ACE37244D723D00B283D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF8ACE40244D723F00B283D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF8ACE43244D723F00B283D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -255,6 +258,9 @@
 		FF91E4242492383100333484 /* AllergyCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyCollectionCell.swift; sourceTree = "<group>"; };
 		FF91E4252492383100333484 /* AllergyCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllergyCollectionCell.xib; sourceTree = "<group>"; };
 		FF91E42A249747C500333484 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
+		FF91E42D249B7A6500333484 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FF91E42E249B7A6500333484 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		FF91E431249C6ABF00333484 /* OptumHealthConnectMobileAppRedesign.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = OptumHealthConnectMobileAppRedesign.pdf; path = ../../../../OptumHealthConnectMobileAppRedesign.pdf; sourceTree = "<group>"; };
 		FFA8F1EF2461A99B00E71886 /* HealthProfilerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthProfilerCell.swift; sourceTree = "<group>"; };
 		FFA8F1F02461A99B00E71886 /* HealthProfilerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthProfilerCell.xib; sourceTree = "<group>"; };
 		FFA8F1F32461BDDA00E71886 /* GapsInCareCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapsInCareCollectionCell.swift; sourceTree = "<group>"; };
@@ -312,6 +318,7 @@
 			children = (
 				FF814271248582110026EB5D /* CernerConfiguration.json */,
 				FF8ACE40244D723F00B283D8 /* Assets.xcassets */,
+				FF91E431249C6ABF00333484 /* OptumHealthConnectMobileAppRedesign.pdf */,
 				FF8ACE42244D723F00B283D8 /* LaunchScreen.storyboard */,
 				FF8ACE45244D723F00B283D8 /* Info.plist */,
 				6B6F834F245A84D7000066A8 /* privacy_policy.html */,
@@ -429,6 +436,7 @@
 		6B05B0B52452C76B00C5A971 /* Dashoboard */ = {
 			isa = PBXGroup;
 			children = (
+				FF91E42C249B7A5100333484 /* Profile */,
 				6B05B0B62452C76B00C5A971 /* Home */,
 				6B05B0B92452C76B00C5A971 /* HealthProfile */,
 				6B05B0B82452C76B00C5A971 /* Coverage */,
@@ -625,7 +633,7 @@
 		FF8ACE35244D723D00B283D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FF8ACE34244D723D00B283D8 /* Health Profiler.app */,
+				FF8ACE34244D723D00B283D8 /* HealthConnect.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -661,6 +669,15 @@
 				FF91E42A249747C500333484 /* WKWebViewController.swift */,
 			);
 			path = CommonControllers;
+			sourceTree = "<group>";
+		};
+		FF91E42C249B7A5100333484 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FF91E42D249B7A6500333484 /* ProfileViewController.swift */,
+				FF91E42E249B7A6500333484 /* ProfileViewController.xib */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		FFA8F1ED2461A97D00E71886 /* CollectionCell */ = {
@@ -749,7 +766,7 @@
 			);
 			name = HealthProfiler;
 			productName = HealthProfiler;
-			productReference = FF8ACE34244D723D00B283D8 /* Health Profiler.app */;
+			productReference = FF8ACE34244D723D00B283D8 /* HealthConnect.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -804,7 +821,9 @@
 				FF49CD9D245AE45A00267787 /* ManageConnectionViewCell.xib in Resources */,
 				FF81427A2488D8200026EB5D /* HumanaCredentialsViewController.xib in Resources */,
 				FF8ACE44244D723F00B283D8 /* LaunchScreen.storyboard in Resources */,
+				FF91E430249B7A6500333484 /* ProfileViewController.xib in Resources */,
 				FFA8F1FA2461C2CD00E71886 /* AllergyTableViewCell.xib in Resources */,
+				FF91E432249C6ABF00333484 /* OptumHealthConnectMobileAppRedesign.pdf in Resources */,
 				6B6F8350245A84D7000066A8 /* privacy_policy.html in Resources */,
 				FF49CDB6245F32AA00267787 /* ProviderConnectedCell.xib in Resources */,
 				FFA8F20C2464821200E71886 /* REcentVisitTableCell.xib in Resources */,
@@ -942,6 +961,7 @@
 				FFA8F20F2464825900E71886 /* RecentVisitCollectionCell.swift in Sources */,
 				6B7A3DA12465A1100070DE2A /* HPVitalsItem.swift in Sources */,
 				FFA8F218246877D000E71886 /* HumanaViewController.swift in Sources */,
+				FF91E42F249B7A6500333484 /* ProfileViewController.swift in Sources */,
 				FF49CDB5245F32AA00267787 /* ProviderConnectedCell.swift in Sources */,
 				6B05B0D12452C86300C5A971 /* CoverageViewController.swift in Sources */,
 				6B05B0BC2452C7D600C5A971 /* HPViewController.swift in Sources */,
@@ -1132,7 +1152,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.uhg.ent.mobile.HealthConnect;
-				PRODUCT_NAME = "Health Profiler";
+				PRODUCT_NAME = HealthConnect;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1154,7 +1174,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.uhg.ent.mobile.HealthConnect;
-				PRODUCT_NAME = "Health Profiler";
+				PRODUCT_NAME = HealthConnect;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

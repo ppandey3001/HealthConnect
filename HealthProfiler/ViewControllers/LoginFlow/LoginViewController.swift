@@ -49,8 +49,8 @@ class LoginViewController: HPViewController {
                     
                     if let user = user {
                         strongSelf.userAuthorised(user: user)
-//                        DataCache.instance.write(string: userName, forKey: "myKey")
-
+                        //                        DataCache.instance.write(string: userName, forKey: "myKey")
+                        
                     } else {
                         strongSelf.showInformativeAlert(title: "Error", message: "Sorry, your username and/or password are incorrect. Please try again.")
                     }
@@ -83,33 +83,24 @@ class LoginViewController: HPViewController {
         
         DummyData.shared.authorise(username: "wilma", pwd: "wilma") { [weak self] (user, error) in
             
-            if let strongSelf = self {
-                
-                if let user = user {
-//                    strongSelf.userAuthorised(user: user)
-                    user.blueButtonConnected = false
-                    user.cernerConnected = true
-                    user.isHumanaConnected = false
-                    user.isProviderConnected = false
-                    user.isInsurerConnected = false
-                }
+            if let user = user {
+                user.blueButtonConnected = false
+                user.cernerConnected = true
+                user.isHumanaConnected = false
+                user.isProviderConnected = false
+                user.isInsurerConnected = false
             }
         }
         DummyData.shared.authorise(username: "fredrick", pwd: "fredrick") { [weak self] (user, error) in
             
-            if let strongSelf = self {
-                
-                if let user = user {
-//                    strongSelf.userAuthorised(user: user)
-                    user.blueButtonConnected = false
-                    user.cernerConnected = false
-                    user.isHumanaConnected = true
-                    user.isProviderConnected = true
-                    user.isInsurerConnected = true
-                }
+            if let user = user {
+                user.blueButtonConnected = false
+                user.cernerConnected = false
+                user.isHumanaConnected = true
+                user.isProviderConnected = true
+                user.isInsurerConnected = true
             }
         }
-        
         
         DataCache.instance.cleanAll()
         
@@ -141,9 +132,9 @@ private extension LoginViewController {
         dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
         
 //        //WARNING: dev purpose only, remove once completed
-//        for item in dataSource_login {
-//            item.value = "wilma"
-//        }
+        for item in dataSource_login {
+            item.value = "wilma"
+        }
 
         tableView_login.reloadData()
     }

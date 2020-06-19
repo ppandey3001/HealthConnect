@@ -12,7 +12,7 @@ class ManageConnectionViewCell: HPCollectionViewCell {
     
     @IBOutlet var icon_imageview: UIImageView!
     @IBOutlet var title_label: UILabel!
-    @IBOutlet var status_label: UILabel!
+//    @IBOutlet var status_label: UILabel!
     @IBOutlet var coloredbg_view: UIView!
         
     //configure cell for manage connection items
@@ -28,19 +28,19 @@ class ManageConnectionViewCell: HPCollectionViewCell {
             
             if index == 0 {
                 
-                status_label.textColor = insurerStatus == true ? UIColor.colorFromRGB(89, 189, 20) : UIColor.lightGray
+//                status_label.textColor = insurerStatus == true ? UIColor.colorFromRGB(89, 189, 20) : UIColor.lightGray
                 coloredbg_view.backgroundColor = insurerStatus == true ? UIColor.colorFromRGB(89, 189, 20) : UIColor.colorFromRGB(201, 201, 201)
-                status_label.text =  insurerStatus ? "Connected" : "No connections"
+//                status_label.text =  insurerStatus ? "Connected" : "No connections"
             } else if index == 1 {
                 
-                status_label.textColor = providerStatus == true ? UIColor.colorFromRGB(89, 189, 20) : UIColor.lightGray
+//                status_label.textColor = providerStatus == true ? UIColor.colorFromRGB(89, 189, 20) : UIColor.lightGray
                 coloredbg_view.backgroundColor = providerStatus == true ? UIColor.colorFromRGB(89, 189, 20) : UIColor.colorFromRGB(201, 201, 201)
-                status_label.text =  providerStatus ? "Connected" : "No connections"
+//                status_label.text =  providerStatus ? "Connected" : "No connections"
             }
         } else {
-            status_label.textColor = UIColor.lightGray
+//            status_label.textColor = UIColor.lightGray
             coloredbg_view.backgroundColor = UIColor.colorFromRGB(201, 201, 201)
-            status_label.text =  "No connections"
+//            status_label.text =  "No connections"
         }
     }
 }

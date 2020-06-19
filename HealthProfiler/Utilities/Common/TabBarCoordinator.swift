@@ -26,9 +26,10 @@ class TabBarCoordinator {
         let healthProfile = navigationController(HealthProfileViewController.nibInstance(), tabTitle: "Health Profile", tabIcon: UIImage.tabIcon_healthProfile())
         let coverage = navigationController(CoverageViewController.nibInstance(), tabTitle: "Coverage", tabIcon: UIImage.tabIcon_coverage())
         let manageConnections = navigationController(ManageConnectionsViewController.nibInstance(), tabTitle: "Manage Connections", tabIcon: UIImage.tabIcon_manageConnections())
-        
+        let myProfile = navigationController(ProfileViewController.nibInstance(), tabTitle: "Profile", tabIcon: UIImage.tabIcon_coverage())
+
         tabBarController = UITabBarController()
-        tabBarController?.viewControllers = [home,healthProfile, coverage, manageConnections]
+        tabBarController?.viewControllers = [home,healthProfile, coverage, manageConnections, myProfile]
         return tabBarController!
     }
     
@@ -46,15 +47,6 @@ class TabBarCoordinator {
                     } else if index == 1 {
                         itemToDisable.isEnabled = isUserConnected
                     }
-//
-//                    itemToDisable.isEnabled = index == 0 ? false : isUserConnected
-//                    if isUserConnected == false {
-////                        itemToDisable.isEnabled = index == 0 ? false : false
-//                        itemToDisable.isEnabled = index == 1 ? false : HealthProfiler.shared.loggedInUser?.isInsurerConnected ?? false
-//                    }
-//                    itemToDisable.isEnabled = index == 0 ? false : isUserConnected
-
-
                 }
             }else {
             
@@ -69,17 +61,14 @@ class TabBarCoordinator {
     
     func tabBarNavigationTitle(isDetailDisplayed : Bool) {
         if let items = tabBarController?.viewControllers {
-                for index in 0...(items.count - 1) {
-                    
-                    let itemToDisable = items[index]
-                    if let user = HealthProfiler.shared.loggedInUser,
-                        let name = user.name, let age = user.age, let gender = user.gender {
-                        itemToDisable.navigationController?.navigationItem.title = "\(name)  |  \(age) Years  | \(gender)"
+            for index in 0...(items.count - 1) {
+                
+                let itemToDisable = items[index]
+                if let user = HealthProfiler.shared.loggedInUser,
+                    let name = user.name, let age = user.age, let gender = user.gender {
+                    itemToDisable.navigationController?.navigationItem.title = "\(name)  |  \(age) Years  | \(gender)"
                 }
-            
-
-
-                }
+            }
         }
     }
     
@@ -94,6 +83,9 @@ class TabBarCoordinator {
             
         case .manageConnections:
             return HPTabType.manageConnections.tabIndex
+            
+        case .myProfile:
+            return HPTabType.myProfile.tabIndex
             
         default:
             return tabBarController?.selectedIndex ?? 0
@@ -116,7 +108,6 @@ private extension TabBarCoordinator {
                                                       selectedImage: tabIcon)
         if let user = HealthProfiler.shared.loggedInUser,
             let name = user.name, let age = user.age, let gender = user.gender {
-//            rootController.navigationItem.title = "\(name)  |  \(age) Years"
             rootController.navigationItem.title = HealthProfiler.shared.loggedInUser?.isFirstTimeUser ?? false ? "\(name)" : "\(name)  |  \(age) Y  | \(gender)"
         }
         rootController.addDrawerButton()

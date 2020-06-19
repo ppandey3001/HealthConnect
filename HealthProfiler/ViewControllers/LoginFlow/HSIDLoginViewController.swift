@@ -92,9 +92,9 @@ private extension HSIDLoginViewController {
         dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
         
 //        WARNING: dev purpose only, remove once completed
-       // for item in dataSource_login {
-       //     item.value = "fredrick"
-       // }
+        for item in dataSource_login {
+            item.value = "fredrick"
+        }
 
         tableView_login.reloadData()
     }

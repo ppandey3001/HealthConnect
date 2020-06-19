@@ -48,7 +48,7 @@ extension UIColor {
     }
     
     class func appHeaderColor() -> UIColor {
-        return UIColor.colorFromRGB(186.0, 99.0, 41.0) //'dark orange' theme color
+        return UIColor.colorFromRGB(232.0, 119.0, 35.0) //'dark orange' theme color
     }
     
     class func textColor_dark()-> UIColor {
