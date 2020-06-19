@@ -116,7 +116,7 @@
 		FF91E42B249747C500333484 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E42A249747C500333484 /* WKWebViewController.swift */; };
 		FF91E42F249B7A6500333484 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E42D249B7A6500333484 /* ProfileViewController.swift */; };
 		FF91E430249B7A6500333484 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF91E42E249B7A6500333484 /* ProfileViewController.xib */; };
-		FF91E432249C6ABF00333484 /* OptumHealthConnectMobileAppRedesign.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF91E431249C6ABF00333484 /* OptumHealthConnectMobileAppRedesign.pdf */; };
+		FF91E434249C7B2D00333484 /* OptumHealthConnectMobileAppRedesign.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF91E433249C7B2C00333484 /* OptumHealthConnectMobileAppRedesign.pdf */; };
 		FFA8F1F12461A99B00E71886 /* HealthProfilerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1EF2461A99B00E71886 /* HealthProfilerCell.swift */; };
 		FFA8F1F22461A99B00E71886 /* HealthProfilerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8F1F02461A99B00E71886 /* HealthProfilerCell.xib */; };
 		FFA8F1F52461BDDA00E71886 /* GapsInCareCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1F32461BDDA00E71886 /* GapsInCareCollectionCell.swift */; };
@@ -260,7 +260,7 @@
 		FF91E42A249747C500333484 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		FF91E42D249B7A6500333484 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FF91E42E249B7A6500333484 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
-		FF91E431249C6ABF00333484 /* OptumHealthConnectMobileAppRedesign.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = OptumHealthConnectMobileAppRedesign.pdf; path = ../../../../OptumHealthConnectMobileAppRedesign.pdf; sourceTree = "<group>"; };
+		FF91E433249C7B2C00333484 /* OptumHealthConnectMobileAppRedesign.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = OptumHealthConnectMobileAppRedesign.pdf; sourceTree = "<group>"; };
 		FFA8F1EF2461A99B00E71886 /* HealthProfilerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthProfilerCell.swift; sourceTree = "<group>"; };
 		FFA8F1F02461A99B00E71886 /* HealthProfilerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthProfilerCell.xib; sourceTree = "<group>"; };
 		FFA8F1F32461BDDA00E71886 /* GapsInCareCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapsInCareCollectionCell.swift; sourceTree = "<group>"; };
@@ -318,9 +318,9 @@
 			children = (
 				FF814271248582110026EB5D /* CernerConfiguration.json */,
 				FF8ACE40244D723F00B283D8 /* Assets.xcassets */,
-				FF91E431249C6ABF00333484 /* OptumHealthConnectMobileAppRedesign.pdf */,
 				FF8ACE42244D723F00B283D8 /* LaunchScreen.storyboard */,
 				FF8ACE45244D723F00B283D8 /* Info.plist */,
+				FF91E433249C7B2C00333484 /* OptumHealthConnectMobileAppRedesign.pdf */,
 				6B6F834F245A84D7000066A8 /* privacy_policy.html */,
 				6B7A00762464F0FE00F0C018 /* UserData.plist */,
 				6BD6A357246D0F790045DD67 /* BlueButtonConfiguration.json */,
@@ -823,7 +823,7 @@
 				FF8ACE44244D723F00B283D8 /* LaunchScreen.storyboard in Resources */,
 				FF91E430249B7A6500333484 /* ProfileViewController.xib in Resources */,
 				FFA8F1FA2461C2CD00E71886 /* AllergyTableViewCell.xib in Resources */,
-				FF91E432249C6ABF00333484 /* OptumHealthConnectMobileAppRedesign.pdf in Resources */,
+				FF91E434249C7B2D00333484 /* OptumHealthConnectMobileAppRedesign.pdf in Resources */,
 				6B6F8350245A84D7000066A8 /* privacy_policy.html in Resources */,
 				FF49CDB6245F32AA00267787 /* ProviderConnectedCell.xib in Resources */,
 				FFA8F20C2464821200E71886 /* REcentVisitTableCell.xib in Resources */,
