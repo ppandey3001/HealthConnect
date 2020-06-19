@@ -87,7 +87,7 @@ extension HomeViewController {
             if let strongSelf = self {
                 
                 if let vitalItem = vitalItem {
-                    let date = Date().dateString("MMM dd, yyyy")
+                    let date = HPDateFormatter.shared.getString(from: Date(), format: .date)
                     DataCache.instance.write(string: date, forKey: "AllScriptsUpdatedDate")
                     strongSelf.userVitalReceived(vital: vitalItem)
                     

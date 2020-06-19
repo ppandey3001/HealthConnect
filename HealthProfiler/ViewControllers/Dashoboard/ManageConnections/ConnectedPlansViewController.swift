@@ -65,7 +65,7 @@ class ConnectedPlansViewController: HPViewController {
                 HealthProfiler.shared.loggedInUser?.isProviderConnected = true
                 print("cerner Token",token)
                 self?.tableView_Plans.reloadData()
-                let date = Date().toString(dateFormat: "MMM dd, yyyy")
+                let date = HPDateFormatter.shared.getString(from: Date(), format: .date)
                 DataCache.instance.write(string: date, forKey: "CernerConnectionTime")
                 HealthProfiler.shared.loggedInUser?.cernerConnected = true
                 
@@ -84,7 +84,7 @@ class ConnectedPlansViewController: HPViewController {
                 
                 HealthProfiler.shared.loggedInUser?.blueButtonConnected = true
                 TabBarCoordinator.shared.tabBarStatus(isUserConnected:true)
-                let date = Date().toString(dateFormat: "MMM dd, yyyy")
+                let date = HPDateFormatter.shared.getString(from: Date(), format: .date)
                 DataCache.instance.write(string: date, forKey: "BlueButtonConnectionTime")
                 DataCache.instance.write(string: "true", forKey: "BlueButtonConnectedWilma")
                 self?.callApiForEobList(token: token ?? "")
