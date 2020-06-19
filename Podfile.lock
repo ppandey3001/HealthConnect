@@ -13,7 +13,7 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - DataCache
     - DrawerMenu
@@ -29,4 +29,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 7e44f8f8646ba21edbbf49f17392570650b22b0e
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.6.1
