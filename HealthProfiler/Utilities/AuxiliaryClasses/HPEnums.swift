@@ -244,26 +244,26 @@ enum HPConnectionTabType {
     case pharmacy
     case others
     
-    func attributes() -> (title: String, icon: String) {
+    func attributes() -> (title: String, icon: String, bgColor: UIColor) {
         
         switch self {
         case .healthInsurance:
-            return ("Health Insurance", "healthInsuranceIcon.png")
+            return ("Health Insurance", "healthInsuranceIcon.png", UIColor.colorFromRGB(24, 188, 155))
             
         case .providers:
-            return ("Providers", "DoctorIcon.png")
+            return ("Providers", "DoctorIcon.png", UIColor.colorFromRGB(47, 204, 113))
             
         case .labs:
-            return ("Labs", "LabIcon.png")
+            return ("Labs", "LabIcon.png", UIColor.colorFromRGB(52, 152, 219))
             
         case .devices:
-            return ("Devices", "DeviceIcon.png")
+            return ("Devices", "DeviceIcon.png", UIColor.colorFromRGB(155, 89, 182))
             
         case .pharmacy:
-            return ("Pharmacy", "PharmacyIcon.png")
+            return ("Pharmacy", "PharmacyIcon.png", UIColor.colorFromRGB(241, 196, 16))
             
         case .others:
-            return ("Others", "OthersIcon.png")
+            return ("Others", "OthersIcon.png", UIColor.colorFromRGB(231, 76, 60))
         }
     }
 }
