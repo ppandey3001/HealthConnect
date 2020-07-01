@@ -10,34 +10,23 @@ import UIKit
 
 class REcentVisitTableCell: HPTableViewCell {
     
-    @IBOutlet var collection : UICollectionView!
+    @IBOutlet var practionerName_label : UILabel!
+    @IBOutlet var date_label : UILabel!
     var dataSource_recentVisit = [HPRecentVisitItem]()
     
     func registerCell() {
         
-        registerCollectionCell(collection, cellClass: RecentVisitCollectionCell.self)
-        collection.dataSource = self
-        collection.delegate = self
-        collection.reloadData()
+//        registerCollectionCell(collection, cellClass: RecentVisitCollectionCell.self)
+//        collection.dataSource = self
+//        collection.delegate = self
+//        collection.reloadData()
     }
 }
 
-extension REcentVisitTableCell : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource_recentVisit.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 125, height: 75)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+extension REcentVisitTableCell {
+    func configureRecentVisitCell(item: HPRecentVisitItem) {
         
-        let visitCell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentVisitCollectionCell.reuseableId(), for: indexPath) as! RecentVisitCollectionCell
-        visitCell.line_label.isHidden = indexPath.row == dataSource_recentVisit.count - 1 ? true : false
-        visitCell.configureRecentVisitCell(item: dataSource_recentVisit[indexPath.row])
-        
-        return visitCell
+        practionerName_label.text = item.practitioner
+        date_label.text = item.date
     }
 }

@@ -85,8 +85,8 @@ private extension MenuViewController {
             navController.popToRootViewController(animated: false)
             tabBar.selectedIndex = navigationIndex
             
-//        case .myProfile:
-//            navController.pushViewController(RegistrationViewController.nibInstance(), animated: true)
+        case .myProfile:
+            navController.pushViewController(ProfileViewController.nibInstance(), animated: true)
             
         default: break
         }

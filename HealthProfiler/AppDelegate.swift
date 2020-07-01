@@ -5,6 +5,7 @@
 
 import UIKit
 import OAuthSwift
+import ScrollableSegmentedControl
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,6 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+
+        let segmentedControlAppearance = ScrollableSegmentedControl.appearance()
+        segmentedControlAppearance.segmentContentColor = UIColor.white
+        segmentedControlAppearance.selectedSegmentContentColor = UIColor.yellow
+        segmentedControlAppearance.backgroundColor = UIColor.black
         //setup/customize app launch
         setupApplicationLaunch()
 

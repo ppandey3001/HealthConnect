@@ -11,9 +11,10 @@ class ManageConnectionsViewController: HPViewController {
     @IBOutlet private var connection_collectionView: UICollectionView!
     @IBOutlet private var view_welcomeMessageContainer: UIView!
     @IBOutlet private var label_welcomeMessageTitle: UILabel!
-    
+    @IBOutlet private var label_name: UILabel!
+
     private var dataSource_connection = [HPConnectionItem]()
-    private let margin : CGFloat = (UIScreen.main.bounds.width - 300.0) / 3.0
+    private let margin : CGFloat = (UIScreen.main.bounds.width - 200.0) / 3.0
     
     let user = HealthProfiler.shared.loggedInUser
     
@@ -29,9 +30,9 @@ class ManageConnectionsViewController: HPViewController {
 
         connection_collectionView.reloadData()
         
-        if user?.isFirstTimeUser ?? false {
-            self.navigationItem.title = user?.isInsurerConnected ?? false ? "\(user?.name! ?? "")  |  \(user?.age! ?? "") Y  | \(user?.gender! ?? "")" : "\(user?.name! ?? "")"
-        }
+//        if user?.isFirstTimeUser ?? false {
+//            self.navigationItem.title = user?.isInsurerConnected ?? false ? "\(user?.name! ?? "")  |  \(user?.age! ?? "") Y  | \(user?.gender! ?? "")" : "\(user?.name! ?? "")"
+//        }
     }
     
     @IBAction func buttonAction_getStarted(_ sender: UIButton) {
@@ -69,7 +70,7 @@ private extension ManageConnectionsViewController {
             view_welcomeMessageContainer.isHidden = user?.isInsurerConnected ?? false ? true : false
         }
         let name = user?.name
-        label_welcomeMessageTitle.text = "Welcome \(name!)!!"
+        label_name.text = "Hi, \(name!)"
     }
 }
 
@@ -87,20 +88,20 @@ extension ManageConnectionsViewController : UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsets.init(top: margin, left: margin, bottom: margin, right: margin)
+        return UIEdgeInsets.init(top: 20, left: 15, bottom: 20, right: 15)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return margin
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return margin
+        return 20
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: 150, height: 140)
+        return CGSize(width: 170, height: 150)
     }
     
     

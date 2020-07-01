@@ -10,5 +10,6 @@ target 'HealthProfiler' do
     pod 'Alamofire'
     pod 'OAuthSwift'
     pod 'DataCache'
+    pod 'ScrollableSegmentedControl'
 
 end

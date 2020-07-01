@@ -194,6 +194,44 @@ enum HPCernerConditionType {
     }
 }
 
+enum HPHistoryConditionType {
+    
+    case childVisit
+    case acute
+    case atherosclerosis
+    case angina
+    case diabeties
+    case pneumonia
+    case chronic
+    case urinary
+    case hypertension
+
+    func attributes() -> (condition: String, hospitalLogo: String, visitedOn: String, logo: String) {
+        
+        switch self {
+        case .childVisit:
+            return ("Well child visit", "southwestmedical", "Jun 27, 2020", "Allscripts")
+            case .acute:
+                return ("Acute Pharyngitis", "southwestmedical", "Jun 16, 2020", "Allscripts")
+            case .atherosclerosis:
+                return ("Atherosclerosis of native arteries of extremities with rest pain, left leg", "adventist", "May 13, 2020", "cerner")
+            case .angina:
+                return ("Angina Pectoris", "southwestmedical", "Apr 29, 2020", "Allscripts")
+            case .diabeties:
+                return ("Type 2 Diabetes Mellitus", "southwestmedical", "Apr 01, 2020", "Allscripts")
+            case .pneumonia:
+                return ("Pneumonia", "southwestmedical", "Mar 26, 2020", "Allscripts")
+            case .chronic:
+                return ("Chronic kidney disease, stage 3 (moderate)", "adventist", "Mar 13, 2020", "cerner")
+            case .urinary:
+                return ("Urinary Tract Infection", "southwestmedical", "Jan 10, 2020", "Allscripts")
+            
+        case .hypertension:
+            return ("Hypertension", "southwestmedical", "Dec 12, 2019", "Allscripts")
+        }
+    }
+}
+
 
 enum HPConnectedInsuranceType {
     
@@ -208,7 +246,7 @@ enum HPConnectedInsuranceType {
             return ("United Health Care", "uhc")
             
         case .humana:
-            return ("Humana", "humana")
+            return ("Humana", "humana-logo")
             
         case .blueButton:
             return ("Blue Button 2.0", "bluebutton")
@@ -248,10 +286,10 @@ enum HPConnectionTabType {
         
         switch self {
         case .healthInsurance:
-            return ("Health Insurance", "healthInsuranceIcon.png", UIColor.colorFromRGB(24, 188, 155))
+            return ("Insurance", "healthInsuranceIcon.png", UIColor.colorFromRGB(24, 188, 155))
             
         case .providers:
-            return ("Providers", "DoctorIcon.png", UIColor.colorFromRGB(47, 204, 113))
+            return ("Providers", "provider.png", UIColor.colorFromRGB(47, 204, 113))
             
         case .labs:
             return ("Labs", "LabIcon.png", UIColor.colorFromRGB(52, 152, 219))
@@ -263,7 +301,7 @@ enum HPConnectionTabType {
             return ("Pharmacy", "PharmacyIcon.png", UIColor.colorFromRGB(241, 196, 16))
             
         case .others:
-            return ("Others", "OthersIcon.png", UIColor.colorFromRGB(231, 76, 60))
+            return ("Others", "Others.png", UIColor.colorFromRGB(231, 76, 60))
         }
     }
 }

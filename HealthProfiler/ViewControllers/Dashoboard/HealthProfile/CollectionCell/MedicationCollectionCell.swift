@@ -21,6 +21,5 @@ extension MedicationCollectionCell {
         
         medicineName_label.text = item.medicine
         dose_label.text = item.dosage
-        //        tillDate_label.text = attributes.tillDate
     }
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HIstoryViewController" customModule="HealthConnect" customModuleProvider="target">
+            <connections>
+                <outlet property="history_tableView" destination="ky0-xq-qwH" id="Az9-bI-JA6"/>
+                <outlet property="segmentedControl" destination="foB-9H-LLK" id="hDZ-Xo-VY1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foB-9H-LLK" customClass="ScrollableSegmentedControl" customModule="ScrollableSegmentedControl">
+                    <rect key="frame" x="0.0" y="49" width="414" height="60"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="tintColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="2Ma-XA-82S"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ky0-xq-qwH">
+                    <rect key="frame" x="0.0" y="116" width="414" height="770"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHH-sY-cYc">
+                    <rect key="frame" x="0.0" y="110" width="414" height="1"/>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="xeG-4i-hzd"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ky0-xq-qwH" secondAttribute="bottom" constant="10" id="1Jg-hT-pAc"/>
+                <constraint firstItem="foB-9H-LLK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8eI-lH-pet"/>
+                <constraint firstItem="ky0-xq-qwH" firstAttribute="top" secondItem="AHH-sY-cYc" secondAttribute="bottom" constant="5" id="BaM-aN-SYx"/>
+                <constraint firstItem="ky0-xq-qwH" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="NCY-lE-r5c"/>
+                <constraint firstItem="foB-9H-LLK" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="PFT-tJ-EWf"/>
+                <constraint firstItem="AHH-sY-cYc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SKC-0t-obs"/>
+                <constraint firstItem="foB-9H-LLK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="V9c-xe-W2K"/>
+                <constraint firstAttribute="trailing" secondItem="AHH-sY-cYc" secondAttribute="trailing" id="ZHm-7x-Fmj"/>
+                <constraint firstItem="AHH-sY-cYc" firstAttribute="top" secondItem="foB-9H-LLK" secondAttribute="bottom" constant="1" id="puv-TE-h96"/>
+                <constraint firstItem="ky0-xq-qwH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vAb-m7-7dU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="127.90178571428571"/>
+        </view>
+    </objects>
+</document>

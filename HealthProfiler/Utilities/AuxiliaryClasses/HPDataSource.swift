@@ -118,3 +118,14 @@ class HPCernerConditionItem: NSObject {
         self.type = type
     }
 }
+
+class HPHistoryConditionItem: NSObject {
+    
+    var type: HPHistoryConditionType = .childVisit
+    
+    init(_ type: HPHistoryConditionType) {
+        
+        self.type = type
+    }
+}
+

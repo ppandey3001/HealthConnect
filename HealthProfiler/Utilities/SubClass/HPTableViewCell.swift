@@ -23,4 +23,13 @@ extension UITableViewCell {
         collectionView.register(cellClass, forCellWithReuseIdentifier: cellID)
         collectionView.register(cellClass.nib(), forCellWithReuseIdentifier: cellID)
     }
+    
+    //MARK: - Register custom tableView cell -
+    func registerTableCell(_ tableView: UITableView, cellClass: HPTableViewCell.Type) {
+        
+        let cellID = cellClass.reuseableId()
+        tableView.register(cellClass, forCellReuseIdentifier: cellID)
+        tableView.register(cellClass.nib(), forCellReuseIdentifier: cellID)
+    }
 }
+

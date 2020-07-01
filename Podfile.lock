@@ -3,6 +3,7 @@ PODS:
   - DataCache (1.5)
   - DrawerMenu (1.0.1)
   - OAuthSwift (2.1.0)
+  - ScrollableSegmentedControl (1.5.0)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
@@ -10,6 +11,7 @@ DEPENDENCIES:
   - DataCache
   - DrawerMenu
   - OAuthSwift
+  - ScrollableSegmentedControl
   - SwiftyJSON
 
 SPEC REPOS:
@@ -18,6 +20,7 @@ SPEC REPOS:
     - DataCache
     - DrawerMenu
     - OAuthSwift
+    - ScrollableSegmentedControl
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -25,8 +28,9 @@ SPEC CHECKSUMS:
   DataCache: 8099e01aa35c2fd30f3410aae14ef5a130f6524b
   DrawerMenu: f6ca91901e2b21086e3c19bcca278d3d3127e85f
   OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
+  ScrollableSegmentedControl: 2e64bbe8968a7fcd8aae5014434481464fcdfe60
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 7e44f8f8646ba21edbbf49f17392570650b22b0e
+PODFILE CHECKSUM: bfb4787d36ce8128c71d61d6473b934e322aae7f
 
 COCOAPODS: 1.6.1

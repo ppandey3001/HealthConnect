@@ -96,3 +96,9 @@ extension Dictionary {
     }
     
 }
+
+extension String {
+    var numbers: String {
+        return filter { "0"..."9" ~= $0 }
+    }
+}

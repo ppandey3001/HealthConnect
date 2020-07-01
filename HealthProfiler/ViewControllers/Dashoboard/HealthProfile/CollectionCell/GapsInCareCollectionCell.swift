@@ -21,7 +21,6 @@ extension GapsInCareCollectionCell {
     
     func configureGapsInCareCell(item: HPGapsInCareItem) {
                 
-//        coloredBg_view.backgroundColor = attributes.bgColor
         title_label.text = item.gap
         date_label.text = item.date
     }

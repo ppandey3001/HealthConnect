@@ -20,7 +20,7 @@
 				<key>isFirstTimeUser</key>
 				<true/>
 				<key>age</key>
-				<string>70</string>
+				<string> April 1, 1950</string>
 				<key>gender</key>
 				<string>F</string>
 				<key>memberID</key>
@@ -55,9 +55,9 @@
 				<key>isFirstTimeUser</key>
 				<false/>
 				<key>age</key>
-				<string>73</string>
+				<string> August 9, 1946</string>
 				<key>blueButtonConnected</key>
-				<false/>
+				<true/>
 				<key>isHumanaConnected</key>
 				<string>YES</string>
 				<key>memberID</key>

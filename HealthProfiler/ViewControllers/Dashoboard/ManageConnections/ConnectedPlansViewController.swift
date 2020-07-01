@@ -8,20 +8,22 @@
 
 import UIKit
 import DataCache
+import ScrollableSegmentedControl
 
 class ConnectedPlansViewController: HPViewController {
     
     @IBOutlet private var tableView_Plans : UITableView!
     @IBOutlet private var providerHeader_view : UIView!
-    @IBOutlet private var insuranceHeader_view : UIView!
     @IBOutlet private var providerTerms_label : UILabel!
-    @IBOutlet private var categories_segmentControl : UISegmentedControl!
     @IBOutlet private var add_button : UIButton!
+    
+    @IBOutlet private var segmentedControl: ScrollableSegmentedControl!
+    
     
     //private vars
     private var dataSource_InsurancePlans = [HPConnectedInsuranceItem]()
     private var dataSource_eobList = [HPEobItem]()
-
+    
     private let user = HealthProfiler.shared.loggedInUser
     
     //public vars
@@ -37,6 +39,7 @@ class ConnectedPlansViewController: HPViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        setUpSegment()
         tableView_Plans.reloadData()
     }
     
@@ -55,6 +58,50 @@ class ConnectedPlansViewController: HPViewController {
         
         setupController()
     }
+    
+    private func setUpSegment() {
+        
+        
+        segmentedControl.segmentStyle = .textOnly
+        segmentedControl.insertSegment(withTitle: "Insurance", image:  #imageLiteral(resourceName: "HomeIcon"), at: 0)
+        segmentedControl.insertSegment(withTitle: "Providers", image: #imageLiteral(resourceName: "CoverageIcon"), at: 1)
+        segmentedControl.insertSegment(withTitle: "Labs", image: #imageLiteral(resourceName: "profile"), at: 2)
+        segmentedControl.insertSegment(withTitle: "Pharmacies", image: #imageLiteral(resourceName: "smoking"), at: 3)
+        segmentedControl.insertSegment(withTitle: "Devices", image: #imageLiteral(resourceName: "smoking"), at: 3)
+        
+        
+        segmentedControl.underlineSelected = true
+        
+        segmentedControl.addTarget(self, action: #selector(segmentSelected(sender:)), for: .valueChanged)
+        
+        // change some colors
+        segmentedControl.segmentContentColor = UIColor.darkGray
+        segmentedControl.selectedSegmentContentColor = UIColor.darkGray
+        segmentedControl.backgroundColor = UIColor.clear
+        segmentedControl.selectedSegmentIndex = isFromProvider ?? false ? 1 : 0
+        
+        // Turn off all segments been fixed/equal width.
+        // The width of each segment would be based on the text length and font size.
+        segmentedControl.fixedSegmentWidth = true
+    }
+    
+    @objc func segmentSelected(sender:ScrollableSegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            isFromProvider = false
+            
+        case 1:
+            isFromProvider = true
+            
+        default:
+            break
+        }
+        
+        setupController()
+        
+    }
+    
     
     @IBAction func allenaConnectAction(_ sender: UIButton) {
         
@@ -76,7 +123,7 @@ class ConnectedPlansViewController: HPViewController {
         
     }
     
-    @IBAction func blueButtonConnectAction(_ sender: UIButton) {
+    @IBAction func blueButtonConnectAction(_ sender: UISwitch) {
         
         HealthProfiler.authClient.authorize(controller: self) { [weak self] (token, error) in
             
@@ -88,7 +135,7 @@ class ConnectedPlansViewController: HPViewController {
                 DataCache.instance.write(string: date, forKey: "BlueButtonConnectionTime")
                 DataCache.instance.write(string: "true", forKey: "BlueButtonConnectedWilma")
                 self?.callApiForEobList(token: token ?? "")
-
+                
                 self?.tableView_Plans.reloadData()
                 
             } else {
@@ -114,9 +161,8 @@ private extension ConnectedPlansViewController {
         
         registerTableCell(tableView_Plans, cellClass: InsurancePlanCell.self)
         registerTableCell(tableView_Plans, cellClass: ProviderConnectedCell.self)
-        self.navigationItem.hidesBackButton = true
+        self.navigationItem.hidesBackButton = false
         
-        tableView_Plans.tableHeaderView = insuranceHeader_view
         providerTerms_label.isHidden = true
         add_button.setTitle("Add Plan", for: .normal)
         
@@ -125,12 +171,15 @@ private extension ConnectedPlansViewController {
             tableView_Plans.tableHeaderView = providerHeader_view
             providerTerms_label.isHidden = false
             add_button.setTitle("Add Provider", for: .normal)
-            categories_segmentControl.selectedSegmentIndex = 1
+            //            categories_segmentControl.selectedSegmentIndex = 1
         }
         
         tableView_Plans.delegate = self
         tableView_Plans.dataSource = self
         tableView_Plans.reloadData()
+        
+        self.navigationItem.title = "Manage Connection"
+
     }
     
     private func callApiForEobList(token : String) {
@@ -170,11 +219,13 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
         if isFromProvider == true {
             
             let providerCell = tableView.dequeueReusableCell(withIdentifier: ProviderConnectedCell.reuseableId(), for: indexPath) as! ProviderConnectedCell
+            
+            providerCell.registerCell()
             providerCell.configureProviderCell(item: dataSource_provider[indexPath.row], index: indexPath.row, user: user?.isFirstTimeUser ?? false)
             if indexPath.row == 0 && user?.isFirstTimeUser == true {
-                providerCell.connect_Button.addTarget(self, action: #selector(allenaConnectAction), for: .touchUpInside)
+                providerCell.connect_Button.addTarget(self, action: #selector(allenaConnectAction), for: .valueChanged)
             }else if indexPath.row == 1{
-                providerCell.connect_Button.addTarget(self, action: #selector(allenaConnectAction), for: .touchUpInside)
+                providerCell.connect_Button.addTarget(self, action: #selector(allenaConnectAction), for: .valueChanged)
             }
             
             return providerCell
@@ -182,12 +233,25 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
         } else {
             
             let planCell = tableView.dequeueReusableCell(withIdentifier: InsurancePlanCell.reuseableId(), for: indexPath) as! InsurancePlanCell
-            
+            planCell.registerCell()
             planCell.configureInsuranceCell(item: dataSource_InsurancePlans[indexPath.row], index: indexPath.row)
             if indexPath.row == 1 {
-                planCell.activeStatus_Button.addTarget(self, action: #selector(blueButtonConnectAction), for: .touchUpInside)
+                planCell.activeStatus_switch.addTarget(self, action: #selector(blueButtonConnectAction), for: .valueChanged)
             }
             return planCell
         }
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        
+        let closeAction = UIContextualAction(style: .normal, title:  "Delete Plan", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            success(true)
+        })
+        closeAction.backgroundColor = UIColor.colorFromRGB(255, 107, 107)
+        closeAction.image = UIImage(named: "delete")
+        return UISwipeActionsConfiguration(actions: [closeAction])
+        
     }
 }

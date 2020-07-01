@@ -9,14 +9,12 @@ import DataCache
 class CoverageViewController: HPViewController {
     
     @IBOutlet private var coverage_tableView : UITableView!
-    @IBOutlet private var updated_Label : UILabel!
     @IBOutlet private var memberID_Label : UILabel!
-    @IBOutlet private var refreshIcon_button : UIButton!
-    @IBOutlet private var mcValue_Label : UILabel!
-    @IBOutlet private var mdValue_Label : UILabel!
-    @IBOutlet private var smoking_Button : UIButton!
+    @IBOutlet private var status_label : UILabel!
+    @IBOutlet private var claimsTitle_label : UILabel!
     @IBOutlet private var refreshMedicare_Button : UIButton!
     @IBOutlet private var lastUpdateTitle_Label : UILabel!
+    
     private var dataSource_eobList = [HPEobItem]()
 
 
@@ -69,9 +67,13 @@ private extension CoverageViewController {
         registerTableCell(coverage_tableView, cellClass: CoverageClaimHeaderCell.self)
         registerTableCell(coverage_tableView, cellClass: RecentCliamsListCell.self)
         
+        status_label.layer.cornerRadius = 5.0
+        status_label.layer.masksToBounds = true
+        
         coverage_tableView.delegate = self
         coverage_tableView.dataSource = self
         coverage_tableView.reloadData()
+        
     }
     
     private func updateUI() {
@@ -80,22 +82,19 @@ private extension CoverageViewController {
         
         if let user = user,
             user.blueButtonConnected {
-            updated_Label.text = DataCache.instance.readString(forKey: "BlueButtonConnectionTime")
+            lastUpdateTitle_Label.text = "Last updated : \(DataCache.instance.readString(forKey: "BlueButtonConnectionTime")!)"
             dataSource_coverage = [HPCoverageClaimItem(.drMinnnie), HPCoverageClaimItem(.drJones), HPCoverageClaimItem(.drAllison), HPCoverageClaimItem(.drNorma), HPCoverageClaimItem(.drJohn), HPCoverageClaimItem(.drTammy), HPCoverageClaimItem(.drWilliam), HPCoverageClaimItem(.drGayle), HPCoverageClaimItem(.drVeena), HPCoverageClaimItem(.drJohnson)]
         } else {
             dataSource_coverage = []
             
         }
         
-        if user?.isFirstTimeUser ?? false {
-            self.navigationItem.title = user?.isInsurerConnected ?? false ? "\(user?.name! ?? "")  |  \(user?.age! ?? "") Y  | \(user?.gender! ?? "")" : "\(user?.name! ?? "")"
-        }
-        refreshIcon_button.isHidden = user?.blueButtonConnected ?? false ? false : true
+//        if user?.isFirstTimeUser ?? false {
+//            self.navigationItem.title = user?.isInsurerConnected ?? false ? "\(user?.name! ?? "")  |  \(user?.age! ?? "") Y  | \(user?.gender! ?? "")" : "\(user?.name! ?? "")"
+//        }
         memberID_Label.text = user?.memberID
-        mcValue_Label.isHidden = user?.blueButtonConnected ?? false ? false : true
-        mdValue_Label.isHidden = user?.blueButtonConnected ?? false ? false : true
-        smoking_Button.isHidden = user?.blueButtonConnected ?? false ? false : true
         lastUpdateTitle_Label.isHidden = user?.blueButtonConnected ?? false ? false : true
+        claimsTitle_label.isHidden = user?.blueButtonConnected ?? false ? false : true
         refreshMedicare_Button.isHidden = user?.blueButtonConnected ?? false ? false : true
         
         coverage_tableView.reloadData()
@@ -129,43 +128,21 @@ private extension CoverageViewController {
 extension CoverageViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource_coverage.count > 0 ? dataSource_coverage.count + 1 : 0
+        return dataSource_coverage.count > 0 ? dataSource_coverage.count : 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        switch indexPath.row {
-
-        case 0:
-            return 90
-            
-        case 1:
-            return 72
-            
-        default: break
-        }
-        
-        return 72
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let claimListCell = tableView.dequeueReusableCell(withIdentifier: RecentCliamsListCell.reuseableId()) as! RecentCliamsListCell
-        
-        switch indexPath.row {
 
-        case 0:
-            let claimHeaderCell = tableView.dequeueReusableCell(withIdentifier: CoverageClaimHeaderCell.reuseableId(), for: indexPath) as! CoverageClaimHeaderCell
-            return claimHeaderCell
-            
-        case 1...dataSource_coverage.count + 1:
-            print(indexPath.row, dataSource_coverage[indexPath.row - 1])
-            claimListCell.configureRecentClaimCell(item: dataSource_coverage[indexPath.row - 1], index: indexPath.row - 1 )
+            print(indexPath.row, dataSource_coverage[indexPath.row])
+            claimListCell.registerCell()
+            claimListCell.configureRecentClaimCell(item: dataSource_coverage[indexPath.row], index: indexPath.row )
             return claimListCell
-            
-        default: break
-        }
-        
-        return claimListCell
     }
 }

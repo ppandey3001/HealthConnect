@@ -34,7 +34,7 @@ extension UIImage {
     }
     
     class func tabIcon_myProfile() -> UIImage? {
-        return UIImage.templateImage(name: "user-icon")
+        return UIImage.templateImage(name: "profile")
     }
     
 }

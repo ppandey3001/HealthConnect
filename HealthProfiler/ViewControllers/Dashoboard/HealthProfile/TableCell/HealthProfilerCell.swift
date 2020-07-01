@@ -10,107 +10,22 @@ import UIKit
 
 class HealthProfilerCell: HPTableViewCell {
     
-    @IBOutlet var section_collectionView : UICollectionView!
     @IBOutlet var title_label : UILabel!
-    @IBOutlet var arrowIcon : UIImageView!
+    @IBOutlet var subtitle_label : UILabel!
     
-    //private  vars
-    var cellType : Int = 0
-    var datasource_gapsInCare = [HPGapsInCareItem]()
-    var datasource_medication = [HPMedicationItem]()
-    var datasource_careteam = [HPCareTeamItem]()
-    var dataSourceCernerTeam = [HPCernerCareTeamItem]()
-    private let user = HealthProfiler.shared.loggedInUser
-
-    
-    func registerCell(){
-        
-        registerCollectionCell(section_collectionView, cellClass: GapsInCareCollectionCell.self)
-        registerCollectionCell(section_collectionView, cellClass: MedicationCollectionCell.self)
-        registerCollectionCell(section_collectionView, cellClass: CareTeamCollectionCell.self)
-        
-        if (cellType != 2) {
-            section_collectionView.backgroundColor = .clear
-        }
-       if user?.isFirstTimeUser ?? false {
-        section_collectionView.backgroundColor = .clear
-        arrowIcon.isHidden = true
-
-        }
-
-        section_collectionView.alwaysBounceHorizontal = true
-        section_collectionView.delegate = self
-        section_collectionView.dataSource = self
-        section_collectionView.reloadData()
-    }
 }
 
-extension HealthProfilerCell : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension HealthProfilerCell {
     
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func configureMedicationCell(item: HPMedicationItem) {
         
-        switch cellType {
-        case 0:
-            return datasource_gapsInCare.count
-        case 1:
-            return datasource_medication.count
-        case 2:
-            if user?.isFirstTimeUser ?? false {
-                return dataSourceCernerTeam.count
-
-            }else {
-            return datasource_careteam.count
-
-            }
-
-        default:
-            return 0
-        }
+        title_label.text = item.medicine
+        subtitle_label.text = item.dosage
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func configureGapsInCareCell(item: HPGapsInCareItem) {
         
-        switch cellType {
-        case 0:
-            return CGSize(width: 157, height: 107)
-        case 1:
-            return CGSize(width: 180, height: 110)
-        case 2:
-            return CGSize(width: 169, height: 95)
-        default:
-            return CGSize(width: 110, height: 116)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        switch cellType {
-            
-        case 0:
-            let gapsCell = collectionView.dequeueReusableCell(withReuseIdentifier: GapsInCareCollectionCell.reuseableId(), for: indexPath) as! GapsInCareCollectionCell
-            gapsCell.configureGapsInCareCell(item: datasource_gapsInCare[indexPath.row])
-            return gapsCell
-            
-        case 1:
-            let medicationCell = collectionView.dequeueReusableCell(withReuseIdentifier: MedicationCollectionCell.reuseableId(), for: indexPath) as! MedicationCollectionCell
-            medicationCell.configureMedicationCell(item: datasource_medication[indexPath.row])
-            return medicationCell
-            
-        case 2:
-            let careCell = collectionView.dequeueReusableCell(withReuseIdentifier: CareTeamCollectionCell.reuseableId(), for: indexPath) as! CareTeamCollectionCell
-            careCell.registerCell()
-            if user?.isFirstTimeUser ?? false {
-                careCell.configureCernerCareCell(item: dataSourceCernerTeam[indexPath.row])
-                
-             }else {
-                careCell.configureCareCell(item: datasource_careteam[indexPath.row])
-
-            }
-            return careCell
-            
-        default:
-            return UICollectionViewCell()
-        }        
+        title_label.text = item.gap
+        subtitle_label.text = item.date
     }
 }
