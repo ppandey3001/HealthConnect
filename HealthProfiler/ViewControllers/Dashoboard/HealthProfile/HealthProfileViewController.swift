@@ -17,10 +17,14 @@ class HealthProfileViewController: HPViewController {
     @IBOutlet private var detail_label: UILabel!
     @IBOutlet private var interoperability_label: UILabel!
     @IBOutlet private var lastUpdated_label: UILabel!
+    @IBOutlet private var lastUpdatedCerner_label: UILabel!
     @IBOutlet private var lastUpdatedAllScript_label: UILabel!
     @IBOutlet private var sectionHeader_View: UIView!
     @IBOutlet private var carePlanHeader_View: UIView!
-    
+    @IBOutlet private var cerner_View: UIView!
+    @IBOutlet private var allscript_View: UIView!
+    @IBOutlet private var historyButton: UIButton!
+
     
     @IBOutlet private var segmentedControl: ScrollableSegmentedControl!
     
@@ -50,6 +54,7 @@ class HealthProfileViewController: HPViewController {
         super.viewWillAppear(animated)
 
         lastUpdated_label.text = "Last updated: " + (DataCache.instance.readString(forKey: "CernerConnectionTime") ?? "")
+        lastUpdatedCerner_label.text = (DataCache.instance.readString(forKey: "CernerConnectionTime"))
         if let user = user, user.isFirstTimeUser {
             if !user.cernerConnected {
                 carePlan?.questionData.removeAll()
@@ -65,6 +70,9 @@ class HealthProfileViewController: HPViewController {
         
         isCernerSelected = false
          upadateUI()
+        allscript_View.layer.borderColor = UIColor.lightGray.cgColor
+        cerner_View.layer.borderColor = UIColor.clear.cgColor
+
         healthProfiler_tableView.reloadData()
 
     }
@@ -73,6 +81,8 @@ class HealthProfileViewController: HPViewController {
         
         isCernerSelected = true
          upadateUI()
+        cerner_View.layer.borderColor = UIColor.lightGray.cgColor
+        allscript_View.layer.borderColor = UIColor.clear.cgColor
         healthProfiler_tableView.reloadData()
 
     }
@@ -123,6 +133,12 @@ private extension HealthProfileViewController {
         healthProfiler_tableView.delegate = self
         healthProfiler_tableView.dataSource = self
         isCernerSelected = false
+        allscript_View.layer.borderColor = UIColor.lightGray.cgColor
+        cerner_View.layer.borderColor = UIColor.clear.cgColor
+        
+        allscript_View.layer.borderWidth = 1.0
+        cerner_View.layer.borderWidth = 1.0
+        historyButton.isHidden = user?.isFirstTimeUser ?? false
         
         let date = HPDateFormatter.shared.getString(from: Date(), format: .date)
         lastUpdatedAllScript_label.text = "Last updated: " + date
@@ -133,6 +149,10 @@ private extension HealthProfileViewController {
     }
     
     private func upadateUI(){
+        
+        setUpSegment()
+        cerner_View.isHidden = !(user?.cernerConnected ?? false)
+        
         if user?.isFirstTimeUser == true {
             carePlanFooter_view.isHidden = user?.isProviderConnected ?? false ? false : true
             dataSourceCernerTeam = [HPCernerCareTeamItem(.john),HPCernerCareTeamItem(.jonson) ]
@@ -156,8 +176,7 @@ private extension HealthProfileViewController {
         segmentedControl.insertSegment(withTitle: "Allergies", image: UIImage(named: "allergy"), at: 1)
         segmentedControl.insertSegment(withTitle: "Medications", image: UIImage(named: "medication"), at: 2)
         segmentedControl.insertSegment(withTitle: "Gaps In Care", image: UIImage(named: "gapsincare"), at: 3)
-
-
+            
         segmentedControl.underlineSelected = true
 
         segmentedControl.addTarget(self, action: #selector(segmentSelected(sender:)), for: .valueChanged)
@@ -339,22 +358,22 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
                 return carePlan?.questionData.count ?? 0
                 
             } else {
-                if isCernerSelected {
-                    return 1
-                } else {
+//                if isCernerSelected {
+//                    return 1
+//                } else {
                     switch selectedSegmentType {
                     case 0:
-                        return datasource_conditionList.count
+                        return isCernerSelected ? 1 : datasource_conditionList.count
                     case 1:
-                        return datasource_allergyList.count
+                        return isCernerSelected ? 0 : datasource_allergyList.count
                     case 2:
-                        return datasource_medicationList.count
+                        return isCernerSelected ? 0 : datasource_medicationList.count
                     case 3:
                         return datasource_gapsInCareList.count
                     default:
                         break
                     }
-                }
+//                }
             }
         default:
             return 0
@@ -366,14 +385,21 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
         
         switch indexPath.section {
         case 0:
-            return 265
+            return user?.isFirstTimeUser ?? false ? 180 : 265
         case 1:
             if user?.isFirstTimeUser == true {
                 return 85
                 
             } else {
                 if isCernerSelected {
-                    return 300
+                    switch selectedSegmentType {
+                    case 0:
+                        return 300
+                    case 3:
+                        return 80
+                    default:
+                        break
+                    }
                 } else {
                     switch selectedSegmentType {
                     case 0...1:
@@ -412,9 +438,24 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
                 return careCell
             } else {
                 if isCernerSelected {
+                    switch selectedSegmentType {
+                    case 0:
                     let cernerCell = tableView.dequeueReusableCell(withIdentifier: CernerConditionTableCell.reuseableId(), for: indexPath) as! CernerConditionTableCell
                     cernerCell.registerCell()
                     return cernerCell
+                        
+                    case 3:
+                          
+                            let profilerCell = tableView.dequeueReusableCell(withIdentifier: HealthProfilerCell.reuseableId(), for: indexPath) as! HealthProfilerCell
+                            
+                            profilerCell.configureGapsInCareCell(item: datasource_gapsInCareList[indexPath.row])
+                            
+                            return profilerCell
+                            
+                        default:
+                            break
+                }
+                        
                 }else {
                     switch selectedSegmentType {
                     case 0:
@@ -461,20 +502,20 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        if user?.isFirstTimeUser ?? false {
-//            return section == 1 ? user?.isProviderConnected ?? false ? 133 : 0 : 0
-//        } else {
+        if user?.isFirstTimeUser ?? false {
+            return section == 1 ? user?.isProviderConnected ?? false ? 133 : 0 : 55
+        } else {
         return section == 0 ? 55 : 308
-//        }
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        if user?.isFirstTimeUser ?? false {
-//            return section == 1 ? user?.isProviderConnected ?? false ? header_view : nil : nil
-//        } else {
+        if user?.isFirstTimeUser ?? false {
+            return section == 1 ? user?.isProviderConnected ?? false ? header_view : nil : carePlanHeader_View
+        } else {
 
         return section == 1 ? sectionHeader_View : carePlanHeader_View
 
-//        }
+        }
     }
 }

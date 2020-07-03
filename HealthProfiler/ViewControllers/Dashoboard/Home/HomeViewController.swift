@@ -177,7 +177,7 @@ extension HomeViewController {
                 Loader.dismiss()
                 
                 if let visitList = visitList {
-                    strongSelf.dataSource_recentVisit = visitList
+                    strongSelf.dataSource_recentVisit = visitList.reversed()
                     strongSelf.recent_tableView.reloadData()
                 } else {
                     strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
@@ -227,7 +227,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         case 0 :
             let visitsCell = tableView.dequeueReusableCell(withIdentifier: REcentVisitTableCell.reuseableId(), for: indexPath) as! REcentVisitTableCell
             visitsCell.registerCell()
-            dataSource_recentVisit = dataSource_recentVisit.reversed()
+//            dataSource_recentVisit = dataSource_recentVisit
             visitsCell.configureRecentVisitCell(item: dataSource_recentVisit[indexPath.row] )
             return visitsCell
         case 1:

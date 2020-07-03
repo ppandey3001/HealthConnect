@@ -144,34 +144,35 @@ enum HPCoverageClaimType {
             return ("Dr. Smith", "Mar 4", "$xx", "$xx")
             
         case .drMinnnie:
-            return ("Dr. Norma Lewis", "Jab 30, 2020", "90 USD", "60 USD")
+            return ("Dr. Minny Jones", "Jan 6, 2020", "90 USD", "60 USD")
             
         case .drJones:
-            return ("Dr. Norma Lewis", "Jab 30, 2020", "650 USD", "350 USD")
+            return ("Dr. MK Rastogi", "Jan 30, 2020", "650 USD", "350 USD")
             
         case .drAllison:
-            return ("Dr. Norma Lewis", "Jan 6, 2020", "70 USD", "30 USD")
+            return ("Dr. MK Rastogi", "Jan 6, 2020", "70 USD", "30 USD")
             
         case .drNorma:
-            return ("Dr. Norma Lewis", "Jab 30, 2020", "100 USD", "20 USD")
+            return ("Dr. Gayle Laakman", "Jan 30, 2020", "100 USD", "20 USD")
             
         case .drJohn:
-            return ("Dr. Tammy Allscripts", "Mar 4, 2020", "40 USD", "10 USD")
+            return ("Dr. Gayle Laakman", "Jan 6, 2020", "40 USD", "10 USD")
             
         case .drTammy:
-            return ("Dr. MK Rastogi", "Mar 4, 2020", "50 USD", "40 USD")
+            return ("Dr. MK Rastogi", "Feb 4, 2020", "50 USD", "40 USD")
             
         case .drWilliam:
-            return ("Dr. Gayle Laakman", "Mar 4, 2020", "50 USD", "40 USD")
+            return ("Dr. Tammy Allscripts", "Mar 4, 2020", "50 USD", "40 USD")
             
         case .drGayle:
-            return ("Dr. MK Rastogi", "Jan 6, 2020", "40 USD", "30 USD")
+            return ("Dr. Johnson Kary", "Feb 4, 2020", "40 USD", "30 USD")
             
         case .drVeena:
-            return ("Dr. Minny Jones", "Jab 30, 2020", "60 USD", "40 USD")
+            return ("Dr. John Shier", "Feb 4, 2020", "60 USD", "40 USD")
             
         case .drJohnson:
-            return ("Dr. Norma Lewis", "Feb 4, 2020", "200 USD", "150 USD")
+            return ("Dr. Veena Karthik", "Jan 30, 2020", "200 USD", "150 USD")
+            
         }
     }
 }

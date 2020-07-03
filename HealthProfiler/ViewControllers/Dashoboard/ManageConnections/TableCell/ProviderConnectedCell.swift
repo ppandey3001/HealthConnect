@@ -13,7 +13,8 @@ class ProviderConnectedCell: HPTableViewCell {
     @IBOutlet var title_label : UILabel!
     @IBOutlet var poweredBy : UIImageView!
     @IBOutlet var icon_imageView : UIImageView!
-//    @IBOutlet var activeStatus_Button : UISwitch!
+    @IBOutlet var connect_label : UILabel!
+    @IBOutlet var refresh_label : UILabel!
     @IBOutlet var refresh_Button : UIButton!
     @IBOutlet var connect_Button : UISwitch!
     @IBOutlet var suggestion_View : UIView!
@@ -44,17 +45,27 @@ extension ProviderConnectedCell {
         
         if user {
             
-//            activeStatus_Button.isSelected = HealthProfiler.shared.loggedInUser?.isProviderConnected ?? false
-            connect_Button.isSelected = item.isConnected ?? false
+            connect_Button.isOn = HealthProfiler.shared.loggedInUser?.isProviderConnected ?? false
             suggestion_View.isHidden =  (HealthProfiler.shared.loggedInUser?.isProviderConnected ?? false)
             suggestion_Label.text = "You have recently visited \(attributes.title), Do you want to connect with them ?"
+            refresh_Button.isSelected = !(HealthProfiler.shared.loggedInUser?.isProviderConnected ?? false)
+            refresh_label.textColor = (HealthProfiler.shared.loggedInUser?.isProviderConnected ?? false) ? UIColor.appHeaderColor() : UIColor.colorFromRGB(128, 128, 128)
+            connect_label.textColor = (HealthProfiler.shared.loggedInUser?.isProviderConnected ?? false) ? UIColor.appHeaderColor() : UIColor.colorFromRGB(128, 128, 128)
+            connect_label.text = (HealthProfiler.shared.loggedInUser?.isProviderConnected ?? false) ? "Connected" : "Disconnected"
             
         } else {
-//            activeStatus_Button.isSelected = item.type == .southwest ? true : (HealthProfiler.shared.loggedInUser?.cernerConnected ?? false)
-            connect_Button.isSelected = item.type == .southwest ? true : (HealthProfiler.shared.loggedInUser?.cernerConnected ?? false)
+            connect_Button.isOn = item.type == .southwest ? true : (HealthProfiler.shared.loggedInUser?.cernerConnected ?? false)
             suggestion_View.isHidden = item.type == .southwest ? true : (HealthProfiler.shared.loggedInUser?.cernerConnected ?? false)
             suggestion_Label.text = "You have recently visited \(attributes.title), Do you want to connect with them ?"
+            refresh_Button.isSelected = item.type == .southwest ? false :  !(HealthProfiler.shared.loggedInUser?.cernerConnected ?? false)
+            refresh_label.textColor = item.type == .southwest ? UIColor.appHeaderColor() : (HealthProfiler.shared.loggedInUser?.cernerConnected ?? false) ? UIColor.appHeaderColor() : UIColor.colorFromRGB(128, 128, 128)
+            connect_label.textColor = item.type == .southwest ? UIColor.appHeaderColor() : (HealthProfiler.shared.loggedInUser?.cernerConnected ?? false) ? UIColor.appHeaderColor() : UIColor.colorFromRGB(128, 128, 128)
+            connect_label.text = item.type == .southwest ? "Connected" :(HealthProfiler.shared.loggedInUser?.cernerConnected ?? false) ? "Connected" : "Disconnected"
 
+        }
+        
+        if connect_Button.isOn {
+            connect_Button.isUserInteractionEnabled = false
         }
     }
 }

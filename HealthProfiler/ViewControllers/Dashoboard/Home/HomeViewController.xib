@@ -39,11 +39,11 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="820"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <view key="tableHeaderView" contentMode="scaleToFill" id="knw-2n-moS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="285"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knX-pv-5Qx">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="264"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qee-Bx-KEN">
                                         <rect key="frame" x="25" y="15" width="374" height="21"/>
@@ -60,6 +60,13 @@
                                             <constraint firstAttribute="height" constant="150" id="ajL-Yc-5ox"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tU5-g7-oJF">
+                                        <rect key="frame" x="0.0" y="236" width="414" height="28"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="Z3g-kK-CLe"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7tX-Xy-HSv">
                                         <rect key="frame" x="62" y="206" width="289" height="50"/>
                                         <subviews>
@@ -101,7 +108,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="E8s-Jl-yI7" secondAttribute="bottom" id="2d7-hf-hZ2"/>
                                             <constraint firstAttribute="trailing" secondItem="ncA-qe-hgf" secondAttribute="trailing" id="6qC-Mh-scz"/>
@@ -131,12 +138,15 @@
                                     <constraint firstItem="7tX-Xy-HSv" firstAttribute="top" secondItem="kR8-eP-UtY" secondAttribute="bottom" constant="5" id="Fkk-HL-InJ"/>
                                     <constraint firstItem="kR8-eP-UtY" firstAttribute="leading" secondItem="knX-pv-5Qx" secondAttribute="leading" id="T4S-N0-qY0"/>
                                     <constraint firstItem="kR8-eP-UtY" firstAttribute="top" secondItem="Qee-Bx-KEN" secondAttribute="bottom" constant="15" id="Tqu-17-3XT"/>
+                                    <constraint firstItem="tU5-g7-oJF" firstAttribute="leading" secondItem="knX-pv-5Qx" secondAttribute="leading" id="Z8A-JL-v7R"/>
                                     <constraint firstItem="Qee-Bx-KEN" firstAttribute="leading" secondItem="knX-pv-5Qx" secondAttribute="leading" constant="25" id="Za4-Jd-r3g"/>
                                     <constraint firstItem="Qee-Bx-KEN" firstAttribute="top" secondItem="knX-pv-5Qx" secondAttribute="top" constant="15" id="d7g-Tc-7dP"/>
                                     <constraint firstAttribute="trailing" secondItem="7tX-Xy-HSv" secondAttribute="trailing" constant="63" id="fVQ-1T-Xuk"/>
                                     <constraint firstAttribute="trailing" secondItem="Qee-Bx-KEN" secondAttribute="trailing" constant="15" id="gvG-eJ-acn"/>
                                     <constraint firstAttribute="trailing" secondItem="kR8-eP-UtY" secondAttribute="trailing" id="orj-XN-Fjs"/>
-                                    <constraint firstAttribute="height" constant="230" id="uiZ-Dn-N8G"/>
+                                    <constraint firstAttribute="height" constant="264" id="uiZ-Dn-N8G"/>
+                                    <constraint firstAttribute="bottom" secondItem="tU5-g7-oJF" secondAttribute="bottom" id="uuR-lP-DhM"/>
+                                    <constraint firstAttribute="trailing" secondItem="tU5-g7-oJF" secondAttribute="trailing" id="zjE-lH-k2D"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -148,7 +158,7 @@
                         </constraints>
                     </view>
                     <view key="tableFooterView" contentMode="scaleToFill" id="LdK-RW-f3K">
-                        <rect key="frame" x="0.0" y="1113" width="414" height="461"/>
+                        <rect key="frame" x="0.0" y="1108" width="414" height="461"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rxx-Ei-EMM">

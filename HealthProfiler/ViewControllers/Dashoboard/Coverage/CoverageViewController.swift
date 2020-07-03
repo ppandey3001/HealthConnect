@@ -83,7 +83,7 @@ private extension CoverageViewController {
         if let user = user,
             user.blueButtonConnected {
             lastUpdateTitle_Label.text = "Last updated : \(DataCache.instance.readString(forKey: "BlueButtonConnectionTime")!)"
-            dataSource_coverage = [HPCoverageClaimItem(.drMinnnie), HPCoverageClaimItem(.drJones), HPCoverageClaimItem(.drAllison), HPCoverageClaimItem(.drNorma), HPCoverageClaimItem(.drJohn), HPCoverageClaimItem(.drTammy), HPCoverageClaimItem(.drWilliam), HPCoverageClaimItem(.drGayle), HPCoverageClaimItem(.drVeena), HPCoverageClaimItem(.drJohnson)]
+            dataSource_coverage = [HPCoverageClaimItem(.drWilliam), HPCoverageClaimItem(.drTammy), HPCoverageClaimItem(.drGayle), HPCoverageClaimItem(.drVeena), HPCoverageClaimItem(.drJones), HPCoverageClaimItem(.drNorma), HPCoverageClaimItem(.drJohnson), HPCoverageClaimItem(.drMinnnie), HPCoverageClaimItem(.drAllison), HPCoverageClaimItem(.drJohn)]
         } else {
             dataSource_coverage = []
             

@@ -144,6 +144,25 @@ class ConnectedPlansViewController: HPViewController {
         }
     }
     
+    func deletePlan() {
+        
+        let alrtControl = UIAlertController(title: isFromProvider ?? false ? "Delete Provider" : "Delete Plan", message: isFromProvider ?? false ? "Are you sure you want to delete the provider?" : "Are you sure you want to delete the plan?", preferredStyle: .alert)
+        let no_alertAction = UIAlertAction(title: "No", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+        }
+        alrtControl.addAction(no_alertAction)
+        
+        let yes_alertAction = UIAlertAction(title: "Yes", style: UIAlertAction.Style.destructive) {
+            UIAlertAction in
+            DispatchQueue.main.async {
+//                AppCoordinator.shared.logout()
+            }
+        }
+        alrtControl.addAction(yes_alertAction)
+        alrtControl.preferredAction = yes_alertAction
+        navigationController?.present(alrtControl, animated: true, completion: nil)
+    }
+    
     
 }
 
@@ -246,7 +265,8 @@ extension ConnectedPlansViewController : UITableViewDelegate, UITableViewDataSou
                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
         
-        let closeAction = UIContextualAction(style: .normal, title:  "Delete Plan", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+        let closeAction = UIContextualAction(style: .normal, title:  isFromProvider ?? false ? "Delete Provider" : "Delete Plan", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            self.deletePlan()
             success(true)
         })
         closeAction.backgroundColor = UIColor.colorFromRGB(255, 107, 107)

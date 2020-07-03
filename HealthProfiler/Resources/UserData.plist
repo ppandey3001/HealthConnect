@@ -57,7 +57,7 @@
 				<key>age</key>
 				<string> August 9, 1946</string>
 				<key>blueButtonConnected</key>
-				<true/>
+				<false/>
 				<key>isHumanaConnected</key>
 				<string>YES</string>
 				<key>memberID</key>

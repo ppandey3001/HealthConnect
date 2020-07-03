@@ -42,7 +42,7 @@ private extension HIstoryViewController {
         registerTableCell(history_tableView, cellClass: AllergyTableViewCell.self)
         registerTableCell(history_tableView, cellClass: HistoryMedicationTableCell.self)
 
-        datasource_condition = [HPHistoryConditionItem(.diabeties), HPHistoryConditionItem(.pneumonia),HPHistoryConditionItem(.chronic), HPHistoryConditionItem(.hypertension)]
+        datasource_condition = [HPHistoryConditionItem(.diabeties),HPHistoryConditionItem(.chronic), HPHistoryConditionItem(.hypertension)]
 
         history_tableView.delegate = self
         history_tableView.dataSource = self
