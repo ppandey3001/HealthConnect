@@ -42,7 +42,7 @@ class HPConnectionItem: NSObject {
 
 class HPMenuItem: NSObject {
     
-    var type: HPMenuItemType = .home
+    var type: HPMenuItemType = .profile
     
     init(_ type: HPMenuItemType) {
         

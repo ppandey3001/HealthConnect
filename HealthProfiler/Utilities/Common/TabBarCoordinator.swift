@@ -93,9 +93,7 @@ class TabBarCoordinator {
     func getNavigationIndex(type: HPMenuItemType) -> Int {
         
         switch type {
-        case .home:
-            return HPTabType.home.tabIndex
-            
+           
         case .coverage:
             return HPTabType.coverage.tabIndex
             

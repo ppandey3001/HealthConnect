@@ -41,7 +41,7 @@ private extension MenuViewController {
         
         //refresh datasource
         dataSource_menu.removeAll()
-        dataSource_menu = [HPMenuItem(.home), HPMenuItem(.myProfile), HPMenuItem(.manageConnections), HPMenuItem(.myHealthProfile), HPMenuItem(.coverage), HPMenuItem(.myCareTeam), HPMenuItem(.settings)]
+        dataSource_menu = [ HPMenuItem(.profile), HPMenuItem(.coverage), HPMenuItem(.healthProfile), HPMenuItem(.claims), HPMenuItem(.careTeam), HPMenuItem(.vitals)]
         
         tableView_menu.reloadData()
     }
@@ -64,11 +64,11 @@ private extension MenuViewController {
         //navigate as per 'option.type'
         switch option.type {
 
-        case .home, .coverage, .manageConnections:
+        case .coverage, .manageConnections:
             navController.popToRootViewController(animated: false)
             tabBar.selectedIndex = navigationIndex
             
-        case .myProfile:
+        case .profile:
             navController.pushViewController(ProfileViewController.nibInstance(), animated: true)
             
         default: break

@@ -331,26 +331,26 @@ enum HPTabType {
 
 enum HPMenuItemType {
     
-    case home
-    case myProfile
-    case manageConnections
-    case myHealthProfile
+    case profile
     case coverage
-    case myCareTeam
-    case settings
+    case manageConnections
+    case healthProfile
+    case claims
+    case careTeam
+    case vitals
     
     public var title: String {
         
         var itemTitle = ""
         switch self {
             
-        case .home: itemTitle = "Home"
-        case .myProfile: itemTitle = "My Profile"
-        case .manageConnections: itemTitle = "Manage Connections"
-        case .myHealthProfile: itemTitle = "My Health Profile"
+        case .profile: itemTitle = "Profile"
         case .coverage: itemTitle = "Coverage"
-        case .myCareTeam: itemTitle = "My Care Team"
-        case .settings: itemTitle = "Settings"
+        case .manageConnections: itemTitle = "Manage Connections"
+        case .healthProfile: itemTitle = "Health Profile"
+        case .claims: itemTitle = "Claims"
+        case .careTeam: itemTitle = "Care Team"
+        case .vitals: itemTitle = "Vitals"
         }
         
         return itemTitle
