@@ -8,9 +8,8 @@ import UIKit
 class MenuViewController: HPViewController {
 
     @IBOutlet private var tableView_menu: HPTableView!
-    @IBOutlet private var view_footer: UIView!
-    @IBOutlet private  var label_appVersion: UILabel!
-
+    @IBOutlet var label_header: UILabel!
+    
     private var dataSource_menu = [HPMenuItem]()
 
     override func viewDidLoad() {
@@ -25,7 +24,10 @@ private extension MenuViewController {
     
     private func setupController() {
         
-        view.backgroundColor = UIColor.colorFromRGB(105.0, 105.0, 105.0)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        
+        let user = HealthProfiler.shared.loggedInUser
+        label_header.text = "Hi, \(user?.name ?? "User")"
         
         //register all table cells to be used
         registerTableCell(tableView_menu, cellClass: MenuTableCell.self)
@@ -33,16 +35,6 @@ private extension MenuViewController {
         tableView_menu.delegate = self
         tableView_menu.dataSource = self
         refreshTableDataSource()
-        
-        if let info = Bundle.main.infoDictionary {
-            
-            let appVersion = info["CFBundleShortVersionString"] as? String ?? "Unknown"
-            let buildVersion = info["CFBundleVersion"] as? String ?? "Unknown"
-            label_appVersion.text = String(format: "App version %@ (%@)", appVersion, buildVersion)
-        }
-        
-        view.layer.cornerRadius = 8.0
-        view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
     }
     
     private func refreshTableDataSource() {
@@ -50,15 +42,6 @@ private extension MenuViewController {
         //refresh datasource
         dataSource_menu.removeAll()
         dataSource_menu = [HPMenuItem(.home), HPMenuItem(.myProfile), HPMenuItem(.manageConnections), HPMenuItem(.myHealthProfile), HPMenuItem(.coverage), HPMenuItem(.myCareTeam), HPMenuItem(.settings)]
-        
-        //refresh table footer view
-        //TODO: not working, must be due to custom container, need to check
-        
-        tableView_menu.tableFooterView = view_footer
-        let tableHeaderHeight = (tableView_menu.tableHeaderView?.bounds.height ?? 0.0)
-        let totalCellHeight = (CGFloat(dataSource_menu.count) * MenuTableCell.cellHeight())
-        let footerHeight = (tableView_menu.frame.height - totalCellHeight - tableHeaderHeight)
-        tableView_menu.tableFooterView?.frame = CGRect(x: 0.0, y: 0.0, width: tableView_menu.bounds.width, height: max(footerHeight, 160.0))
         
         tableView_menu.reloadData()
     }
@@ -98,21 +81,9 @@ private extension MenuViewController {
         drawer()?.close(to: .left)
     }
     
-    @IBAction func buttonAction_privacyPolicy(_ sender: Any) {
-        
-        drawer()?.close(to: .left)
-        guard let tabBar = TabBarCoordinator.shared.tabBarController else {
-            return
-        }
-        
-        let webContentController = WebContentViewController.nibInstance()
-        webContentController.type = .privacyPolicy
-        tabBar.present(controller: UINavigationController(rootViewController: webContentController))
-    }
-    
     @IBAction func buttonAction_logout(_ sender: Any) {
         
-        let alrtControl = UIAlertController(title: "Log out", message: "Are you sure you want to logout?", preferredStyle: .alert)
+        let alrtControl = UIAlertController(title: "Sign out", message: "Are you sure you want to sign out?", preferredStyle: .alert)
         let no_alertAction = UIAlertAction(title: "No", style: UIAlertAction.Style.default) {
             UIAlertAction in
         }

@@ -18,6 +18,6 @@ class MenuTableCell: HPTableViewCell {
     }
     
     class func cellHeight() -> CGFloat {
-        return 50.0
+        return 35.0
     }
 }

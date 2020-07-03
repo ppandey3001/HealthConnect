@@ -18,13 +18,13 @@ class ProfileViewController: HPViewController {
     @IBOutlet var smoking_Label : UILabel!
     @IBOutlet var coverage_Label : UILabel!
     @IBOutlet var memberID_Label : UILabel!
-
+    
     private let user = HealthProfiler.shared.loggedInUser
-
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-          setUpController()
-        // Do any additional setup after loading the view.
+        setUpController()
     }
     
     func layoutUIComponent() {
@@ -37,9 +37,7 @@ class ProfileViewController: HPViewController {
         smoking_Label.layer.masksToBounds = true
         coverage_Label.layer.cornerRadius = 5.0
         coverage_Label.layer.masksToBounds = true
-        
     }
-
 }
 
 extension ProfileViewController {
