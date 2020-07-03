@@ -35,4 +35,12 @@ extension RecentCliamsListCell {
         billAmtValue_label.text = attributes.billAmt
         yourShareValue_label.text = attributes.share
     }
+    
+    func configureRecentClaimCell (item: HPEobItem) {
+        
+        doctorValue_label.text = item.name
+        dateValue_label.text = item.dateOfVisit
+        billAmtValue_label.text = item.billedAmmount
+        yourShareValue_label.text = item.sharePart
+    }
 }

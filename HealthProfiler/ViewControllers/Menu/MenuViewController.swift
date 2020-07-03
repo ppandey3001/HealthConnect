@@ -24,7 +24,7 @@ private extension MenuViewController {
     
     private func setupController() {
         
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.65)
         
         let user = HealthProfiler.shared.loggedInUser
         label_header.text = "Hi, \(user?.name ?? "User")"

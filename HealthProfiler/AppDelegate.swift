@@ -14,14 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-
-        let segmentedControlAppearance = ScrollableSegmentedControl.appearance()
-        segmentedControlAppearance.segmentContentColor = UIColor.white
-        segmentedControlAppearance.selectedSegmentContentColor = UIColor.yellow
-        segmentedControlAppearance.backgroundColor = UIColor.black
+        
         //setup/customize app launch
+        
+        setUpSegementControl()
         setupApplicationLaunch()
-
+        
         return true
     }
     
@@ -60,8 +58,14 @@ extension AppDelegate {
         
         window?.makeKeyAndVisible()
         
-        //enable network logging
-        //href: https://developer.apple.com/documentation/network/debugging_https_problems_with_cfnetwork_diagnostic_logging
-        setenv("CFNETWORK_DIAGNOSTICS", "3", 1)
+    }
+    
+    private func setUpSegementControl() {
+        
+        let segmentedControlAppearance = ScrollableSegmentedControl.appearance()
+        segmentedControlAppearance.segmentContentColor = UIColor.white
+        segmentedControlAppearance.selectedSegmentContentColor = UIColor.yellow
+        segmentedControlAppearance.backgroundColor = UIColor.black
+        
     }
 }

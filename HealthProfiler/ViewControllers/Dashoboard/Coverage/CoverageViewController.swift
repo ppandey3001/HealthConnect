@@ -30,6 +30,13 @@ class CoverageViewController: HPViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        if let user = user,
+        user.blueButtonConnected && dataSource_eobList.count <= 0 {
+            
+        callApiForEobList(token: HealthProfiler.shared.blueButtonToken ?? "")
+            
+        }
         updateUI()
     }
     
@@ -83,15 +90,14 @@ private extension CoverageViewController {
         if let user = user,
             user.blueButtonConnected {
             lastUpdateTitle_Label.text = "Last updated : \(DataCache.instance.readString(forKey: "BlueButtonConnectionTime")!)"
+            
             dataSource_coverage = [HPCoverageClaimItem(.drWilliam), HPCoverageClaimItem(.drTammy), HPCoverageClaimItem(.drGayle), HPCoverageClaimItem(.drVeena), HPCoverageClaimItem(.drJones), HPCoverageClaimItem(.drNorma), HPCoverageClaimItem(.drJohnson), HPCoverageClaimItem(.drMinnnie), HPCoverageClaimItem(.drAllison), HPCoverageClaimItem(.drJohn)]
+            
         } else {
             dataSource_coverage = []
             
         }
-        
-//        if user?.isFirstTimeUser ?? false {
-//            self.navigationItem.title = user?.isInsurerConnected ?? false ? "\(user?.name! ?? "")  |  \(user?.age! ?? "") Y  | \(user?.gender! ?? "")" : "\(user?.name! ?? "")"
-//        }
+
         memberID_Label.text = user?.memberID
         lastUpdateTitle_Label.isHidden = user?.blueButtonConnected ?? false ? false : true
         claimsTitle_label.isHidden = user?.blueButtonConnected ?? false ? false : true
@@ -109,11 +115,10 @@ private extension CoverageViewController {
                 if let strongSelf = self {
                     Loader.dismiss()
                     HealthProfiler.shared.loggedInUser?.blueButtonConnected = true
-                    self?.updateUI()
                     strongSelf.dataSource_eobList.removeAll()
                     if let eobList = eobList {
                         strongSelf.dataSource_eobList = eobList
-                        //                    strongSelf.recent_tableView.reloadData()
+                        self?.updateUI()
                     } else {
                         strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                     }
@@ -128,7 +133,7 @@ private extension CoverageViewController {
 extension CoverageViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource_coverage.count > 0 ? dataSource_coverage.count : 0
+        return dataSource_eobList.count > 0 ? dataSource_eobList.count - 1 : 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -140,9 +145,8 @@ extension CoverageViewController : UITableViewDelegate, UITableViewDataSource {
         
         let claimListCell = tableView.dequeueReusableCell(withIdentifier: RecentCliamsListCell.reuseableId()) as! RecentCliamsListCell
 
-            print(indexPath.row, dataSource_coverage[indexPath.row])
             claimListCell.registerCell()
-            claimListCell.configureRecentClaimCell(item: dataSource_coverage[indexPath.row], index: indexPath.row )
+            claimListCell.configureRecentClaimCell(item: dataSource_eobList[indexPath.row])
             return claimListCell
     }
 }

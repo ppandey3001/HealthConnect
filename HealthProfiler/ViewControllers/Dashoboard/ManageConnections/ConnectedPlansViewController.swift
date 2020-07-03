@@ -134,7 +134,7 @@ class ConnectedPlansViewController: HPViewController {
                 let date = HPDateFormatter.shared.getString(from: Date(), format: .date)
                 DataCache.instance.write(string: date, forKey: "BlueButtonConnectionTime")
                 DataCache.instance.write(string: "true", forKey: "BlueButtonConnectedWilma")
-                self?.callApiForEobList(token: token ?? "")
+//                self?.callApiForEobList(token: token ?? "")
                 
                 self?.tableView_Plans.reloadData()
                 

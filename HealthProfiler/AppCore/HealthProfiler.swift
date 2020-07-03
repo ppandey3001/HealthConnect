@@ -36,6 +36,8 @@ class HealthProfiler {
     private var authClientCerner: OAuthClient
 
     var loggedInUser: HPUserItem?
+    var blueButtonToken : String?
+
     
     //marking init() as 'private' will disallow to create object from outside
     private init() {

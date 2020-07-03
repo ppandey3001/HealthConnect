@@ -57,6 +57,7 @@ class OAuthClient {
                                     switch result {
                                         
                                     case .success(let (credential, _, _)):
+                                        HealthProfiler.shared.blueButtonToken = credential.oauthToken
                                         completion(credential.oauthToken, nil)
                                         
                                     case .failure(let error):
