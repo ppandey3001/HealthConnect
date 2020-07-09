@@ -16,7 +16,7 @@
                 <outlet property="memberID_Label" destination="2Nr-zn-9NW" id="PVh-Va-tdR"/>
                 <outlet property="name_Label" destination="B2S-T8-7IV" id="Qpx-WG-8pe"/>
                 <outlet property="plan_Label" destination="l5e-Fq-Cg3" id="UsF-oY-H5E"/>
-                <outlet property="smoking_Label" destination="dbp-9w-LVW" id="QFe-Bj-uQB"/>
+                <outlet property="smoking_Button" destination="GHt-u0-Jgc" id="oEG-qy-gM8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -98,28 +98,27 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbp-9w-LVW">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHt-u0-Jgc">
                                     <rect key="frame" x="212" y="5" width="30" height="25"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="30" id="LNN-Wn-Q08"/>
-                                        <constraint firstAttribute="height" constant="25" id="MGS-a4-kOp"/>
+                                        <constraint firstAttribute="width" constant="30" id="47L-7Z-5eR"/>
+                                        <constraint firstAttribute="height" constant="25" id="bcy-Gl-6ub"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="0.85255300999999994" green="0.48956602809999999" blue="0.22736766929999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <nil key="highlightedColor"/>
+                                    <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="6"/>
+                                    <state key="normal" image="smoking"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="5"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
-                                </label>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="dbp-9w-LVW" firstAttribute="top" secondItem="KGQ-2f-GpX" secondAttribute="top" constant="5" id="K6n-qu-Moz"/>
+                                <constraint firstItem="GHt-u0-Jgc" firstAttribute="leading" secondItem="fXy-sc-sNR" secondAttribute="trailing" constant="10" id="1dV-fv-KdG"/>
                                 <constraint firstItem="fXy-sc-sNR" firstAttribute="top" secondItem="KGQ-2f-GpX" secondAttribute="top" constant="5" id="KfG-9F-MPW"/>
-                                <constraint firstItem="dbp-9w-LVW" firstAttribute="leading" secondItem="fXy-sc-sNR" secondAttribute="trailing" constant="10" id="W4Z-HI-rse"/>
+                                <constraint firstItem="GHt-u0-Jgc" firstAttribute="top" secondItem="KGQ-2f-GpX" secondAttribute="top" constant="5" id="URN-wt-gOI"/>
                                 <constraint firstAttribute="height" constant="35" id="fVE-yz-FhM"/>
                                 <constraint firstItem="fXy-sc-sNR" firstAttribute="leading" secondItem="CQn-gF-FMk" secondAttribute="trailing" constant="10" id="hRU-m0-5Ok"/>
                                 <constraint firstItem="CQn-gF-FMk" firstAttribute="top" secondItem="KGQ-2f-GpX" secondAttribute="top" constant="5" id="ohC-BF-oYu"/>
@@ -258,8 +257,15 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="122.54464285714285"/>
         </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6cA-de-uWp">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <point key="canvasLocation" x="572" y="145"/>
+        </button>
     </objects>
     <resources>
         <image name="careTeam" width="100" height="100"/>
+        <image name="smoking" width="85" height="85"/>
     </resources>
 </document>

@@ -119,22 +119,16 @@
 		FF91E41F248E09B700333484 /* HPCostEstimatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E41E248E09B700333484 /* HPCostEstimatorList.swift */; };
 		FF91E422248E1ABE00333484 /* CostListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E420248E1ABE00333484 /* CostListTableCell.swift */; };
 		FF91E423248E1ABE00333484 /* CostListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF91E421248E1ABE00333484 /* CostListTableCell.xib */; };
-		FF91E4262492383100333484 /* AllergyCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E4242492383100333484 /* AllergyCollectionCell.swift */; };
-		FF91E4272492383100333484 /* AllergyCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF91E4252492383100333484 /* AllergyCollectionCell.xib */; };
 		FF91E42B249747C500333484 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E42A249747C500333484 /* WKWebViewController.swift */; };
 		FF91E42F249B7A6500333484 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF91E42D249B7A6500333484 /* ProfileViewController.swift */; };
 		FF91E430249B7A6500333484 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF91E42E249B7A6500333484 /* ProfileViewController.xib */; };
 		FF91E434249C7B2D00333484 /* OptumHealthConnectMobileAppRedesign.pdf in Resources */ = {isa = PBXBuildFile; fileRef = FF91E433249C7B2C00333484 /* OptumHealthConnectMobileAppRedesign.pdf */; };
+		FFA7E70224B47389005922AF /* SegmentCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA7E70024B47389005922AF /* SegmentCollectionCell.swift */; };
+		FFA7E70324B47389005922AF /* SegmentCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA7E70124B47389005922AF /* SegmentCollectionCell.xib */; };
 		FFA8F1F12461A99B00E71886 /* HealthProfilerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1EF2461A99B00E71886 /* HealthProfilerCell.swift */; };
 		FFA8F1F22461A99B00E71886 /* HealthProfilerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8F1F02461A99B00E71886 /* HealthProfilerCell.xib */; };
-		FFA8F1F52461BDDA00E71886 /* GapsInCareCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1F32461BDDA00E71886 /* GapsInCareCollectionCell.swift */; };
-		FFA8F1F62461BDDA00E71886 /* GapsInCareCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8F1F42461BDDA00E71886 /* GapsInCareCollectionCell.xib */; };
 		FFA8F1F92461C2CD00E71886 /* AllergyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1F72461C2CD00E71886 /* AllergyTableViewCell.swift */; };
 		FFA8F1FA2461C2CD00E71886 /* AllergyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8F1F82461C2CD00E71886 /* AllergyTableViewCell.xib */; };
-		FFA8F1FD2461C47D00E71886 /* MedicationCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1FB2461C47D00E71886 /* MedicationCollectionCell.swift */; };
-		FFA8F1FE2461C47D00E71886 /* MedicationCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8F1FC2461C47D00E71886 /* MedicationCollectionCell.xib */; };
-		FFA8F2012461DFA100E71886 /* CareTeamCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F1FF2461DFA100E71886 /* CareTeamCollectionCell.swift */; };
-		FFA8F2022461DFA100E71886 /* CareTeamCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8F2002461DFA100E71886 /* CareTeamCollectionCell.xib */; };
 		FFA8F20824644C9A00E71886 /* GeneralExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F20724644C9A00E71886 /* GeneralExtension.swift */; };
 		FFA8F20B2464821200E71886 /* REcentVisitTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F2092464821200E71886 /* REcentVisitTableCell.swift */; };
 		FFA8F20C2464821200E71886 /* REcentVisitTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFA8F20A2464821200E71886 /* REcentVisitTableCell.xib */; };
@@ -271,22 +265,16 @@
 		FF91E41E248E09B700333484 /* HPCostEstimatorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPCostEstimatorList.swift; sourceTree = "<group>"; };
 		FF91E420248E1ABE00333484 /* CostListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostListTableCell.swift; sourceTree = "<group>"; };
 		FF91E421248E1ABE00333484 /* CostListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CostListTableCell.xib; sourceTree = "<group>"; };
-		FF91E4242492383100333484 /* AllergyCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyCollectionCell.swift; sourceTree = "<group>"; };
-		FF91E4252492383100333484 /* AllergyCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllergyCollectionCell.xib; sourceTree = "<group>"; };
 		FF91E42A249747C500333484 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		FF91E42D249B7A6500333484 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FF91E42E249B7A6500333484 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		FF91E433249C7B2C00333484 /* OptumHealthConnectMobileAppRedesign.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = OptumHealthConnectMobileAppRedesign.pdf; sourceTree = "<group>"; };
+		FFA7E70024B47389005922AF /* SegmentCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentCollectionCell.swift; sourceTree = "<group>"; };
+		FFA7E70124B47389005922AF /* SegmentCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmentCollectionCell.xib; sourceTree = "<group>"; };
 		FFA8F1EF2461A99B00E71886 /* HealthProfilerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthProfilerCell.swift; sourceTree = "<group>"; };
 		FFA8F1F02461A99B00E71886 /* HealthProfilerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthProfilerCell.xib; sourceTree = "<group>"; };
-		FFA8F1F32461BDDA00E71886 /* GapsInCareCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GapsInCareCollectionCell.swift; sourceTree = "<group>"; };
-		FFA8F1F42461BDDA00E71886 /* GapsInCareCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GapsInCareCollectionCell.xib; sourceTree = "<group>"; };
 		FFA8F1F72461C2CD00E71886 /* AllergyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyTableViewCell.swift; sourceTree = "<group>"; };
 		FFA8F1F82461C2CD00E71886 /* AllergyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllergyTableViewCell.xib; sourceTree = "<group>"; };
-		FFA8F1FB2461C47D00E71886 /* MedicationCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicationCollectionCell.swift; sourceTree = "<group>"; };
-		FFA8F1FC2461C47D00E71886 /* MedicationCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicationCollectionCell.xib; sourceTree = "<group>"; };
-		FFA8F1FF2461DFA100E71886 /* CareTeamCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CareTeamCollectionCell.swift; sourceTree = "<group>"; };
-		FFA8F2002461DFA100E71886 /* CareTeamCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CareTeamCollectionCell.xib; sourceTree = "<group>"; };
 		FFA8F20724644C9A00E71886 /* GeneralExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExtension.swift; sourceTree = "<group>"; };
 		FFA8F2092464821200E71886 /* REcentVisitTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REcentVisitTableCell.swift; sourceTree = "<group>"; };
 		FFA8F20A2464821200E71886 /* REcentVisitTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = REcentVisitTableCell.xib; sourceTree = "<group>"; };
@@ -691,16 +679,10 @@
 		FFA8F1ED2461A97D00E71886 /* CollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				FFA8F1F32461BDDA00E71886 /* GapsInCareCollectionCell.swift */,
-				FFA8F1F42461BDDA00E71886 /* GapsInCareCollectionCell.xib */,
-				FFA8F1FB2461C47D00E71886 /* MedicationCollectionCell.swift */,
-				FFA8F1FC2461C47D00E71886 /* MedicationCollectionCell.xib */,
-				FFA8F1FF2461DFA100E71886 /* CareTeamCollectionCell.swift */,
-				FFA8F2002461DFA100E71886 /* CareTeamCollectionCell.xib */,
 				FF814283248A28A60026EB5D /* CernerConditionCollectionCell.swift */,
 				FF814284248A28A60026EB5D /* CernerConditionCollectionCell.xib */,
-				FF91E4242492383100333484 /* AllergyCollectionCell.swift */,
-				FF91E4252492383100333484 /* AllergyCollectionCell.xib */,
+				FFA7E70024B47389005922AF /* SegmentCollectionCell.swift */,
+				FFA7E70124B47389005922AF /* SegmentCollectionCell.xib */,
 			);
 			path = CollectionCell;
 			sourceTree = "<group>";
@@ -824,7 +806,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFA8F2102464825900E71886 /* RecentVisitCollectionCell.xib in Resources */,
-				FFA8F2022461DFA100E71886 /* CareTeamCollectionCell.xib in Resources */,
 				6B7A00772464F0FE00F0C018 /* UserData.plist in Resources */,
 				6B05B0D22452C86300C5A971 /* CoverageViewController.xib in Resources */,
 				FFA8F21F24687DE100E71886 /* HumanaTableViewCell.xib in Resources */,
@@ -852,14 +833,11 @@
 				FF814276248781070026EB5D /* HSIDLoginViewController.xib in Resources */,
 				6B05B0CE2452C84E00C5A971 /* HealthProfileViewController.xib in Resources */,
 				6B05B0DC2452D16F00C5A971 /* MenuViewController.xib in Resources */,
-				FFA8F1F62461BDDA00E71886 /* GapsInCareCollectionCell.xib in Resources */,
 				FF49CD982459CBF000267787 /* ForgotPasswordViewController.xib in Resources */,
-				FFA8F1FE2461C47D00E71886 /* MedicationCollectionCell.xib in Resources */,
 				FF8ACE41244D723F00B283D8 /* Assets.xcassets in Resources */,
 				FFA8F219246877D000E71886 /* HumanaViewController.xib in Resources */,
 				FF4A710324ACBF210053E2CE /* HIstoryViewController.xib in Resources */,
 				FF49CDAA245ED84000267787 /* SummaryBenefitCell.xib in Resources */,
-				FF91E4272492383100333484 /* AllergyCollectionCell.xib in Resources */,
 				FF4A710724ACC31B0053E2CE /* HistoryConditionTableCell.xib in Resources */,
 				6B6DACED246301F700163D0F /* WebContentViewController.xib in Resources */,
 				FF49CDB2245F132C00267787 /* InsurancePlanCell.xib in Resources */,
@@ -868,6 +846,7 @@
 				FF49CD852456CEC300267787 /* LoginViewCell.xib in Resources */,
 				FFAC221B246D4B04004E76B3 /* CarePlanTableCell.xib in Resources */,
 				6B05B0C62452C81900C5A971 /* RegistrationViewController.xib in Resources */,
+				FFA7E70324B47389005922AF /* SegmentCollectionCell.xib in Resources */,
 				FF49CDAE245F084900267787 /* ConnectedPlansViewController.xib in Resources */,
 				FF273E7E24A5CD5D00FB784F /* CareTeamSectionTableCell.xib in Resources */,
 				6B279474245562CA00DFF05A /* MenuTableCell.xib in Resources */,
@@ -958,7 +937,6 @@
 				6B8B9F20249C972700D2FB06 /* HPDateFormatter.swift in Sources */,
 				6B7A3D9524659A8A0070DE2A /* HPGapsInCareItem.swift in Sources */,
 				6B7A3D9F2465A0FC0070DE2A /* HPCareTeamItem.swift in Sources */,
-				FFA8F1FD2461C47D00E71886 /* MedicationCollectionCell.swift in Sources */,
 				FF49CD862456CEC300267787 /* LoginViewCell.swift in Sources */,
 				6BD6A354246D09B50045DD67 /* AppResource.swift in Sources */,
 				6B1C98E0246691BE005163EB /* ServerRequest.swift in Sources */,
@@ -995,7 +973,7 @@
 				6B05B0A92452C60B00C5A971 /* HealthProfiler.swift in Sources */,
 				FFAC221A246D4B04004E76B3 /* CarePlanTableCell.swift in Sources */,
 				6BA8667224569D3D003BDBDF /* AppCoordinator.swift in Sources */,
-				FF91E4262492383100333484 /* AllergyCollectionCell.swift in Sources */,
+				FFA7E70224B47389005922AF /* SegmentCollectionCell.swift in Sources */,
 				6B05B09C2452C17F00C5A971 /* HPTableViewCell.swift in Sources */,
 				FF49CDB1245F132C00267787 /* InsurancePlanCell.swift in Sources */,
 				FF814285248A28A60026EB5D /* CernerConditionCollectionCell.swift in Sources */,
@@ -1018,7 +996,6 @@
 				FF826AFB24602F9100844479 /* CoverageClaimHeaderCell.swift in Sources */,
 				FF273E7D24A5CD5D00FB784F /* CareTeamSectionTableCell.swift in Sources */,
 				6BC550A32454074800C0B1A8 /* AppTheme.swift in Sources */,
-				FFA8F1F52461BDDA00E71886 /* GapsInCareCollectionCell.swift in Sources */,
 				6BD6A352246D00570045DD67 /* OAuthClient.swift in Sources */,
 				FF49CD922457215B00267787 /* UITextField+Extensions.swift in Sources */,
 				FFA8F21E24687DE100E71886 /* HumanaTableViewCell.swift in Sources */,
@@ -1029,7 +1006,6 @@
 				FFA8F1F12461A99B00E71886 /* HealthProfilerCell.swift in Sources */,
 				6B7A3D9724659B1D0070DE2A /* Dictionary+Extensions.swift in Sources */,
 				6B05B0962452BD1500C5A971 /* UIColor+Extension.swift in Sources */,
-				FFA8F2012461DFA100E71886 /* CareTeamCollectionCell.swift in Sources */,
 				6B05B0982452BDFF00C5A971 /* UIFont+Extension.swift in Sources */,
 				FF826B022461737700844479 /* HPPicker.swift in Sources */,
 			);

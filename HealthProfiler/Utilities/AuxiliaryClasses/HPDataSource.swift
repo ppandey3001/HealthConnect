@@ -129,3 +129,13 @@ class HPHistoryConditionItem: NSObject {
     }
 }
 
+class HPSegmentItem: NSObject {
+    
+    var type: HPSegmentType = .conditions
+    
+    init(_ type:  HPSegmentType) {
+        
+        self.type = type
+    }
+}
+

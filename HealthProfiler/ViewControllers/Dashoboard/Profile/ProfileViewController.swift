@@ -15,7 +15,7 @@ class ProfileViewController: HPViewController {
     @IBOutlet var plan_Label : UILabel!
     @IBOutlet var mc_Label : UILabel!
     @IBOutlet var md_Label : UILabel!
-    @IBOutlet var smoking_Label : UILabel!
+    @IBOutlet var smoking_Button : UIButton!
     @IBOutlet var coverage_Label : UILabel!
     @IBOutlet var memberID_Label : UILabel!
     
@@ -33,8 +33,8 @@ class ProfileViewController: HPViewController {
         mc_Label.layer.masksToBounds = true
         md_Label.layer.cornerRadius = 5.0
         md_Label.layer.masksToBounds = true
-        smoking_Label.layer.cornerRadius = 5.0
-        smoking_Label.layer.masksToBounds = true
+        smoking_Button.layer.cornerRadius = 5.0
+        smoking_Button.layer.masksToBounds = true
         coverage_Label.layer.cornerRadius = 5.0
         coverage_Label.layer.masksToBounds = true
     }

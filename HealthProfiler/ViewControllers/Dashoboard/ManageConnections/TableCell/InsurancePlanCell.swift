@@ -36,7 +36,6 @@ extension InsurancePlanCell {
         
         let attributes = item.type.attributes()
         icon_imageView.image = UIImage(named: attributes.icon)
-//        title_label.text = attributes.title
         if item.type == .blueButton {
             activeStatus_switch.isOn = (HealthProfiler.shared.loggedInUser?.blueButtonConnected ?? false)
             refresh_Button.isSelected = !(HealthProfiler.shared.loggedInUser?.blueButtonConnected ?? false)

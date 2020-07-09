@@ -21,7 +21,6 @@ class ManageConnectionViewCell: HPCollectionViewCell {
         let attributes = item.type.attributes()
         icon_imageview.image = UIImage(named: attributes.icon)
         title_label.text = attributes.title
-//        coloredbg_view.backgroundColor = attributes.bgColor
 
         if index == 0 || index == 1 {
             
@@ -29,15 +28,16 @@ class ManageConnectionViewCell: HPCollectionViewCell {
             let providerStatus = (HealthProfiler.shared.loggedInUser?.isProviderConnected ?? false)
             
             if index == 0 {
-                
+                coloredbg_view.backgroundColor = insurerStatus ? UIColor.colorFromRGB(217, 125, 58) : UIColor.lightGray
                 connectedStatus_imageView.isHidden =  insurerStatus ? false : true
                 
             } else if index == 1 {
                 
+                coloredbg_view.backgroundColor = providerStatus ? UIColor.colorFromRGB(217, 125, 58) : UIColor.lightGray
                 connectedStatus_imageView.isHidden =  providerStatus ? false : true
             }
         } else {
-
+            coloredbg_view.backgroundColor = UIColor.lightGray
             connectedStatus_imageView.isHidden = true
         }
     }

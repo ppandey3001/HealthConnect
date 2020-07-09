@@ -9,21 +9,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="82" id="KGk-i7-Jjw" customClass="CarePlanTableCell" customModule="Health_Profiler" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="KGk-i7-Jjw" customClass="CarePlanTableCell" customModule="HealthConnect" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="82"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="up6-98-vkl">
-                        <rect key="frame" x="47" y="8" width="204" height="64"/>
+                        <rect key="frame" x="47" y="9" width="204" height="49"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjB-zB-NpK">
-                        <rect key="frame" x="15" y="30.5" width="23" height="21"/>
+                        <rect key="frame" x="15" y="23.5" width="23" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="dKr-iE-HS3"/>
                             <constraint firstAttribute="width" constant="23" id="tvE-6k-4Qs"/>
@@ -33,7 +33,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="446-uW-RyX">
-                        <rect key="frame" x="264" y="30.5" width="42" height="21"/>
+                        <rect key="frame" x="264" y="23.5" width="42" height="21"/>
                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="42" id="I1C-lF-l3z"/>
@@ -51,13 +51,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="up6-98-vkl" firstAttribute="leading" secondItem="GjB-zB-NpK" secondAttribute="trailing" constant="9" id="47g-1u-Lf1"/>
-                    <constraint firstAttribute="bottom" secondItem="up6-98-vkl" secondAttribute="bottom" constant="10" id="PoK-hf-IAy"/>
+                    <constraint firstAttribute="bottom" secondItem="up6-98-vkl" secondAttribute="bottom" constant="8" id="PoK-hf-IAy"/>
                     <constraint firstItem="GjB-zB-NpK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Poh-YC-JHb"/>
                     <constraint firstItem="446-uW-RyX" firstAttribute="leading" secondItem="up6-98-vkl" secondAttribute="trailing" constant="13" id="SBQ-GZ-6o6"/>
                     <constraint firstAttribute="trailing" secondItem="446-uW-RyX" secondAttribute="trailing" constant="14" id="TVx-Xe-XdG"/>
-                    <constraint firstItem="up6-98-vkl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ZFg-eX-1sM"/>
-                    <constraint firstItem="446-uW-RyX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hVV-K5-ytU"/>
-                    <constraint firstItem="GjB-zB-NpK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uUw-WD-WNF"/>
+                    <constraint firstItem="up6-98-vkl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="ZFg-eX-1sM"/>
+                    <constraint firstItem="446-uW-RyX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="1" id="hVV-K5-ytU"/>
+                    <constraint firstItem="GjB-zB-NpK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="1" id="uUw-WD-WNF"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -65,7 +65,7 @@
                 <outlet property="answer_label" destination="446-uW-RyX" id="6ij-sP-Hiu"/>
                 <outlet property="question_label" destination="up6-98-vkl" id="hAh-L8-iGv"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
+            <point key="canvasLocation" x="137.68115942028987" y="103.125"/>
         </tableViewCell>
     </objects>
 </document>

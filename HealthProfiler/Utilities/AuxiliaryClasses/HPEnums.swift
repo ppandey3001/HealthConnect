@@ -255,6 +255,31 @@ enum HPConnectedInsuranceType {
     }
 }
 
+enum HPSegmentType {
+    
+    case conditions
+    case allergies
+    case medications
+    case gapsInCare
+
+    func attributes() -> (title: String, icon: String) {
+        
+        switch self {
+        case .conditions:
+            return ("Conditions", "conditions")
+            
+        case .allergies:
+            return ("Allergies", "allergy")
+            
+        case .medications:
+            return ("Medications", "medication")
+            
+        case .gapsInCare:
+            return ("Gaps In Care", "gapsincare")
+        }
+    }
+}
+
 
 enum HPCernerCareTeamType {
     
