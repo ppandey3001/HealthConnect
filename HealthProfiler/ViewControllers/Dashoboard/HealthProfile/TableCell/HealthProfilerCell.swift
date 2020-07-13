@@ -28,4 +28,18 @@ extension HealthProfilerCell {
         title_label.text = item.gap
         subtitle_label.text = item.date
     }
+    
+    func configureStaticMedicationCell(item: HPMedicationsItem) {
+
+        let attributes = item.type.attributes()
+        title_label.text = attributes.title
+        subtitle_label.text = attributes.dose
+    }
+    
+    func configureStaticGapsInCareCell(item: HPGapsItem) {
+     
+        let attributes = item.type.attributes()
+        title_label.text = attributes.title
+        subtitle_label.text = attributes.date
+    }
 }

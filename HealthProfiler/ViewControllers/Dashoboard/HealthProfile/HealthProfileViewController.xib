@@ -430,10 +430,12 @@
                                 <constraint firstItem="DeB-vX-drc" firstAttribute="leading" secondItem="Iah-72-6ZL" secondAttribute="leading" constant="10" id="pYL-5O-yjC"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHh-w6-Hf8">
-                            <rect key="frame" x="2" y="8" width="164" height="158"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHh-w6-Hf8">
+                            <rect key="frame" x="0.0" y="0.0" width="168" height="120"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="OaP-ir-PCX"/>
+                            </constraints>
                             <connections>
                                 <action selector="rightButtonAction:" destination="-1" eventType="touchUpInside" id="9CN-mv-6Qb"/>
                             </connections>
@@ -445,7 +447,10 @@
                         <constraint firstItem="Iah-72-6ZL" firstAttribute="top" secondItem="dyE-Vm-SWa" secondAttribute="top" constant="3" id="6Ih-f3-92k"/>
                         <constraint firstItem="Iah-72-6ZL" firstAttribute="leading" secondItem="dyE-Vm-SWa" secondAttribute="leading" constant="3" id="BnJ-6m-tE2"/>
                         <constraint firstAttribute="width" constant="168" id="Knb-72-5WB"/>
+                        <constraint firstItem="UHh-w6-Hf8" firstAttribute="top" secondItem="dyE-Vm-SWa" secondAttribute="top" id="MMr-EU-0lo"/>
+                        <constraint firstAttribute="trailing" secondItem="UHh-w6-Hf8" secondAttribute="trailing" id="Snc-tb-4RN"/>
                         <constraint firstAttribute="bottom" secondItem="Iah-72-6ZL" secondAttribute="bottom" constant="3" id="V6S-2N-iFz"/>
+                        <constraint firstItem="UHh-w6-Hf8" firstAttribute="leading" secondItem="dyE-Vm-SWa" secondAttribute="leading" id="tuD-lr-cLa"/>
                         <constraint firstAttribute="height" constant="166" id="uUD-9S-qWK"/>
                     </constraints>
                 </view>

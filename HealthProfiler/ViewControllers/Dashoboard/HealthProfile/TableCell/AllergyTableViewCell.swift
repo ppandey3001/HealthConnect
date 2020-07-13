@@ -28,4 +28,16 @@ extension AllergyTableViewCell {
         title_label.text = item.condition
     }
     
+    func configureStaticAllergyCell(item: HPAllergyItem) {
+        let attributes = item.type.attributes()
+        title_label.text = attributes.title
+    }
+    
+    func configureStaticConditionCareCell(item: HPHistoryConditionItem) {
+        
+        let attributes = item.type.attributes()
+        title_label.text = attributes.condition
+        
+    }
+    
 }

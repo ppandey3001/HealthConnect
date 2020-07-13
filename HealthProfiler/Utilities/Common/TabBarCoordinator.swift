@@ -59,36 +59,24 @@ class TabBarCoordinator {
         }
     }
     func tabTitle() {
-//        if let items = self.tabBar.items {
-//                 // in each item we have a view where we find 2 subviews imageview and label
-//                 // in this example i would like to change
-//                      // access to item view
-//                     let viewTabBar = items[2].value(forKey: "view") as? UIView
-//                   // access to item subviews : imageview and label
-//                     if viewTabBar.subviews.count == 2 {
-//                       let label = viewTabBar?.subviews[1]as? UILabel
-//                     // here is the customization for my label 2 lines
-//                       label?.numberOfLines = 2
-//                       label?.textAlignment = .center
-//                       label!.text = "tab_point".localized
-//                       // here customisation for image insets top and bottom
-//                       items[2].imageInsets = UIEdgeInsets(top: 8, left: 0, bottom: -5, right: 0)
-//                       }
-//                       }
+        if let items = self.tabBarController?.tabBar.items {
+                 // in each item we have a view where we find 2 subviews imageview and label
+                 // in this example i would like to change
+                      // access to item view
+                     let viewTabBar = items[2].value(forKey: "view") as? UIView
+                   // access to item subviews : imageview and label
+            if viewTabBar?.subviews.count == 2 {
+                       let label = viewTabBar?.subviews[1]as? UILabel
+                     // here is the customization for my label 2 lines
+                       label?.numberOfLines = 2
+                       label?.textAlignment = .center
+                       label!.text = "tab_point"
+                       // here customisation for image insets top and bottom
+                       items[2].imageInsets = UIEdgeInsets(top: 8, left: 0, bottom: -5, right: 0)
+                       }
+                       }
     }
     
-    func tabBarNavigationTitle(isDetailDisplayed : Bool) {
-        if let items = tabBarController?.viewControllers {
-            for index in 0...(items.count - 1) {
-                
-                let itemToDisable = items[index]
-                if let user = HealthProfiler.shared.loggedInUser,
-                    let name = user.name, let age = user.age, let gender = user.gender {
-//                    itemToDisable.navigationController?.navigationItem.title = "\(name)  |  \(age) Years  | \(gender)"
-                }
-            }
-        }
-    }
     
     func getNavigationIndex(type: HPMenuItemType) -> Int {
         

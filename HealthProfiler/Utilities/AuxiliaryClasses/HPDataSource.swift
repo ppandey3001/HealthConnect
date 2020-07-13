@@ -100,7 +100,7 @@ class HPCernerCareTeamItem: NSObject {
 
 class HPCoverageClaimItem: NSObject {
     
-    var type: HPCoverageClaimType = .drPOe
+    var type: HPCoverageClaimType = .drMinnnie
     
     init(_ type: HPCoverageClaimType) {
         
@@ -138,4 +138,46 @@ class HPSegmentItem: NSObject {
         self.type = type
     }
 }
+
+class HPAllergyItem: NSObject {
+    
+    var type: HPAllergyType = .morphine
+    
+    init(_ type:  HPAllergyType) {
+        
+        self.type = type
+    }
+}
+
+class HPMedicationsItem: NSObject {
+    
+    var type: HPMedicationType = .amiodrane
+    
+    init(_ type:  HPMedicationType) {
+        
+        self.type = type
+    }
+}
+    
+class HPRecentVisitsItem: NSObject {
+    
+    var type: HPRecentVisitType = .allscript1
+    
+    init(_ type:  HPRecentVisitType) {
+        
+        self.type = type
+    }
+    
+}
+
+class HPGapsItem: NSObject {
+    
+    var type: HPGapsType = .fraility
+    
+    init(_ type:  HPGapsType) {
+        
+        self.type = type
+    }
+}
+
 

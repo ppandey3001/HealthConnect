@@ -27,6 +27,9 @@ class HomeViewController: HPViewController {
     @IBOutlet private var bpbgbg_view : UIView!
     @IBOutlet private var bmibg_view : UIView!
     @IBOutlet private var heartRatebg_view : UIView!
+    
+    @IBOutlet private var banner_imageView : UIImageView!
+    @IBOutlet private var page_control : UIPageControl!
 
     @IBOutlet private var name_label : UILabel!
     
@@ -34,8 +37,14 @@ class HomeViewController: HPViewController {
     
     private var userVital: HPVitalsItem?
     private var dataSource_recentVisit = [HPRecentVisitItem]()
+    private var datasource_StaticVisits = [HPRecentVisitsItem]()
     private var dataSource_costEstimatorList = [HPCostEstimatorList]()
     private var user = HealthProfiler.shared.loggedInUser
+    
+    var images:[String] = []
+    var timer = Timer()
+    var photoCount:Int = 0
+    var recentVisitFailed = Bool()
     
     override func viewDidLoad() {
         
@@ -90,9 +99,15 @@ private extension HomeViewController {
         registerTableCell(recent_tableView, cellClass: REcentVisitTableCell.self)
         registerTableCell(recent_tableView, cellClass: CostListTableCell.self)
         
+        datasource_StaticVisits = [HPRecentVisitsItem(.allscript1), HPRecentVisitsItem(.allscript2), HPRecentVisitsItem(.medicin1), HPRecentVisitsItem(.medicin2), HPRecentVisitsItem(.medicin3), HPRecentVisitsItem(.medicin4)]
+        
         self.navigationItem.title = ""
+        recentVisitFailed = false
         
         name_label.text = "Hi, \(user?.name ?? "")"
+        
+        banner_imageView.layer.cornerRadius = 10.0
+        banner_imageView.layer.masksToBounds = true
         
         isVitalsSelected = true
         vitals_button.isSelected = true
@@ -104,6 +119,27 @@ private extension HomeViewController {
         
         callApiForVitalsList()
         callApiForRecentVisitList()
+        
+        images = ["Flushot", "Image2", "Image3", "Image4", "Image5"]
+        banner_imageView.image = UIImage.init(named: "Flushot")
+        page_control.numberOfPages = images.count
+        page_control.currentPage = 0
+        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(onTransition), userInfo: nil, repeats: true)
+    }
+    
+    @objc func onTransition() {
+        if (photoCount < images.count - 1){
+            photoCount = photoCount  + 1;
+            page_control.currentPage = photoCount
+        }else{
+            photoCount = 0;
+            page_control.currentPage = 0
+
+        }
+
+        UIView.transition(with: self.banner_imageView, duration: 2.0, options: .transitionCrossDissolve, animations: {
+            self.banner_imageView.image = UIImage.init(named: self.images[self.photoCount])
+        }, completion: nil)
     }
     
     private func dropShadowFunction(){
@@ -163,7 +199,7 @@ extension HomeViewController {
                     strongSelf.userVitalReceived(vital: vitalItem)
                     
                 } else {
-                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+//                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
             }
         }
@@ -180,13 +216,14 @@ extension HomeViewController {
                     strongSelf.dataSource_recentVisit = visitList.reversed()
                     strongSelf.recent_tableView.reloadData()
                 } else {
-                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                    self?.recentVisitFailed = true
+//                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
             }
         }
     }
     
-    private func callApiForCostEstimatorList() {
+    private func callApiForCostEstimatorList()  {
         Loader.show()
         
         HealthProfiler.networkManager.getCostEstimatorResultList(id: "208800000X") { [weak self] (estimatorList, error) in
@@ -214,7 +251,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? isVitalsSelected ? 0 : dataSource_recentVisit.count : dataSource_costEstimatorList.count
+        return section == 0 ? isVitalsSelected ? 0 : dataSource_recentVisit.count > 0 ? dataSource_recentVisit.count : datasource_StaticVisits.count : dataSource_costEstimatorList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -226,11 +263,16 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0 :
             let visitsCell = tableView.dequeueReusableCell(withIdentifier: REcentVisitTableCell.reuseableId(), for: indexPath) as! REcentVisitTableCell
-            visitsCell.registerCell()
-//            dataSource_recentVisit = dataSource_recentVisit
-            visitsCell.configureRecentVisitCell(item: dataSource_recentVisit[indexPath.row] )
+            
+            if recentVisitFailed {
+                visitsCell.configureRecentVisitStaticCell(item: datasource_StaticVisits[indexPath.row], index: indexPath.row )
+            }else {
+                visitsCell.configureRecentVisitCell(item: dataSource_recentVisit[indexPath.row], index: indexPath.row )
+            }
+            
             return visitsCell
         case 1:
+            
             let costCell = tableView.dequeueReusableCell(withIdentifier: CostListTableCell.reuseableId(), for: indexPath) as! CostListTableCell
             costCell.configureCostListCell(item: dataSource_costEstimatorList[indexPath.row])
             return costCell

@@ -112,7 +112,6 @@ private extension HSIDLoginViewController {
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)
         
         TabBarCoordinator.shared.tabBarStatus(isUserConnected: !isNewUser)
-        TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: isNewUser ? false : true)
         TabBarCoordinator.shared.tabBarController?.selectedIndex = isNewUser ? HPTabType.manageConnections.tabIndex : HPTabType.home.tabIndex
     }
 }

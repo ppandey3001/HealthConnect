@@ -12,6 +12,8 @@ public enum DateFormatType: String {
     
     case timeOnly  = "hh:mm a" //05:06 pm
     case date = "MMM dd, yyyy" //Aug 19, 2017
+    case day = "dd" //19
+    case month = "MMM" //Aug
     case dateTime = "MMM-dd-YYYY, hh:mm a" //Dec-02-2017 05:06 pm
 
     

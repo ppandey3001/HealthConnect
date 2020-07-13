@@ -21,7 +21,7 @@
                             <constraint firstAttribute="height" constant="21" id="5Oe-qZ-9hC"/>
                             <constraint firstAttribute="width" constant="50" id="xKc-ce-wKh"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -31,7 +31,7 @@
                             <constraint firstAttribute="height" constant="21" id="twX-VY-cGA"/>
                             <constraint firstAttribute="width" constant="50" id="wGS-g8-7xK"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.51765429973602295" green="0.51763397455215454" blue="0.51764774322509766" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -114,6 +114,8 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="date_label" destination="TdH-6O-CQn" id="xjj-Fk-H9R"/>
+                <outlet property="day_label" destination="3go-Qk-16d" id="6tC-4n-uKs"/>
+                <outlet property="month_label" destination="aOK-Fm-1KV" id="bBO-5q-6b7"/>
                 <outlet property="practionerName_label" destination="TuM-Uk-DjK" id="NUZ-r7-6lM"/>
             </connections>
             <point key="canvasLocation" x="-23.188405797101453" y="83.705357142857139"/>

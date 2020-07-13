@@ -70,7 +70,7 @@ private extension ManageConnectionsViewController {
             view_welcomeMessageContainer.isHidden = user?.isInsurerConnected ?? false ? true : false
         }
         let name = user?.name
-        label_name.text = "Hi, \(name!)"
+//        label_name.text = "Hi, \(name ?? "")"
     }
 }
 

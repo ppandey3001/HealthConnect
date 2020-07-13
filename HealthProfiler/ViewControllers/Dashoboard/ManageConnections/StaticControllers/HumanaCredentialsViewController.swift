@@ -22,7 +22,7 @@ class HumanaCredentialsViewController: UIViewController {
     
     @IBAction func signInButtonAction(_ sender: UIButton){
         
-        TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: true)
+//        TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: true)
         HealthProfiler.shared.loggedInUser?.isInsurerConnected = true
         TabBarCoordinator.shared.tabBarStatus(isUserConnected: false)
         push(controller: ConnectedPlansViewController.nibInstance())

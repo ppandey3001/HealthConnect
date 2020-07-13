@@ -121,8 +121,6 @@ enum HPConnectedProviderType {
 
 enum HPCoverageClaimType {
     
-    case drPOe
-    case drSmith
     case drMinnnie
     case drJones
     case drAllison
@@ -137,11 +135,6 @@ enum HPCoverageClaimType {
     func attributes() -> (name : String, date : String, billAmt : String, share : String) {
         
         switch self {
-        case .drPOe:
-            return  ("Dr. Poe", "Mar 8", "$xx", "$xx")
-            
-        case .drSmith:
-            return ("Dr. Smith", "Mar 4", "$xx", "$xx")
             
         case .drMinnnie:
             return ("Dr. Minny Jones", "Jan 6, 2020", "90 USD", "60 USD")
@@ -206,26 +199,26 @@ enum HPHistoryConditionType {
     case chronic
     case urinary
     case hypertension
-
+    
     func attributes() -> (condition: String, hospitalLogo: String, visitedOn: String, logo: String) {
         
         switch self {
         case .childVisit:
             return ("Well child visit", "southwestmedical", "Jun 27, 2020", "Allscripts")
-            case .acute:
-                return ("Acute Pharyngitis", "southwestmedical", "Jun 16, 2020", "Allscripts")
-            case .atherosclerosis:
-                return ("Atherosclerosis of native arteries of extremities with rest pain, left leg", "adventist", "May 13, 2020", "cerner")
-            case .angina:
-                return ("Angina Pectoris", "southwestmedical", "Apr 29, 2020", "Allscripts")
-            case .diabeties:
-                return ("Type 2 Diabetes Mellitus", "southwestmedical", "Apr 01, 2020", "Allscripts")
-            case .pneumonia:
-                return ("Pneumonia", "southwestmedical", "Mar 26, 2020", "Allscripts")
-            case .chronic:
-                return ("Chronic kidney disease, stage 3 (moderate)", "adventist", "Mar 13, 2020", "cerner")
-            case .urinary:
-                return ("Urinary Tract Infection", "southwestmedical", "Jan 10, 2020", "Allscripts")
+        case .acute:
+            return ("Acute Pharyngitis", "southwestmedical", "Jun 16, 2020", "Allscripts")
+        case .atherosclerosis:
+            return ("Atherosclerosis of native arteries of extremities with rest pain, left leg", "adventist", "May 13, 2020", "cerner")
+        case .angina:
+            return ("Angina Pectoris", "southwestmedical", "Apr 29, 2020", "Allscripts")
+        case .diabeties:
+            return ("Type 2 Diabetes Mellitus", "southwestmedical", "Apr 01, 2020", "Allscripts")
+        case .pneumonia:
+            return ("Pneumonia", "southwestmedical", "Mar 26, 2020", "Allscripts")
+        case .chronic:
+            return ("Chronic kidney disease, stage 3 (moderate)", "adventist", "Mar 13, 2020", "cerner")
+        case .urinary:
+            return ("Urinary Tract Infection", "southwestmedical", "Jan 10, 2020", "Allscripts")
             
         case .hypertension:
             return ("Hypertension", "southwestmedical", "Dec 12, 2019", "Allscripts")
@@ -286,6 +279,12 @@ enum HPCernerCareTeamType {
     case john
     case jonson
     
+    case peter
+    case vinya
+    case karen
+    case dave
+    case barbara
+
     func attributes() -> (name: String, speciality: String) {
         
         switch self {
@@ -294,6 +293,140 @@ enum HPCernerCareTeamType {
             
         case .jonson:
             return ("Dr. Johnson Kary", "Cardiology")
+            
+        case .peter:
+            return ("Dr. Peter Colbert", "PCP")
+                
+        case .vinya:
+            return ("Dr. Vinya Pandy", "Cardiology")
+            
+        case .karen:
+            return ("Dr. Karen Hunt", "Cardiology")
+            
+        case .dave:
+            return ("Dr. Dave Jefferson", "Nephrology")
+            
+        case .barbara:
+            return ("Dr. Barbara Hudson", "Gen. Physician")
+        }
+    }
+}
+
+enum HPRecentVisitType {
+    
+    case allscript1
+    case allscript2
+    case medicin1
+    case medicin2
+    case medicin3
+    case medicin4
+
+    func attributes() -> (name: String, date: String, day : String, month : String) {
+        
+        switch self {
+            
+        case .allscript1:
+            return ("Allscripts,Provider", "Nov 30, 2017 3:56:34 PM", "30" , "Nov")
+            
+        case .allscript2:
+            return ("Allscripts,Provider", "Nov 30, 2017 3:42:17 PM", "30" , "Nov")
+            
+        case .medicin1:
+            return ("Medicin,James", "Jun 26, 2015 6:10:00 AM", "26" , "Jun")
+                
+        case .medicin2:
+            return ("Medicin,James", "Jun 26, 2015 6:10:00 AM", "26" , "Jun")
+            
+        case .medicin3:
+            return ("Medicin,James", "Jun 26, 2015 6:10:00 AM", "26" , "Jun")
+            
+        case .medicin4:
+            return ("Medicin,James", "Nov 9, 2014", "09" , "Nov")
+
+        }
+    }
+}
+
+
+
+enum HPAllergyType {
+    
+    case glucophage
+    case heparins
+    case inhibitors
+    case hydrochloro
+    case iodinated
+    case keflex
+    case lisinopril
+    case morphine
+    case nsaid
+
+    func attributes() -> (title : String, type : String) {
+        
+        switch self {
+        case .glucophage:
+            return ("Glucophage XR TB24", "")
+            
+        case .heparins:
+            return ("Heparins", "")
+            
+        case .inhibitors:
+            return ("HMG-CoA-R Inhibitors", "")
+            
+        case .hydrochloro:
+                return ("Hydrochlorothiazide TABS", "")
+            
+        case .iodinated:
+                return ("Iodinated Contrast Media", "")
+            
+        case .keflex:
+                return ("Keflex TABS", "")
+            
+        case .lisinopril:
+                return ("Lisinopril TABS", "")
+            
+        case .morphine:
+                return ("Morphine Derivatives", "")
+            
+        case .nsaid:
+                return ("NSAIDs", "")
+
+        }
+    }
+}
+
+
+enum HPMedicationType {
+    
+    case amiodrane
+    
+    func attributes() -> (title: String, dose: String) {
+        
+        switch self {
+        case .amiodrane:
+            return ("Amiodarone HCl - 200 MG Oral Tablet", "TAKE 1 TABLET DAILY.")
+        }
+    }
+}
+
+enum HPGapsType {
+    
+    case diabetes
+    case colorectal
+    case fraility
+
+    func attributes() -> (title: String, date: String) {
+        
+        switch self {
+        case .diabetes:
+            return ("Comprehensive Diabetes Care - Eye Exam", "Jan 6, 2020")
+            
+        case .colorectal:
+            return ("Colorectal Cancer Screening", "Jab 30, 2020")
+            
+        case .fraility:
+            return ("Frailty Details of the member", "Feb 4, 2020")
+            
         }
     }
 }

@@ -49,7 +49,6 @@ class LoginViewController: HPViewController {
                     
                     if let user = user {
                         strongSelf.userAuthorised(user: user)
-                        //                        DataCache.instance.write(string: userName, forKey: "myKey")
                         
                     } else {
                         strongSelf.showInformativeAlert(title: "Error", message: "Sorry, your username and/or password are incorrect. Please try again.")
@@ -78,7 +77,7 @@ class LoginViewController: HPViewController {
     
     @IBAction func clearButtonAction(_ sender: UIButton) {
         
-        DummyData.shared.authorise(username: "wilma", pwd: "wilma") { [weak self] (user, error) in
+        DummyData.shared.authorise(username: "wilma", pwd: "wilma") { (user, error) in
             
             if let user = user {
                 user.blueButtonConnected = false
@@ -88,7 +87,7 @@ class LoginViewController: HPViewController {
                 user.isInsurerConnected = false
             }
         }
-        DummyData.shared.authorise(username: "fredrick", pwd: "fredrick") { [weak self] (user, error) in
+        DummyData.shared.authorise(username: "fredrick", pwd: "fredrick") {(user, error) in
             
             if let user = user {
                 user.blueButtonConnected = false
@@ -127,9 +126,9 @@ private extension LoginViewController {
         dataSource_login = [HPProfileItem(.userName), HPProfileItem(.password)]
         
         //WARNING: dev purpose only, remove once completed
-        for item in dataSource_login {
-            item.value = "wilma"
-        }
+//        for item in dataSource_login {
+//            item.value = "wilma"
+//        }
 
         tableView_login.reloadData()
     }
@@ -174,7 +173,7 @@ private extension LoginViewController {
         push(controller: AppCoordinator.shared.getDashboard(), animated: false)
         
         let connectedStatus =  DataCache.instance.readString(forKey: "BlueButtonConnectedWilma") == "true" ? true : false
-        TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: isNewUser ? false : true)
+//        TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: isNewUser ? false : true)
         TabBarCoordinator.shared.tabBarStatus(isUserConnected: isNewUser ? connectedStatus : !isNewUser)
         TabBarCoordinator.shared.tabBarController?.selectedIndex = isNewUser ? HPTabType.manageConnections.tabIndex : HPTabType.home.tabIndex
     }

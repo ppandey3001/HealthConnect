@@ -66,7 +66,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzS-mj-YEg">
-                                <rect key="frame" x="20" y="41" width="374" height="44"/>
+                                <rect key="frame" x="25" y="41" width="364" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="X4B-ye-WcM"/>
@@ -85,8 +85,8 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="wzS-mj-YEg" secondAttribute="trailing" constant="20" id="26c-0S-qwp"/>
-                            <constraint firstItem="wzS-mj-YEg" firstAttribute="leading" secondItem="Sdf-f4-LOc" secondAttribute="leading" constant="20" id="9vV-Zu-iRL"/>
+                            <constraint firstAttribute="trailing" secondItem="wzS-mj-YEg" secondAttribute="trailing" constant="25" id="26c-0S-qwp"/>
+                            <constraint firstItem="wzS-mj-YEg" firstAttribute="leading" secondItem="Sdf-f4-LOc" secondAttribute="leading" constant="25" id="9vV-Zu-iRL"/>
                             <constraint firstAttribute="trailing" secondItem="Y2J-w9-Tb8" secondAttribute="trailing" id="SjY-0P-ABy"/>
                             <constraint firstItem="wzS-mj-YEg" firstAttribute="top" secondItem="Y2J-w9-Tb8" secondAttribute="bottom" constant="10" id="g05-dc-ISY"/>
                             <constraint firstItem="Y2J-w9-Tb8" firstAttribute="top" secondItem="Sdf-f4-LOc" secondAttribute="top" constant="30" id="hno-k3-Vr2"/>

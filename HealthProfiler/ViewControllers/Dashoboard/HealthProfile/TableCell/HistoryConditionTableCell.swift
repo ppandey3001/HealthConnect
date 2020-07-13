@@ -38,4 +38,15 @@ extension HistoryConditionTableCell {
         logo_imageView.image = UIImage(named: "Allscripts")
 
     }
+    
+    func configureStaticAllergyCell(item: HPAllergyItem){
+        
+        let attributes = item.type.attributes()
+
+        title_label.text = attributes.title
+        hospitalLogo_imageView.image = UIImage(named: "southwestmedical")
+        visitedOn_label.text = "Visited On : " + "Jun 27, 2020"
+        logo_imageView.image = UIImage(named: "Allscripts")
+
+    }
 }

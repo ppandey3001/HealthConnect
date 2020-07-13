@@ -22,7 +22,7 @@ class HumanaViewController: HPViewController {
     
     @IBAction func connectButtonAction(_ sender: UIButton){
         
-        TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: true)
+//        TabBarCoordinator.shared.tabBarNavigationTitle(isDetailDisplayed: true)
         HealthProfiler.shared.loggedInUser?.isInsurerConnected = true
         TabBarCoordinator.shared.tabBarStatus(isUserConnected: false)
         push(controller: ConnectedPlansViewController.nibInstance())

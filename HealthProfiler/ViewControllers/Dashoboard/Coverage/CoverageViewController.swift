@@ -16,6 +16,8 @@ class CoverageViewController: HPViewController {
     @IBOutlet private var lastUpdateTitle_Label : UILabel!
     
     private var dataSource_eobList = [HPEobItem]()
+    
+    private var isErrorReceived = Bool()
 
 
     private var dataSource_coverage = [HPCoverageClaimItem]()
@@ -31,12 +33,12 @@ class CoverageViewController: HPViewController {
         
         super.viewWillAppear(animated)
         
-        if let user = user,
-        user.blueButtonConnected && dataSource_eobList.count <= 0 {
-            
-        callApiForEobList(token: HealthProfiler.shared.blueButtonToken ?? "")
-            
-        }
+//        if let user = user,
+//        user.blueButtonConnected && dataSource_eobList.count <= 0 {
+//
+//        callApiForEobList(token: HealthProfiler.shared.blueButtonToken ?? "")
+//
+//        }
         updateUI()
     }
     
@@ -90,7 +92,10 @@ private extension CoverageViewController {
         if let user = user,
             user.blueButtonConnected {
             lastUpdateTitle_Label.text = "Last updated : \(DataCache.instance.readString(forKey: "BlueButtonConnectionTime")!)"
-            
+//            dataSource_eobList = dataSource_eobList.sorted(by: {
+//                $0.date.compare($1.date) == .orderedDescending
+//            })
+//
             dataSource_coverage = [HPCoverageClaimItem(.drWilliam), HPCoverageClaimItem(.drTammy), HPCoverageClaimItem(.drGayle), HPCoverageClaimItem(.drVeena), HPCoverageClaimItem(.drJones), HPCoverageClaimItem(.drNorma), HPCoverageClaimItem(.drJohnson), HPCoverageClaimItem(.drMinnnie), HPCoverageClaimItem(.drAllison), HPCoverageClaimItem(.drJohn)]
             
         } else {
@@ -117,10 +122,15 @@ private extension CoverageViewController {
                     HealthProfiler.shared.loggedInUser?.blueButtonConnected = true
                     strongSelf.dataSource_eobList.removeAll()
                     if let eobList = eobList {
+                        
+                        self?.isErrorReceived = false
+                        
                         strongSelf.dataSource_eobList = eobList
                         self?.updateUI()
                     } else {
-                        strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                        self?.isErrorReceived = true
+                        self?.coverage_tableView.reloadData()
+//                        strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                     }
                 }
             }
@@ -133,7 +143,12 @@ private extension CoverageViewController {
 extension CoverageViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource_eobList.count > 0 ? dataSource_eobList.count - 1 : 0
+//        if isErrorReceived {
+            return dataSource_coverage.count > 0 ? dataSource_coverage.count : 0
+//
+//        }else {
+//            return dataSource_eobList.count > 0 ? dataSource_eobList.count - 1 : 0
+//        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -144,9 +159,14 @@ extension CoverageViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let claimListCell = tableView.dequeueReusableCell(withIdentifier: RecentCliamsListCell.reuseableId()) as! RecentCliamsListCell
-
-            claimListCell.registerCell()
-            claimListCell.configureRecentClaimCell(item: dataSource_eobList[indexPath.row])
-            return claimListCell
+        
+        claimListCell.registerCell()
+//        if isErrorReceived {
+            claimListCell.configureRecentClaimCell(item: dataSource_coverage[indexPath.row], index: indexPath.row)
+            
+//        }else {
+//            claimListCell.configureRecentClaimCell(item: dataSource_eobList[indexPath.row])
+//        }
+        return claimListCell
     }
 }

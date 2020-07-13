@@ -38,11 +38,23 @@ class HealthProfileViewController: HPViewController {
     var datasource_medicationList = [HPMedicationItem]()
     var datasource_careteamList = [HPCareTeamItem]()
     var datasource_gapsInCareList = [HPGapsInCareItem]()
-    var carePlan : HPCarePlanItem?
+    
+    var datasource_StaticallergyList = [HPAllergyItem]()
+    var datasource_StaticconditionList = [HPHistoryConditionItem]()
+    var datasource_StaticmedicationList = [HPMedicationsItem]()
+    var datasource_StaticgapsInCareList = [HPGapsItem]()
     var dataSourceCernerTeam = [HPCernerCareTeamItem]()
+
+    
+    var carePlan : HPCarePlanItem?
     
     var isCernerSelected = Bool()
-    
+    var iscareplanApiFailed = Bool()
+    var isconditionApiFailed = Bool()
+    var isallegrgyApiFailed = Bool()
+    var isgapsApiFailed = Bool()
+    var ismedicationApiFailed = Bool()
+
     
     private let user = HealthProfiler.shared.loggedInUser
     
@@ -98,6 +110,9 @@ class HealthProfileViewController: HPViewController {
         history.datasource_allergyList = datasource_allergyList
         history.datasource_medicationList = datasource_medicationList
         history.datasource_gapsInCareList = datasource_gapsInCareList
+        history.datasource_StaticmedicationList = datasource_StaticmedicationList
+        history.datasource_StaticallergyList = datasource_StaticallergyList
+        history.datasource_StaticgapsInCareList = datasource_StaticgapsInCareList
         push(controller: history)
         
     }
@@ -137,12 +152,23 @@ private extension HealthProfileViewController {
 
         
         datasource_segment = [HPSegmentItem(.conditions), HPSegmentItem(.allergies), HPSegmentItem(.medications), HPSegmentItem(.gapsInCare)]
+        
+        datasource_StaticallergyList = [HPAllergyItem(.glucophage), HPAllergyItem(.heparins), HPAllergyItem(.inhibitors), HPAllergyItem(.iodinated), HPAllergyItem(.keflex), HPAllergyItem(.lisinopril), HPAllergyItem(.morphine), HPAllergyItem(.nsaid)]
+        datasource_StaticconditionList = [HPHistoryConditionItem(.childVisit), HPHistoryConditionItem(.acute), HPHistoryConditionItem(.angina), HPHistoryConditionItem(.pneumonia), HPHistoryConditionItem(.diabeties), HPHistoryConditionItem(.urinary), HPHistoryConditionItem(.hypertension)]
+        datasource_StaticmedicationList = [HPMedicationsItem(.amiodrane)]
+        datasource_StaticgapsInCareList = [HPGapsItem(.diabetes), HPGapsItem(.colorectal), HPGapsItem(.fraility)]
 
         healthProfiler_tableView.delegate = self
         healthProfiler_tableView.dataSource = self
         segment_collection.delegate = self
         segment_collection.dataSource = self
         isCernerSelected = false
+        
+        iscareplanApiFailed = false
+        isconditionApiFailed = false
+        isallegrgyApiFailed = false
+        isgapsApiFailed = false
+        ismedicationApiFailed = false
 
         historyButton.isHidden = user?.isFirstTimeUser ?? false
         
@@ -158,7 +184,6 @@ private extension HealthProfileViewController {
     
     private func upadateUI(){
         
-//        setUpSegment()
         cerner_View.isHidden = !(user?.cernerConnected ?? false)
         
         if user?.isFirstTimeUser == true {
@@ -167,12 +192,11 @@ private extension HealthProfileViewController {
             healthProfiler_tableView.reloadData()
             
         }else {
+            dataSourceCernerTeam = [HPCernerCareTeamItem(.peter), HPCernerCareTeamItem(.vinya), HPCernerCareTeamItem(.karen), HPCernerCareTeamItem(.dave), HPCernerCareTeamItem(.barbara)]
             carePlanFooter_view.isHidden = true
-//            healthProfiler_tableView.tableHeaderView = existingUserHeader_View
-//            left_Button.isHidden = !(user?.cernerConnected ?? false)
-//            right_Button.isHidden = !(user?.cernerConnected ?? false)
-//            refresh_Button.isHidden = !(user?.cernerConnected ?? false)
-//            refresh_Button.isHidden = !isCernerSelected
+            historyButton.isEnabled = user?.cernerConnected ?? false
+            historyButton.alpha = user?.cernerConnected ?? false ? 1.0 : 0.6
+
         }
     }
     
@@ -221,7 +245,8 @@ extension HealthProfileViewController {
                     strongSelf.datasource_allergyList = allergyList
                     strongSelf.healthProfiler_tableView.reloadData()
                 } else {
-                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                    self?.isallegrgyApiFailed = true
+//                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
             }
         }
@@ -239,7 +264,8 @@ extension HealthProfileViewController {
                     strongSelf.datasource_careteamList = careList
                     strongSelf.healthProfiler_tableView.reloadData()
                 } else {
-                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                    self?.iscareplanApiFailed = true
+//                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
             }
         }
@@ -256,7 +282,9 @@ extension HealthProfileViewController {
                     strongSelf.datasource_conditionList = conditionList
                     strongSelf.healthProfiler_tableView.reloadData()
                 } else {
-                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                    self?.isconditionApiFailed = true
+                    strongSelf.healthProfiler_tableView.reloadData()
+//                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
             }
         }
@@ -275,7 +303,8 @@ extension HealthProfileViewController {
                     strongSelf.datasource_medicationList = medicationList
                     strongSelf.healthProfiler_tableView.reloadData()
                 } else {
-                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                    self?.ismedicationApiFailed = true
+//                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
             }
         }
@@ -293,7 +322,8 @@ extension HealthProfileViewController {
                 if let carePlanList = carePlanList {
                     strongSelf.carePlanReceived(plan: carePlanList)
                 } else {
-                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                    self?.iscareplanApiFailed = true
+//                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
             }
         }
@@ -311,7 +341,8 @@ extension HealthProfileViewController {
                     strongSelf.datasource_gapsInCareList = gapsInCareList
                     strongSelf.healthProfiler_tableView.reloadData()
                 } else {
-                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
+                    self?.isgapsApiFailed = true
+//                    strongSelf.showInformativeAlert(title: "Error", message: error?.errorMessage)
                 }
             }
         }
@@ -337,18 +368,16 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
                 return carePlan?.questionData.count ?? 0
                 
             } else {
-                //                if isCernerSelected {
-                //                    return 1
-                //                } else {
+
                 switch selectedSegmentType {
                 case 0:
-                    return isCernerSelected ? 1 : datasource_conditionList.count
+                    return isCernerSelected ? 1 : isconditionApiFailed ? datasource_StaticconditionList.count : datasource_conditionList.count
                 case 1:
-                    return isCernerSelected ? 0 : datasource_allergyList.count
+                    return isCernerSelected ? 0 : isallegrgyApiFailed ? datasource_StaticallergyList.count : datasource_allergyList.count
                 case 2:
-                    return isCernerSelected ? 0 : datasource_medicationList.count
+                    return isCernerSelected ? 0 : ismedicationApiFailed ? datasource_StaticmedicationList.count :  datasource_medicationList.count
                 case 3:
-                    return datasource_gapsInCareList.count
+                    return  isgapsApiFailed ? datasource_StaticgapsInCareList.count : datasource_gapsInCareList.count
                 default:
                     break
                 }
@@ -367,7 +396,7 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
             return user?.isFirstTimeUser ?? false ? 180 : 265
         case 1:
             if user?.isFirstTimeUser == true {
-                return 66
+                return 75
                 
             } else {
                 if isCernerSelected {
@@ -439,28 +468,49 @@ extension HealthProfileViewController : UITableViewDelegate, UITableViewDataSour
                     switch selectedSegmentType {
                     case 0:
                         let allergyCell = tableView.dequeueReusableCell(withIdentifier: AllergyTableViewCell.reuseableId(), for: indexPath) as! AllergyTableViewCell
-                        
+                        if ismedicationApiFailed {
+                            allergyCell.configureStaticConditionCareCell(item: datasource_StaticconditionList[indexPath.row])
+                        }else {
+                            
                         allergyCell.configureConditionCareCell(item: datasource_conditionList[indexPath.row])
+                        }
                         
                         return allergyCell
                     case 1:
                         let allergyCell = tableView.dequeueReusableCell(withIdentifier: AllergyTableViewCell.reuseableId(), for: indexPath) as! AllergyTableViewCell
                         
+                        if isallegrgyApiFailed {
+                            
+                            allergyCell.configureStaticAllergyCell(item: datasource_StaticallergyList[indexPath.row])
+                        }else {
+                            
                         allergyCell.configureAllergyCell(item: datasource_allergyList[indexPath.row])
+                        }
                         
                         return allergyCell
                     case 2:
                         let profilerCell = tableView.dequeueReusableCell(withIdentifier: HealthProfilerCell.reuseableId(), for: indexPath) as! HealthProfilerCell
                         
+                        if ismedicationApiFailed {
+                            
+                            profilerCell.configureStaticMedicationCell(item: datasource_StaticmedicationList[indexPath.row])
+                        }else {
+                            
                         profilerCell.configureMedicationCell(item: datasource_medicationList[indexPath.row])
-                        
+                        }
                         return profilerCell
                         
                     case 3:
                         
                         let profilerCell = tableView.dequeueReusableCell(withIdentifier: HealthProfilerCell.reuseableId(), for: indexPath) as! HealthProfilerCell
                         
+                        if isgapsApiFailed {
+                            
+                            profilerCell.configureStaticGapsInCareCell(item: datasource_StaticgapsInCareList[indexPath.row])
+                        }else {
+                            
                         profilerCell.configureGapsInCareCell(item: datasource_gapsInCareList[indexPath.row])
+                        }
                         
                         return profilerCell
                         

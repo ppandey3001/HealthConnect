@@ -146,6 +146,8 @@
 		FFAC2217246D2E93004E76B3 /* HPCarePlanItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC2216246D2E93004E76B3 /* HPCarePlanItem.swift */; };
 		FFAC221A246D4B04004E76B3 /* CarePlanTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC2218246D4B04004E76B3 /* CarePlanTableCell.swift */; };
 		FFAC221B246D4B04004E76B3 /* CarePlanTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFAC2219246D4B04004E76B3 /* CarePlanTableCell.xib */; };
+		FFF0D07A24B84970008E6274 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF0D07824B84970008E6274 /* TabViewController.swift */; };
+		FFF0D07B24B84970008E6274 /* TabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF0D07924B84970008E6274 /* TabViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -292,6 +294,8 @@
 		FFAC2216246D2E93004E76B3 /* HPCarePlanItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HPCarePlanItem.swift; sourceTree = "<group>"; };
 		FFAC2218246D4B04004E76B3 /* CarePlanTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarePlanTableCell.swift; sourceTree = "<group>"; };
 		FFAC2219246D4B04004E76B3 /* CarePlanTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarePlanTableCell.xib; sourceTree = "<group>"; };
+		FFF0D07824B84970008E6274 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		FFF0D07924B84970008E6274 /* TabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +402,7 @@
 		6B05B0912452BBB900C5A971 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FFF0D07724B84946008E6274 /* TabBar */,
 				6B05B0B22452C6B200C5A971 /* AppUtility.swift */,
 				FFA8F224246A8C6C00E71886 /* Services.swift */,
 				6BC550A22454074800C0B1A8 /* AppTheme.swift */,
@@ -745,6 +750,15 @@
 			path = StaticControllers;
 			sourceTree = "<group>";
 		};
+		FFF0D07724B84946008E6274 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FFF0D07824B84970008E6274 /* TabViewController.swift */,
+				FFF0D07924B84970008E6274 /* TabViewController.xib */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -805,6 +819,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF0D07B24B84970008E6274 /* TabViewController.xib in Resources */,
 				FFA8F2102464825900E71886 /* RecentVisitCollectionCell.xib in Resources */,
 				6B7A00772464F0FE00F0C018 /* UserData.plist in Resources */,
 				6B05B0D22452C86300C5A971 /* CoverageViewController.xib in Resources */,
@@ -1006,6 +1021,7 @@
 				FFA8F1F12461A99B00E71886 /* HealthProfilerCell.swift in Sources */,
 				6B7A3D9724659B1D0070DE2A /* Dictionary+Extensions.swift in Sources */,
 				6B05B0962452BD1500C5A971 /* UIColor+Extension.swift in Sources */,
+				FFF0D07A24B84970008E6274 /* TabViewController.swift in Sources */,
 				6B05B0982452BDFF00C5A971 /* UIFont+Extension.swift in Sources */,
 				FF826B022461737700844479 /* HPPicker.swift in Sources */,
 			);

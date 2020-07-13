@@ -20,4 +20,13 @@ extension HistoryMedicationTableCell {
         title_label.text = item.medicine
         dose_label.text = item.dosage
     }
+    
+    func configureStaticMedicationCell(item : HPMedicationsItem) {
+        
+        let attributes = item.type.attributes()
+
+        title_label.text = attributes.title
+        dose_label.text = attributes.dose
+    }
+    
 }
